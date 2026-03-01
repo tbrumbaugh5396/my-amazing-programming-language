@@ -4,6 +4,7 @@
 ---
 
 # 1. Overview
+[Table-of-contents](#table-of-contents)
 
 TCCL is a research-grade programming language built around a single unifying principle:
 
@@ -42,8 +43,10 @@ The system is built on a **Typed Capability Calculus (TCC)**.
 ---
 
 # Diagrams
+[Table-of-contents](#table-of-contents)
 
 ## TCCL Workflow Diagram
+[Table-of-contents](#table-of-contents)
 
 ```mermaid
 graph TD
@@ -59,6 +62,7 @@ graph TD
 ```
 
 ## TCCL Constructs Diagram
+[Table-of-contents](#table-of-contents)
 
 ```mermaid
 graph TD
@@ -86,6 +90,123 @@ graph TD
     Runtime --> Optimization
     Optimization --> Sandbox
 ```
+
+# 1. Unified TCCL Architecture Diagram
+[Table-of-contents](#table-of-contents)
+
+```mermaid
+graph TD
+    %% Core Calculus
+    CoreCalc[Core Calculus\n- Total / Terminating\n- Dependent / Logical / Refinement Types\n- Linear & Affine Types\n- Proofs / HoTT]
+
+    %% Runtime Execution
+    Runtime[Safe Runtime Execution\n- Capabilities enforced\n- Effect checks\n- Linear / Region enforcement]
+
+    %% Optimized Compilation
+    Optimization[Optimized Compilation\n- Type & Proof Erasure\n- Vectorized / GPU / SIMD / Domain-specific Intrinsics]
+
+    %% Sandboxed Modules / Extensions
+    Sandbox[Sandboxed Modules / Extensions\n- Explicit Capabilities\n- Verified Interfaces\n- Safe Isolation]
+
+    %% Domain-Specific Modules
+    Domain[Domain-Specific Modules\n- GPU / ML / Networking / Kernel Code\n- Optimized & Capability-Checked]
+
+    %% Constructs
+    Types[Types & Logical Constructs\n- Base Types\n- Dependent Types\n- Refinement Types\n- Logical Types]
+    Effects[Effect System\n- Algebraic Effects\n- Effect Rows\n- Effect Polymorphism]
+    Capabilities[Capabilities\n- Authority / Resource Control\n- Linear / Affine / Session Types]
+    Memory[Memory\n- Region-based Allocation\n- Linear / Affine Tracking]
+    Concurrency[Concurrency\n- Session Types\n- Deterministic / Nondeterministic]
+    Traits[Traits / Typeclasses / Contracts\n- Coherence Rules\n- Parametricity]
+    Meta[Meta-programming\n- Compile-time Reflection\n- Code Generation]
+
+    %% Connections
+    CoreCalc --> Runtime
+    Runtime --> Optimization
+    Optimization --> Sandbox
+    Sandbox --> Domain
+
+    %% Constructs connections
+    Types --> CoreCalc
+    Effects --> CoreCalc
+    Capabilities --> CoreCalc
+    Memory --> CoreCalc
+    Concurrency --> CoreCalc
+    Traits --> CoreCalc
+    Proofs[Proofs / Erasure] --> CoreCalc
+    Meta --> Optimization
+```
+
+## 2. Roadmap Diagram
+[Table-of-contents](#table-of-contents)
+
+```mermaid
+graph LR
+    %% Phases of TCCL Research & Implementation
+    Phase1[Foundational Design\n- Typed Capability Calculus\n- Core Calculus\n- Linear / Region Types\n- Effect System]
+    Phase2[Formal Verification & Proofs\n- Soundness\n- Preservation & Progress\n- Erasure & Parametricity\n- Contextual Equivalence]
+    Phase3[Runtime & Safe Execution\n- Checked Runtime\n- Capabilities Enforcement\n- Session Types\n- Region Memory Management]
+    Phase4[Optimized Compilation\n- GPU / SIMD / Vectorization\n- Proof / Type Erasure\n- Domain-Specific Intrinsics]
+    Phase5[Sandbox & Extensions\n- Verified Plugins\n- Capability-aware Modules\n- Safe Extensions]
+    Phase6[Tooling & Ergonomics\n- Linters & Effect / Capability Inference\n- Meta-programming Support\n- IDE Visualizations]
+    Phase7[Adoption & Domain Integration\n- ML / GPU / Networking / Kernel Libraries\n- Gradual Typing / Interop\n- Verified FFI / Safety Boundaries]
+
+    %% Connections
+    Phase1 --> Phase2 --> Phase3 --> Phase4 --> Phase5 --> Phase6 --> Phase7
+```
+
+## 3. TCCL Roadmap
+[Table-of-contents](#table-of-contents)
+
+### Foundational Design
+[Table-of-contents](#table-of-contents)
+
+- Define typed capability calculus (TCC)
+- Implement core calculus with linear/affine types, dependent types, logical/refinement types
+- Model capabilities, authority, and effect system
+
+### Formal Verification
+[Table-of-contents](#table-of-contents)
+
+- Prove preservation, progress, and soundness
+- Verify erasure, parametricity, and contextual equivalence
+- Integrate optional HoTT reasoning
+
+### Runtime and Safe Execution
+[Table-of-contents](#table-of-contents)
+
+- Implement capability-checked runtime
+- Enforce effect system dynamically
+- Session-type concurrency support
+- Linear/region-based memory enforcement
+
+### Optimized Compilation
+[Table-of-contents](#table-of-contents)
+
+- Add compile-time erasure (proofs/types)
+- Generate vectorized / GPU / SIMD / domain-specific code
+- Integrate meta-programming for optimized code generation
+
+### Sandboxing and Extensions
+[Table-of-contents](#table-of-contents)
+
+- Verified, capability-aware plugin modules
+- Safe isolation for untrusted code
+- Modular domain-specific extensions
+
+### Tooling and Ergonomics
+[Table-of-contents](#table-of-contents)
+
+- Linter and IDE support for capabilities, effects, determinism
+- Visualizations for authority, session types, and memory regions
+- Meta-programming assistance for code generation and verification
+
+### Adoption and Domain Integration
+[Table-of-contents](#table-of-contents)
+
+- Build libraries for ML, networking, GPU, kernel programming
+- Gradual typing and interop with other languages
+- Verified FFI and safe runtime boundaries
 
 ---
 
@@ -129,6 +250,7 @@ graph TD
 ---
 
 # 2. Core Typing Judgment
+[Table-of-contents](#table-of-contents)
 
 The fundamental typing judgment is:
 
@@ -145,8 +267,10 @@ Where:
 ---
 
 # 3. Type Layers
+[Table-of-contents](#table-of-contents)
 
 ## 3.1 Simple and Dependent Types
+[Table-of-contents](#table-of-contents)
 
 A, B ::=
     Type₀ | Type₁ | Type₂ | ...
@@ -160,6 +284,7 @@ Universe hierarchy prevents Girard’s paradox.
 ---
 
 ## 3.2 Logical Types
+[Table-of-contents](#table-of-contents)
 
 Prop : Type₀
 
@@ -186,6 +311,7 @@ Proofs:
 ---
 
 ## 3.3 Refinement Types
+[Table-of-contents](#table-of-contents)
 
 {x : A | P(x)}
 
@@ -209,6 +335,7 @@ Refinements are erased after verification.
 ---
 
 ## 3.4 Traits / Typeclasses / Contracts
+[Table-of-contents](#table-of-contents)
 
 Traits:
 
@@ -250,8 +377,10 @@ Instances may not escalate authority implicitly.
 ---
 
 # 4. Authority System
+[Table-of-contents](#table-of-contents)
 
 ## 4.1 Everything is a Capability
+[Table-of-contents](#table-of-contents)
 
 Authority is modeled explicitly:
 
@@ -278,6 +407,7 @@ Capabilities are:
 ---
 
 ## 4.2 No Ambient Authority
+[Table-of-contents](#table-of-contents)
 
 There is no global IO.
 There is no implicit access.
@@ -296,6 +426,7 @@ readFile :
 ---
 
 ## 4.3 Capability Polymorphism
+[Table-of-contents](#table-of-contents)
 
 ∀ κ. f : A →{κ} B
 
@@ -304,6 +435,7 @@ Allows authority abstraction without over-constraining users.
 ---
 
 ## 4.3 Capability Passing
+[Table-of-contents](#table-of-contents)
 
 Capabilities must be passed explicitly:
 
@@ -322,6 +454,7 @@ No hidden global effects.
 ---
 
 ## 4.4 Capability Revocation
+[Table-of-contents](#table-of-contents)
 
 Revocation mechanisms:
 
@@ -342,18 +475,23 @@ Revocation ensures long-lived programs remain secure.
 ---
 
 # 5. Imports and Authority
+[Table-of-contents](#table-of-contents)
 
 Imports are pure unless authority is declared.
 Imports are authority-transparent.
 
+```lang
 import Math
 import FileIO requires {FileRead}
 import UnsafeMem unsafe
+```
 
 Modules declare:
 
+```lang
 module FileIO
   requires {FileRead}
+```
 
 This means:
 
@@ -373,6 +511,7 @@ Removing authority is mechanically enforced by the compiler.
 ---
 
 # 6. Context System
+[Table-of-contents](#table-of-contents)
 
 Γ contains:
 
@@ -386,6 +525,7 @@ Removing authority is mechanically enforced by the compiler.
 ---
 
 ## 6.1 Linear Context Splitting
+[Table-of-contents](#table-of-contents)
 
 Γ = Γ₁ ⊗ Γ₂
 
@@ -394,6 +534,7 @@ Prevents duplication of linear resources.
 ---
 
 ## 6.2 Context Creation
+[Table-of-contents](#table-of-contents)
 
 region r {
   ...
@@ -404,16 +545,20 @@ Introduces r : RegionToken.
 ---
 
 ## 6.2 Context Restriction
+[Table-of-contents](#table-of-contents)
 
+```lang
 restrict {FileRead} in {
   ...
 }
+```
 
 Allows safe refactoring.
 
 ---
 
 ## 6.3 Context Integrity
+[Table-of-contents](#table-of-contents)
 
 You cannot:
 
@@ -426,6 +571,7 @@ You cannot:
 ---
 
 # 7. Algebraic Effects
+[Table-of-contents](#table-of-contents)
 
 Effect rows:
 
@@ -446,6 +592,7 @@ Capabilities authorize effects.
 ---
 
 # 8. Session Types
+[Table-of-contents](#table-of-contents)
 
 S ::= Send A; S
     | Recv A; S
@@ -462,15 +609,20 @@ Well-typed programs never deadlock due to protocol mismatch.
 ---
 
 # 9. Region-Based Memory
+[Table-of-contents](#table-of-contents)
 
 Regions are linear capabilities.
 
+```lang
 region r {
   let x = alloc[r] 5
 }
+```
 
+```lang
 alloc :
   ∀ r. A → Region r A
+```
 
 No use-after-free.
 No escape of region-scoped data.
@@ -478,6 +630,7 @@ No escape of region-scoped data.
 ---
 
 # 10. Determinism and Replay
+[Table-of-contents](#table-of-contents)
 
 Determinism modeled as capability.
 
@@ -493,6 +646,7 @@ Deterministic replay semantics ensure distributed reproducibility.
 ---
 
 # 11. Compile-Time vs Runtime
+[Table-of-contents](#table-of-contents)
 
 World 0:
 - Total
@@ -514,6 +668,7 @@ Proofs and type-only structures erased.
 ---
 
 # 12. Type Erasure
+[Table-of-contents](#table-of-contents)
 
 After type checking, the program undergoes type erasure.
 
@@ -549,6 +704,7 @@ erase(t) simulates t.
 ---
 
 # 13. Proof Erasure
+[Table-of-contents](#table-of-contents)
 
 Proofs:
 
@@ -563,15 +719,19 @@ All proofs are erased before runtime.
 
 Example:
 
+```lang
 f :
   (x : Int)
   → (p : x ≥ 0)
   → Nat
+```
 
 At runtime:
 
+```lang
 f :
   Int → Int
+```
 
 Proof argument removed.
 
@@ -584,13 +744,16 @@ Erasure does not change observable behavior.
 ---
 
 # 14. Cost Semantics
+[Table-of-contents](#table-of-contents)
 
 Cost integrated into type system.
 
 Example:
 
+```lang
 f :
   A → {x : B | cost(x) ≤ n}
+```
 
 Cost capability:
 
@@ -601,6 +764,7 @@ Graded linear algebra supports resource budgets.
 ---
 
 # 15. Parametricity
+[Table-of-contents](#table-of-contents)
 
 Relational parametricity theorem ensures:
 
@@ -613,12 +777,14 @@ Abstraction boundaries are semantically enforced.
 ---
 
 # 16. Contextual Equivalence
+[Table-of-contents](#table-of-contents)
 
 Define contextual equivalence:
-
+```lang
 t₁ ≈ t₂ iff
 For all contexts C,
 C[t₁] and C[t₂] are observationally indistinguishable.
+```
 
 Used to prove:
 
@@ -629,6 +795,7 @@ Used to prove:
 ---
 
 # 17. Homotopy Type Theory (Optional Layer)
+[Table-of-contents](#table-of-contents)
 
 HoTT can be integrated in World 0.
 
@@ -657,12 +824,15 @@ HoTT is compile-time only and erased.
 ---
 
 # 14. Verified FFI Boundary
+[Table-of-contents](#table-of-contents)
 
+```lang
 Foreign import requires proof:
 
 foreign import c_sin :
   Float → Float
   requires p : SafeFFI c_sin
+```
 
 Unsafe FFI requires UnsafeMem capability.
 
@@ -672,6 +842,7 @@ Safety checked at compile-time.
 ---
 
 # 18. Soundness Strategy
+[Table-of-contents](#table-of-contents)
 
 We prove:
 
@@ -700,6 +871,7 @@ No proof or type term affects runtime semantics.
 ---
 
 # 19. Meta-Theoretic Safeguards
+[Table-of-contents](#table-of-contents)
 
 - Universe hierarchy
 - Logical/runtime separation
@@ -710,12 +882,15 @@ No proof or type term affects runtime semantics.
 ---
 
 # 23. Optimized Compilation Workflow
+[Table-of-contents](#table-of-contents)
 
 TCCL supports **high-performance, domain-specific compilation** without sacrificing safety.
 
 ## Workflow
+[Table-of-contents](#table-of-contents)
 
 ### Safe Runtime Execution
+[Table-of-contents](#table-of-contents)
 
 - Run code with full capabilities, proof obligations, effect checks, and linear/region enforcement.
 - Guarantees correctness and determinism.
@@ -730,6 +905,7 @@ fn safe_sum(xs: List Int) → Int
 ```
 
 ### Meta-programming / Code Generation
+[Table-of-contents](#table-of-contents)
 
 Use compile-time reflection and metaprogramming to generate optimized code.
 
@@ -743,6 +919,7 @@ fn fast_sum(xs: List Int) → Int {
 ```
 
 ### Ahead-of-Time / Just-in-Time Compilation
+[Table-of-contents](#table-of-contents)
 
 Verified code can be compiled to native machine code.
 
@@ -753,10 +930,12 @@ Linear, affine, and region guarantees remain statically enforced.
 This allows programs to run with peak performance while preserving all core calculus invariants.
 
 # 24. Sandboxing and Safe Extensions
+[Table-of-contents](#table-of-contents)
 
 TCCL supports sandboxed execution and modular extensions.
 
 ## Sandboxing
+[Table-of-contents](#table-of-contents)
 
 - Each module or runtime session can have explicit capabilities.
 - Capabilities control authority and effects, preventing unsafe behavior from leaking.
@@ -786,6 +965,7 @@ module GPUOps using GPUCap {
 ---
 
 # 20. Ergonomics
+[Table-of-contents](#table-of-contents)
 
 - Effect inference
 - Capability inference
@@ -803,6 +983,7 @@ Gradual modes allow prototype → verified progression.
 ---
 
 ## 16.1 Inference
+[Table-of-contents](#table-of-contents)
 
 - Effect inference
 - Capability inference
@@ -812,6 +993,7 @@ Gradual modes allow prototype → verified progression.
 ---
 
 ## 16.2 Defaults
+[Table-of-contents](#table-of-contents)
 
 - Pure by default
 - Deterministic by default
@@ -820,6 +1002,7 @@ Gradual modes allow prototype → verified progression.
 ---
 
 ## 16.3 Refactor Safety
+[Table-of-contents](#table-of-contents)
 
 Because authority appears in signatures:
 
@@ -843,6 +1026,7 @@ IDE support:
 ---
 
 # 21. Design Philosophy
+[Table-of-contents](#table-of-contents)
 
 The language guarantees:
 
@@ -877,6 +1061,7 @@ Sandboxing + capability-aware extensions let TCCL achieve perfect expressiveness
 ---
 
 # 22. Summary
+[Table-of-contents](#table-of-contents)
 
 TCCL is a stratified, dependently typed, capability-secure calculus
 integrating:
