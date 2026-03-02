@@ -1,0 +1,431 @@
+1. The "Goalpost" Test SuiteI have structured these as Formal Specs targeting the five critical invariants of your system.Test 1: Linear Resource Exhaustion (The "No Leak" Check)Goal: Prove that a linear resource (like a File Handle) cannot be forgotten or duplicated.Rust// EXPECTED: Compile Error (Linear Leak)
+spec test_prevent_leak(cap: Cap<FileIO>) {
+    let h: Linear<Handle> = open_file(cap, "config.txt");
+    // Error: h is never consumed. 
+    // The context Δ still contains [h: Handle] at end of scope.
+}
+
+// EXPECTED: Success
+spec test_correct_consumption(cap: Cap<FileIO>) {
+    let h: Linear<Handle> = open_file(cap, "config.txt");
+    close_file(h); 
+    // Success: Δ is empty.
+}
+Test 2: Authority Laundering (The "Subtyping" Check)Goal: Prove that casting an Admin capability to a User capability does not allow the User scope to perform Admin actions.Rust// Define Authority Lattice: Admin <: User
+type AdminCap <: UserCap;
+
+// A function requiring only User authority
+fn basic_log(c: UserCap) ▷ {Log} { ... }
+
+// EXPECTED: Success (Covariance)
+spec test_upcast_authority(a: AdminCap) {
+    basic_log(a); // Admin can act as User.
+}
+
+// EXPECTED: Compile Error (Security Violation)
+spec test_prevent_escalation(u: UserCap) {
+    // Attempting to use a User cap where Admin is required
+    admin_delete_db(u); 
+    // Error: Expected AdminCap, found UserCap. 
+    // Subtyping is unidirectional.
+}
+Test 3: Dependent Effect Tracking (The "Context" Check)Goal: Prove that a function cannot perform an effect $\epsilon$ if that effect is not in its allowed capability set $\Kappa$.Rust// EXPECTED: Compile Error (Missing Capability)
+spec test_unauthorized_effect() ▷ {Network} {
+    // Error: The effect {Network} is produced, 
+    // but the capability set Κ is empty (∅).
+    http_get("https://api.total.io"); 
+}
+2. Advanced: Session Type & Protocol TestsIf you want to support Session Types (Linear communication), you need a "Goalpost" for protocol adherence.Test 4: Protocol State MachineGoal: Prove that you cannot "Skip" a step in a communication protocol.Rust// Protocol: Send Hello -> Receive Ack -> Close
+type Proto = ![Hello] . ?[Ack] . End;
+
+spec test_protocol_integrity(chan: Linear<Proto>) {
+    let chan2 = send(chan, Hello);
+    // let chan3 = close(chan2); 
+    // Error: chan2 is in state ?[Ack], 
+    // but close() requires state End.
+    
+    let (chan3, msg) = receive(chan2);
+    close(chan3); // Success.
+}
+3. Total Normalization Check (The "Halting" Goalpost)Because the language is Total, we must test that recursion is structurally bounded.Rust// EXPECTED: Compile Error (Non-termination)
+spec test_prevent_infinite_loop(n: Int) {
+    let rec loop = (x: Int) => loop(x); 
+    // Error: loop is not structurally decreasing. 
+    // Violates Total Fragment requirements.
+}
+
+
+Phase A: The Linear Core (Resource Accounting)Goal: Prove that the context $\Delta$ is a strict resource. The compiler must track every variable and ensure it is used exactly once.Test A.1: The "Double Spend" (Must Fail)Rust// Scenario: Using a linear resource twice
+test "fail_double_spend" (linear file: File) {
+    let _ = read(file); 
+    let _ = close(file); 
+    // ERROR: 'file' used at line 2, but Δ required it at line 3.
+    // Error Trace: Δ = {file: File} -> Δ_1={file}, Δ_2={file} (Invalid Split)
+}
+Test A.2: The "Discarded Resource" (Must Fail)Rust// Scenario: Forgetting to close a resource
+test "fail_leak" (linear cap: Cap<Log>) {
+    let _ = "I did nothing with cap";
+    // ERROR: Linear context Δ is not empty at end of scope.
+    // Δ still contains {cap: Cap<Log>}.
+}
+Phase B: The Capability Gate (Authority & Effects)Goal: Prove that effects $\epsilon$ are strictly bounded by capabilities $\Kappa$. This requires your compiler to perform Effect Propagation.Test B.1: Unauthorized Effect (Must Fail)Rust// Function requires Network capability
+fn send_ping() ▷ {Net} { ... }
+
+test "fail_unauthorized" (k: Cap<FileIO>) {
+    send_ping(); 
+    // ERROR: Term produces effect {Net}, but Κ only contains {FileIO}.
+    // Formal Check: {Net} ⊆ {FileIO} is FALSE.
+}
+Test B.2: Effect Composition (Must Pass)Rusttest "pass_effect_union" (k1: Cap<Net>, k2: Cap<Log>) ▷ {Net, Log} {
+    send_ping() [using k1];
+    write_log("Ping sent") [using k2];
+    // SUCCESS: Total effect {Net, Log} ⊆ Κ {Net, Log}.
+}
+Phase C: The Logical Layer (Total Dependent Types)Goal: Prove that the "Logic" of the program is sound and terminates. This is where Strong Normalization is tested.Test C.1: Structural Recursion (Must Pass)Rust// Standard Peano addition - Total
+fn add(n: Nat, m: Nat) : Nat {
+    match n {
+        Zero => m,
+        Succ(n_prev) => Succ(add(n_prev, m)) 
+        // SUCCESS: n_prev is a structural subcomponent of n.
+    }
+}
+Test C.2: General Recursion (Must Fail)Rust// This would break the Logical Layer's consistency
+test "fail_divergence" (n: Int) {
+    let rec f = (x: Int) => f(x + 1);
+    // ERROR: Recursive call 'f(x+1)' is not structurally decreasing.
+    // Termination check failed.
+}
+
+
+Test D.1: Refinement Constraint (Must Fail)Refinement types use SMT-style logic to gate values.Rust// Type: Int where the value is greater than zero
+type PosInt = {x: Int | x > 0};
+
+test "fail_refinement_violation" () {
+    let a: Int = -5;
+    let b: PosInt = a; 
+    // ERROR: Logical constraint violation. 
+    // Cannot prove -5 > 0.
+}
+Test D.2: Dependent Capability (The "Power" Test)In a dependent system, a capability can be indexed by a value (e.g., Cap<Read, "config.json">).Rustfn read_file(path: String, cap: Cap<Read, path>) ▷ {Read} { ... }
+
+test "fail_dependent_mismatch" (k: Cap<Read, "secret.txt">) {
+    read_file("public.txt", k);
+    // ERROR: Type mismatch. 
+    // Expected: Cap<Read, "public.txt">
+    // Found:    Cap<Read, "secret.txt">
+}
+Phase E: Subtyping & Variance (The "Security" Tests)Goal: Ensure that you can "forget" power but never "invent" it.Test E.1: Capability Contravariance (Must Pass)Rusttype SuperUser <: User;
+
+fn log_in(u: User) { ... }
+
+test "pass_contravariant_cap" (admin: SuperUser) {
+    log_in(admin); 
+    // SUCCESS: SuperUser is a valid subtype of User.
+}
+Test E.2: The "Deep" Variance Leak (Must Fail)This is the most dangerous test. It checks if subtyping inside a linear container allows authority to escape.Rust// A mutable (Linear) reference to a capability
+type Ref<T>; 
+
+test "fail_mutable_variance" (admin_ref: Linear<Ref<SuperUser>>) {
+    let user_ref: Linear<Ref<User>> = admin_ref; 
+    // ERROR: Linear References must be Invariant.
+    // If this succeeded, one could put a 'User' cap into 'user_ref'
+    // and the original owner would treat it as a 'SuperUser' cap.
+}
+Anything Else Not Tested?There are two "invisible" properties that are often forgotten but critical for a sound $\lambda_{total}^{LCP}$:1. Proof Erasure (Static vs. Runtime)You need to test that your Refinements and Proofs are truly static. If you have a branch that depends on a proof, and that proof is erased at runtime, the program will crash.The Test: Ensure that if (proof_of_safety) then ... is forbidden unless the proof is a runtime value.2. Region-Based Memory InteractionIf your language uses Regions, you need to test that a linear variable cannot outlive its region.Rusttest "fail_region_escape" () {
+    let x = region r {
+        let y = allocate_linear<Int>(r, 10);
+        y // Attempt to return linear value from region
+    };
+    // ERROR: Linear value 'y' escapes its region 'r'.
+}
+
+// This function can ONLY inspect types because it has the TypeToken
+fn safe_inspect<T>(x: T, ghost p: TypeToken<T>) ▷ {Reflect} {
+    // Because p is NOT a ghost here (it is a Real Capability), 
+    // it is NOT erased.
+    if (p.is_int()) { 
+        print("Runtime confirms: This is an Int");
+    }
+}
+
+test "pass_reflection_with_cap" () {
+    let val = 42;
+    // We explicitly reify the type into a runtime capability
+    let cap = reify<Int>(); 
+    safe_inspect<Int>(val, cap);
+    // SUCCESS: The 'cap' persists at runtime.
+}
+
+test "fail_missing_reflection_cap" <T>(x: T) {
+    // Attempting to use T as a runtime value without a token
+    let name = type_name<T>(); 
+    // ERROR: Effect {Reflect} produced, but no TypeToken<T> in context.
+    // The type T is erased here!
+}
+
+test "safe_downcast" (linear any: Any, token: TypeToken<String>) {
+    // try_cast returns an Option<String>
+    // It uses the 'token' to verify the memory layout.
+    match try_cast(any, token) {
+        Some(s) => print("Recovered string: " + s),
+        None    => print("Cast failed")
+    }
+    // SUCCESS: Logic remains sound because 'token' was a required resource.
+}
+
+// A function that requires a proof of P
+fn use_proof(ghost p: Proof<P>) { ... }
+
+test "fail_non_terminating_proof" () {
+    // infinite_loop() is effectful and non-total
+    let ghost p = infinite_loop(); 
+    // ERROR: Effectful computation cannot be used in a Ghost/Total context.
+    // This prevents the compiler from hanging during type-checking.
+    use_proof(p);
+}
+
+// ERROR: Refinement predicates must be PURE.
+type Exploit = { x: Int | launch_missiles() == 0 }; 
+// ERROR: 'launch_missiles' has effect {WeaponSystem}.
+// Predicates can only contain terms with effect ∅ (Pure).
+
+
+test "pass_explicit_reification" <T>(x: T) {
+    // 1. Static Layer: T is just a name.
+    // 2. Reification: We request a runtime witness.
+    let token: TypeToken<T> = reify<T>(); 
+    
+    // 3. Inspection: token is a REAL value, not a ghost.
+    if (token.is_integral()) {
+        // ...
+    }
+    // SUCCESS: Soundness is maintained because 'token' is 
+    // tracked in the linear context Δ.
+}
+
+trait BankAccount {
+    // This consumes the old state and returns a new one
+    fn deposit(linear self, amount: Int) -> Linear<BankAccount>;
+    
+    // This requires a specific capability to even be called
+    fn withdraw(linear self, amount: Int) -> Linear<BankAccount> ▷ {WriteMoney};
+}
+
+test "pass_oop_ownership" (linear acct: BankAccount, k: Cap<WriteMoney>) {
+    let acct2 = acct.deposit(100); // Anyone can deposit
+    let acct3 = acct2.withdraw(50) [using k]; // Only authorized can withdraw
+    // acct and acct2 are now "gone" (invalidated by linearity)
+}
+
+
+trait Shape { fn area(self) -> Float; }
+trait Color { fn hex(self) -> String; }
+
+// A Circle "is a" Shape and "is a" Color
+type Circle <: Shape, Color;
+
+fn print_area(s: Shape) { ... }
+
+test "pass_polymorphic_oop" (c: Circle) {
+    print_area(c); // Works via subtyping
+}
+
+
+// Linearity: The 'token' must be used exactly once
+// Cost: This function costs '10 units' of gas
+fn process_data(linear token: Token) ▷ {Cost: 10} {
+    consume(token);
+}
+
+test "gas_tracking" (linear t: Token) ▷ {Cost: 5} {
+    // ERROR: Calling process_data costs 10, but context only allows 5.
+    process_data(t);
+}
+
+Rust
+// A contract requiring a specific gas budget and an authorized handle
+total fn verify_transaction(
+    ghost budget: Int | budget > 100,
+    linear handle: TransactionHandle
+) ▷ {Deterministic, Cost: 0} {
+    // This logic is purely mathematical and terminates.
+}
+
+partial fn execute_on_chain(
+    linear h: TransactionHandle,
+    auth: Authority<Network>
+) ▷ {NonDeterministic, Net, Cost: 150} {
+    // This part interacts with the world and may loop/fail.
+}
+
+// TOTAL: Proof of a mathematical property
+total fn sum_to_n(n: Nat) -> Nat { ... } 
+
+// TURING COMPLETE: A general purpose loop
+partial fn web_server(port: Int) ▷ {Net} {
+    loop { handle_request(port); } 
+}
+
+Rust
+// Refinement Type: An Int that is a valid index for a specific list
+type Index<L: List> = { i: Int | 0 <= i < L.length };
+
+// Dependent Type: The return type depends on the INPUT value
+fn get_element<T, L: List<T>>(list: L, i: Index<L>) -> T { ... }
+
+test "contract_safety" () {
+    let my_list = [10, 20, 30];
+    let val = get_element(my_list, 1); // Success: 1 is in [0, 3)
+    // let err = get_element(my_list, 5); // COMPILE ERROR: Contract violation
+}
+
+Rust
+// Import a module and its required authority
+import FileSystem with Authority<FS_ROOT>;
+
+// An Authority is a capability that can spawn other capabilities
+fn main(root: Authority<FS_ROOT>) ▷ {FS} {
+    // Generate a specific linear capability from the root authority
+    let (cap, root2) = root.request_read("/etc/config");
+    read_file(cap);
+}
+
+Deterministic: fn add(a: Int, b: Int) -> Int (Always the same output).
+
+Non-Deterministic: fn get_random() ▷ {Entropy} -> Int
+
+
+// ghost P is a proof that disappears after checking
+fn secure_division(n: Int, d: Int, ghost p: d != 0) -> Int {
+    // The machine code only sees 'n' and 'd'. 
+    // It does not 'check' p; p was checked by the compiler.
+    return n / d;
+}
+
+test "proof_erasure_integrity" () {
+    let d = 5;
+    let pf = prove_not_zero(d); // Computed by SMT/Logic layer
+    
+    let result = secure_division(10, d, pf);
+    
+    // AT RUNTIME:
+    // The CPU executes: PUSH 10, PUSH 5, CALL divide
+    // The proof 'pf' is nowhere in the binary.
+}
+
+// ERROR: Proof Leakage
+fn leak(ghost p: Bool) -> Int {
+    if (p) { 1 } else { 0 } 
+    // ERROR: Runtime Int depends on erased Ghost Bool.
+}
+
+import Console with Authority<IO>;
+
+// Contract: String must be non-empty
+type NonEmpty = { s: String | length(s) > 0 };
+
+fn secure_print(linear cap: Cap<Console>, msg: NonEmpty) -> Linear<Cap<Console>> ▷ {IO} {
+    // No runtime check for length(msg) needed; compiler proved it.
+    System.out.write(msg);
+    return cap;
+}
+
+test "final_goalpost" (auth: Authority<IO>) ▷ {IO} {
+    let (c, _) = auth.request();
+    let _ = secure_print(c, "Hello, Sound World!");
+    // Everything is cleaned up, authorized, and erased.
+}
+
+// We define an 'Unsafe' capability that gates access to C functions
+capability UnsafeFFI;
+
+// We 'wrap' the raw C function
+import foreign "libc.so.6" {
+    fn malloc(size: Size) -> RawPtr ▷ {UnsafeFFI, MemoryAlloc};
+}
+
+test "ffi_safety_gate" (cap: Cap<UnsafeFFI>) ▷ {UnsafeFFI, MemoryAlloc} {
+    let ptr = malloc(1024) [using cap];
+    // SUCCESS: The call is authorized.
+    // Without 'cap', the compiler treats malloc() as a security violation.
+}
+
+total let version = "1.0.0"; // Ghost value
+
+test "runtime_lifting" () {
+    // let v = version; // ERROR: version is a Stage 0 (Ghost) value.
+    let v = runtime_lift(version); // SUCCESS: Explicitly moved to Stage 2.
+}
+
+test "debug_inspect" (linear x: SecretData, cap: Cap<Diagnostic>) {
+    inspect(x, cap); 
+    // The compiler sees the 'Diagnostic' cap and knows NOT to erase 
+    // the metadata for 'x' in this specific branch.
+}
+
+import Hardware.X86 with Authority<Machine_Root>;
+
+// --- 1. CONSTANTS & REFINEMENTS ---
+// Ensure the entry point is exactly 0x7C00 (Standard MBR)
+type BootAddr = { a: Nat | a == 0x7C00 };
+// Ensure the stack is 16-byte aligned for stability
+type AlignedStack = { ptr: Pointer | ptr % 16 == 0 };
+
+// --- 2. THE TOTAL FRAGMENT (POST/Verification) ---
+// This function is TOTAL: it must terminate or the BIOS hangs.
+total fn verify_firmware_signature(
+    ghost data: ByteStream, 
+    ghost sig: Signature
+) -> Proof<IsAuthentic(data)> {
+    // Cryptographic verification logic here
+    // Guaranteed to finish (No infinite loops allowed in Total layer)
+}
+
+// --- 3. THE BOOTLOADER KERNEL ---
+// Note the Effect Set: {IO, Reset, ModeSwitch}
+partial fn start_boot(
+    linear cpu: CPU_State, 
+    auth: Authority<Machine_Root>
+) ▷ {IO, Reset, ModeSwitch, Cost: 5000} {
+
+    // A. Request Hardware Capabilities from Root Authority
+    let (vga_cap, auth2) = auth.request_io<VGA_Buffer>(0xB8000);
+    let (disk_cap, auth3) = auth2.request_io<Disk_Controller>(0x1F0);
+
+    // B. Linear Resource Management
+    // 'vga_cap' is linear; it cannot be duplicated. Only one "driver" exists.
+    let vga2 = write_screen(vga_cap, "λ^LC Loading...");
+
+    // C. Dependent Safety Check
+    // Proof erasure: 'p' exists only at compile time.
+    ghost let p = verify_firmware_signature(disk_image, disk_sig);
+
+    // D. The Handover
+    // Transition to Protected Mode requires the ModeSwitch capability.
+    // We pass the linear CPU state to the next stage.
+    jump_to_kernel(cpu, vga2, p) [using auth3];
+    
+    // After jump, 'cpu' and 'vga2' are consumed. 
+    // They cannot be used again here.
+}
+
+
+// A macro that generates a linear swap function
+total fn generate_swap<T>() -> Code<fn(Linear<T>, Linear<T>) -> (Linear<T>, Linear<T>)> {
+    return quote( (a, b) => (b, a) );
+}
+
+test "pass_staged_meta" () {
+    // The compiler checks the swap logic AT COMPILE TIME.
+    let swap_int = splice(generate_swap<Int>());
+    let (x, y) = swap_int(1, 2);
+}
+
+// A macro that generates a "Getter" only if the field is public
+macro fn generate_getters(type_def: Type) -> Code {
+    for field in type_def.fields {
+        if field.is_public {
+            yield quote( fn get_{field.name}(obj: {type_def}) ▷ {Read} { ... } );
+        }
+    }
+}
