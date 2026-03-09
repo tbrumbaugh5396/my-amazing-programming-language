@@ -38,7 +38,7 @@ graph TD
     end
     
     H --> | Used for type checking and proofs | E
-    F --> EE[Elaboration] --> J[High-Level / Semantic Intermediate Representation (Rich IR)]
+    F --> EE[Elaboration] --> J[High-Level - Semantic Intermediate Representation - Rich IR]
 
     %% AST --> Elaboration --> RichIR[High-Level / Semantic IR (Rich IR)]
     %%RichIR --> E-Graph / Optimizer --> Optimized RichIR
