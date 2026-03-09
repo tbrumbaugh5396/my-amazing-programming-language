@@ -40,10 +40,10 @@ graph TD
     H --> | Used for type checking and proofs | E
     F --> EE[Elaboration] --> J[High-Level / Semantic Intermediate Representation (Rich IR)]
 
-    % AST --> Elaboration --> RichIR[High-Level / Semantic IR (Rich IR)]
-    RichIR --> E-Graph / Optimizer --> Optimized RichIR
-Optimized RichIR --> Lowering / Erasing --> CoreIR[Core IR / Low-Level IR]
-CoreIR 
+    %% AST --> Elaboration --> RichIR[High-Level / Semantic IR (Rich IR)]
+    %%RichIR --> E-Graph / Optimizer --> Optimized RichIR
+    %%Optimized RichIR --> Lowering / Erasing --> CoreIR[Core IR / Low-Level IR]
+    %%CoreIR 
 
     
     %% J --> K[Semantic Intermediate Representation - Semantic IR]
