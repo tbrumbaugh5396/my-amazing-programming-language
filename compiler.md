@@ -38,30 +38,39 @@ graph TD
     end
     
     H --> | Used for type checking and proofs | E
-    F --> J[Intermediate Representation - IR]
+    F --> EE[Elaboration] --> J[High-Level / Semantic Intermediate Representation (Rich IR)]
+
+    % AST --> Elaboration --> RichIR[High-Level / Semantic IR (Rich IR)]
+    RichIR --> E-Graph / Optimizer --> Optimized RichIR
+Optimized RichIR --> Lowering / Erasing --> CoreIR[Core IR / Low-Level IR]
+CoreIR 
 
     
-    J --> K[Semantic Intermediate Representation - Semantic IR]
+    %% J --> K[Semantic Intermediate Representation - Semantic IR]
     H --> | Used for optimization and verification | K
     
-    %% --- SEMANTIC OPTIMIZER ---
-    K --> L[Equivalence Graph - E-graph]
-    L --> M[Cost Model and Extractor]
-    M --> I[Interpretter/Compiler]
+    %% --- SEMANTIC OPTIMIZER / E-GRAPH ---
+    H --> J[E-Graph / Equivalence Graph]
+    J --> K[Cost Model & Extractor]
+    K --> L[Optimized Rich IR]
+
+    %% --- LOWERING / ERASING TO CORE IR ---
+    L --> M[Lowering / Erasing]
+    M --> N[Core IR / Low-Level IR]
     
 
     %% --- BACKEND / MACH LEVEL ---
     subgraph BACKEND
-        N[Low-Level IR / Mach-Level IR]
-        O[Instruction Selection]
-        P[Register Allocation]
-        Q[Pipeline Scheduling / Optimization]
-        R[Target Assembly / Machine Code]
+        O[Low-Level IR / Mach-Level IR]
+        P[Instruction Selection]
+        Q[Register Allocation]
+        R[Pipeline Scheduling / Optimization]
+        S[Target Assembly / Machine Code]
     end
 
-    I --> N
-    N --> O --> P --> Q --> R
-    R --> S[Executable / Target Runtime]
+    N --> O
+    O --> P --> Q --> R --> S
+    S --> T[Executable / Target Runtime]
     
 
 
