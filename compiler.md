@@ -18,6 +18,7 @@ graph TD
     H --> | Used for optimization and verification | K
     K --> L[Equivalence Graph - E-graph]
     L --> M[Cost Model and Extractor]
-    L --> | Used with AST | I
+    L --> | Used with AST | I[Interpretter/Compiler]
+    I --> N[Target Execution]
 
 ```
