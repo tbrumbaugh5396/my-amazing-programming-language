@@ -10,7 +10,30 @@ graph TD
     G[EBNF / BNF Grammar Defintion] --> | Defines| A
     G --> | Guides | B
     G --> | Guides | D
-    H[Context / Types / Contracts / HoTT Proofs] 
+
+    subgraph NAMESPACE_GRAPH["Graph-Native Namespaces"]
+        N1[Namespace A]
+        N2[Namespace B]
+        N3[Namespace C]
+        N1 --- N2
+        N2 --- N3
+        N1 --- N3
+    end
+
+    %% Context morphisms
+    N1 --> |Morphisms| N2
+    N2 --> |Morphisms| N3
+    N3 --> |Morphisms| N1
+    NAMESPACE_GRAPH --> |Resolves identifiers / types| H
+    
+    %% --- CONTEXT & NAMESPACES ---
+    subgraph CONTEXT
+        H[Context]
+        H --> |Types / Contracts / Dependent Types| K
+        H --> |HoTT Proofs / Equivalences| K
+        H --> |Authority / Capabilities| K
+    end
+    
     H --> | Used for type checking and proofs | E
     F --> J[Intermediate Representation - IR]
     J --> K[Semantic Intermediate Representation - Semantic IR]
@@ -19,5 +42,10 @@ graph TD
     L --> M[Cost Model and Extractor]
     M --> I[Interpretter/Compiler]
     I --> N[Target Execution]
+
+    
+
+    
+
 
 ```
