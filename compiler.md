@@ -38,25 +38,23 @@ graph TD
     end
     
     H --> | Used for type checking and proofs | E
-    F --> EE[Elaboration] --> J[High-Level - Semantic Intermediate Representation - Rich IR]
-
-    %% AST --> Elaboration --> RichIR[High-Level / Semantic IR (Rich IR)]
-    %%RichIR --> E-Graph / Optimizer --> Optimized RichIR
-    %%Optimized RichIR --> Lowering / Erasing --> CoreIR[Core IR / Low-Level IR]
-    %%CoreIR 
+    F --> EE[Elaboration / Type Checking] --> J[High-Level - Semantic Intermediate Representation - Rich IR]
 
     
-    %% J --> K[Semantic Intermediate Representation - Semantic IR]
     H --> | Used for optimization and verification | K
     
-    %% --- SEMANTIC OPTIMIZER / E-GRAPH ---
-    H --> J[E-Graph / Equivalence Graph]
-    J --> K[Cost Model & Extractor]
-    K --> L[Optimized Rich IR]
+    %% --- MIDDLE-END / SEMANTIC OPTIMIZER ---
+    subgraph MiddleEnd["Semantic Optimization / E-Graph"]
+        H --> J[E-Graph / Equivalence Graph]
+        J --> K[Cost Model & Extractor]
+        K --> L[Optimized Rich IR]
+    end
 
-    %% --- LOWERING / ERASING TO CORE IR ---
-    L --> M[Lowering / Erasing]
-    M --> N[Core IR / Low-Level IR]
+    %% --- LOWERING ---
+    subgraph LoweringStage["Lowering / Erasing"]
+        L --> M[Lowering / Erasing]
+        M --> N[Core IR / Low-Level IR]
+    end
     
 
     %% --- BACKEND / MACH LEVEL ---
@@ -71,6 +69,39 @@ graph TD
     N --> O
     O --> P --> Q --> R --> S
     S --> T[Executable / Target Runtime]
+
+    %% --- REFLECTION POINTS ---
+    subgraph Reflection["Reflection / Compiler Introspection"]
+        R1[Front-End Reflection: AST / Macros]
+        R2[Middle-End Reflection: Rich IR / Proofs / Equivalences]
+        R3[Cost Model Reflection: Dynamic Optimization]
+        
+        E --> R1
+        H --> R2
+        K --> R3
+    end
+
+    %% --- FORMAL VERIFICATION ---
+    subgraph Verification["Formal Verification"]
+        V1[Type Checking]
+        V2[Proof Checking / Dependent Types]
+        V3[Contract Verification]
+
+        G --> V1 --> V2 --> V3
+    end
+
+    %% --- MULTI-STAGE UPDATE FEEDBACK ---
+    subgraph Updates["Update Propagation / Feedback"]
+        %% Forward
+        ASTUpdate[AST Update / Macro Change] --> H
+        RichIRUpdate[Rich IR Update / Optimizer Rewrite] --> M
+        CoreIRUpdate[Core IR Update / Backend Hint] --> P
+        
+        %% Backward
+        OptimizerFeedback[Optimizer detects issue] --> H
+        LoweringFeedback[Semantic issue during lowering] --> L
+        CostModelFeedback[Cost model triggers alternative variant] --> L
+    end
     
 
 
