@@ -7,7 +7,7 @@ graph TD
     D --> E[AST]
     E --> F[Macro Expander]
     F --> F
-    G[EBNF / BNF Grammar Defintion] --Defines> A
-    G --Informs> B
+    G[EBNF / BNF Grammar Defintion] -Defines-> A
+    G -Informs-> B
 
 ```
