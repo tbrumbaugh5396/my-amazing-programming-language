@@ -9,5 +9,7 @@ graph TD
     F --> F
     G[EBNF / BNF Grammar Defintion] --> | Defines| A
     G --> | Informs | B
+    H[Context] --> | Used with AST | I[Interpretter/Compiler]
+    E --> | Used with Context | I
 
 ```
