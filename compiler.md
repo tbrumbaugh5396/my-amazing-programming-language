@@ -8,6 +8,8 @@ graph TD
     D --> E[Expanded Abstract Syntax Tree - Expanded AST]
     E --> F[Macro Expander]
     F --> E
+
+    %% --- GRAMMAR GUIDANCE ---
     G[EBNF / BNF Grammar Defintion] --> | Defines| A
     G --> | Guides | B
     G --> | Guides | D
@@ -46,10 +48,20 @@ graph TD
     K --> L[Equivalence Graph - E-graph]
     L --> M[Cost Model and Extractor]
     M --> I[Interpretter/Compiler]
-    I --> N[Target Execution]
-
     
 
+    %% --- BACKEND / MACH LEVEL ---
+    subgraph BACKEND
+        N[Low-Level IR / Mach-Level IR]
+        O[Instruction Selection]
+        P[Register Allocation]
+        Q[Pipeline Scheduling / Optimization]
+        R[Target Assembly / Machine Code]
+    end
+
+    I --> N
+    N --> O --> P --> Q --> R
+    R --> S[Executable / Target Runtime]
     
 
 
