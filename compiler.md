@@ -1,6 +1,7 @@
 ```mermaid
 
 graph TD
+    %% --- SOURCE AND FRONT-END ---
     A[Source Code] --> B[Tokenizer / Lexer]
     B --> C[Tokens]
     C --> D[Parser]
@@ -36,8 +37,12 @@ graph TD
     
     H --> | Used for type checking and proofs | E
     F --> J[Intermediate Representation - IR]
+
+    
     J --> K[Semantic Intermediate Representation - Semantic IR]
     H --> | Used for optimization and verification | K
+    
+    %% --- SEMANTIC OPTIMIZER ---
     K --> L[Equivalence Graph - E-graph]
     L --> M[Cost Model and Extractor]
     M --> I[Interpretter/Compiler]
