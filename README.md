@@ -12,13 +12,19 @@ TCCL is a research-grade programming language built around a single unifying pri
 
 It integrates:
 
-- Memory safety (safe + unsafe separation)
+- Type Level vs Value Level
 - Total core + Turing-complete runtime stratification
+- Memory safety (safe + unsafe separation)
+- Capability Based inform effects
+- Support Different Concurrency Models 
 - Structured authority system
 - Algebraic effects + handlers
 - Session types for concurrency
+- Contexts
+- Intrinsic vs Extrinsic Typing
+- Tactics
 - Region-based memory
-- Linear & affine types
+- Linear and affine types (Usage based)
 - Dependent types
 - Logical types
 - Refinement types
@@ -27,6 +33,13 @@ It integrates:
 - Verified FFI boundary
 - Compile-time vs runtime phase separation
 - Metaprogramming
+- Metainformation (inline, hints, line number, column number, file, function, sttage of compilation, tactic hints)
+- Type systems (dynamic, static, duck typing)
+- Namespace graphs
+- Language Directives
+- Core Judgements (Inference rules)
+- Proof relevance
+- Category Theory
 - Type erasure
 - Proof erasure
 - Parametricity guarantees
@@ -36,7 +49,7 @@ It integrates:
 - Universe hierarchy
 - Graded / quantitative resource algebra
 - Deterministic replay semantics
-- Optional Homotopy Type Theory (HoTT) layer
+- Homotopy Type Theory (HoTT) layer using univalence and isomorphism
 
 The system is built on a **Typed Capability Calculus (TCC)**.
 
@@ -246,6 +259,7 @@ graph LR
 - [Ergonomics]
 - [Design Philosophy]
 - [Summary]
+- [Glossary](#Glossary)
 
 ---
 
@@ -1089,3 +1103,43 @@ It is designed for:
 - Foundational programming language research
 
 ---
+
+# Glossary
+[Table of Contents](#table-of-contents)
+
+| Term                                  | Definitions |
+|---------------------------------------|-------------|
+| A | |
+| B | | 
+| C | |
+| Categories | |
+| Cartesian Closed Categories (CCC) | Corresponds to typical simply typed lambda calculus along with functions as well as tuples (products) and tagged unions (disjoint sums) |
+| Monoidal Categories               | Capabilities + Linear Constraints |
+| Categories with Families (CWF)    | Practical Computational Model |
+| Presheaf / Cubical                | Practical Computational Model (Cubical HoTT) |
+| Cubical Monoidal CWF              | Good target |
+| ∞-groupoid categories             | largest category, fully capture HoTT semantics. However, this is not constructive |
+| D || 
+| E || 
+| F || 
+| G || 
+| H || 
+| I || 
+| J || 
+| K || 
+| L || 
+| M || 
+| N || 
+| O || 
+| P || 
+| Q || 
+| R || 
+| S || 
+| T || 
+| U || 
+| V || 
+| W || 
+| X || 
+| Y || 
+| Z || 
+
