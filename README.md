@@ -1108,6 +1108,229 @@ It is designed for:
 # Categories
 [Table of Contents](#table-of-contents)
 
+## Foundations of Programming Languages
+
+Concepts that define the mathematical or semantic foundations of programming.
+
+### Mathematical / Logical Foundations
+
+#### [Proof / Logic Concepts]
+Logical systems used to reason about programs (propositional logic, predicate logic, type theory, Curry–Howard correspondence).
+
+#### [Mathematical / Logic Programming Techniques]
+Programming styles derived from formal logic or mathematics (logic programming, constraint programming, relational programming).
+
+#### [Advanced Mathematical Programming Concepts]
+Advanced theory used in languages (category theory, domain theory, denotational semantics, lattice theory).
+
+## 2. Type Systems and Correctness
+
+Concepts related to types, guarantees, and reasoning about programs.
+
+### Core Type System Concepts
+
+#### [Advanced Data Type Techniques]
+Rich data abstractions like algebraic data types, GADTs, existential types, dependent pairs.
+
+#### [Polymorphism Variants]
+Mechanisms allowing generic code (parametric, ad-hoc, subtype, row polymorphism, etc.).
+
+#### [Advanced Type System Techniques]
+Sophisticated typing mechanisms (dependent types, higher-kinded types, linear types, refinement types).
+
+### Type & Logic Integration
+
+#### [Advanced Type / Logic Techniques]
+Systems where logic and typing interact (proof-carrying code, dependent type proofs, logical frameworks).
+
+### Program Correctness
+
+#### [Program Verification Techniques]
+Methods for proving correctness of programs (model checking, formal verification, theorem proving).
+
+#### [Program Verification / Proof Techniques]
+Proof techniques embedded in programming systems (Hoare logic, separation logic, proof assistants).
+
+## 3. Program Structure and Abstraction
+
+How programs are organized, composed, and architected.
+
+### Structural Abstractions
+
+#### [Program Structure Techniques]
+Techniques for structuring code (encapsulation, layering, modular design).
+
+#### [Modules / Language Architecture]
+Systems for organizing code across files or packages (module systems, namespaces, functors).
+
+#### [Architectural Programming Techniques]
+High-level patterns shaping entire systems (component architectures, microservices, pipelines).
+
+### Paradigms
+
+#### [Programming Paradigms]
+Major programming styles (functional, object-oriented, declarative, imperative).
+
+#### [Data-Oriented Programming Techniques]
+Structuring software around data layout and transformations rather than objects.
+
+## 4. Language Mechanisms
+
+Core language features that shape how programs behave.
+
+### Control and Effects
+
+#### [Control Flow Techniques]
+Ways to manage execution flow (loops, recursion, continuations).
+
+#### [Effect & Control Techniques]
+Mechanisms for modeling side effects (effect systems, algebraic effects, monads).
+
+#### [Evaluation Strategies]
+When and how expressions are evaluated (strict, lazy, call-by-value, call-by-name).
+
+### Pattern & Matching
+
+#### [Pattern Matching Techniques]
+Structured decomposition of data (destructuring, pattern guards, match expressions).
+
+### Capabilities and Effects
+
+#### [Capability + effect language design]
+Designing languages where effects and permissions are explicit and statically controlled.
+
+#### [Advanced Effect / Capability Techniques]
+Advanced models like capability security, algebraic effects, and effect polymorphism.
+
+## 5. Metaprogramming and Language Construction
+
+Techniques for programs that manipulate programs.
+
+### Metaprogramming
+
+#### [Metaprogramming Techniques]
+Writing programs that generate or manipulate other programs (macros, reflection).
+
+#### [Advanced Metaprogramming Techniques]
+Sophisticated compile-time computation (staging, hygienic macros, typed metaprogramming).
+
+### Language Design
+
+#### [DSL and Language Construction Techniques]
+Techniques for building new languages or domain-specific languages.
+
+#### [Language Interoperability Techniques]
+Methods enabling interaction between different languages or runtimes.
+
+## 6. Execution and Runtime Systems
+
+Concepts dealing with how programs execute.
+
+### Runtime Behavior
+
+#### [Runtime & Execution Techniques]
+Runtime environments, interpreters, JIT compilation, virtual machines.
+
+#### [Runtime / System Techniques]
+OS interactions, runtime services, memory layout, scheduling.
+
+## 7. Memory and Resource Management
+
+Techniques for controlling memory and resources safely.
+
+### Memory Management
+
+#### [Memory Management Techniques]
+Garbage collection, region-based memory, manual memory management.
+
+#### [Memory Safety & Resource Techniques]
+Preventing unsafe access or leaks (ownership systems, borrow checking).
+
+## 8. Concurrency and Parallelism
+
+Concepts for multiple computations happening simultaneously.
+
+### Classical Concurrency
+
+#### [Classical Concurrency Primitives]
+Low-level constructs like mutexes, semaphores, monitors.
+
+### Modern Concurrency
+
+#### [Concurrency Programming Techniques]
+General approaches for concurrent programs (threads, actors).
+
+#### [Modern / Higher-Level Concurrency Constructs]
+Higher-level abstractions (async/await, structured concurrency, futures).
+
+### Parallelism
+
+#### [Advanced Concurrency / Parallelism]
+Parallel algorithms, GPU programming, data-parallel frameworks.
+
+### Scheduling
+
+#### [Scheduling Techniques]
+Algorithms determining task execution order (work-stealing, priority scheduling).
+
+### Memory & Concurrency
+
+#### [Memory / Resource Concurrency Techniques]
+Techniques combining memory management and concurrency (lock-free data structures).
+
+## 9. Distributed Systems
+
+Concepts related to programs running across multiple machines.
+
+#### [Distributed Programming Techniques]
+Methods for building distributed systems (RPC, distributed actors, consensus protocols).
+
+## 10. Compilation, Optimization, and Analysis
+
+Concepts related to analyzing and transforming programs.
+
+### Program Analysis
+
+#### [Program Analysis Techniques]
+Static and dynamic techniques for understanding program behavior.
+
+### Transformations
+
+### [Program Transformation Techniques]
+Transforming programs while preserving meaning (refactoring, partial evaluation).
+
+### [Program Transformation / Compiler Techniques]
+Compiler transformations (inlining, CPS conversion, SSA).
+
+### Optimization
+
+### [Program Optimization Techniques]
+Techniques improving performance or resource usage.
+
+## 11. Security
+
+Concepts ensuring safe and secure program behavior.
+
+### [Security-Oriented Programming Techniques]
+Secure design patterns, sandboxing, capability security.
+
+## 12. Low-Level Systems Concerns
+
+Concepts tied closely to hardware or operating systems.
+
+### [Hardware / OS-Specific Implementation Concepts]
+CPU pipelines, memory hierarchies, OS scheduling, cache behavior.
+
+## 13. Special / Miscellaneous Concepts
+
+Concepts that do not cleanly fit elsewhere.
+
+### [Niche but Useful Concepts]
+Rare or specialized ideas useful in certain domains.
+
+### [Highly Language-Specific Features]
+Constructs unique to particular languages or ecosystems.
+
 - [Capability + effect language design]
 - [Modules / Language Architecture]
 - [Proof / Logic Concepts]
@@ -1159,166 +1382,141 @@ It is designed for:
 | Term                                  | Definitions | Related Categories |
 |---------------------------------------|-------------|--------------------|
 | **A** | |
-| Abstract Syntax Tree (AST) | Tree representation of parsed program structure where nodes correspond to language constructs such as expressions and declarations. |
-| Actor Model | Concurrency model where independent actors communicate via asynchronous message passing. |
-| Assembly Instructions | Low-level CPU instructions executed directly by hardware. |
-| Authority | Permissions granted to a program component allowing it to perform operations. |
-| ↳ No Authority | Component has no permissions and cannot perform effects. |
-| ↳ Privilege | Specific permission to perform restricted operations. |
-| ↳ Total Authority | Component has unrestricted permissions. |
-| ACTOR MODEL |
-| OTHER CONCURRENCY MODELS ||
-| ALGEBRAIC EFFECTS ||
-| ALGEBRAIC DATA TYPES ||
-| Algorithm W | Classic Hindley-Milner inference algorithm.| 
-| Algorithm M | Alternative inference algorithm.|
-| Algebraic Effects | Modular representation of effects. | 
-| Applicative Functor | Less powerful alternative to monads. | 
-| Adjunction | Relationship between categories. | 
-| Anamorphism (Unfold) | Building structures from seed values. | 
-| Algebraic Effects | Effects represented as operations + handlers. | 
-| Async/Await | Structured asynchronous control flow. | 
-| Actor Supervision Trees | Fault tolerance structure used in Erlang. | 
-| Abstract Interpretation | Static approximation of program behavior. | 
-| Ahead-of-Time Compilation (AOT) | Compiling before execution. | 
-| Algebraic Effects | 
-| Applicative Order Reduction | Evaluate arguments first (typical languages). | 
-| Arena Allocation | Allocating memory in bulk regions. | 
-| Ad-hoc Polymorphism | Overloading (type classes).| 
-| Alias Analysis | Determining if references refer to the same memory. | 
-| Actor Scheduling | Actors scheduled independently. | 
-| ABI (Application Binary Interface) | Binary-level compatibility between languages. | 
-| Algebraic Data Types | 
-| Authority Inference | Automatic derivation of capabilities needed for code.| 
-| Administrative Normal Form (ANF) | Intermediate representation simplifying evaluation order.| 
-| Async/Await | Structured syntax for writing asynchronous code sequentially. | 
-| ADIMINISTRATIVE NORMAL FORM (ANF) ||
-| ASYNC RESULTS ||
-| AFFINE USAGE ||
+| ABI (Application Binary Interface) | Binary-level interface defining how compiled programs interact with libraries, including calling conventions, data layouts, and linking behavior. | Runtime / System Techniques, Language Interoperability |
+| Abstract Interpretation | Static program analysis technique that approximates program behavior using abstract domains to reason about possible runtime states. | Program Analysis Techniques, Program Verification |
+| Abstract Syntax Tree (AST) | Tree representation of parsed program structure where nodes correspond to language constructs such as expressions, statements, and declarations. | Compiler Design, Program Representation |
+| Actor Model | Concurrency model where independent actors communicate via asynchronous message passing and maintain isolated state. | Concurrency Programming Techniques |
+| Actor Scheduling | Strategy for determining when actors execute and process their message queues in actor-based systems. | Concurrency Programming Techniques, Scheduling Techniques |
+| Actor Supervision Trees | Hierarchical structure used in systems like Erlang where supervisors monitor actors and restart them upon failure. | Concurrency Programming Techniques, Fault Tolerance |
+| Administrative Normal Form (ANF) | Intermediate representation where intermediate computations are named explicitly to simplify evaluation order and compiler transformations. | Compiler IR Techniques, Program Transformation |
+| Ad-hoc Polymorphism | Polymorphism achieved through function overloading or typeclass-style dispatch based on concrete types. | Polymorphism Variants, Type System Techniques |
+| Adjunction | Fundamental concept in category theory describing a pair of functors with a specific relationship often used to model programming abstractions. | Advanced Mathematical Programming Concepts |
+| Ahead-of-Time Compilation (AOT) | Compilation performed before program execution rather than dynamically at runtime. | Compiler Techniques, Runtime & Execution |
+| Algebraic Data Types (ADT) | Composite types formed by combining product types (records) and sum types (variants). | Advanced Data Type Techniques, Type Systems |
+| Algebraic Effects | Structured way of representing computational effects as operations that can be handled by effect handlers. | Effect & Control Techniques |
+| Alias Analysis | Static analysis technique determining whether multiple references may refer to the same memory location. | Program Analysis Techniques, Compiler Optimization |
+| Anamorphism (Unfold) | Functional programming recursion scheme that builds data structures from seed values. | Functional Programming Techniques, Mathematical Programming |
+| Applicative Functor | Functional abstraction allowing effectful computations to be composed without full monadic sequencing. | Functional Programming Techniques, Type-Driven Programming |
+| Applicative Order Reduction | Evaluation strategy where arguments are evaluated before function application (call-by-value). | Evaluation Strategies |
+| Arena Allocation | Memory allocation strategy where objects are allocated from a region and freed all at once. | Memory Management Techniques |
+| Assembly Instructions | Low-level CPU instructions executed directly by hardware and typically produced by compilers. | Hardware / OS-Specific Implementation Concepts |
+| Async/Await | Structured syntax for asynchronous programming that allows asynchronous code to be written in a sequential style. | Modern Concurrency Constructs, Control Flow Techniques |
+| Async Results | Abstraction representing values that will become available asynchronously, often modeled as futures or promises. | Concurrency Programming Techniques |
+| Authority | Permissions granted to a program component allowing it to perform operations such as I/O or state mutation. | Capability Security, Security-Oriented Programming |
+| ↳ No Authority | A component has no permissions and therefore cannot perform any effects or privileged operations. | Capability Security |
+| ↳ Privilege | Specific permission enabling a component to perform restricted or sensitive operations. | Capability Security |
+| ↳ Total Authority | Component possesses unrestricted permissions and can perform all operations. | Capability Security |
+| Authority Inference | Static analysis technique that determines which capabilities or permissions a piece of code requires. | Capability Systems, Program Analysis |
+| Algorithm M | Alternative type inference algorithm related to Hindley–Milner systems with different constraint solving approaches. | Type Inference, Advanced Type System Techniques |
+| Algorithm W | Classic Hindley–Milner type inference algorithm computing principal types for expressions. | Type Inference, Type Systems |
+| Affine Usage | Type discipline where values may be used at most once, enabling safe resource management without strict linearity. | Memory Safety & Resource Techniques, Advanced Type Systems |
 ||
 | **B** | |
-| BNF | Backus–Naur Form, a notation used to define programming language grammars. |
-| Bytecode | Intermediate instructions executed by a virtual machine. |
-| Bytecode VM | Virtual machine executing bytecode. | 
-| Bidirectional Type Checking | 
-| Barrier | Synchronization point where threads wait until all have reached it. | 
-| Branch Prediction | CPU hardware technique to speculatively execute instructions to avoid stalls. |
-| BACKEND IR ||
-| BOUNDED USAGE ||
-| Big-Step Semantics | Evaluates expressions directly to final results. | 
-| Build / Package System |
-| Backtracking | Exploring multiple execution paths automatically. | 
-| Borrow Checking | Ensuring references obey lifetime rules. | 
+| Backend IR | Intermediate representation used in the backend stages of a compiler for optimization and machine code generation. | Compiler Architecture, Program Transformation Techniques |
+| Backtracking | Control-flow technique where execution automatically explores alternative paths when a computation fails, common in logic programming and search algorithms. | Control Flow Techniques, Mathematical / Logic Programming |
+| Barrier | Synchronization primitive where multiple threads wait until all participating threads reach the same execution point. | Classical Concurrency Primitives |
+| Big-Step Semantics | Formal semantics describing how expressions evaluate directly to final results in a single conceptual step. | Programming Language Semantics, Proof / Logic Concepts |
+| Bidirectional Type Checking | Type-checking strategy combining type inference and type checking, where some expressions synthesize types while others are checked against expected types. | Advanced Type System Techniques, Type-Driven Programming |
+| BNF (Backus–Naur Form) | Formal grammar notation used to specify the syntax of programming languages. | DSL and Language Construction Techniques, Compiler Design |
+| Borrow Checking | Static analysis ensuring references obey lifetime and ownership rules to prevent dangling pointers and data races. | Memory Safety & Resource Techniques |
+| Bounded Usage | Resource discipline restricting how many times a value or capability may be used. | Advanced Type System Techniques, Memory Safety & Resource Techniques |
+| Branch Prediction | CPU hardware technique that speculatively guesses which branch of a conditional will execute to reduce pipeline stalls. | Hardware / OS-Specific Implementation Concepts |
+| Build / Package System | Tooling that manages compilation, dependency resolution, versioning, and distribution of software components. | Language Ecosystem Infrastructure, Program Structure Techniques |
+| Bytecode | Intermediate low-level instructions designed to be executed by a virtual machine rather than directly by hardware. | Runtime & Execution Techniques |
+| Bytecode VM | Virtual machine that interprets or JIT-compiles bytecode instructions during program execution. | Runtime & Execution Techniques |
 ||
 | **C** | |
-| Capabilities | Explicit tokens representing authority to perform operations. |
-| ↳ Capability Lowering | Compilation stage translating capability types into runtime representations. |
-| ↳ Row-based Capability Solver | Type-level system resolving capability constraints expressed as rows. |
-| Category Theory | Mathematical framework describing objects and morphisms. |
-| ↳ Cartesian Closed Categories | Categories corresponding to simply typed lambda calculus. |
-| ↳ Categories | Structures consisting of objects and morphisms with composition laws. |
-| ↳ Categories with Families (CWF) | Categorical model of dependent type theory. |
-| ↳ Cubical Monoidal CWF | Category model combining cubical type theory with monoidal resource structure. |
-| ↳ Homomorphism | Structure-preserving mapping between algebraic structures. |
-| ↳ Monoidal Categories | Categories modeling resource composition and linear constraints. |
-| ↳ Presheaf / Cubical | Category-theoretic models used in cubical type theory. |
-| ↳ ∞-groupoid categories | Higher categorical models capturing homotopy type theory semantics. |
-| Categories | |
-| Cartesian Closed Categories (CCC) | Corresponds to typical simply typed lambda calculus along with functions as well as tuples (products) and tagged unions (disjoint sums) |
-| Monoidal Categories               | Capabilities + Linear Constraints |
-| Categories with Families (CWF)    | Practical Computational Model |
-| Presheaf / Cubical                | Practical Computational Model (Cubical HoTT) |
-| Cubical Monoidal CWF              | Good target |
-| ∞-groupoid categories             | largest category, fully capture HoTT semantics. However, this is not constructive |
-| Compiler | Program translating source code into another representation such as machine code or bytecode. |
-| ↳ Backend | Compiler stages responsible for optimization and code generation. |
-| ↳ Backend IR | Final intermediate representation used before code generation. |
-| ↳ Frontend | Compiler stages responsible for parsing and semantic analysis. |
-| ↳ IR | Intermediate representation used internally by a compiler. |
-| ↳ Lower IR | Low-level IR closer to machine instructions. |
-| Concurrency | Multiple computational tasks progressing during overlapping time. |
-| ↳ Async Results | Results produced asynchronously. |
+| Cache Management | Techniques for optimizing memory access using CPU cache hierarchies (L1/L2/L3) to reduce latency and improve performance. | Hardware / OS-Specific Implementation Concepts |
+| Call-by-Name | Evaluation strategy where function arguments are not evaluated until they are used. | Evaluation Strategies |
+| Call-by-Need | Lazy evaluation strategy where arguments are evaluated only when needed and results are memoized. | Evaluation Strategies |
+| Call-by-Value | Evaluation strategy where arguments are evaluated before function application. | Evaluation Strategies |
+| Call/CC (call-with-current-continuation) | Control operator that captures the current continuation as a first-class value. | Effect & Control Techniques |
+| Cancellation Propagation | Mechanism where cancellation of a task automatically propagates to dependent subtasks in structured concurrency systems. | Modern Concurrency Constructs |
+| Canonical Forms | Property in type systems stating that well-typed values must have a canonical structure corresponding to their type. | Program Verification, Type Systems |
+| Canonical Forms Lemma | Key lemma in type soundness proofs ensuring values of a given type have specific syntactic forms. | Proof / Logic Concepts, Program Verification |
+| Capabilities | Explicit tokens representing authority to perform operations such as I/O, state mutation, or resource access. | Capability Security, Advanced Effect / Capability Techniques |
+| ↳ Capability Lowering | Compiler stage translating capability types or abstractions into concrete runtime representations. | Compiler Techniques, Capability Systems |
+| ↳ Capability Passing | Explicitly passing capability tokens to functions rather than relying on ambient authority. | Capability Security |
+| ↳ Capability Revocation | Mechanism allowing previously granted capabilities to be safely revoked. | Capability Security |
+| ↳ Capability Safety | Property ensuring capabilities cannot be forged or escalated without authorization. | Capability Security |
+| ↳ Row-based Capability Solver | Type-level solver resolving capability constraints expressed using row-polymorphic effect systems. | Advanced Type System Techniques |
+| Category Theory | Mathematical framework describing structures (objects) and transformations (morphisms) between them. | Advanced Mathematical Programming Concepts |
+| ↳ Cartesian Closed Categories (CCC) | Categories supporting products and exponentials corresponding to simply typed lambda calculus. | Mathematical Foundations of Programming |
+| ↳ Categories | Algebraic structures consisting of objects and morphisms with associative composition and identity laws. | Mathematical Foundations |
+| ↳ Categories with Families (CWF) | Categorical model of dependent type theory representing contexts, types, and terms. | Type Theory Foundations |
+| ↳ Cubical Monoidal CWF | Category-theoretic model combining cubical type theory with monoidal resource structures. Good target | Advanced Type Theory |
+| ↳ Homomorphism | Structure-preserving mapping between algebraic structures. | Mathematical Programming Concepts |
+| ↳ Monoidal Categories | Categories with a tensor product modeling composition of resources or effects. | Mathematical Programming Concepts |
+| ↳ Presheaf / Cubical Models | Category-theoretic models used in cubical type theory and homotopy type theory. | Advanced Type Theory |
+| ↳ ∞-Groupoid Categories | Higher categorical structures modeling homotopy type theory semantics. | Advanced Mathematical Programming Concepts |
+| Catamorphism (Fold) | Generalized recursion scheme that deconstructs data structures by recursively combining their components. | Functional Programming Techniques |
+| Channels | Message-passing primitives allowing communication between concurrent processes or threads. | Concurrency Programming Techniques |
+| Checksum | Value derived from data to detect errors or corruption during storage or transmission. | Security-Oriented Programming |
+| Church Encoding | Representing data structures using pure functions in lambda calculus. | Mathematical / Logic Programming Techniques |
+| Closure Conversion | Compiler transformation converting functions with free variables into closures with explicit environments. | Program Transformation / Compiler Techniques |
+| Closures | Functions paired with their captured lexical environment allowing them to access non-local variables. | Program Structure Techniques |
+| Code Generation | Compiler phase translating intermediate representations into machine code, bytecode, or another target language. | Compiler Architecture |
+| Coinductive Types | Types representing potentially infinite data structures such as streams or lazy lists. | Advanced Data Type Techniques |
+| Common Subexpression Elimination | Optimization reusing previously computed identical expressions. | Program Optimization Techniques |
+| Compilation-Time Evaluation | Executing computations during compilation rather than runtime. | Metaprogramming Techniques |
+| Compiler | Program translating source code into another representation such as machine code, bytecode, or intermediate representations. | Compiler Architecture |
+| ↳ Backend | Compiler stages responsible for optimization and machine code generation. | Compiler Architecture |
+| ↳ Backend IR | Intermediate representation used in backend compiler phases before code generation. | Compiler Architecture |
+| ↳ Frontend | Compiler stages responsible for lexical analysis, parsing, and semantic analysis. | Compiler Architecture |
+| ↳ IR (Intermediate Representation) | Internal representation of programs used during compilation and optimization. | Compiler Architecture |
+| ↳ Lower IR | Low-level intermediate representation closer to machine instructions. | Compiler Architecture |
+| Compiler Architecture | Organizational structure of compiler components such as frontend, optimization passes, and backend. | Compiler Design |
+| Compile-Time Evaluation | Executing code during compilation. | 
+| Compile-Time Reflection| Inspecting program structure during compilation.| 
+| Component-Based Design | Software design approach building systems from reusable, independently deployable components. | Architectural Programming Techniques |
+| Computational Graph | Graph representation of computations where nodes represent operations and edges represent data dependencies. | Program Representation Techniques |
+| Computation | The process of executing instructions or evaluating expressions to produce results. | Programming Language Foundations |
+| Concurrency | Execution model where multiple computational tasks make progress during overlapping time periods. | Concurrency Programming Techniques |
+| ↳ Async Results | Results produced asynchronously, typically represented as futures or promises. | Concurrency Programming Techniques |
+| ↳ Futures / Promises | Objects representing values that will become available in the future. | Modern Concurrency Constructs |
 | ↳ Channels | Message passing communication primitives. |
-| ↳ Futures / Promises | Objects representing values that will be available later. |
-| ↳ Parallelism | Simultaneous execution of computations. |
-| ↳ Processes | Independent units of execution. |
-| ↳ Shared Memory | Memory accessible by multiple threads. |
-| ↳ Shared Queues | Concurrent queues used for coordination between tasks. |
-| ↳ Single Threaded | Execution model with only one thread. |
-| ↳ Threading | Execution using multiple threads. |
-| Constraints | Logical conditions imposed on types or programs. |
-| ↳ Constraint Solver | System that resolves constraints during type checking or inference. |
-| ↳ Constraint Types | Types defined by logical predicates. |
-| CONSTRAINT TYPES ||
+| ↳ Parallelism | Simultaneous execution of computations on multiple processors or cores. | Parallel Programming Techniques |
+| ↳ Processes | Independent execution units managed by an operating system. | Concurrency Programming Techniques |
+| ↳ Shared Memory | Memory accessible by multiple threads or processes. | Concurrency Programming Techniques |
+| ↳ Shared Queues | Concurrent queue structures used for coordination between tasks. | Concurrency Programming Techniques |
+| ↳ Single-Threaded | Execution model with only one thread of control. | Concurrency Models |
+| ↳ Threading | Execution using multiple threads sharing the same memory space. | Concurrency Programming Techniques |
+| Concurrency Models | Abstract models defining how concurrent computations interact (actors, CSP, threads). | Concurrency Programming Techniques |
+| Condition Variable | Synchronization primitive allowing threads to wait until a particular condition becomes true. | Classical Concurrency Primitives |
+| Consensus Algorithms | Distributed agreement (Raft, Paxos). | 
+| Constant Folding | Evaluating constants at compile time. | 
+| Constraint Generation | Producing logical constraints during type inference or static analysis. | Program Analysis Techniques |
+| Constraint Programming | Solving problems by specifying constraints that must be satisfied rather than explicit algorithms. | Mathematical / Logic Programming Techniques |
+| Constraint Propagation | Process of deducing additional constraints from existing ones in constraint solving systems. | Program Analysis Techniques |
+| Constraint Simplification | Reducing constraint expressions into simpler equivalent forms during solving. | Program Analysis Techniques |
+| Constraint Solver | System that resolves logical constraints during type checking or inference. | Type Systems, Program Analysis |
+| Constraint Types | Types augmented with logical predicates restricting valid values. | Advanced Type System Techniques |
+| Constraints | Logical conditions imposed on types, expressions, or programs. | Type Systems |
+| Constructive ||
+| ↳ Constructive vs Nonconstructive ||
+| Content Addressable Storage | Storage technique where data is identified by the hash of its contents. | Build / Package Systems |
+| CONTRACTIBLE ||
+| Contracts | Runtime or static assertions specifying expected behavior of program components. | Program Verification Techniques |
+| Control Flow Graph (CFG) | Graph representation of possible execution paths through a program. | Program Analysis Techniques |
+| Control Flow | Mechanisms determining the order in which program instructions execute. | Control Flow Techniques |
 | Context | Typing environment containing variable bindings, assumptions, or capabilities. |
 | ↳ Scopes | Regions where bindings are visible. |
 | ↳ Stack of Scopes | Hierarchical scope structure used by compilers. |
-| CURRY-HOWARD CORRESPONDENCE ||
-| Curry-Howard-Lambek CORRESPONDENCE ||
-| Currying ||
-| Constructive ||
-| Constructive vs Nonconstructive ||
-| CONTRACTS || 
-| COMPUTATION ||
-| Component-Based Design  | Building software using reusable components. | 
-| Code Generation | Automatically producing code. | 
-| Compile-Time Evaluation | Executing code during compilation. | 
-| Capability Passing | Explicit passing of permissions or authority tokens. | 
-| Constraint Programming | Solving problems through constraint satisfaction. | 
-| Capability Passing | 
-| Catamorphism (Fold) | Generalized recursion over data structures. | 
-| Church Encoding | Representing data structures using functions. | 
-| Call/CC (call-with-current-continuation) | Captures entire continuation. | 
-| Cancellation Propagation | Structured cancellation across tasks. | 
-| Copy-on-Write | Cloning data only when modified. | 
-| Common Subexpression Elimination | Reusing identical computations. | 
-| CRDTs | Conflict-free replicated data types. | 
-| Consensus Algorithms | Distributed agreement (Raft, Paxos). | 
-| Component-Based Design | Systems built from independent components. | 
-| Call-by-Value | Function arguments evaluated before function application. | 
-| Call-by-Name | Arguments evaluated only when used. | 
-| Call-by-Need | Lazy evaluation with memoization. | 
-| Coinductive Types	| Infinite structures like streams.| 
-| CPU Pipeline | Sequential stages (fetch, decode, execute, memory, writeback) for instruction-level parallelism. | 
-| Cache Management | Optimizations of memory access through CPU caches (L1/L2/L3) to reduce latency. | 
-| Cubical Type Theory Variants| Advanced HoTT constructs like ∞-groupoids for homotopy semantics. |
-| Cubical / Higher Inductive Types | Types with computational paths as constructors, used in research-level HoTT. |
-| CONTRACTIBLE ||
-| CHECKSUM ||
-| CHANNELS ||
-| COMPUTATIONAL GRAPH ||
-| CONCURRENCY MODEL ||
-| CAPABILITY LOWERING ||
-| CLOSURE CONVERSION ||
-| CLOSURES || 
-| CLOSURE CONVERSION ||
-| Condition Variable | Allows threads to wait for certain conditions while releasing locks. | 
-| Canonical Forms Lemmas | Needed in type soundness proofs.| 
+| Cooperative Scheduling | Scheduling strategy where tasks voluntarily yield control rather than being preempted. | Scheduling Techniques |
+| Coproduct Types | Another name for sum types; explicit in category theory. |
+| Copy-on-Write | Optimization where data is duplicated only when modifications occur. | Memory Management Techniques |
+| Corecursion | Dual to recursion; produces potentially infinite structures incrementally. | Functional Programming Techniques |
+| Coroutines | Functions that can suspend and resume execution, enabling cooperative multitasking. | Control Flow Techniques |
 | Continuation-Passing Style (CPS) | Transforming control flow into continuations.| 
-| Closure Conversion | Converting functions with free variables into closures.| 
-| Cooperative Scheduling | Tasks yield control voluntarily. | 
-| Compile-Time Reflection| Inspecting program structure during compilation.| 
-| Capability Safety	| Ensuring capabilities cannot be forged.| 
-| Coinductive Types | 
-| Continuation Passing Style | 
-| Coproduct Types | Another name for sum types; explicit in category theory. | 
-| Capability Revocation | Ability to revoke authority safely.|
-| Control Flow Graph (CFG) | Graph representation of program execution paths. | 
-| Constraint Generation | Producing constraints during type inference.| 
-| Constraint Propagation | Passing constraints through the system.| 
-| Constraint Simplification | Reducing constraint expressions.| 
-| Compiler Architecture | 
-| Constant Folding | Evaluating constants at compile time. | 
-| Capability Safety | Guarantee authority cannot be forged. | 
-| Concurrency Models | 
-| CSP (Communicating Sequential Processes) | Channel-based concurrency model. | 
-| Category Theory (Programming Focus) | 
-| Canonical Forms | Normal forms guaranteed by type system. | 
 | CPS Transformation |	Converts code to continuation passing style. |
-| Content Addressable Storage | Hash-based storage for builds. | 
-| Corecursion | Producing potentially infinite structures. | 
-| Continuation Passing Style (CPS) | Explicit representation of control flow using continuations. | 
-| Coroutines | Functions that suspend and resume execution. | 
+| CPU Pipeline | Hardware execution model dividing instruction execution into sequential stages such as fetch, decode, and execute. | Hardware / OS-Specific Implementation Concepts |
+| CRDTs (Conflict-Free Replicated Data Types) | Data structures designed for distributed systems that automatically resolve concurrent updates without conflicts. | Distributed Programming Techniques |
+| CSP (Communicating Sequential Processes) | Concurrency model where processes communicate through synchronous message-passing channels. | Concurrency Models |
+| Cubical / Higher Inductive Types | Types whose constructors include paths or higher-dimensional structures, used in cubical type theory and HoTT. | Advanced Type System Techniques |
+| Cubical Type Theory Variants | Extensions of type theory supporting higher-dimensional equality and homotopy semantics. | Advanced Type System Techniques |
+| Currying | Transforming a function of multiple arguments into a sequence of single-argument functions. | Functional Programming Techniques |
+| Curry–Howard Correspondence | Deep relationship between logic and type systems where proofs correspond to programs and propositions correspond to types. | Proof / Logic Concepts |
+| Curry–Howard–Lambek Correspondence | Extension of Curry–Howard relating logic, type theory, and category theory. | Mathematical Foundations |
 ||
 | **D** | |
 | Data Structures | Concrete implementations of data organization optimized for operations. |
@@ -1447,20 +1645,20 @@ It is designed for:
 | Guarded Recursion	| Ensures productivity in infinite or coinductive computations. |
 ||
 | **H** | |
-| Homoiconic | Property where programs are represented using the language’s own data structures. |
-| HoTT | Homotopy Type Theory connecting type theory with homotopy theory. |
-| HOMOMORPHISM ||
+| HASH ||
 | Hindley-Milner ||
 | Higher-Rank Types	| Polymorphism nested inside function arguments. | 
-| Hot Code Reloading | Updating code without restarting program. | 
 | Higher-Rank Polymorphism | Quantifiers inside function arguments.| 
 | Higher-Order Functions | Functions that take other functions as arguments or return them. | 
 | Hermetic Builds | Builds independent of system environment. | 
 | Higher-Order Unification | Needed for dependent types.| 
 | HIGHER-KINDED TYPES ||
-| Hylomorphism | Combination of unfold + fold. | 
 | Hot Code Swapping	| Dynamic replacement of code at runtime. | 
-| HASH || 
+| Homoiconic | Property where programs are represented using the language’s own data structures. |
+| HoTT | Homotopy Type Theory connecting type theory with homotopy theory. |
+| HOMOMORPHISM ||
+| Hylomorphism | Combination of unfold + fold. | 
+ 
 ||
 | **I** || 
 | Imports | Mechanism for accessing definitions from other modules. |
@@ -1566,6 +1764,9 @@ It is designed for:
 | Logic Programming |
 | Loop Fusion | Combining loops to reduce overhead. | 
 | Loop Tiling | Optimizing memory locality. | 
+| LOWERING ||
+| LIFTING ||
+
 ||
 | **M** || 
 | Macros | Compile-time transformations generating or modifying code. |
@@ -1680,6 +1881,7 @@ It is designed for:
 | Quasiquotation| Code templates with holes.| 
 ||
 | **R** | |
+| RAISING ||
 | Runtime | Environment where compiled programs execute. |
 | REQUIREMENTS ||
 | ROW-BASED CAPABILITY SOLVER ||
