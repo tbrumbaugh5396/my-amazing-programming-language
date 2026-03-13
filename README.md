@@ -1366,84 +1366,86 @@ It is designed for:
 | UNIVERSE POLYMORPHISM ||
 | TYPE FAMILIES |
 | GENERIC ABSTRACT DATA TYPES ||
+
 | Term	Why It Matters
-| Unification Variables	Placeholder types solved during inference.
-| Constraint Generation	Producing constraints during type inference.
-| Constraint Propagation	Passing constraints through the system.
-| Constraint Simplification	Reducing constraint expressions.
-| Substitution	Replacing type variables with types.
-| Type Environment	Mapping from variables to types.
-| Algorithm W	Classic Hindley-Milner inference algorithm.
-| Algorithm M	Alternative inference algorithm.
-| Higher-Order Unification	Needed for dependent types.
-| Compiler Architecture
+| Unification Variables | Placeholder types solved during inference.| 
+| Constraint Generation | Producing constraints during type inference.| 
+| Constraint Propagation | Passing constraints through the system.| 
+| Constraint Simplification | Reducing constraint expressions.| 
+| Substitution | Replacing type variables with types.| 
+| Type Environment | Mapping from variables to types.| 
+| Algorithm W | Classic Hindley-Milner inference algorithm.| 
+| Algorithm M | Alternative inference algorithm.| 
+| Higher-Order Unification | Needed for dependent types.| 
+| Compiler Architecture | 
 
 Important pieces of modern compiler pipelines are missing.
 
 | Term	Why It Matters
-| Static Analysis	Compile-time program analysis.
-| Dataflow Analysis	Tracks values through program control flow.
-| Control Flow Graph (CFG)	Graph representation of program execution paths.
-| SSA Form (Static Single Assignment)	Common IR representation used in compilers.
-| Optimization Pass	Compiler stage improving performance.
-| Inlining	Replacing function calls with function body.
-| Dead Code Elimination	Removing unused computations.
-| Constant Folding	Evaluating constants at compile time.
-| Register Allocation	Mapping variables to CPU registers.
-Semantics
+| Static Analysis | Compile-time program analysis.| 
+| Dataflow Analysis | Tracks values through program control flow.| 
+| Control Flow Graph (CFG) | Graph representation of program execution paths. | 
+| SSA Form (Static Single Assignment) | Common IR representation used in compilers. | 
+| Optimization Pass	| Compiler stage improving performance. | 
+| Inlining | Replacing function calls with function body. | 
+| Dead Code Elimination	| Removing unused computations. | 
+| Constant Folding | Evaluating constants at compile time. | 
+| Register Allocation | Mapping variables to CPU registers. | 
+| Semantics | 
 
 Your glossary lists semantics but misses key semantic models.
 
 Term	Why It Matters
-| Big-Step Semantics	Evaluates expressions directly to final results.
-| Small-Step Semantics	Evaluates programs step-by-step.
-| Reduction Semantics	Term rewriting model of evaluation.
-| Equational Reasoning	Reasoning about programs using algebraic laws.
-| Observational Equivalence	Programs indistinguishable by observation.
-Effects and Capability Systems
+| Big-Step Semantics | Evaluates expressions directly to final results. | 
+| Small-Step Semantics | Evaluates programs step-by-step. | 
+| Reduction Semantics | Term rewriting model of evaluation. | 
+| Equational Reasoning | Reasoning about programs using algebraic laws. | 
+| Observational Equivalence | Programs indistinguishable by observation. | 
+| Effects and Capability Systems | 
 
 For your capability + effect language design, these are important.
 
 Term	Why It Matters
-| Effect System	Tracks side effects at the type level.
-| Effect Rows	Row-polymorphic representation of effects.
-| Effect Handlers	Structured control of effects.
-| Algebraic Effects	Modular representation of effects.
-| Capability Safety	Guarantee authority cannot be forged.
-Concurrency Models
+| Effect System	| Tracks side effects at the type level. | 
+| Effect Rows | Row-polymorphic representation of effects. | 
+| Effect Handlers | Structured control of effects. | 
+| Algebraic Effects | Modular representation of effects. | 
+| Capability Safety | Guarantee authority cannot be forged. | 
+| Concurrency Models | 
 
 You already have several, but some core models are missing.
 
 Term	Why It Matters
-| CSP (Communicating Sequential Processes)	Channel-based concurrency model.
-| π-Calculus	Mathematical model of concurrent systems.
-| Data Parallelism	Parallel operations on large data sets.
-| Task Parallelism	Parallel independent tasks.
-| Work Stealing Scheduler	Common scheduling algorithm.
-| Category Theory (Programming Focus)
+| CSP (Communicating Sequential Processes) | Channel-based concurrency model. | 
+| π-Calculus | Mathematical model of concurrent systems. | 
+| Data Parallelism | Parallel operations on large data sets. | 
+| Task Parallelism | Parallel independent tasks. | 
+| Work Stealing Scheduler | Common scheduling algorithm. | 
+| Category Theory (Programming Focus) | 
 
 Some commonly referenced structures are missing.
 
 Term	Why It Matters
-| Functor	Mapping between categories preserving structure.
-| Natural Transformation	Mapping between functors.
-| Monad	Structure representing computations with context.
-| Applicative Functor	Less powerful alternative to monads.
-| Adjunction	Relationship between categories.
-| Initial Algebra	Model for inductive types.
-| Final Coalgebra	Model for coinductive types.
+| Functor | Mapping between categories preserving structure. | 
+| Natural Transformation | Mapping between functors. | 
+| Monad | Structure representing computations with context. | 
+| Applicative Functor | Less powerful alternative to monads. | 
+| Adjunction | Relationship between categories. | 
+| Initial Algebra | Model for inductive types. | 
+| Final Coalgebra | Model for coinductive types. | 
 | Modules | |
+
 Modules / Language Architecture
 
 Important for large systems.
 
 | Term	Why It Matters
-| Module System	Structure for organizing code.
-| Functor (Module)	Parameterized modules (OCaml style).
-| Signature	Module interface specification.
-| Opaque Types	Hidden implementations.
-| Re-exports	Forwarding definitions from other modules.
-| Program Transformation / IR
+| Module System	| Structure for organizing code. | 
+| Functor (Module) | Parameterized modules (OCaml style). | 
+| Signature | Module interface specification. | 
+| Opaque Types | Hidden implementations. | 
+| Re-exports | Forwarding definitions from other modules. | 
+| Program Transformation / IR | 
 
 You have some but missing key transformations.
 
@@ -1458,119 +1460,119 @@ Term	Why It Matters
 Since you already included lockfiles:
 
 Term	Why It Matters
-| Dependency Graph	Graph of package dependencies. |
-| Content Addressable Storage	Hash-based storage for builds.
-| Hermetic Builds	Builds independent of system environment.
-| Incremental Compilation	Only recompiling changed code.
+| Dependency Graph | Graph of package dependencies. |
+| Content Addressable Storage | Hash-based storage for builds. | 
+| Hermetic Builds | Builds independent of system environment. | 
+| Incremental Compilation | Only recompiling changed code. | 
 
 Proof / Logic Concepts
 
 Important if you're integrating theorem proving.
 
 Term	Why It Matters
-| Judgment Forms	Types of logical statements (e.g. Γ ⊢ e : τ).
-| Introduction Rules	Construct values of a type.
-| Elimination Rules	Use values of a type.
-| Canonical Forms	Normal forms guaranteed by type system.
+| Judgment Forms | Types of logical statements (e.g. Γ ⊢ e : τ). | 
+| Introduction Rules | Construct values of a type. | 
+| Elimination Rules | Use values of a type. | 
+| Canonical Forms | Normal forms guaranteed by type system. | 
 
 | Logical Relations	Technique for proving type system properties.
 
 Technique	Description
-| Higher-Order Functions	Functions that take other functions as arguments or return them.
-| Partial Application	Fixing some arguments of a function to produce a new function.
-| Function Composition	Combining functions to produce a new function.
-| Point-Free Style	Writing functions without explicitly mentioning arguments.
-| Lazy Evaluation	Delaying computation until results are needed.
-| Strict Evaluation	Evaluating expressions immediately.
-| Memoization	Caching function results for reuse.
-| Recursion	Function calling itself.
-| Tail Recursion	Recursive calls optimized to avoid stack growth.
-| Structural Recursion	Recursion following the structure of a data type.
-| Corecursion	Producing potentially infinite structures.
+| Higher-Order Functions | Functions that take other functions as arguments or return them. | 
+| Partial Application | Fixing some arguments of a function to produce a new function. | 
+| Function Composition | Combining functions to produce a new function. | 
+| Point-Free Style | Writing functions without explicitly mentioning arguments. | 
+| Lazy Evaluation | Delaying computation until results are needed. | 
+| Strict Evaluation	| Evaluating expressions immediately. | 
+| Memoization | Caching function results for reuse. | 
+| Recursion | Function calling itself. | 
+| Tail Recursion | Recursive calls optimized to avoid stack growth. | 
+| Structural Recursion | Recursion following the structure of a data type. | 
+| Corecursion | Producing potentially infinite structures. | 
 
 Control Flow Techniques
 Technique	Description
-| Continuation Passing Style (CPS)	Explicit representation of control flow using continuations.
-| Coroutines	Functions that suspend and resume execution.
-| Generators	Functions producing sequences lazily.
-| Delimited Continuations	Capturing partial continuations.
-| Backtracking	Exploring multiple execution paths automatically.
-| Exception Handling	Structured error propagation.
-| Guard Clauses	Early exit conditions simplifying control flow.
+| Continuation Passing Style (CPS) | Explicit representation of control flow using continuations. | 
+| Coroutines | Functions that suspend and resume execution. | 
+| Generators | Functions producing sequences lazily. | 
+| Delimited Continuations | Capturing partial continuations. | 
+| Backtracking | Exploring multiple execution paths automatically. | 
+| Exception Handling | Structured error propagation. | 
+| Guard Clauses	| Early exit conditions simplifying control flow. | 
 
 Data-Oriented Programming Techniques
 Technique	Description
-| Immutability	Avoiding mutable state.
-| Persistent Data Structures	Immutable data structures supporting efficient updates.
-| Structural Sharing	Sharing memory between immutable data versions.
-| Data-Oriented Design	Structuring programs around data layout and access patterns.
+| Immutability | Avoiding mutable state. | 
+| Persistent Data Structures | Immutable data structures supporting efficient updates. | 
+| Structural Sharing | Sharing memory between immutable data versions. | 
+| Data-Oriented Design | Structuring programs around data layout and access patterns. | 
 
 Concurrency Programming Techniques
 Technique	Description
-| Message Passing	Communication between concurrent processes via messages.
-| Lock-Based Synchronization	Mutual exclusion using locks.
-| Lock-Free Programming	Algorithms avoiding locks entirely.
-| Wait-Free Programming	Guarantees every thread makes progress.
-| Reactive Programming	Programming with asynchronous data streams.
-| Event-Driven Programming	Programs structured around events.
-| Pipeline Parallelism	Computation broken into processing stages.
-| Work Stealing	Dynamic load balancing between threads.
+| Message Passing | Communication between concurrent processes via messages. | 
+| Lock-Based Synchronization | Mutual exclusion using locks. | 
+| Lock-Free Programming	| Algorithms avoiding locks entirely. | 
+| Wait-Free Programming	| Guarantees every thread makes progress. | 
+| Reactive Programming | Programming with asynchronous data streams. | 
+| Event-Driven Programming | Programs structured around events. | 
+| Pipeline Parallelism | Computation broken into processing stages. | 
+| Work Stealing | Dynamic load balancing between threads. | 
 
 Memory Management Techniques
 Technique	Description
-| Garbage Collection	Automatic memory management.
-| Reference Counting	Tracking references to determine object lifetime.
-| Arena Allocation	Allocating memory in bulk regions.
-| Stack Allocation	Allocating objects on the call stack.
-| Region-Based Memory	Memory grouped by lifetime regions.
-| Ownership Systems	Compile-time memory safety through ownership tracking (Rust-style).
+| Garbage Collection | Automatic memory management. | 
+| Reference Counting | Tracking references to determine object lifetime. | 
+| Arena Allocation | Allocating memory in bulk regions. | 
+| Stack Allocation | Allocating objects on the call stack. | 
+| Region-Based Memory | Memory grouped by lifetime regions. | 
+| Ownership Systems | Compile-time memory safety through ownership tracking (Rust-style). | 
 
 Metaprogramming Techniques
 Technique	Description
-| Compile-Time Evaluation	Executing code during compilation.
-| Reflection	Programs inspecting their own structure.
-| Code Generation	Automatically producing code.
-| Staged Programming	Generating code across multiple compilation stages.
-| Template Metaprogramming	Compile-time programming using templates.
-| Macro Systems	Compile-time code transformations.
+| Compile-Time Evaluation | Executing code during compilation. | 
+| Reflection | Programs inspecting their own structure. | 
+| Code Generation | Automatically producing code. | 
+| Staged Programming | Generating code across multiple compilation stages. | 
+| Template Metaprogramming | Compile-time programming using templates. | 
+| Macro Systems	 | Compile-time code transformations. | 
 
 Type-Driven Programming Techniques
 
 Important for your dependent type language.
 
 Technique	Description
-| Type-Driven Development	Designing programs by refining types first.
-| Proof-Driven Development	Writing proofs alongside programs.
-| Phantom Types	Types used for compile-time guarantees without runtime representation.
-| Newtype Pattern	Wrapping types to enforce stronger type safety.
-| Witness Passing	Explicitly passing proofs or evidence of constraints.
-| Capability Passing	Explicit passing of permissions or authority tokens.
+| Type-Driven Development | Designing programs by refining types first. | 
+| Proof-Driven Development | Writing proofs alongside programs. | 
+| Phantom Types | Types used for compile-time guarantees without runtime representation. | 
+| Newtype Pattern | Wrapping types to enforce stronger type safety. | 
+| Witness Passing | Explicitly passing proofs or evidence of constraints. | 
+| Capability Passing | Explicit passing of permissions or authority tokens. | 
 
 Program Transformation Techniques
 
 Common in compilers and interpreters.
 
 Technique	Description
-| Lambda Lifting	Moving nested functions to top-level definitions.
-| Defunctionalization	Replacing higher-order functions with data structures.
-| Partial Evaluation	Precomputing parts of a program.
-| Program Specialization	Optimizing programs for specific inputs.
-| Inlining	Replacing function calls with their body.
-| Loop Unrolling	Expanding loops to reduce overhead.
+| Lambda Lifting | Moving nested functions to top-level definitions. | 
+| Defunctionalization | Replacing higher-order functions with data structures. | 
+| Partial Evaluation | Precomputing parts of a program. | 
+| Program Specialization | Optimizing programs for specific inputs. | 
+| Inlining | Replacing function calls with their body. | 
+| Loop Unrolling | Expanding loops to reduce overhead. | 
 
 Architectural Programming Techniques
 Technique	Description
-| Dependency Injection	Passing dependencies instead of creating them internally.
-| Inversion of Control	Delegating control flow to external frameworks.
-| Layered Architecture	Organizing code into hierarchical layers.
-| Component-Based Design	Building software using reusable components.
+| Dependency Injection | Passing dependencies instead of creating them internally. | 
+| Inversion of Control | Delegating control flow to external frameworks. | 
+| Layered Architecture | Organizing code into hierarchical layers. | 
+| Component-Based Design  | Building software using reusable components. | 
 
 Mathematical / Logic Programming Techniques
 Technique	Description
-| Constraint Programming	Solving problems through constraint satisfaction.
-| Logic Programming	Programming using logical rules and queries.
-| Relational Programming	Describing relations rather than functions.
-| Symbolic Computation	Manipulating symbolic expressions.
+| Constraint Programming | Solving problems through constraint satisfaction. | 
+| Logic Programming | Programming using logical rules and queries. | 
+| Relational Programming | Describing relations rather than functions. | 
+| Symbolic Computation | Manipulating symbolic expressions. | 
 
 Techniques Especially Relevant to Your Language
 
@@ -1578,189 +1580,190 @@ Based on your glossary (effects, capabilities, HoTT, linearity), these are parti
 
 You should strongly consider adding:
 
-| Capability Passing
+| Capability Passing | 
 
-| Effect Handlers
+| Effect Handlers | 
 
-| Witness Passing
+| Witness Passing | 
 
-| Type-Driven Development
+| Type-Driven Development | 
 
-| Proof Extraction
+| Proof Extraction | 
 
-| Region-Based Memory
+| Region-Based Memory | 
 
-| Ownership Types
+| Ownership Types | 
 
-| Persistent Data Structures
+| Persistent Data Structures | 
 
-| Delimited Continuations
+| Delimited Continuations | 
 
-| Partial Evaluation
+| Partial Evaluation | 
 
-| Defunctionalization
+| Defunctionalization | 
 
-| Catamorphism (Fold)	Generalized recursion over data structures.
-| Anamorphism (Unfold)	Building structures from seed values.
-| Hylomorphism	Combination of unfold + fold.
-| Paramorphism	Recursion with access to the original structure.
-| Zippers	Functional technique for navigating and updating data structures.
-| Free Monads	Represent computations as data structures.
-| Tagless Final Encoding	Represent DSLs using typeclass polymorphism.
-| Church Encoding	Representing data structures using functions.
+| Catamorphism (Fold) | Generalized recursion over data structures. | 
+| Anamorphism (Unfold) | Building structures from seed values. | 
+| Hylomorphism | Combination of unfold + fold. | 
+| Paramorphism | Recursion with access to the original structure. | 
+| Zippers | Functional technique for navigating and updating data structures. | 
+| Free Monads | Represent computations as data structures. | 
+| Tagless Final Encoding | Represent DSLs using typeclass polymorphism. | 
+| Church Encoding | Representing data structures using functions. | 
 
 2. Effect & Control Techniques
 
 Very relevant if you're designing an effect system.
 
 Technique	Description
-| Algebraic Effects	Effects represented as operations + handlers.
-| Effect Handlers	Interpreters for algebraic effects.
-| Delimited Continuations	Partial continuation capture.
-| Call/CC (call-with-current-continuation)	Captures entire continuation.
-| Structured Concurrency	Scoped management of concurrent tasks.
-| Cancellation Propagation	Structured cancellation across tasks.
-| Async/Await	Structured asynchronous control flow.
-| Green Threads	Lightweight user-space threads.
-| Fibers	Cooperative lightweight threads.
+| Algebraic Effects | Effects represented as operations + handlers. | 
+| Effect Handlers | Interpreters for algebraic effects. | 
+| Delimited Continuations | Partial continuation capture. | 
+| Call/CC (call-with-current-continuation) | Captures entire continuation. | 
+| Structured Concurrency | Scoped management of concurrent tasks. | 
+| Cancellation Propagation | Structured cancellation across tasks. | 
+| Async/Await | Structured asynchronous control flow. | 
+| Green Threads | Lightweight user-space threads. | 
+| Fibers | Cooperative lightweight threads. | 
 
 3. Memory Safety & Resource Techniques
 
 Important for capability or linear languages.
 
 Technique	Description
-| Ownership Types	Tracking resource ownership statically.
-| Borrow Checking	Ensuring references obey lifetime rules.
-| Region Inference	Automatically determining memory regions.
-| Escape Analysis	Determining whether objects escape scope.
-| Copy-on-Write	Cloning data only when modified.
-| Interior Mutability	Controlled mutation within immutable structures.
+| Ownership Types | Tracking resource ownership statically. | 
+| Borrow Checking | Ensuring references obey lifetime rules. | 
+| Region Inference | Automatically determining memory regions. | 
+| Escape Analysis | Determining whether objects escape scope. | 
+| Copy-on-Write | Cloning data only when modified. | 
+| Interior Mutability | Controlled mutation within immutable structures. | 
 
 4. Advanced Type System Techniques
 
 You already have many type concepts, but several advanced PL techniques are missing.
 
 Technique	Description
-| Type-Level Programming	Computation performed at the type level.
-| Singleton Types	Types with exactly one inhabitant.
-| Indexed Types	Types indexed by values.
-| Type Witnesses	Values proving type relationships.
-| Type Reflection	Ability to inspect types at runtime.
-| Type Classes	Ad-hoc polymorphism via type constraints.
-| Instance Resolution	Automatic selection of type class implementations.
-| Implicit Parameters	Automatically resolved arguments.
-| Higher-Rank Types	Polymorphism nested inside function arguments.
+| Type-Level Programming | Computation performed at the type level. | 
+| Singleton Types | Types with exactly one inhabitant. | 
+| Indexed Types | Types indexed by values. | 
+| Type Witnesses | Values proving type relationships. | 
+| Type Reflection | Ability to inspect types at runtime. | 
+| Type Classes | Ad-hoc polymorphism via type constraints. | 
+| Instance Resolution | Automatic selection of type class implementations. | 
+| Implicit Parameters | Automatically resolved arguments. | 
+| Higher-Rank Types	| Polymorphism nested inside function arguments. | 
 
 5. Program Optimization Techniques
 
 These are common compiler optimization techniques.
 
 Technique	Description
-| Common Subexpression Elimination	Reusing identical computations.
-| Dead Store Elimination	Removing writes that are never read.
-| Loop Fusion	Combining loops to reduce overhead.
-| Loop Tiling	Optimizing memory locality.
-| Strength Reduction	Replacing expensive operations with cheaper ones.
-| Escape Analysis	Determining stack vs heap allocation.
+| Common Subexpression Elimination | Reusing identical computations. | 
+| Dead Store Elimination | Removing writes that are never read. | 
+| Loop Fusion | Combining loops to reduce overhead. | 
+| Loop Tiling | Optimizing memory locality. | 
+| Strength Reduction | Replacing expensive operations with cheaper ones. | 
+| Escape Analysis | Determining stack vs heap allocation. | 
 
 6. Distributed Programming Techniques
 
 If your language might support distributed systems.
 
 Technique	Description
-| Actor Supervision Trees	Fault tolerance structure used in Erlang.
-| Event Sourcing	State derived from event history.
-| CRDTs	Conflict-free replicated data types.
-| Consensus Algorithms	Distributed agreement (Raft, Paxos).
-| Distributed Transactions	Coordinated updates across nodes.
+| Actor Supervision Trees | Fault tolerance structure used in Erlang. | 
+| Event Sourcing | State derived from event history. | 
+| CRDTs | Conflict-free replicated data types. | 
+| Consensus Algorithms | Distributed agreement (Raft, Paxos). | 
+| Distributed Transactions | Coordinated updates across nodes. | 
 
 7. Program Verification Techniques
 
 Since your glossary contains proof systems, you may want:
 
 Technique	Description
-| Model Checking	Exhaustive state exploration.
-| Symbolic Execution	Executing programs with symbolic inputs.
-| Abstract Interpretation	Static approximation of program behavior.
-| Refinement Checking	Verifying implementation matches specification.
-| Proof-Carrying Code	Programs distributed with correctness proofs.
+| Model Checking | Exhaustive state exploration. | 
+| Symbolic Execution | Executing programs with symbolic inputs. | 
+| Abstract Interpretation | Static approximation of program behavior. | 
+| Refinement Checking | Verifying implementation matches specification. | 
+| Proof-Carrying Code | Programs distributed with correctness proofs. | 
 
 8. DSL and Language Construction Techniques
 
 These show up often in language design.
 
 Technique	Description
-| Embedded DSL (EDSL)	Domain-specific languages embedded in host languages.
-| External DSL	Standalone domain-specific language.
-| Language Workbenches	Tools for building programming languages.
-| Syntax Extensions	Extending language grammar via macros or plugins.
-| Projectional Editing	Editing ASTs directly instead of text.
+| Embedded DSL (EDSL) | Domain-specific languages embedded in host languages. | 
+| External DSL | Standalone domain-specific language. | 
+| Language Workbenches | Tools for building programming languages. | 
+| Syntax Extensions | Extending language grammar via macros or plugins. | 
+| Projectional Editing | Editing ASTs directly instead of text. | 
 
 9. Runtime & Execution Techniques
 Technique	Description
-| Just-In-Time Compilation (JIT)	Compiling code during runtime.
-| Ahead-of-Time Compilation (AOT)	Compiling before execution.
-| Interpreter	Direct execution of source or IR.
-| Bytecode VM	Virtual machine executing bytecode.
-| Tracing JIT	Runtime optimization via hot-path tracing.
-10. Program Structure Techniques
+| Just-In-Time Compilation (JIT) | Compiling code during runtime. | 
+| Ahead-of-Time Compilation (AOT) | Compiling before execution. | 
+| Interpreter | Direct execution of source or IR. | 
+| Bytecode VM | Virtual machine executing bytecode. | 
+| Tracing JIT | Runtime optimization via hot-path tracing. |
+
+11. Program Structure Techniques
 Technique	Description
-| Pipeline Architecture	Programs composed of sequential processing stages.
-| Component-Based Design	Systems built from independent components.
-| Plugin Systems	Extensible architectures using plugins.
-| Hot Code Reloading	Updating code without restarting program.
+| Pipeline Architecture | Programs composed of sequential processing stages. | 
+| Component-Based Design | Systems built from independent components. | 
+| Plugin Systems | Extensible architectures using plugins. | 
+| Hot Code Reloading | Updating code without restarting program. | 
 
 Particularly Advanced Techniques (Often in Research Languages)
 
 These appear in advanced PL research and might interest you.
 
 Technique
-| Bidirectional Type Checking
-| Elaboration-based compilation
-| Proof irrelevance
-| Normalization by evaluation
-| Gradual typing
-| Session types
-| Linear capabilities
-| Dependent pattern matching
-| Universe polymorphism
-| Guarded recursion
+| Bidirectional Type Checking | 
+| Elaboration-based compilation | 
+| Proof irrelevance | 
+| Normalization by evaluation | 
+| Gradual typing | 
+| Session types | 
+| Linear capabilities | 
+| Dependent pattern matching | 
+| Universe polymorphism | 
+| Guarded recursion | 
 One Thing You're Still Missing That Most PL Glossaries Include
 
 A Programming Paradigms section:
 
-| Paradigm
-| Functional Programming
-| Imperative Programming
-| Object-Oriented Programming
-| Logic Programming
-| Dataflow Programming
-| Reactive Programming
-| Declarative Programming
+| Paradigm | 
+| Functional Programming | 
+| Imperative Programming | 
+| Object-Oriented Programming | 
+| Logic Programming | 
+| Dataflow Programming | 
+| Reactive Programming | 
+| Declarative Programming | 
 
 If You're Designing a Language Like Yours (Dependent + Effects + Capabilities)
 
 These are the most relevant advanced techniques you may still want:
 
-| Effect Handlers
+| Effect Handlers | 
 
-| Session Types
+| Session Types | 
 
-| Algebraic Effects
+| Algebraic Effects | 
 
-| Delimited Continuations
+| Delimited Continuations | 
 
-| Region Inference
+| Region Inference | 
 
-| Ownership Types
+| Ownership Types | 
 
-| Proof-Carrying Code
+| Proof-Carrying Code | 
 
-| Normalization by Evaluation
+| Normalization by Evaluation | 
 
-| Dependent Pattern Matching
+| Dependent Pattern Matching | 
 
-| Universe Polymorphism
+| Universe Polymorphism | 
 
 
 1. Evaluation Strategies
@@ -1768,13 +1771,13 @@ These are the most relevant advanced techniques you may still want:
 You have normalization and termination, but not the evaluation strategy family.
 
 Technique	Description
-| Call-by-Value	Function arguments evaluated before function application.
-| Call-by-Name	Arguments evaluated only when used.
-| Call-by-Need	Lazy evaluation with memoization.
-| Strict Evaluation	All arguments evaluated eagerly.
-| Lazy Evaluation	Evaluation delayed until necessary.
-| Normal Order Reduction	Leftmost outermost evaluation strategy.
-| Applicative Order Reduction	Evaluate arguments first (typical languages).
+| Call-by-Value | Function arguments evaluated before function application. | 
+| Call-by-Name | Arguments evaluated only when used. | 
+| Call-by-Need | Lazy evaluation with memoization. | 
+| Strict Evaluation | All arguments evaluated eagerly. | 
+| Lazy Evaluation | Evaluation delayed until necessary. | 
+| Normal Order Reduction | Leftmost outermost evaluation strategy. | 
+| Applicative Order Reduction | Evaluate arguments first (typical languages). | 
 
 These matter because type soundness proofs often depend on evaluation strategy.
 
@@ -1783,125 +1786,125 @@ These matter because type soundness proofs often depend on evaluation strategy.
 You already include pattern matching but not its variants.
 
 Technique	Description
-| Exhaustiveness Checking	Verifying all cases are handled.
-| Pattern Compilation	Transforming pattern matches into decision trees.
-| View Patterns	Matching after applying a function.
-| Guarded Patterns	Conditional patterns.
-| Dependent Pattern Matching	Pattern matching that refines types.
-| Or-Patterns	Matching multiple patterns in one case.
+| Exhaustiveness Checking | Verifying all cases are handled. | 
+| Pattern Compilation | Transforming pattern matches into decision trees. | 
+| View Patterns | Matching after applying a function. | 
+| Guarded Patterns | Conditional patterns. | 
+| Dependent Pattern Matching | Pattern matching that refines types. | 
+| Or-Patterns | Matching multiple patterns in one case. | 
 
 3. Polymorphism Variants
 
 You have parametric functions but not the full taxonomy of polymorphism.
 
 Technique	Description
-| Parametric Polymorphism	Generic functions over types.
-| Ad-hoc Polymorphism	Overloading (type classes).
-| Subtype Polymorphism	Using subtypes interchangeably.
-| Row Polymorphism	Flexible extensible records/effects.
-| Higher-Rank Polymorphism	Quantifiers inside function arguments.
-| Impredicative Polymorphism	Quantification over all types including polymorphic ones.
+| Parametric Polymorphism | Generic functions over types.| 
+| Ad-hoc Polymorphism | Overloading (type classes).| 
+| Subtype Polymorphism | Using subtypes interchangeably.| 
+| Row Polymorphism | Flexible extensible records/effects.| 
+| Higher-Rank Polymorphism | Quantifiers inside function arguments.| 
+| Impredicative Polymorphism | Quantification over all types including polymorphic ones.| 
 
 4. Advanced Data Type Techniques
 
 Important for functional and dependently typed languages.
 
 Technique	Description
-| Inductive Types	Finite data defined by constructors.
-| Coinductive Types	Infinite structures like streams.
-| Recursive Types	Types defined in terms of themselves.
-| Mutually Recursive Types	Types referencing each other.
-| Phantom Types	Type parameters not used at runtime.
-| Indexed Data Types	Types indexed by values.
+| Inductive Types | Finite data defined by constructors.| 
+| Coinductive Types	| Infinite structures like streams.| 
+| Recursive Types | Types defined in terms of themselves.| 
+| Mutually Recursive Types | Types referencing each other.| 
+| Phantom Types	| Type parameters not used at runtime.| 
+| Indexed Data Types | Types indexed by values.| 
 
 5. Program Analysis Techniques
 
 Common in compilers and verification tools.
 
 Technique	Description
-| Alias Analysis	Determining if references refer to the same memory.
-| Liveness Analysis	Determining which variables are used later.
-| Escape Analysis	Detecting if values escape scope.
-| Points-to Analysis	Tracking pointer targets.
-| Shape Analysis	Analyzing heap data structures.
+| Alias Analysis | Determining if references refer to the same memory. | 
+| Liveness Analysis	| Determining which variables are used later. | 
+| Escape Analysis | Detecting if values escape scope. | 
+| Points-to Analysis | Tracking pointer targets. | 
+| Shape Analysis | Analyzing heap data structures. | 
 
 6. Scheduling Techniques
 
 Relevant to concurrency runtimes.
 
 Technique	Description
-| Preemptive Scheduling	OS interrupts tasks.
-| Cooperative Scheduling	Tasks yield control voluntarily.
-| Work Stealing	Threads dynamically steal tasks.
-| Actor Scheduling	Actors scheduled independently.
-| Task Pools	Thread pools executing tasks.
+| Preemptive Scheduling | OS interrupts tasks. | 
+| Cooperative Scheduling | Tasks yield control voluntarily. | 
+| Work Stealing | Threads dynamically steal tasks. | 
+| Actor Scheduling | Actors scheduled independently. | 
+| Task Pools | Thread pools executing tasks. | 
 
 7. Advanced Metaprogramming Techniques
 
 Beyond macros.
 
 Technique	Description
-| Quasiquotation	Code templates with holes.
-| Staging	Multi-phase program generation.
-| Reflection	Programs inspecting their structure.
-| Reification	Turning runtime structures into code/data.
-| Compile-Time Reflection	Inspecting program structure during compilation.
+| Quasiquotation| Code templates with holes.| 
+| Staging| Multi-phase program generation.| 
+| Reflection| Programs inspecting their structure.| 
+| Reification| Turning runtime structures into code/data.| 
+| Compile-Time Reflection| Inspecting program structure during compilation.| 
 
 8. Language Interoperability Techniques
 
 Useful for real-world languages.
 
 Technique	Description
-| ABI (Application Binary Interface)	Binary-level compatibility between languages.
-| Foreign Data Representation	Mapping types between languages.
-| Marshalling	Converting data formats across boundaries.
-| Serialization	Converting objects into transferable formats.
+| ABI (Application Binary Interface) | Binary-level compatibility between languages. | 
+| Foreign Data Representation | Mapping types between languages. | 
+| Marshalling | Converting data formats across boundaries.| 
+| Serialization	| Converting objects into transferable formats.| 
 
 9. Security-Oriented Programming Techniques
 
 Especially relevant since you include capabilities.
 
 Technique	Description
-| Sandboxing	Restricting program execution environment.
-| Capability Safety	Ensuring capabilities cannot be forged.
-| Information Flow Control	Preventing secret data leaks.
-| Taint Tracking	Tracking untrusted data flow.
-| Secure Multi-Party Computation	Computation over private data.
+| Sandboxing | Restricting program execution environment. | 
+| Capability Safety	| Ensuring capabilities cannot be forged.| 
+| Information Flow Control | Preventing secret data leaks.| 
+| Taint Tracking | Tracking untrusted data flow. | 
+| Secure Multi-Party Computation | Computation over private data. | 
 
 10. Advanced Mathematical Programming Concepts
 
 Used in research languages.
 
 Technique	Description
-| Dependent Pattern Matching	Pattern matching that refines types.
-| Proof Irrelevance	Proofs ignored for equality.
-| Normalization by Evaluation (NbE)	Evaluating terms to compute normal forms.
-| Logical Relations	Technique for proving type system properties.
-| Parametricity	Free theorems derived from polymorphism.
+| Dependent Pattern Matching | Pattern matching that refines types. | 
+| Proof Irrelevance	| Proofs ignored for equality. | 
+| Normalization by Evaluation (NbE)	| Evaluating terms to compute normal forms. | 
+| Logical Relations	| Technique for proving type system properties. | 
+| Parametricity	| Free theorems derived from polymorphism. | 
 
 Things Almost No Glossary Omits
 
 If your glossary is meant to be extremely complete, these are almost always included:
 
-| Evaluation Strategy
+| Evaluation Strategy | 
 
-| Polymorphism
+| Polymorphism | 
 
-| Algebraic Data Types
+| Algebraic Data Types | 
 
-| Inductive Types
+| Inductive Types | 
 
-| Coinductive Types
+| Coinductive Types | 
 
-| Continuation Passing Style
+| Continuation Passing Style | 
 
-| Effect Handlers
+| Effect Handlers | 
 
-| Logical Relations
+| Logical Relations | 
 
-| Normalization by Evaluation
+| Normalization by Evaluation | 
 
-| Row Polymorphism
+| Row Polymorphism | 
 
 Realistically
 
@@ -1909,123 +1912,129 @@ If you add everything mentioned across our discussion, your glossary would cover
 
 1. Advanced Type / Logic Techniques
 Term	Why It Matters
-| Dependent Records / Sigma Types	Records whose fields can depend on earlier fields; common in dependent type systems.
-| Coproduct Types	Another name for sum types; explicit in category theory.
-| Universe Hierarchies	Types of types to avoid paradoxes (Type_0, Type_1, …).
-| Type Equality Checking	Definitional vs propositional equality.
-| Irrelevant / Proof-Only Arguments	Arguments used for proofs but erased at runtime.
-| Singleton / Unit Types	Useful for phantom types, capabilities, and type-level computations.
-| Dependant Intersection / Union Types	Combining types that depend on runtime values.
+| Dependent Records / Sigma Types | Records whose fields can depend on earlier fields; common in dependent type systems. | 
+| Coproduct Types | Another name for sum types; explicit in category theory. | 
+| Universe Hierarchies | Types of types to avoid paradoxes (Type_0, Type_1, …). | 
+| Type Equality Checking | Definitional vs propositional equality. | 
+| Irrelevant / Proof-Only Arguments | Arguments used for proofs but erased at runtime. | 
+| Singleton / Unit Types | Useful for phantom types, capabilities, and type-level computations. | 
+| Dependant Intersection / Union Types | Combining types that depend on runtime values. | 
 
 2. Advanced Effect / Capability Techniques
 Term	Why It Matters
-| Linear / Affine Effects	Ensures effects or resources are used exactly once or at most once.
-| Capability Revocation	Ability to revoke authority safely.
-| Authority Inference	Automatic derivation of capabilities needed for code.
-| Effect Polymorphism	Functions can work over unknown effects.
-| Scoped Effects / Regions	Restricting effect lifetimes to a block of code.
+| Linear / Affine Effects | Ensures effects or resources are used exactly once or at most once.| 
+| Capability Revocation | Ability to revoke authority safely.| 
+| Authority Inference | Automatic derivation of capabilities needed for code.| 
+| Effect Polymorphism | Functions can work over unknown effects.| 
+| Scoped Effects / Regions | Restricting effect lifetimes to a block of code.| 
 
 3. Advanced Concurrency / Parallelism
 Term	Why It Matters
-| Software Transactional Memory (STM)	Composable atomic memory transactions.
-| Lock-Free Data Structures	Concurrent programming without locks.
-| Wait-Free Programming	Guarantees every thread makes progress.
-| Futures / Promises	Asynchronous value placeholders (you have this but could expand).
-| Reactive Streams / Observables	Dataflow style concurrency.
+| Software Transactional Memory (STM) | Composable atomic memory transactions.| 
+| Lock-Free Data Structures	| Concurrent programming without locks.| 
+| Wait-Free Programming	| Guarantees every thread makes progress.| 
+| Futures / Promises | Asynchronous value placeholders (you have this but could expand).| 
+| Reactive Streams / Observables | Dataflow style concurrency.| 
 
 4. Program Verification / Proof Techniques
 Term	Why It Matters
-| Sequent Calculus	Another formal proof style besides natural deduction.
-| Tactics / Tacticals	Automation in proof construction.
-| Refinement Types / Liquid Types	Types constrained by predicates.
-| Canonical Forms Lemmas	Needed in type soundness proofs.
-| Normalization Proofs	Guarantee of strong normalization.
-| Proof Irrelevance / Relevance	Distinguishing runtime-relevant vs erased proofs.
+| Sequent Calculus | Another formal proof style besides natural deduction.| 
+| Tactics / Tacticals | Automation in proof construction.| 
+| Refinement Types / Liquid Types | Types constrained by predicates.| 
+| Canonical Forms Lemmas | Needed in type soundness proofs.| 
+| Normalization Proofs | Guarantee of strong normalization.| 
+| Proof Irrelevance / Relevance	| Distinguishing runtime-relevant vs erased proofs.| 
 
 5. Program Transformation / Compiler Techniques
 Term	Why It Matters
-| Administrative Normal Form (ANF)	Intermediate representation simplifying evaluation order.
-| Continuation-Passing Style (CPS)	Transforming control flow into continuations.
-| Closure Conversion	Converting functions with free variables into closures.
-| Inlining / Partial Evaluation	Optimization techniques.
-| Defunctionalization	Eliminating higher-order functions by representing them as data.
-| Multi-Stage Programming	Generating code in multiple compilation stages.
+| Administrative Normal Form (ANF) | Intermediate representation simplifying evaluation order.| 
+| Continuation-Passing Style (CPS) | Transforming control flow into continuations.| 
+| Closure Conversion | Converting functions with free variables into closures.| 
+| Inlining / Partial Evaluation	| Optimization techniques.| 
+| Defunctionalization | Eliminating higher-order functions by representing them as data.| 
+| Multi-Stage Programming | Generating code in multiple compilation stages.| 
 
 6. Runtime / System Techniques
 Term	Why It Matters
-| Garbage Collection Strategies	Reference counting, mark-sweep, generational GC.
-| Stack vs Heap Allocation	Memory layout implications.
-| Lazy / Strict Evaluation Runtime	Affecting performance and evaluation semantics.
-| Hot Code Swapping	Dynamic replacement of code at runtime.
-| Deterministic Concurrency	Guarantees same output regardless of thread scheduling.
+| Garbage Collection Strategies	| Reference counting, mark-sweep, generational GC. | 
+| Stack vs Heap Allocation | Memory layout implications. | 
+| Lazy / Strict Evaluation Runtime | Affecting performance and evaluation semantics. | 
+| Hot Code Swapping	| Dynamic replacement of code at runtime. | 
+| Deterministic Concurrency	Guarantees same output regardless of thread scheduling. | 
 
 7. Niche but Useful Concepts
 Term	Why It Matters
-| Session Types	Typing communication protocols in concurrency.
-| Gradual Typing	Mixing static and dynamic typing.
-| Ownership and Borrowing	Memory/resource safety (Rust-style).
-| Dependent Pattern Matching	Refining types while matching on values.
-| Projectional Editing / Structural Editing	Editing AST directly instead of text.
-| Embedded DSLs / Tagless Final	Internal domain-specific languages.
+| Session Types	| Typing communication protocols in concurrency. | 
+| Gradual Typing | Mixing static and dynamic typing. | 
+| Ownership and Borrowing | Memory/resource safety (Rust-style). | 
+| Dependent Pattern Matching | Refining types while matching on values. | 
+| Projectional Editing / Structural Editing | Editing AST directly instead of text. | 
+| Embedded DSLs / Tagless Final	| Internal domain-specific languages. | 
 
 Term	Definition
-Semaphore	A synchronization primitive that maintains a counter to control access to shared resources, typically supporting wait (decrement) and signal (increment) operations.
-↳ Binary Semaphore	A semaphore that can only be 0 or 1; functions like a mutex.
-↳ Counting Semaphore	A semaphore that can take any non-negative integer, controlling access to multiple instances of a resource.
+| Semaphore	| A synchronization primitive that maintains a counter to control access to shared resources, typically supporting wait (decrement) and signal (increment) operations. | 
+| ↳ Binary Semaphore | A semaphore that can only be 0 or 1; functions like a mutex. | 
+| ↳ Counting Semaphore | A semaphore that can take any non-negative integer, controlling access to multiple instances of a resource. | 
 
 
 1. Classical Concurrency Primitives
 Term	Definition
-Mutex (Mutual Exclusion Lock)	Ensures that only one thread accesses a critical section at a time.
-Spinlock	A lock where a thread repeatedly checks until it acquires the lock (busy-wait).
-Read-Write Lock	Allows multiple readers or one writer to access a resource.
-Barrier	Synchronization point where threads wait until all have reached it.
-Condition Variable	Allows threads to wait for certain conditions while releasing locks.
-Monitor	High-level abstraction combining mutual exclusion and condition variables.
+| Mutex (Mutual Exclusion Lock) | Ensures that only one thread accesses a critical section at a time. | 
+| Spinlock | A lock where a thread repeatedly checks until it acquires the lock (busy-wait). | 
+| Read-Write Lock | Allows multiple readers or one writer to access a resource. | 
+| Barrier | Synchronization point where threads wait until all have reached it. | 
+| Condition Variable | Allows threads to wait for certain conditions while releasing locks. | 
+| Monitor | High-level abstraction combining mutual exclusion and condition variables. | 
 2. Modern / Higher-Level Concurrency Constructs
-Term	Definition
-Futures / Promises	Placeholders for values that are computed asynchronously.
-Async/Await	Structured syntax for writing asynchronous code sequentially.
-Software Transactional Memory (STM)	Composable atomic memory transactions for concurrency.
-Message Passing	Communication via messages rather than shared memory (e.g., Actor Model).
-Event-Driven Programming	Concurrency based on reacting to events instead of threads.
-Reactive Streams / Observables	Dataflow programming with asynchronous streams.
-Work Stealing / Task Pools	Dynamic scheduling of tasks across threads for load balancing.
+
+| Futures / Promises | Placeholders for values that are computed asynchronously. | 
+| Async/Await | Structured syntax for writing asynchronous code sequentially. | 
+| Software Transactional Memory (STM) | Composable atomic memory transactions for concurrency. | 
+| Message Passing | Communication via messages rather than shared memory (e.g., Actor Model). | 
+| Event-Driven Programming | Concurrency based on reacting to events instead of threads. | 
+| Reactive Streams / Observables | Dataflow programming with asynchronous streams. | 
+| Work Stealing / Task Pools | Dynamic scheduling of tasks across threads for load balancing. | 
+
 3. Memory / Resource Concurrency Techniques
 Term	Definition
-Lock-Free Programming	Algorithms designed to avoid locks entirely.
-Wait-Free Programming	Guarantees every thread makes progress in bounded steps.
-Linear / Affine Concurrency	Ensures resources (e.g., capabilities) are accessed exactly once or at most once.
-Deterministic Concurrency	Ensures that program behavior does not depend on thread scheduling.
+| Lock-Free Programming | Algorithms designed to avoid locks entirely. | 
+| Wait-Free Programming | Guarantees every thread makes progress in bounded steps. | 
+| Linear / Affine Concurrency	| Ensures resources (e.g., capabilities) are accessed exactly once or at most once. | 
+| Deterministic Concurrency | Ensures that program behavior does not depend on thread scheduling. | 
 
-|
+
 1. Highly Language-Specific Features
 Term	Definition
-Non-Lexical Lifetimes (Rust)	Lifetime analysis that allows references to end before the end of their enclosing scope.
-GHC Optimizations (Haskell)	Compiler-specific optimizations like worker-wrapper transformation, strictness analysis, and rule-based rewrite optimizations.
-Scala Implicits	Mechanism to provide arguments automatically based on type, used for typeclass-like programming.
-Type-Level Literals (Haskell / TypeScript)	Literal types encoded at the type level for compile-time guarantees.
-Dependent Pattern Matching (Agda / Idris)	Pattern matching where the type of the result depends on the matched value.
-Trait / Typeclass Specialization (Rust / Haskell)	Specializing generic implementations for specific types for efficiency.
+| Non-Lexical Lifetimes (Rust) | Lifetime analysis that allows references to end before the end of their enclosing scope. |
+| GHC Optimizations (Haskell) | Compiler-specific optimizations like worker-wrapper transformation, strictness analysis, and rule-based rewrite optimizations. |
+| Scala Implicits | Mechanism to provide arguments automatically based on type, used for typeclass-like programming. | 
+| Type-Level Literals (Haskell / TypeScript) | Literal types encoded at the type level for compile-time guarantees. | 
+| Dependent Pattern Matching (Agda / Idris) | Pattern matching where the type of the result depends on the matched value. | 
+| Trait / Typeclass Specialization (Rust / Haskell)	| Specializing generic implementations for specific types for efficiency. | 
+
 2. Hardware / OS-Specific Implementation Concepts
 Term	Definition
-CPU Pipeline	Sequential stages (fetch, decode, execute, memory, writeback) for instruction-level parallelism.
-Cache Management	Optimizations of memory access through CPU caches (L1/L2/L3) to reduce latency.
-Prefetching	Loading memory into cache before it is actually needed to hide latency.
-Memory Fences / Barriers	Low-level synchronization primitives to enforce ordering of memory operations.
-NUMA Awareness	Optimizing memory access patterns for Non-Uniform Memory Access architectures.
-Branch Prediction	CPU hardware technique to speculatively execute instructions to avoid stalls.
+| CPU Pipeline | Sequential stages (fetch, decode, execute, memory, writeback) for instruction-level parallelism. | 
+| Cache Management | Optimizations of memory access through CPU caches (L1/L2/L3) to reduce latency. | 
+| Prefetching | Loading memory into cache before it is actually needed to hide latency. |
+| Memory Fences / Barriers | Low-level synchronization primitives to enforce ordering of memory operations. |
+| NUMA Awareness | Optimizing memory access patterns for Non-Uniform Memory Access architectures. |
+| Branch Prediction | CPU hardware technique to speculatively execute instructions to avoid stalls. |
+
+
 3. Extremely Niche Research Constructs
 Term	Definition
-Cubical Type Theory Variants	Advanced HoTT constructs like ∞-groupoids for homotopy semantics.
-Guarded Recursion	Ensures productivity in infinite or coinductive computations.
-Refinement Reflection	Using theorem proving to reflect properties of code into type-level constraints.
-Logical Relations Beyond Parametricity	Techniques for proving program equivalence or type safety in very advanced type systems.
-Projectional Editing / Structural Editing	Editing ASTs directly rather than textual source code; mostly research IDEs.
-Linear / Affine Session Types	Type systems modeling communication protocols with strict usage guarantees.
-Normalization by Evaluation (NbE) for Dependent Types	Advanced term evaluation for proving properties in dependently typed languages.
-Cubical / Higher Inductive Types	Types with computational paths as constructors, used in research-level HoTT.
-Universe Polymorphism	Polymorphism over type universes to avoid paradoxes in dependent type theory.
+
+
+| Cubical Type Theory Variants| Advanced HoTT constructs like ∞-groupoids for homotopy semantics. |
+| Guarded Recursion	| Ensures productivity in infinite or coinductive computations. |
+| Refinement Reflection	| Using theorem proving to reflect properties of code into type-level constraints. |
+| Logical Relations Beyond Parametricity | Techniques for proving program equivalence or type safety in very advanced type systems. |
+| Projectional Editing / Structural Editing	| Editing ASTs directly rather than textual source code; mostly research IDEs. |
+| Linear / Affine Session Types	| Type systems modeling communication protocols with strict usage guarantees. |
+| Normalization by Evaluation (NbE) for Dependent Types	| Advanced term evaluation for proving properties in dependently typed languages. |
+| Cubical / Higher Inductive Types | Types with computational paths as constructors, used in research-level HoTT. |
+| Universe Polymorphism	| Polymorphism over type universes to avoid paradoxes in dependent type theory. |
 
 | Lexical scoping |
 | Definitional Equality | 
