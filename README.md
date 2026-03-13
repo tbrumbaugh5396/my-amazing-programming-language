@@ -1519,51 +1519,80 @@ Constructs unique to particular languages or ecosystems.
 | Curry–Howard–Lambek Correspondence | Extension of Curry–Howard relating logic, type theory, and category theory. | Mathematical Foundations |
 ||
 | **D** | |
-| Data Structures | Concrete implementations of data organization optimized for operations. |
-| Data Types | Formal definitions describing sets of values and operations. |
-| Dependent Types | Types that depend on values. |
-| Desugaring | Translation of high-level syntax into simpler core language constructs. |
-| ↳ Desugaring Macros | Macros that expand purely into simpler syntax. |
-| DSA | Data Structures and Algorithms. |
-| DETERMINISM ||
-| Defunctionalization | Replacing higher-order functions with data structures. | 
-| Delimited Continuations | 
-| Dependency Injection | Passing dependencies instead of creating them internally. | 
-| Dependent pattern matching | 
-| Defunctionalization | 
-| Data Parallelism | Parallel operations on large data sets. | 
-| Dataflow Analysis | Tracks values through program control flow.| 
-| DENOTATIONAL SEMANTICS ||
-| Dead Code Elimination	| Removing unused computations. | 
-| Delimited Continuations | Capturing partial continuations. | 
-| Data-Oriented Design | Structuring programs around data layout and access patterns. | 
-| Delimited Continuations | Partial continuation capture. | 
-| Distributed Transactions | Coordinated updates across nodes. | 
-| Dead Store Elimination | Removing writes that are never read. | 
-| Dependent Pattern Matching | Pattern matching that refines types. | 
-| Dependent Pattern Matching | Pattern matching that refines types. | 
-| Dependent Records / Sigma Types | Records whose fields can depend on earlier fields; common in dependent type systems. | 
-| Dependant Intersection / Union Types | Combining types that depend on runtime values. | 
-| Deterministic Concurrency	Guarantees same output regardless of thread scheduling. | 
-| Defunctionalization | Eliminating higher-order functions by representing them as data.| 
-| Dependent Pattern Matching | Refining types while matching on values. | 
-| Dependent Pattern Matching (Agda / Idris) | Pattern matching where the type of the result depends on the matched value. | 
-| Deterministic Concurrency | Ensures that program behavior does not depend on thread scheduling. | 
-| DATAFLOW ||
-| DEFINTIIONAL EQUALITY ||
-| DEFINITIONAL INEQUALITY |||
-| DEPENDENCIES ||
-| Delimited Continuations | 
-| Declarative Programming | 
-| Dataflow Programming |
-| Dependent Pattern Matching | 
-| Defunctionalization | Replaces higher-order functions with data structures. |
-| Dependency Graph | Graph of package dependencies. |
+| Data Parallelism | Parallel computation model where the same operation is applied simultaneously across many elements of a dataset. | Parallel Programming Techniques |
+| Data Structures | Concrete implementations of data organization optimized for operations such as insertion, lookup, and traversal. | Data-Oriented Programming Techniques |
+| Data Types | Formal definitions describing sets of values and the operations permitted on them. | Type Systems |
+| Data-Oriented Design | Programming approach that structures software around efficient data layout and transformation rather than objects. | Data-Oriented Programming Techniques |
+| Dataflow | Execution model where computation is triggered by the availability of input data rather than explicit control flow. | Programming Paradigms |
+| Dataflow Analysis | Static analysis technique that tracks how values propagate through program control flow. | Program Analysis Techniques |
+| Dataflow Programming | Paradigm where programs are represented as graphs of operations connected by data dependencies. | Programming Paradigms |
+| Dead Code Elimination | Compiler optimization that removes code whose results are never used. | Program Optimization Techniques |
+| Dead Store Elimination | Optimization removing writes to memory locations whose values are never subsequently read. | Program Optimization Techniques |
+| Declarative Programming | Programming paradigm where programs describe what should be computed rather than how to compute it. | Programming Paradigms |
+| Definitional Equality | Equality relation in type theory where two expressions are considered equal by definition (e.g., through computation or normalization). | Advanced Type System Techniques |
+| Definitional Inequality | Relation describing ordered comparisons between expressions based on definitional reductions or structural relations. | Advanced Type System Techniques |
+| Defunctionalization | Program transformation replacing higher-order functions with concrete data structures representing possible function cases. | Program Transformation / Compiler Techniques |
+| Delimited Continuations | Control-flow mechanism capturing a portion of the program continuation rather than the entire remaining computation. | Effect & Control Techniques |
+| Denotational Semantics | Formal semantics describing program meaning as mathematical objects independent of execution steps. | Programming Language Semantics |
+| Dependencies | External libraries, modules, or components required for a program to build or run. | Build / Package Systems |
+| Dependency Graph | Directed graph representing relationships between program modules or packages. | Build / Package Systems |
+| Dependency Injection | Design technique where dependencies are provided externally rather than created internally by a component. | Architectural Programming Techniques |
+| Dependent Intersection / Union Types | Types whose structure depends on runtime values or logical constraints, extending traditional union or intersection types. | Advanced Type System Techniques |
+| Dependent Pattern Matching | Pattern matching that refines the type context based on the value matched. | Advanced Type System Techniques |
+| Dependent Pattern Matching (Agda / Idris) | Pattern matching where the type of the result can depend on the specific value matched. | Advanced Type System Techniques |
+| Dependent Records / Sigma Types | Records whose fields may depend on values of previous fields, commonly used in dependent type systems. | Advanced Data Type Techniques |
+| Dependent Types | Type systems where types may depend on runtime values, enabling expressive specifications and proofs. | Advanced Type System Techniques |
+| Desugaring | Compiler process translating high-level syntactic constructs into simpler core language forms. | Compiler Architecture |
+| ↳ Desugaring Macros | Macros that expand purely into simpler core syntax without introducing new semantics. | Metaprogramming Techniques |
+| Determinism | Property where a program produces the same output for the same input regardless of execution environment or scheduling. | Programming Language Semantics |
+| Deterministic Concurrency | Concurrency model guaranteeing that program behavior does not depend on thread scheduling. | Concurrency Programming Techniques |
+| Distributed Transactions | Mechanisms ensuring coordinated updates across multiple nodes with atomicity and consistency guarantees. | Distributed Programming Techniques |
+| DSA (Data Structures and Algorithms) | Field of study focusing on fundamental algorithms and data structures used to solve computational problems efficiently. | Computer Science Foundations |
 ||
 | **E** | |
-| Effects | Observable interactions such as I/O, mutation, or exceptions. |
+| Effect Handlers | Mechanisms that interpret or manage algebraic effects, providing structured control over effectful operations. | Effect & Control Techniques |
+| Effect Lowering | Compiler stage translating high-level effect abstractions into concrete runtime mechanisms. | Compiler Architecture, Effect Systems |
+| Effect Polymorphism | Type system feature allowing functions to operate over unknown or parameterized sets of effects. | Advanced Type System Techniques |
+| Effect Rows | Row-polymorphic representation of effects used in effect systems to track sets of side effects. | Advanced Type System Techniques |
+| Effect System | Type system extension that tracks side effects (such as I/O, mutation, or exceptions) as part of type checking. | Effect & Control Techniques |
+| Effects | Observable interactions with the outside world or program state such as I/O, mutation, or exceptions. | Effect & Control Techniques |
 | ↳ Arbitrary Effects | Unrestricted side effects permitted by the runtime. |
 | ↳ Effect Lowering | Compilation step converting effect abstractions into runtime mechanisms. |
+| Effects and Capability Systems | Language design approach combining effect tracking with explicit capability-based authority management. | Advanced Effect / Capability Techniques |
+| Elaboration | Compiler stage translating surface syntax into a typed core language representation. | Compiler Architecture |
+| Elaboration-Based Compilation | Compilation strategy where programs are elaborated into a richer intermediate representation before further compilation stages. | Compiler Architecture |
+| Elimination Rules | Type theory rules describing how values of a given type can be used or deconstructed. | Proof / Logic Concepts |
+| Embedded DSL (EDSL) | Domain-specific language implemented within a host language using its syntax and type system. | DSL and Language Construction Techniques |
+| Embedded DSLs / Tagless Final | Technique for implementing typed embedded DSLs using polymorphism rather than explicit syntax trees. | Metaprogramming Techniques |
+| Equational Reasoning | Method of reasoning about programs using algebraic equations and substitution. | Proof / Logic Concepts |
+| Equality Relations | Different formal notions of equality used in programming languages and type systems. | Programming Language Semantics |
+| ↳ Alpha-Equivalence | Equality ignoring variable renaming in lambda expressions. | Lambda Calculus |
+| ↳ Beta-Equivalence | Equality derived from β-reduction (function application). | Lambda Calculus |
+| ↳ Eta-Equivalence | Equality expressing extensionality of functions (two functions are equal if they behave identically). | Lambda Calculus |
+| ↳ Definitional Equality | Equality determined by computation or normalization in a type system. | Advanced Type System Techniques |
+| ↳ Propositional Equality | Equality expressed as a type whose inhabitants are proofs of equality. | Dependent Type Systems |
+| ↳ Structural Equality | Equality based on recursive comparison of data structure contents. | Data Structures |
+| ↳ Nominal Equality | Equality determined by identity of named entities rather than structure. | Programming Language Semantics |
+| ↳ Observational Equality | Two programs are equal if no context can distinguish their behavior. | Program Semantics |
+| ↳ Pointer / Reference Equality | Equality based on whether two references point to the same memory location. | Runtime & Execution Techniques |
+| ↳ Simulation | Relation where one system mimics the behavior of another. | Program Verification |
+| ↳ Bisimulation | Stronger relation where two systems mutually simulate each other. | Program Verification |
+| Erasure | Compilation technique removing constructs used only at compile time. | Compiler Techniques |
+| ↳ Proof Erasure | Removal of proof terms after verification in dependently typed languages. | Program Verification Techniques |
+| ↳ Type Erasure | Removal of type annotations during compilation when they are not required at runtime. | Compiler Techniques |
+| Erasable | Marker indicating that a construct can be safely removed during compilation without affecting runtime behavior. | Compiler Techniques |
+| Escape Analysis | Static analysis determining whether objects escape the scope where they are allocated, enabling stack allocation. | Program Analysis Techniques |
+| Eta-Equivalence | Equality rule expressing that two functions are equivalent if they produce identical outputs for all inputs. | Lambda Calculus |
+| Evaluation Strategy | Rules determining when and how expressions are evaluated during program execution. | Evaluation Strategies |
+| Event-Driven Programming | Programming paradigm where control flow is driven by events such as user actions, messages, or I/O signals. | Concurrency Programming Techniques |
+| Event Sourcing | Architectural pattern where system state is derived by replaying a sequence of events. | Distributed Programming Techniques |
+| Exception Handling | Structured mechanism for propagating and handling runtime errors or exceptional conditions. | Control Flow Techniques |
+| Exhaustiveness Checking | Static verification that pattern matching covers all possible cases of a data type. | Type Systems |
+| External DSL | Standalone domain-specific language with its own syntax and tooling separate from a host language. | DSL and Language Construction Techniques |
+| Extraction | Technique for generating executable programs from proofs or formal specifications. | Program Verification Techniques |
+| ↳ Proof Extraction | Extracting executable code from formal proofs in proof assistants. | Program Verification Techniques |
+
+| Effects | Observable interactions such as I/O, mutation, or exceptions. |
 | Elaboration | Compiler stage translating surface syntax into typed core language representation. |
 | ↳ Expander | Component responsible for macro expansion. |
 | Erasure | Removal of compile-time constructs not needed at runtime. |
@@ -1658,7 +1687,6 @@ Constructs unique to particular languages or ecosystems.
 | HoTT | Homotopy Type Theory connecting type theory with homotopy theory. |
 | HOMOMORPHISM ||
 | Hylomorphism | Combination of unfold + fold. | 
- 
 ||
 | **I** || 
 | Imports | Mechanism for accessing definitions from other modules. |
