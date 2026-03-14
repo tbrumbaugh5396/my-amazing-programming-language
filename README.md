@@ -1626,6 +1626,7 @@ Constructs unique to particular languages or ecosystems.
 ||
 | **H** | |
 | Hash | Function that deterministically maps data of arbitrary size to fixed-size values, often used for indexing, caching, or data integrity checks. | Data Structures, Security-Oriented Programming |
+| HASKELL CURRY |||
 | Hermetic Builds | Build process designed to be fully reproducible by isolating dependencies from the host system environment. | Build / Package Systems |
 | Higher-Kinded Types | Type system feature where type constructors themselves can take other type constructors as parameters. | Advanced Type System Techniques |
 | Higher-Order Functions | Functions that take other functions as arguments or return functions as results. | Functional Programming Techniques |
@@ -1650,6 +1651,7 @@ Constructs unique to particular languages or ecosystems.
 | Inference Rules | Formal logical rules used to derive judgments in type systems or formal semantics. | Proof / Logic Concepts |
 | ↳ Type Inference | Automatic deduction of expression types without requiring explicit annotations. | Advanced Type System Techniques |
 | Information Flow Control | Techniques ensuring that sensitive data cannot improperly influence observable outputs. | Security-Oriented Programming Techniques |
+| INHABITED |||
 | Inhabited Types | Types that have at least one value that can inhabit them. | Type Systems |
 | Initial Algebra | Mathematical model used to describe inductive data types and structural recursion. | Advanced Mathematical Programming Concepts |
 | Inlining | Compiler optimization replacing function calls with the body of the called function. | Program Optimization Techniques |
@@ -1669,244 +1671,193 @@ Constructs unique to particular languages or ecosystems.
 | Inversion of Control | Design principle where control flow is delegated to external frameworks or runtime systems. | Architectural Programming Techniques |
 | IR | Intermediate representation used by compilers. |
 | Irrelevant / Proof-Only Arguments | Arguments used only for type checking or proofs that are erased during compilation. | Advanced Type System Techniques |
-
-
-| Interior Mutability | Controlled mutation within immutable structures. | 
-| Indexed Types | Types indexed by values. | 
-| Instance Resolution | Automatic selection of type class implementations. | 
-| Implicit Parameters | Automatically resolved arguments. | 
-| Interpreter | Direct execution of source or IR. | 
-| Imperative Programming | 
-| Impredicative Polymorphism | Quantification over all types including polymorphic ones.| 
-| Indexed Data Types | Types indexed by values.| 
-| Inductive Types | Finite data defined by constructors.| 
-| Information Flow Control | Preventing secret data leaks.| 
-| Inductive Types |
-| Irrelevant / Proof-Only Arguments | Arguments used for proofs but erased at runtime. | 
-| Inlining / Partial Evaluation	| Optimization techniques.| 
-| INHABITED || 
-| Inlining | Function body substitution optimization.
-| Incremental Compilation | Only recompiling changed code. | 
-| Introduction Rules | Construct values of a type. | 
-| Immutability | Avoiding mutable state. |
-| Inlining | Replacing function calls with their body. | 
-| Inversion of Control | Delegating control flow to external frameworks. | 
 ||
 | **J** || 
-| JUDGEMENTS ||
-| ↳ Context Rules ||
-| ↳ Variable Rules ||
-| ↳ Function Rules ||
-| ↳ Subtyping Rules ||
-| ↳ Product Types Rules ||
-| ↳ Sum Types Rules ||
-| ↳ Type Inference Rules ||
-| ↳ Constraint Generation Rules ||
-| ↳ Dependent Type Rules ||
-| ↳ Capability / Effect Typing Rules ||
-| ↳ Linear Typing Rules ||
-| ↳ Module Typing Rules ||
-| ↳ Equality Types Rules ||
-| ↳ Introduction Rules ||
-| ↳ Application Rules ||
-| ↳ Elimination Rules ||
-| ↳ Normalization / Conversion Rules ||
-| ↳ Hindley-Milner Types Rules ||
-| Just-In-Time Compilation (JIT) | Compiling code during runtime. | 
-| Judgment Forms | Types of logical statements (e.g. Γ ⊢ e : τ). | 
+| Judgment Forms | Structured logical statements used in formal systems to express relationships such as typing, evaluation, or equivalence (e.g., Γ ⊢ e : τ). | Proof / Logic Concepts |
+| Judgments | Formal statements used in programming language semantics and type systems that assert properties about programs. | Proof / Logic Concepts |
+| ↳ Application Rules | Inference rules describing how functions are applied to arguments during typing or evaluation. | Type Systems |
+| ↳ Capability / Effect Typing Rules | Typing rules governing how effects or capabilities propagate through programs. | Advanced Effect / Capability Techniques |
+| ↳ Constraint Generation Rules | Rules that generate type constraints during type inference. | Advanced Type System Techniques |
+| ↳ Context Rules | Rules governing how typing contexts (Γ) are constructed and extended with new assumptions. | Type Systems |
+| ↳ Dependent Type Rules | Typing rules specific to dependent type systems where types may depend on values. | Advanced Type System Techniques |
+| ↳ Elimination Rules | Rules describing how values of a type can be used or deconstructed. | Proof / Logic Concepts |
+| ↳ Equality Type Rules | Rules governing equality types or equivalence relations within a type system. | Advanced Type System Techniques |
+| ↳ Function Rules | Rules describing typing and evaluation behavior of functions and lambda abstractions. | Type Systems |
+| ↳ Hindley–Milner Type Rules | Inference rules defining typing judgments in the Hindley–Milner polymorphic type system. | Advanced Type System Techniques |
+| ↳ ↳ Type Inference Rules ||
+| ↳ Introduction Rules | Rules describing how to construct values of a given type. | Proof / Logic Concepts |
+| ↳ Linear Typing Rules | Typing rules enforcing linear usage constraints on variables or resources. | Memory Safety & Resource Techniques |
+| ↳ Module Typing Rules | Rules describing how modules and their interfaces are typed and validated. | Modules / Language Architecture |
+| ↳ Normalization / Conversion Rules | Rules describing how expressions reduce or convert during computation. | Programming Language Semantics |
+| ↳ Product Type Rules | Rules governing typing and usage of product types (tuples or records). | Advanced Data Type Techniques |
+| ↳ Subtyping Rules | Rules determining when one type can safely be treated as another type. | Type Systems |
+| ↳ Sum Type Rules | Rules governing typing and usage of sum types (variants or tagged unions). | Advanced Data Type Techniques |
+| ↳ Type Inference Rules | Rules used to derive types automatically for expressions. | Advanced Type System Techniques |
+| ↳ Variable Rules | Rules defining how variables are typed using the typing context. | Type Systems |
+| Just-In-Time Compilation (JIT) | Compilation technique where code is compiled to machine code during program execution rather than before execution. | Runtime & Execution Techniques |
 ||
 | **K** || 
-| KIND SYSTEMS ||
-| KINDS || 
-| K-BOUNDED USAGE ||
+| K-Bounded Usage | Resource discipline restricting how many times a value or capability may be used, allowing up to *k* uses rather than exactly once. | Memory Safety & Resource Techniques, Advanced Type System Techniques |
+| Kind Systems | Type system layer that classifies types themselves, ensuring that type constructors are applied correctly. | Advanced Type System Techniques |
+| Kinds | “Types of types” used in kind systems to describe the structure of type constructors (e.g., * → *, * → * → *). | Advanced Type System Techniques |
 ||
 | **L** | |
-| Lexer | Compiler component converting source text into tokens. |
-| ↳ TOKENIZER | Lexer is sometimes called a tokenizer| 
-| Linearity | Property where values must be used exactly once. |
-| ↳ Affine Usage | Value may be used at most once. |
-| ↳ Bounded Usage | Value may be used a limited number of times. |
-| ↳ K-Bounded Usage | Value may be used at most K times. |
-| ↳ Linear Usage | Value must be used exactly once. |
-| ↳ Unbounded Usage | Value may be used arbitrarily many times. |
-| LOGICAL TYPES ||
-| Lambda Calculus ||
-| Logical Relations Beyond Parametricity | Techniques for proving program equivalence or type safety in very advanced type systems. |
-| LOWER IR ||
-| LINEAR USAGE ||
-| LOCKFILE ||
-| Lexical scoping |
-| Linear / Affine Session Types	| Type systems modeling communication protocols with strict usage guarantees. |
-| Liveness Analysis	| Determining which variables are used later. | 
-| LLVM |
-| Linear / Affine Concurrency	| Ensures resources (e.g., capabilities) are accessed exactly once or at most once. | 
-| Lock-Free Programming | Algorithms designed to avoid locks entirely. | 
-| Lazy / Strict Evaluation Runtime | Affecting performance and evaluation semantics. | 
-| Linear / Affine Effects | Ensures effects or resources are used exactly once or at most once.|  
-| Lock-Free Data Structures	| Concurrent programming without locks.|
-| Logical Relations	| Technique for proving type system properties. | 
-| Logical Relations |
-| Lambda Lifting | Moves nested functions to top-level. |
-| Logical Relations	| Technique for proving type system properties. |
-| Lazy Evaluation | Delaying computation until results are needed. | 
-| Lock-Based Synchronization | Mutual exclusion using locks. | 
-| Lock-Free Programming	| Algorithms avoiding locks entirely. | 
-| Lambda Lifting | Moving nested functions to top-level definitions. | 
-| Layered Architecture | Organizing code into hierarchical layers. | 
-| Logic Programming | Programming using logical rules and queries. | 
-| Loop Unrolling | Expanding loops to reduce overhead. | 
-| Language Workbenches | Tools for building programming languages. | 
-| Linear capabilities | 
-| Lazy Evaluation | Evaluation delayed until necessary. | 
-| Logic Programming |
-| Loop Fusion | Combining loops to reduce overhead. | 
-| Loop Tiling | Optimizing memory locality. | 
-| LOWERING ||
-| LIFTING ||
-
+| Language Workbenches | Tools and frameworks for designing, implementing, and experimenting with programming languages and DSLs. | DSL and Language Construction Techniques |
+| Lambda Calculus | Formal system for function abstraction and application forming the theoretical foundation of functional programming and type systems. | Mathematical / Logic Programming Techniques |
+| Lambda Lifting | Compiler transformation moving nested functions to top-level definitions by adding parameters for free variables. | Program Transformation / Compiler Techniques |
+| Layered Architecture | System design pattern organizing software into hierarchical layers with clear dependency direction. | Architectural Programming Techniques |
+| Lazy Evaluation | Evaluation strategy where expressions are evaluated only when their results are required. | Evaluation Strategies |
+| Lazy / Strict Evaluation Runtime | Runtime behaviors and optimizations supporting lazy or strict evaluation strategies. | Runtime & Execution Techniques |
+| Lexical Scoping | Variable scoping rule where identifiers refer to bindings in the surrounding lexical program structure. | Program Structure Techniques |
+| Lexer | Compiler component converting source code text into tokens for parsing. | Compiler Architecture |
+| ↳ Tokenizer | Alternative name for a lexer emphasizing the token-generation stage. | Compiler Architecture |
+| Linearity | Type system property enforcing constraints on how many times a value may be used. | Memory Safety & Resource Techniques |
+| ↳ Affine Usage | Resource usage discipline allowing a value to be used at most once. | Memory Safety & Resource Techniques |
+| ↳ Bounded Usage | Resource discipline limiting usage to a finite number of times. | Memory Safety & Resource Techniques |
+| ↳ K-Bounded Usage | Resource discipline allowing a value to be used up to *k* times. | Memory Safety & Resource Techniques |
+| ↳ Linear Usage | Resource discipline requiring a value to be used exactly once. | Memory Safety & Resource Techniques |
+| ↳ Unbounded Usage | Resource discipline allowing unlimited reuse of values. | Memory Safety & Resource Techniques |
+| Linear / Affine Concurrency | Concurrency models enforcing linear or affine usage of resources or communication channels. | Advanced Concurrency / Parallelism |
+| Linear / Affine Effects | Effect systems enforcing single-use or limited-use constraints on effects or capabilities. | Advanced Effect / Capability Techniques |
+| Linear / Affine Session Types | Type systems describing communication protocols where messages must follow strict usage sequences. | Advanced Type System Techniques |
+| Linear Capabilities | Capability-based permissions that must obey linear or affine usage constraints. | Advanced Effect / Capability Techniques |
+| Liveness Analysis | Static analysis determining whether variables hold values that may be used later in execution. | Program Analysis Techniques |
+| LLVM | Widely used compiler infrastructure providing intermediate representation, optimization passes, and code generation backends. | Compiler Architecture |
+| Lock-Based Synchronization | Concurrency control using mutual exclusion locks to protect shared resources. | Classical Concurrency Primitives |
+| Lock-Free Data Structures | Concurrent data structures designed to avoid locks using atomic operations. | Advanced Concurrency / Parallelism |
+| Lock-Free Programming | Programming techniques that guarantee system progress without mutual exclusion locks. | Advanced Concurrency / Parallelism |
+| Lockfile | File used by package managers to record exact dependency versions for reproducible builds. | Build / Package Systems |
+| Logic Programming | Programming paradigm where computation is expressed through logical relations and queries (e.g., Prolog). | Mathematical / Logic Programming Techniques |
+| Logical Relations | Proof technique used in type theory to establish properties such as type safety or program equivalence. | Program Verification Techniques |
+| Logical Relations Beyond Parametricity | Advanced logical relation techniques used to reason about complex type systems such as dependent or effectful systems. | Advanced Type / Logic Techniques |
+| Logical Types | Types corresponding to logical propositions under the Curry–Howard correspondence. | Advanced Type / Logic Techniques |
+| Loop Fusion | Compiler optimization combining multiple loops into one to reduce iteration overhead and improve cache locality. | Program Optimization Techniques |
+| Loop Tiling | Optimization restructuring loops to improve cache locality by processing data in blocks. | Program Optimization Techniques |
+| Loop Unrolling | Optimization expanding loop bodies to reduce branching overhead and improve instruction-level parallelism. | Program Optimization Techniques |
+| Lower IR | Low-level intermediate representation closer to machine instructions used in late compiler stages. | Compiler Architecture |
+| Lowering | Compiler transformation converting high-level language constructs into simpler or lower-level representations. | Program Transformation / Compiler Techniques |
+| Lifting | Compiler transformation moving nested constructs (e.g., functions or bindings) to higher scopes such as top-level definitions. | Program Transformation / Compiler Techniques |
 ||
 | **M** || 
-| Macros | Compile-time transformations generating or modifying code. |
-| ↳ Macro Engine | System responsible for executing macro expansions. |
-| ↳ MSP Support | Multi-stage programming support enabling compile-time code generation. |
-| Machine Code | Binary instructions executed directly by processors. |
-| Modules | Organizational units grouping related definitions. |
-| Martin-lof ||
-| MONADS ||
-| Message Passing | Communication via messages rather than shared memory (e.g., Actor Model). | 
-| Monitor | High-level abstraction combining mutual exclusion and condition variables. | 
-| MACHINE CODE ||
-| Mutex (Mutual Exclusion Lock) | Ensures that only one thread accesses a critical section at a time. | 
-| Memory Fences / Barriers | Low-level synchronization primitives to enforce ordering of memory operations. |
-| Model Checking | Exhaustive state exploration. | 
-| Mutually Recursive Types | Types referencing each other.|
-| Marshalling | Converting data formats across boundaries.| 
-| Monad | Structure representing computations with context. | 
-| Modules | |
-| Module System	| Structure for organizing code. | 
-| Macro Systems	 | Compile-time code transformations. | 
-| Memoization | Caching function results for reuse. | 
-| Message Passing | Communication between concurrent processes via messages. | 
+| Machine Code | Binary instructions executed directly by a CPU without further translation. | Computer Architecture |
+| Macros | Compile-time transformations that generate or transform program code before compilation. | Metaprogramming Techniques |
+| ↳ Macro Engine | Component responsible for executing macro expansion during compilation. | Metaprogramming Techniques |
+| ↳ MSP Support (Multi-Stage Programming) | Language support allowing programs to generate and execute code at different compilation stages. | Metaprogramming Techniques |
+| Macro Systems | Language facilities enabling structured compile-time code transformations such as hygienic macros or staged computation. | Metaprogramming Techniques |
+| Marshalling | Process of converting data into a format suitable for transmission across language, process, or network boundaries. | Interoperability Techniques |
+| Martin-Löf |||
+| Martin-Löf Type Theory | Foundational dependent type theory developed by Per Martin-Löf, forming the basis for languages like Agda and proof assistants. | Advanced Type System Techniques |
+| Memoization | Optimization technique caching function results to avoid recomputation when called with the same inputs. | Program Optimization Techniques |
+| Memory Fences / Barriers | Low-level synchronization primitives ensuring correct ordering of memory operations across threads. | Concurrency & Memory Models |
+| Message Passing | Concurrency model where components communicate by sending messages rather than sharing memory. | Concurrency Models |
+| Model Checking | Formal verification technique exploring program state spaces to prove correctness properties. | Program Verification Techniques |
+| Monad | Functional abstraction representing computations with context such as effects, sequencing, or state. | Functional Programming |
+| Monads | General class of computational abstractions following the monadic structure (bind and unit) enabling composition of effectful computations. | Functional Programming |
+| Monitor | High-level synchronization construct combining mutual exclusion and condition variables for thread coordination. | Classical Concurrency Primitives |
+| Modules | Organizational units grouping related definitions such as functions, types, and values. | Program Structure Techniques |
+| Module System | Language mechanism defining module composition, visibility, parameterization, and abstraction boundaries. | Program Structure Techniques |
+| Mutex (Mutual Exclusion Lock) | Synchronization primitive ensuring that only one thread enters a critical section at a time. | Classical Concurrency Primitives |
+| Mutually Recursive Types | Types that reference each other in their definitions, commonly used in ASTs and complex data models. | Advanced Type System Techniques |
 ||
 | **N** | |
-| Non-Determinism | Computation where multiple possible outcomes may occur. |
-| Normalization | Reduction of expressions to canonical form. |
-| ↳ Strong Normalization | Property where every valid program eventually terminates. |
-| Natural Transformation | Mapping between functors. | 
-| Newtype Pattern | Wrapping types to enforce stronger type safety. | 
-| Normalization by Evaluation | 
-| Normal Order Reduction | Leftmost outermost evaluation strategy. | 
-| Normalization by evaluation | 
-| Normalization by Evaluation (NbE)	| Evaluating terms to compute normal forms. | 
-| Normalization by Evaluation | 
-| Normalization Proofs | Guarantee of strong normalization.| 
-| Non-Lexical Lifetimes (Rust) | Lifetime analysis that allows references to end before the end of their enclosing scope. |
-| NUMA Awareness | Optimizing memory access patterns for Non-Uniform Memory Access architectures. |
-| Normalization by Evaluation (NbE) for Dependent Types	| Advanced term evaluation for proving properties in dependently typed languages. |
+| Natural Transformation | Structure-preserving mapping between functors in category theory. | Category Theory / Functional Programming |
+| Newtype Pattern | Technique wrapping an existing type in a new type to enforce stronger type safety or abstraction boundaries. | Type System Techniques |
+| Non-Determinism | Computational model where execution may produce multiple possible outcomes. | Semantics & Computation Models |
+| Non-Lexical Lifetimes (Rust) | Lifetime analysis allowing references to end before the end of their enclosing lexical scope. | Memory Safety & Resource Techniques |
+| Normal Order Reduction | Evaluation strategy reducing the leftmost outermost expression first, guaranteeing termination if a normal form exists. | Evaluation Strategies |
+| Normalization | Process of reducing expressions to a canonical or normal form. | Semantics & Type Theory |
+| ↳ Strong Normalization | Property ensuring every valid program eventually reduces to a normal form (i.e., always terminates). | Semantics & Type Theory |
+| Normalization by Evaluation (NbE) | Technique computing normal forms by interpreting terms in a semantic domain and reifying the result back into syntax. | Advanced Type Theory Techniques |
+| Normalization by Evaluation (NbE) for Dependent Types | Extension of NbE used in dependently typed languages to normalize terms and check definitional equality. | Advanced Dependent Type Systems |
+| Normalization Proofs | Formal proofs establishing properties such as strong normalization for a type system or calculus. | Program Verification Techniques |
+| NUMA Awareness | Optimization techniques accounting for Non-Uniform Memory Access architectures to improve memory locality and performance. | Systems & Performance Optimization |
 ||
 | **O** || 
-| OUTPUTS ||
-| OBSERVATIONS ||
-| OCCURS CHECK ||
-| Opaque Types | Hidden implementations. | 
-| Ownership Types | 
-| Optimization Pass	| Compiler stage improving performance. | 
-| Observational Equivalence | Programs indistinguishable by observation. | 
-| Object-Oriented Programming | 
-| Ownership Types | 
-| Or-Patterns | Matching multiple patterns in one case. | 
-| Ownership and Borrowing | Memory/resource safety (Rust-style). | 
-| Ownership Types | Tracking resource ownership statically. | 
-| Ownership Systems | Compile-time memory safety through ownership tracking (Rust-style). | 
-
+| Object-Oriented Programming | Programming paradigm organizing code around objects combining state (fields) and behavior (methods). | Programming Paradigms |
+| Observational Equivalence | Property where two programs cannot be distinguished by any external observation or test. | Semantics & Program Equivalence |
+| Observations | Observable behaviors or outputs used when reasoning about program semantics or equivalence. | Semantics & Program Analysis |
+| Occurs Check | Step in unification algorithms preventing cyclic type substitutions (e.g., α = α → β). | Type Inference & Unification |
+| Opaque Types | Types whose internal representation is hidden outside a defining module or interface. | Abstraction & Module Systems |
+| Optimization Pass | Compiler phase that transforms programs to improve performance, memory usage, or code size. | Compiler Architecture |
+| Or-Patterns | Pattern matching construct allowing multiple alternative patterns to match the same branch. | Pattern Matching |
+| Outputs | Results produced by programs or compiler stages. | Program Semantics |
+| Ownership and Borrowing | Resource management model where values have a unique owner and temporary references obey strict borrowing rules (Rust-style). | Memory Safety & Resource Techniques |
+| Ownership Systems | Compile-time memory safety approach tracking resource ownership and movement between program components. | Memory Safety & Resource Techniques |
+| Ownership Types | Type system encoding ownership relationships to enforce safe memory management. | Advanced Type System Techniques |
 ||
 | **P** | |
-| Parser | Component converting tokens into an AST. |
-| Proofs | Formal derivations demonstrating propositions. |
-| ↳ Proof Extraction | Generating executable programs from constructive proofs. |
-| ↳ Proof System | Framework defining proof construction rules. |
-| ↳ Proof Erasure ||
-| ↳ Tactics | Procedural tools assisting proof construction. |
-| POLARITY ||
-| TYPE POLARITY || 
-| PURITY ||
-| PARAMETERS ||
-| PARAMETRIC FUNCTIONS ||
-| PARSER ||
-| PRIMATIVES ||
-| PRIVELEDGE ||
-| PROCESSES ||
-| PARALLELISM ||
-| PROPOSITIONAL TYPES ||
-| PROPOSITION ||
-| PATTERN MATCHING ||
-| π-Calculus | Mathematical model of concurrent systems. | 
-| Program Transformation / IR | 
-| Partial Application | Fixing some arguments of a function to produce a new function. | 
-| Point-Free Style | Writing functions without explicitly mentioning arguments. | 
-| Persistent Data Structures | Immutable data structures supporting efficient updates. | 
-| Proof-Driven Development | Writing proofs alongside programs. | 
+| Paradigm | High-level programming style or philosophy such as functional, imperative, or object-oriented programming. | Programming Paradigms |
+| Parallelism | Execution of multiple computations simultaneously to improve performance. | Concurrency & Parallelism |
+| Parameters | Named variables in function or procedure definitions representing inputs. | Program Structure |
+| Parametric Functions | Functions parameterized over types or values, enabling generic computation. | Type System Techniques |
+| Parametric Polymorphism | Ability for functions or types to operate uniformly over many types. | Advanced Type System Techniques |
+| Parametricity | Property of polymorphic functions guaranteeing uniform behavior across all type instantiations, enabling “free theorems.” | Type Theory & Program Reasoning |
+| Paramorphism | Recursion scheme similar to folds but providing access to both the recursive result and the original structure. | Functional Programming Techniques |
+| Parser | Compiler component converting tokens into an Abstract Syntax Tree (AST). | Compiler Architecture |
+| Pattern Compilation | Compiler transformation converting high-level pattern matches into efficient decision trees or jump tables. | Compiler Architecture |
+| Pattern Matching | Control-flow mechanism selecting behavior based on the structure of values. | Language Features |
+| Partial Application | Creating a new function by fixing some arguments of an existing function. | Functional Programming |
+| Partial Evaluation | Program optimization technique precomputing expressions whose inputs are known at compile time. | Program Optimization Techniques |
+| Persistent Data Structures | Immutable data structures allowing efficient updates by sharing structure between versions. | Functional Data Structures |
 | Phantom Types | Types used for compile-time guarantees without runtime representation. | 
-| Partial Evaluation | Precomputing parts of a program. | 
-| Program Specialization | Optimizing programs for specific inputs. | 
-| Proof Extraction | 
-| Persistent Data Structures | 
-| Partial Evaluation | 
-| Paramorphism | Recursion with access to the original structure. | 
-| Pipeline Parallelism | Computation broken into processing stages. | 
-| Proof irrelevance | 
-| Pattern Compilation | Transforming pattern matches into decision trees. | 
-| Parametric Polymorphism | Generic functions over types.|
-| Phantom Types	| Type parameters not used at runtime.| 
-| Points-to Analysis | Tracking pointer targets. | 
-| Preemptive Scheduling | OS interrupts tasks. | 
-| Proof Irrelevance	| Proofs ignored for equality. | 
-| Parametricity	| Free theorems derived from polymorphism. | 
+| Pipeline Architecture | Program structure where computation is organized as sequential stages passing results between them. | Software Architecture |
+| Pipeline Parallelism | Parallel execution model where different stages of a pipeline process data concurrently. | Concurrency & Parallelism |
+| Plugin Systems | Extensible architectures allowing external modules to extend functionality at runtime or compile time. | Software Architecture |
+| Point-Free Style | Functional programming style defining functions without explicitly naming arguments. | Functional Programming |
+| Points-to Analysis | Static analysis determining which memory locations pointers may reference. | Program Analysis |
+| Polarities | Classification of types or propositions into positive and negative forms used in proof theory and bidirectional typing. | Type Theory |
+| Type Polarity | Distinction between positive and negative types guiding evaluation and proof construction. | Advanced Type System Techniques |
 | Polymorphism |
-| Proof Irrelevance / Relevance	| Distinguishing runtime-relevant vs erased proofs.| 
-| Projectional Editing / Structural Editing | Editing AST directly instead of text. | 
-| Prefetching | Loading memory into cache before it is actually needed to hide latency. |
-| Projectional Editing / Structural Editing	| Editing ASTs directly rather than textual source code; mostly research IDEs. |
-| Proof-Carrying Code | Programs distributed with correctness proofs. | 
-| Projectional Editing | Editing ASTs directly instead of text. | 
-| Pipeline Architecture | Programs composed of sequential processing stages. | 
-| Plugin Systems | Extensible architectures using plugins. | 
-| Paradigm | 
-| Proof-Carrying Code |
+| Prefetching | Hardware or compiler technique loading data into cache before it is needed to reduce memory latency. | Systems Optimization |
+| Preemptive Scheduling | Scheduling strategy where the operating system interrupts tasks to switch execution between them. | Operating Systems & Concurrency |
+| Primitives | Fundamental built-in operations or data types provided directly by a language or runtime. | Language Implementation |
+| Privilege | Specific permission granted to perform restricted operations within an authority or capability system. | Security & Capability Systems |
+| Processes | Independent execution units typically managed by an operating system. | Operating Systems & Concurrency |
+| Program Specialization | Optimization technique producing specialized versions of programs for specific inputs or contexts. | Program Optimization Techniques |
+| Program Transformation / IR | Compiler transformations applied to intermediate representations to optimize or restructure programs. | Compiler Architecture |
+| Projectional Editing (Structural Editing) | Programming environment where developers edit the program’s AST directly rather than textual code. | Language Tooling |
+| Proofs | Formal derivations demonstrating that propositions follow from given assumptions. | Logic & Type Theory |
+| ↳ Proof System | Formal framework defining rules for constructing valid proofs. | Logic & Type Theory |
+| ↳ Proof Extraction | Technique deriving executable programs from constructive proofs (Curry–Howard correspondence). | Proof Assistants |
+| ↳ Proof Erasure | Compilation step removing proofs or proof-only arguments not required at runtime. | Compiler Techniques |
+| ↳ Tactics | Procedural tools used in proof assistants to automate proof construction. | Proof Assistants |
+| Proof-Carrying Code | Security technique where programs are distributed with proofs verifying safety properties. | Program Verification |
+| Proof-Driven Development | Development methodology where proofs guide program implementation and correctness. | Formal Methods |
+| Proof Extraction | 
+| Proof Irrelevance | Property where different proofs of the same proposition are considered equivalent and can be erased. | Type Theory |
+| Proof Irrelevance / Relevance | Distinction between proofs required at runtime and those used only for compile-time reasoning. | Type Theory |
+| Proposition | Logical statement that can be proven true or false. | Logic & Type Theory |
+| Propositional Types | Types corresponding to logical propositions under the Curry–Howard correspondence. | Type Theory |
+| Purity | Property of functions having no side effects and depending only on their inputs. | Functional Programming |
+| π-Calculus | Mathematical model describing concurrent computation through message-passing processes. | Concurrency Theory |
 ||
 | **Q** || 
-| Quasiquotation| Code templates with holes.| 
+| Quasiquotation | Metaprogramming technique allowing code templates with holes that can be filled with program fragments during macro expansion or code generation. | Metaprogramming Techniques | 
 ||
 | **R** | |
-| RAISING ||
-| Runtime | Environment where compiled programs execute. |
-| REQUIREMENTS ||
-| ROW-BASED CAPABILITY SOLVER ||
-| REPRODUCIBLE BUILDS ||
-| Register Allocation | Mapping variables to CPU registers. | 
-| Reduction Semantics | Term rewriting model of evaluation. | 
-| Reactive Programming |
-| Refinement Checking | Verifying implementation matches specification. | 
-| Region Inference |
-| Reflection| Programs inspecting their structure.| 
-| Reification| Turning runtime structures into code/data.| 
-| Row Polymorphism | Flexible extensible records/effects.| 
-| Recursive Types | Types defined in terms of themselves.| 
-| Reactive Streams / Observables | Dataflow programming with asynchronous streams. | 
-| Read-Write Lock | Allows multiple readers or one writer to access a resource. |
-| Refinement Reflection	| Using theorem proving to reflect properties of code into type-level constraints. |
-| Refinement Types / Liquid Types | Types constrained by predicates.| 
-| Row Polymorphism |
-| Reactive Streams / Observables | Dataflow style concurrency.| 
-| Reactive Programming | Programming with asynchronous data streams. | 
-| Recursion | Function calling itself. | 
-| Re-exports | Forwarding definitions from other modules. | 
-| Reference Counting | Tracking references to determine object lifetime. | 
-| Region-Based Memory | Memory grouped by lifetime regions. | 
-| Reflection | Programs inspecting their own structure. | 
-| Relational Programming | Describing relations rather than functions. | 
-| Region Inference | Automatically determining memory regions. | 
-| Region-Based Memory | 
+| Raising | Operation that signals an exception or effect, transferring control to a handler. | Control Flow & Effects |
+| Reactive Programming | Programming paradigm centered on asynchronous data streams and propagation of change. | Concurrency & Dataflow Paradigms |
+| Reactive Streams / Observables | Dataflow abstraction representing asynchronous streams of values over time with subscription-based consumption. | Concurrency & Dataflow Paradigms |
+| Read-Write Lock | Synchronization primitive allowing multiple readers or a single writer to access a shared resource. | Concurrency Primitives |
+| Recursion | Technique where a function calls itself to solve smaller instances of a problem. | Programming Techniques |
+| Recursive Types | Types defined in terms of themselves, commonly used for structures like trees or lists. | Advanced Type System Techniques |
+| Reduction Semantics | Formal model of program evaluation using stepwise term rewriting rules. | Operational Semantics |
+| Reference Counting | Memory management technique tracking references to determine when objects can be deallocated. | Memory Management |
+| Reflection | Capability allowing programs to inspect and sometimes modify their own structure or behavior. | Metaprogramming Techniques |
+| Refinement Checking | Verification technique ensuring implementations satisfy formal specifications or constraints. | Program Verification |
+| Refinement Reflection | Technique reflecting program definitions into logical predicates used in refinement types. | Advanced Type System Techniques |
+| Refinement Types / Liquid Types | Types augmented with logical predicates restricting valid values. | Advanced Type System Techniques |
+| Region-Based Memory | Memory management strategy grouping allocations into regions that are freed together. | Memory Management |
+| Region Inference | Static analysis determining which memory regions values belong to. | Memory Management & Program Analysis |
+| Register Allocation | Compiler optimization mapping variables to a limited set of CPU registers. | Compiler Optimization |
+| Reification | Converting runtime structures, computations, or semantics into explicit data or code representations. | Metaprogramming Techniques |
+| Relational Programming | Programming paradigm expressing computation as relations rather than functions (e.g., Prolog). | Programming Paradigms |
+| Reproducible Builds | Build process guaranteeing identical outputs when given the same inputs and environment. | Build & Package Systems |
+| Requirements | Specifications describing constraints or goals that software must satisfy. | Software Engineering |
+| Re-exports | Module system feature allowing modules to expose definitions imported from other modules. | Module Systems |
+| Row-Based Capability Solver | Type-level solver handling capability permissions using row-polymorphic representations. | Capability Systems & Type Systems |
+| Row Polymorphism | Type system technique allowing extensible records or effect rows without closed definitions. | Advanced Type System Techniques |
+| Runtime | Environment where compiled programs execute, including memory management, scheduling, and system interfaces. | Runtime Systems |
 ||
 | **S** | |
 | Safe vs Unsafe | Safe code guarantees correctness properties while unsafe code may bypass safety checks. |
@@ -1971,6 +1922,7 @@ Constructs unique to particular languages or ecosystems.
 | Stack vs Heap Allocation | Memory layout implications. | 
 | Session Types	| Typing communication protocols in concurrency. | 
 | Scala Implicits | Mechanism to provide arguments automatically based on type, used for typeclass-like programming. | 
+| CLAUDE SHANNON ||
 ||
 | **T** | |
 | TYPE UNIVERSE ||
@@ -2002,6 +1954,7 @@ Constructs unique to particular languages or ecosystems.
 | ↳ MULTI THREADED ||
 | TURING VS TOTAL ||
 | TURING ||
+| ALAN TURING |||
 | TOTAL ||
 | Tokens ||
 | TACTICS ||
