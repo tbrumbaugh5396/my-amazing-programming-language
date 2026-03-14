@@ -259,6 +259,8 @@ graph LR
 - [Ergonomics]
 - [Design Philosophy]
 - [Summary]
+- [API](#api)
+- [Ideas](#ideas)
 - [Categories](#categories)
 - [Glossary](#Glossary)
 
@@ -1105,7 +1107,189 @@ It is designed for:
 
 ---
 
+# API
+[Table of Contents](#table-of-contents)
+
+- Environments
+- Contexts
+- Namespaces
+- Types
+- Values
+- Functions
+- Expression
+
+## Object Notation
+
+Environment {
+  create_module(name)
+  create_type(name)
+  create_function(name)
+
+  inspect(object)
+  evaluate(expr)
+
+  search(symbol)
+  refactors()
+}
+
+Object {
+  send(message, args)
+  methods()
+  fields()
+}
+Operations:
+
+add_method(object, method)
+remove_method(object, name)
+inspect(object)
+This allows tools to modify programs dynamically.
+
+2. Code Structure API (AST / IR access)
+Instead of manipulating text, the environment manipulates program structure.
+
+Example:
+
+Program
+Module
+Class
+Method
+Expression
+API:
+
+create_method(class, name, ast)
+modify_expression(node, new_expr)
+rename_symbol(symbol, name)
+This is what modern systems call structural editing.
+
+3. Environment Introspection API
+The environment can inspect itself.
+
+Example:
+
+list_classes()
+find_method(name)
+who_calls(method)
+browse_references(symbol)
+This enables:
+
+code browsers
+
+refactoring tools
+
+live debugging
+
+Smalltalk environments were famous for this.
+
+4. Tool API
+Editors, inspectors, debuggers, and visualizers are just programs using the environment API.
+
+Example:
+
+Tool {
+  open_view(object)
+  inspect(object)
+  modify(ast)
+}
+Tools are first-class objects in the system.
+
+5. Live Evaluation API
+Programs can be modified while running.
+
+Example:
+
+evaluate(expression)
+compile_method(class, code)
+reload(module)
+Example workflow:
+
+edit method
+compile
+object immediately uses new behavior
+This is live programming.
+
+3. The Environment Object Model
+A good way to structure this API is:
+
+Environment
+ ├── Objects
+ ├── Code
+ ├── Tools
+ ├── Processes
+ └── UI
+Example interface:
+
+Environment {
+  objects()
+  modules()
+  tools()
+  processes()
+}
+4. Structural Editing Instead of Text
+Kay believed editing should manipulate program structure directly, not strings.
+
+Example:
+
+Instead of:
+
+def add(x,y):
+  x+y
+The environment stores:
+
+Function
+  name: add
+  args: [x,y]
+  body:
+    Add(x,y)
+API:
+
+create_function(name)
+add_parameter(fn, name)
+set_body(fn, ast)
+This avoids parsing errors and enables powerful tools.
+
+5. Message-Based APIs
+Following Kay’s philosophy, environment APIs should be message protocols.
+
+Example:
+
+send(environment, "create-class", name)
+send(class, "add-method", method)
+send(object, "inspect")
+Everything becomes a uniform messaging interface.
+
+6. Versioned Object World
+A real environment must support snapshots of the entire system.
+
+Example API:
+
+snapshot()
+restore(snapshot)
+diff(snapshot1, snapshot2)
+This replaces file-based versioning.
+
+7. Visual Tools as First-Class Programs
+The environment should allow tools like:
+
+inspectors
+
+debuggers
+
+code browsers
+
+visualizers
+
+Example:
+
+Inspector.open(object)
+Debugger.attach(process)
+Browser.search("parse")
+
+##
+
+---
+
 # Ideas
+[Table of Contents](#table-of-contents)
 
 - Alan Kay's vision of programming means need reflection on entire system, programming language api, capability and object representation (context representation).
 
