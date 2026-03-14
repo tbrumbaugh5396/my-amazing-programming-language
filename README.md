@@ -1284,6 +1284,163 @@ Inspector.open(object)
 Debugger.attach(process)
 Browser.search("parse")
 
+4. The System Is More Like a Database
+
+Another good analogy is a program database.
+
+Example operations:
+
+insert_method
+update_ast
+query_references
+delete_symbol
+
+
+So the environment behaves like:
+
+Program State + Queries + Transformations
+
+5. The Best Existing API Model
+
+The closest modern system to what you want is the Language Server Protocol (LSP) used by editors.
+
+Example:
+
+textDocument/definition
+textDocument/references
+workspace/symbol
+
+
+But LSP is still limited because it mainly analyzes text, not a live object system.
+
+6. Better Model: Stateful Session API
+
+Your environment should use stateful sessions.
+
+Conceptually:
+
+client → session → environment
+
+
+Example protocol:
+
+session.start()
+
+session.create_module("json")
+
+session.create_function("parse")
+
+session.evaluate("parse('{...}')")
+
+session.inspect(object)
+
+
+The environment maintains state during the session.
+
+7. A Clean Formal Model
+
+You can define the environment as:
+
+Environment = (State, Operations)
+
+
+Where:
+
+State = ObjectGraph + ProgramStructure + Processes
+
+
+Operations mutate the state:
+
+op : State → State
+
+
+Example:
+
+add_method : State × Class × Method → State
+
+8. Event-Based Architecture
+
+Another good approach is event sourcing.
+
+All changes are events:
+
+AddClass
+AddMethod
+ModifyAST
+EvaluateExpression
+StartProcess
+
+
+State becomes:
+
+State = fold(events)
+
+
+This is powerful for environments because it enables:
+
+undo
+
+replay
+
+history
+
+9. Real Architecture of a Live Programming Environment
+
+Your environment will probably expose APIs for:
+
+Objects
+Code structure
+Execution
+Tools
+History
+
+
+Example interface:
+
+Environment
+  createType
+  createFunction
+  modifyAST
+  evaluate
+  inspect
+  runProcess
+
+
+All of these mutate the environment state.
+
+10. One Key Design Insight
+
+The system should look like this:
+
+Client
+  ↓
+Environment Protocol
+  ↓
+Live Object World
+
+
+Not like this:
+
+Client
+  ↓
+REST API
+  ↓
+Server
+
+
+Because your language environment is the world, not a web service.
+
+✅ In short
+
+Your programming environment should expose a stateful message protocol, not a REST API.
+
+A good conceptual model is:
+
+Environment = Object System + Code Database + Live Runtime
+
+
+interacted with through message-based operations.
+
 ##
 
 ---
