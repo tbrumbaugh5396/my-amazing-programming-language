@@ -1105,6 +1105,12 @@ It is designed for:
 
 ---
 
+# Ideas
+
+- Alan Kay's vision of programming means need reflection on entire system, programming language api, capability and object representation (context representation).
+
+---
+
 # Categories
 [Table of Contents](#table-of-contents)
 
