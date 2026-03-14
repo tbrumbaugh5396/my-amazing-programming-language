@@ -1639,6 +1639,8 @@ Constructs unique to particular languages or ecosystems.
 | Higher-Order Unification | Unification algorithm capable of solving equations involving higher-order functions or lambda expressions. | Advanced Type System Techniques |
 | Higher-Rank Polymorphism | Polymorphism where universally quantified type variables can appear inside function arguments rather than only at the outermost level. | Advanced Type System Techniques |
 | Hindley–Milner Type System | Classical polymorphic type inference system enabling automatic inference of principal types without type annotations. | Type Systems |
+| Tony Hoare   |||
+| Hoare Triple |||
 | Homoiconic | Property where programs are represented using the language’s own data structures, enabling powerful metaprogramming (e.g., Lisp). | Metaprogramming Techniques |
 | Homomorphism | Structure-preserving mapping between algebraic structures such as groups, rings, or functors. | Advanced Mathematical Programming Concepts |
 | HoTT (Homotopy Type Theory) | Type theory integrating concepts from homotopy theory and higher-dimensional algebra to reason about equality and paths. | Advanced Type System Techniques |
