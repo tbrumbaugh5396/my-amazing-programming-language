@@ -1560,11 +1560,13 @@ Constructs unique to particular languages or ecosystems.
 | ↳ Effect Lowering | Compilation step converting effect abstractions into runtime mechanisms. |
 | Effects and Capability Systems | Language design approach combining effect tracking with explicit capability-based authority management. | Advanced Effect / Capability Techniques |
 | Elaboration | Compiler stage translating surface syntax into a typed core language representation. | Compiler Architecture |
+| ↳ Expander | Component responsible for macro expansion. |
 | Elaboration-Based Compilation | Compilation strategy where programs are elaborated into a richer intermediate representation before further compilation stages. | Compiler Architecture |
 | Elimination Rules | Type theory rules describing how values of a given type can be used or deconstructed. | Proof / Logic Concepts |
 | Embedded DSL (EDSL) | Domain-specific language implemented within a host language using its syntax and type system. | DSL and Language Construction Techniques |
 | Embedded DSLs / Tagless Final | Technique for implementing typed embedded DSLs using polymorphism rather than explicit syntax trees. | Metaprogramming Techniques |
 | Equational Reasoning | Method of reasoning about programs using algebraic equations and substitution. | Proof / Logic Concepts |
+| Equality |||
 | Equality Relations | Different formal notions of equality used in programming languages and type systems. | Programming Language Semantics |
 | ↳ Alpha-Equivalence | Equality ignoring variable renaming in lambda expressions. | Lambda Calculus |
 | ↳ Beta-Equivalence | Equality derived from β-reduction (function application). | Lambda Calculus |
@@ -1590,118 +1592,85 @@ Constructs unique to particular languages or ecosystems.
 | Exhaustiveness Checking | Static verification that pattern matching covers all possible cases of a data type. | Type Systems |
 | External DSL | Standalone domain-specific language with its own syntax and tooling separate from a host language. | DSL and Language Construction Techniques |
 | Extraction | Technique for generating executable programs from proofs or formal specifications. | Program Verification Techniques |
-| ↳ Proof Extraction | Extracting executable code from formal proofs in proof assistants. | Program Verification Techniques |
-
-| Effects | Observable interactions such as I/O, mutation, or exceptions. |
-| Elaboration | Compiler stage translating surface syntax into typed core language representation. |
-| ↳ Expander | Component responsible for macro expansion. |
-| Erasure | Removal of compile-time constructs not needed at runtime. |
-| ↳ Proof Erasure | Removal of proof terms after verification. |
-| ↳ Type Erasure | Removal of type annotations during compilation. |
-| EXTRACTION ||
-| PROOF EXTRACTION ||
-| EQUALITIES ||
-| ↳ Definitional Equality | 
-| ↳ Propositional Equality |
-| ↳ Structural Equality |
-| ↳ Nominal Equality |
-| ↳ Observational Equality |
-| ↳ Pointer / Reference Equality |
-| ↳ Alpha-Equivalence |
-| ↳ Beta-Equivalence |
-| ↳ Eta-Equivalence | 
-| ↳ Simulation | 
-| ↳ Bisimulation |
-| Effects and Capability Systems | 
-| Equational Reasoning | Reasoning about programs using algebraic laws. | 
-| Effect System	| Tracks side effects at the type level. | 
-| Effect Rows | Row-polymorphic representation of effects. | 
-| Effect Handlers | Structured control of effects. | 
-| Escape Analysis | Determining whether objects escape scope. | 
-| Effect Handlers | Interpreters for algebraic effects. | 
-| Escape Analysis | Determining stack vs heap allocation. | 
-| Event Sourcing | State derived from event history. | 
-| Effect Handlers | 
-| Elimination Rules | Use values of a type. | 
-| Exception Handling | Structured error propagation. | 
-| Embedded DSL (EDSL) | Domain-specific languages embedded in host languages. | 
-| External DSL | Standalone domain-specific language. | 
-| Elaboration-based compilation | 
-| Effect Handlers | 
-| Effect Polymorphism | Functions can work over unknown effects.| 
-| Evaluation Strategy | 
-| Escape Analysis | Detecting if values escape scope. | 
-| Exhaustiveness Checking | Verifying all cases are handled. | 
-| Effect Handlers | 
-| Embedded DSLs / Tagless Final	| Internal domain-specific languages. | 
-| Event-Driven Programming | Concurrency based on reacting to events instead of threads. | 
-| ERASABLE ||
-| EFFECT LOWERING ||
-| Event-Driven Programming | Programs structured around events. | 
+| ↳ Proof Extraction | Extracting executable code from formal proofs in proof assistants. | Program Verification Techniques | 
 ||
 | **F** | |
-| Function | Mapping from inputs to outputs. |
-| ↳ Function Arguments | Values passed into a function call. |
-| ↳ Parametric Functions | Functions parameterized over types. |
-| Foreign Function Interface (FFI) | Mechanism allowing code in one language to call code written in another. |
-| Functor | Mapping between categories preserving structure. | 
-| Final Coalgebra | Model for coinductive types. | 
-| Functor (Module) | Parameterized modules (OCaml style). | 
-| Fibers | Cooperative lightweight threads. | 
-| Function Composition | Combining functions to produce a new function. | 
-| Free Monads | Represent computations as data structures. | 
-| Futures / Promises | Asynchronous value placeholders (you have this but could expand).| 
-| Foreign Data Representation | Mapping types between languages. | 
-| Functional Programming | 
-| Futures / Promises | Placeholders for values that are computed asynchronously. | 
-| Factories |
-| FUTURES ? PROMISES ||
+| Factories | Design pattern where objects are created through dedicated factory functions or classes rather than direct constructors. | Architectural Programming Techniques |
+| Fibers | Lightweight cooperative threads scheduled by a runtime rather than the operating system. | Modern Concurrency Constructs |
+| Final Coalgebra | Mathematical structure used to model infinite or coinductive data types such as streams. | Advanced Mathematical Programming Concepts |
+| Foreign Data Representation | Mechanism mapping data types between different programming languages or runtimes. | Language Interoperability Techniques |
+| Foreign Function Interface (FFI) | Mechanism allowing code written in one language to call functions or libraries written in another language. | Language Interoperability Techniques |
+| Free Monads | Functional programming abstraction representing effectful computations as composable data structures. | Functional Programming Techniques |
+| Function | Mathematical mapping from inputs to outputs, often representing reusable program behavior. | Programming Language Foundations |
+| ↳ Function Arguments | Values passed into a function during a function call. | Program Structure Techniques |
+| ↳ Parametric Functions | Functions parameterized over types, enabling generic programming. | Polymorphism Variants |
+| Function Composition | Technique combining multiple functions so the output of one becomes the input of another. | Functional Programming Techniques |
+| Functional Programming | Programming paradigm emphasizing pure functions, immutability, and declarative computation. | Programming Paradigms |
+| Functor | Structure-preserving mapping between categories in category theory; in programming often models mappable containers. | Advanced Mathematical Programming Concepts |
+| Functor (Module) | Module-level abstraction allowing modules to be parameterized over other modules (e.g., OCaml functors). | Modules / Language Architecture |
+| Futures / Promises | Abstractions representing values that will become available asynchronously at a later time. | Concurrency Programming Techniques |
 ||
 | **G** || 
-| GRAMMAR ||
-| GENERALIZATION |
-| GENERIC ABSTRACT DATA TYPES ||
-| Generators | Functions producing sequences lazily. | 
-| Guard Clauses	| Early exit conditions simplifying control flow. | 
-| Garbage Collection | Automatic memory management. | 
-| Green Threads | Lightweight user-space threads. | 
-| Gradual typing | 
-| Guarded recursion | 
-| Guarded Patterns | Conditional patterns. | 
-| GHC Optimizations (Haskell) | Compiler-specific optimizations like worker-wrapper transformation, strictness analysis, and rule-based rewrite optimizations. |
-| Garbage Collection Strategies	| Reference counting, mark-sweep, generational GC. | 
-| Gradual Typing | Mixing static and dynamic typing. | 
-| Guarded Recursion	| Ensures productivity in infinite or coinductive computations. |
+| Garbage Collection | Automatic memory management technique that reclaims memory no longer reachable by a program. | Memory Management Techniques |
+| Garbage Collection Strategies | Specific algorithms for garbage collection such as reference counting, mark-sweep, copying collectors, and generational GC. | Memory Management Techniques |
+| GHC Optimizations (Haskell) | Compiler-specific optimizations used in the Glasgow Haskell Compiler such as worker–wrapper transformation, strictness analysis, and rewrite rules. | Program Optimization Techniques |
+| Generalization | Type inference step where inferred types are generalized into polymorphic types by introducing type variables. | Advanced Type System Techniques |
+| Generic Abstract Data Types | Abstract data types parameterized by types, allowing reusable implementations independent of concrete data types. | Advanced Data Type Techniques |
+| Generators | Functions or constructs that produce sequences of values lazily, often yielding values incrementally. | Control Flow Techniques |
+| Grammar | Formal specification of the syntax of a programming language, typically defined using grammar notations such as BNF or EBNF. | DSL and Language Construction Techniques |
+| Gradual Typing | Type system allowing both statically typed and dynamically typed code to coexist within the same program. | Advanced Type System Techniques |
+| Green Threads | Lightweight threads managed by a runtime rather than the operating system. | Concurrency Programming Techniques |
+| Guard Clauses | Early exit conditions used to simplify control flow by handling exceptional or edge cases first. | Control Flow Techniques |
+| Guarded Patterns | Pattern matching constructs augmented with boolean conditions that must hold for the pattern to match. | Pattern Matching Techniques |
+| Guarded Recursion | Recursion discipline ensuring productivity in definitions of infinite or coinductive structures. | Advanced Type System Techniques |
 ||
 | **H** | |
-| HASH ||
-| Hindley-Milner ||
-| Higher-Rank Types	| Polymorphism nested inside function arguments. | 
-| Higher-Rank Polymorphism | Quantifiers inside function arguments.| 
-| Higher-Order Functions | Functions that take other functions as arguments or return them. | 
-| Hermetic Builds | Builds independent of system environment. | 
-| Higher-Order Unification | Needed for dependent types.| 
-| HIGHER-KINDED TYPES ||
-| Hot Code Swapping	| Dynamic replacement of code at runtime. | 
-| Homoiconic | Property where programs are represented using the language’s own data structures. |
-| HoTT | Homotopy Type Theory connecting type theory with homotopy theory. |
-| HOMOMORPHISM ||
-| Hylomorphism | Combination of unfold + fold. | 
+| Hash | Function that deterministically maps data of arbitrary size to fixed-size values, often used for indexing, caching, or data integrity checks. | Data Structures, Security-Oriented Programming |
+| Hermetic Builds | Build process designed to be fully reproducible by isolating dependencies from the host system environment. | Build / Package Systems |
+| Higher-Kinded Types | Type system feature where type constructors themselves can take other type constructors as parameters. | Advanced Type System Techniques |
+| Higher-Order Functions | Functions that take other functions as arguments or return functions as results. | Functional Programming Techniques |
+| Higher-Order Unification | Unification algorithm capable of solving equations involving higher-order functions or lambda expressions. | Advanced Type System Techniques |
+| Higher-Rank Polymorphism | Polymorphism where universally quantified type variables can appear inside function arguments rather than only at the outermost level. | Advanced Type System Techniques |
+| Hindley–Milner Type System | Classical polymorphic type inference system enabling automatic inference of principal types without type annotations. | Type Systems |
+| Homoiconic | Property where programs are represented using the language’s own data structures, enabling powerful metaprogramming (e.g., Lisp). | Metaprogramming Techniques |
+| Homomorphism | Structure-preserving mapping between algebraic structures such as groups, rings, or functors. | Advanced Mathematical Programming Concepts |
+| HoTT (Homotopy Type Theory) | Type theory integrating concepts from homotopy theory and higher-dimensional algebra to reason about equality and paths. | Advanced Type System Techniques |
+| Hot Code Swapping | Runtime technique allowing code to be replaced or updated without stopping the running system. | Runtime & Execution Techniques |
+| Hylomorphism | Recursion scheme combining anamorphism (unfold) and catamorphism (fold) to build and then reduce data structures. | Functional Programming Techniques |
 ||
 | **I** || 
-| Imports | Mechanism for accessing definitions from other modules. |
-| Inference Rules | Logical rules used to derive new judgments. |
-| ↳ Type Inference | Automatic deduction of types without explicit annotations. |
-| Interface | Public specification of module functionality. |
-| IR | Intermediate representation used by compilers. |
-| INPUTS ||
-| INFERENCE ||
-| Initial Algebra | Model for inductive types. | 
-| INSTANTIATION ||
-| Inlining | Replacing function calls with function body. | 
-| INDUCTIVE TYPES ||
+| Imperative Programming | Programming paradigm where programs are expressed as sequences of commands that modify program state. | Programming Paradigms |
 | IMPLICIT ||
-| IMPLICIT ARGUMENTS ||
+| Implicit Arguments | Function parameters automatically inferred or supplied by the compiler rather than explicitly passed. | Advanced Type System Techniques |
+| Implicit Parameters | Parameters resolved automatically by the compiler or runtime based on context. | Advanced Type System Techniques |
+| Impredicative Polymorphism | Polymorphism allowing quantification over all types, including polymorphic types themselves. | Advanced Type System Techniques |
+| Immutability | Property where data structures cannot be modified after creation. | Data-Oriented Programming Techniques |
+| Imports | Mechanism allowing modules to access definitions from other modules or packages. | Modules / Language Architecture |
+| Inference | General process of deriving conclusions automatically from known facts or rules. | Proof / Logic Concepts |
+| Inference Rules | Formal logical rules used to derive judgments in type systems or formal semantics. | Proof / Logic Concepts |
+| ↳ Type Inference | Automatic deduction of expression types without requiring explicit annotations. | Advanced Type System Techniques |
+| Information Flow Control | Techniques ensuring that sensitive data cannot improperly influence observable outputs. | Security-Oriented Programming Techniques |
+| Inhabited Types | Types that have at least one value that can inhabit them. | Type Systems |
+| Initial Algebra | Mathematical model used to describe inductive data types and structural recursion. | Advanced Mathematical Programming Concepts |
+| Inlining | Compiler optimization replacing function calls with the body of the called function. | Program Optimization Techniques |
+| Inline / Partial Evaluation | Optimization techniques where expressions or function calls are evaluated at compile time when inputs are known. | Program Optimization Techniques |
+| Inputs | External data or parameters supplied to a program or function during execution. | Programming Language Foundations |
+| Instance Resolution | Automatic selection of implementations for type classes or similar abstraction mechanisms. | Type-Driven Programming Techniques |
+| Instantiation | Process of replacing type variables with concrete types in polymorphic expressions. | Advanced Type System Techniques |
+| Indexed Data Types | Data types parameterized by values or indices, often used in dependent type systems. | Advanced Data Type Techniques |
+| Indexed Types | Types whose definitions depend on values used as indices. | Advanced Type System Techniques |
+| Inductive Types | Finite data structures defined by constructors, such as lists or trees. | Advanced Data Type Techniques |
+| Incremental Compilation | Compilation technique that recompiles only parts of a program affected by recent changes. | Compiler Architecture |
+| Interior Mutability | Design pattern allowing controlled mutation inside otherwise immutable data structures. | Memory Safety & Resource Techniques |
+| Interpreter | Program that directly executes source code or intermediate representations instead of compiling them to machine code. | Runtime & Execution Techniques |
+| Interface | Public specification describing the available functions, types, and behaviors of a module or component. | Program Structure Techniques |
+| Intermediate Representation (IR) | Internal representation of a program used by compilers for analysis and optimization. | Compiler Architecture |
+| Introduction Rules | Type theory rules describing how to construct values of a particular type. | Proof / Logic Concepts |
+| Inversion of Control | Design principle where control flow is delegated to external frameworks or runtime systems. | Architectural Programming Techniques |
+| IR | Intermediate representation used by compilers. |
+| Irrelevant / Proof-Only Arguments | Arguments used only for type checking or proofs that are erased during compilation. | Advanced Type System Techniques |
+
+
 | Interior Mutability | Controlled mutation within immutable structures. | 
 | Indexed Types | Types indexed by values. | 
 | Instance Resolution | Automatic selection of type class implementations. | 
