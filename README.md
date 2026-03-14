@@ -1860,160 +1860,138 @@ Constructs unique to particular languages or ecosystems.
 | Runtime | Environment where compiled programs execute, including memory management, scheduling, and system interfaces. | Runtime Systems |
 ||
 | **S** | |
-| Safe vs Unsafe | Safe code guarantees correctness properties while unsafe code may bypass safety checks. |
-| Semantics | Meaning of programs beyond syntax. |
-| SMT | Satisfiability Modulo Theories solver used for automated reasoning. |
-| STRUCTURED ||
-| SHARED-MEMORY ||
-| SAFE VS UNSAFE ||
-| SCOPES ||
-| ↳ STACK OF SCOPES ||
-| STAGES ||
-| ↳ MULTISTAGES ||
-| SYMBOL CHECKER ||
-| SUBTYPING ||
-| SEMANTICS ||
-| OPERATIONAL SEMANTICS ||
-| SINGLE THREADED ||
-| Stratification ||
-| Substitution | Replacing type variables with types.| 
-| Semantics |
-| Static Analysis | Compile-time program analysis.| 
-| SSA Form (Static Single Assignment) | Common IR representation used in compilers. | 
-| Small-Step Semantics | Evaluates programs step-by-step. | 
-| Signature | Module interface specification. | 
-| Structural Sharing | Sharing memory between immutable data versions. | 
-| Strict Evaluation	| Evaluating expressions immediately. | 
-| Structural Recursion | Recursion following the structure of a data type. | 
-| SANDBOX BUILDS ||
-| SEMANTIC VERSIONING ||
-| SIGNED || 
-| STM ||
-| SHARED MEMORY ||
-| SHARED QUEUES ||
-| Symbolic Computation | Manipulating symbolic expressions. | 
-| Stack Allocation | Allocating objects on the call stack. | 
-| Staged Programming | Generating code across multiple compilation stages. | 
-| Structured Concurrency | Scoped management of concurrent tasks. | 
-| Symbolic Execution | Executing programs with symbolic inputs. | 
-| Singleton Types | Types with exactly one inhabitant. | 
-| Strength Reduction | Replacing expensive operations with cheaper ones. | 
-| Syntax Extensions | Extending language grammar via macros or plugins. | 
-| Session types | 
-| Session Types | 
-| Strict Evaluation | All arguments evaluated eagerly. | 
-| Staging| Multi-phase program generation.| 
-| Shape Analysis | Analyzing heap data structures. | 
-| Subtype Polymorphism | Using subtypes interchangeably.| 
-| Serialization	| Converting objects into transferable formats.| 
-| Sandboxing | Restricting program execution environment. | 
-| Singleton / Unit Types | Useful for phantom types, capabilities, and type-level computations. | 
-| Secure Multi-Party Computation | Computation over private data. | 
-| Scoped Effects / Regions | Restricting effect lifetimes to a block of code.| 
-| Software Transactional Memory (STM) | Composable atomic memory transactions.| 
-| Sequent Calculus | Another formal proof style besides natural deduction.| 
-| Semaphore	| A synchronization primitive that maintains a counter to control access to shared resources, typically supporting wait (decrement) and signal (increment) operations. | 
-| ↳ Binary Semaphore | A semaphore that can only be 0 or 1; functions like a mutex. | 
-| ↳ Counting Semaphore | A semaphore that can take any non-negative integer, controlling access to multiple instances of a resource. | 
-| Spinlock | A lock where a thread repeatedly checks until it acquires the lock (busy-wait). | 
-| Security Model |
-| Software Transactional Memory (STM) | Composable atomic memory transactions for concurrency. | 
-| Multi-Stage Programming | Generating code in multiple compilation stages.| 
-| Stack vs Heap Allocation | Memory layout implications. | 
-| Session Types	| Typing communication protocols in concurrency. | 
+| Safe vs Unsafe | Distinction where safe code guarantees language safety properties while unsafe code may bypass checks such as memory or type safety. | Memory Safety & Language Design |
+| Sandbox Builds | Build environments isolated from external system dependencies to ensure deterministic results. | Build & Package Systems |
+| Sandboxing | Restricting program execution environments to limit access to system resources for security. | Security & Isolation |
 | Scala Implicits | Mechanism to provide arguments automatically based on type, used for typeclass-like programming. | 
-| CLAUDE SHANNON ||
+| Scoped Effects / Regions | Type system mechanism restricting effects or resources to a specific lexical scope. | Effect Systems |
+| Scopes | Regions of a program where identifiers are visible and bindings are valid. | Program Structure |
+| ↳ Stack of Scopes | Compiler or interpreter structure representing nested lexical scopes during name resolution. | Compiler Architecture |
+| Security Model | Formal description of the security guarantees and threat assumptions of a system. | Security & Capability Systems |
+| Secure Multi-Party Computation | Cryptographic technique enabling multiple parties to compute a function without revealing their private inputs. | Cryptography & Security |
+| Sequent Calculus | Formal proof system representing logical deductions using sequents instead of natural deduction. | Logic & Type Theory |
+| Semantics | Study of the meaning of programs beyond their syntactic structure. | Programming Language Theory |
+| ↳ Operational Semantics | Formal description of program execution using evaluation rules. | Programming Language Theory |
+| ↳ Small-Step Semantics | Operational semantics evaluating programs through individual reduction steps. | Programming Language Theory |
+| Semantic Versioning | Versioning scheme encoding compatibility guarantees through major, minor, and patch numbers. | Software Engineering |
+| Semaphore | Synchronization primitive controlling access to shared resources using a counter. | Concurrency Primitives |
+| ↳ Binary Semaphore | Semaphore restricted to values 0 or 1, functioning similarly to a mutex. | Concurrency Primitives |
+| ↳ Counting Semaphore | Semaphore allowing non-negative integer counts to control multiple resource accesses. | Concurrency Primitives |
+| Serialization | Process of converting objects or data structures into a transferable or storable format. | Data Interchange |
+| Session Types | Type system describing communication protocols between concurrent processes. | Advanced Type System Techniques |
+| Shape Analysis | Static analysis technique determining properties of heap-allocated data structures. | Program Analysis |
+| Shared Memory | Concurrency model where multiple threads communicate through shared state. | Concurrency Models |
+| Shared Queues | Concurrent queues used for communication or task distribution between threads. | Concurrency Primitives |
+| Signature | Module interface specifying exported types, values, and constraints. | Module Systems |
+| Signed | Cryptographic signing of artifacts to verify authenticity and integrity. | Security |
+| Singleton Types | Types with exactly one inhabitant, often used for type-level programming. | Advanced Type System Techniques |
+| Singleton / Unit Types | Minimal types with a single value, commonly used in type-level computation or capability systems. | Type Systems |
+| Single-Threaded Execution | Execution model where only one thread of control runs at a time. | Concurrency Models |
+| SMT (Satisfiability Modulo Theories) | Automated theorem solving technique used for verifying logical constraints. | Program Verification |
+| Software Transactional Memory (STM) | Concurrency control mechanism using composable atomic memory transactions. | Concurrency Models |
+| Spinlock | Lock implementation where a thread repeatedly checks a condition until the lock becomes available. | Concurrency Primitives |
+| SSA Form (Static Single Assignment) | Intermediate representation where each variable is assigned exactly once. | Compiler Architecture |
+| Stack Allocation | Memory allocation strategy placing objects on the call stack. | Memory Management |
+| Stack vs Heap Allocation | Comparison of memory allocation strategies and their performance or lifetime characteristics. | Memory Management |
+| Stages | Distinct phases in program generation, compilation, or execution. | Metaprogramming |
+| ↳ Multi-Stage Programming | Programming technique generating and executing code across multiple stages. | Metaprogramming |
+| Staged Programming | Approach where programs generate code to be executed in later stages. | Metaprogramming |
+| Static Analysis | Compile-time techniques analyzing program behavior without executing it. | Program Analysis |
+| Stratification | Structuring definitions or rules into layers to avoid logical paradoxes or cyclic dependencies. | Logic & Type Theory |
+| Strength Reduction | Optimization replacing expensive operations with cheaper equivalents. | Compiler Optimization |
+| Strict Evaluation | Evaluation strategy where function arguments are evaluated before function application. | Evaluation Strategies |
+| Structured Concurrency | Concurrency model enforcing scoped lifetimes for concurrent tasks. | Concurrency Models |
+| Structural Recursion | Recursion following the structural decomposition of data types. | Functional Programming |
+| Structural Sharing | Technique allowing immutable data structures to share memory between versions. | Functional Data Structures |
+| Substitution | Operation replacing variables with expressions or types during evaluation or type checking. | Type Theory |
+| Subtype Polymorphism | Ability to use values of a subtype wherever a supertype is expected. | Type Systems |
+| Subtyping | Type relationship where one type is considered compatible with another. | Type Systems |
+| Symbol Checker | Compiler component validating symbol resolution and identifier correctness. | Compiler Architecture |
+| Symbolic Computation | Manipulation of symbolic expressions rather than concrete values. | Mathematical Computing |
+| Symbolic Execution | Program analysis technique executing code with symbolic inputs. | Program Verification |
+| Syntax Extensions | Language mechanisms enabling extension of syntax through macros or plugins. | Metaprogramming |
+| Claude Shannon | Mathematician and information theorist who founded information theory and influenced computation theory. | History of Computing |
 ||
 | **T** | |
-| TYPE UNIVERSE ||
-| TYPE FORMATION ||
-| TERM TYPING ||
-| TRANSATIVE DEPENDENCIES ||
-| TRANSACTIONAL MEMORY ||
-| Termination | Property where evaluation eventually completes. |
-| TYPECLASSES ||
-| TYPE THEORY |
-| Type System | Framework enforcing correctness constraints through types. |
-| ↳ Bidirectional Type Checking | Typing approach combining inference and checking phases. |
-| ↳ Duck Typing | Dynamic typing based on supported operations. |
-| ↳ Extrinsic Typing | Typing judgments applied externally to syntax. |
-| ↳ Intrinsic Typing | Typing encoded directly in syntax. |
-| ↳ Structural Typing | Type compatibility based on structure. |
-| ↳ Subtyping | Relationship where one type may substitute another. |
-| ↳ Type Checking | Verification that programs conform to type rules. |
-| ↳ Type Inference | Automatic deduction of types. |
-| PRINCIPLE TYPES ||
-| COINDUCTIVE TYPES ||
-| TYPE FAMILIES ||
-| Type Universe | Type whose elements are themselves types. |
-| Type Formation | Rules describing how new types are constructed. |
-| Term Typing | Rules assigning types to terms. |
-| Typing | Assignment of types to expressions. |
-| THREADING ||
-| ↳ SINGLE THREADED ||
-| ↳ MULTI THREADED ||
-| TURING VS TOTAL ||
-| TURING ||
-| ALAN TURING |||
-| TOTAL ||
-| Tokens ||
-| TACTICS ||
-| Type Environment | Mapping from variables to types.| 
-| Task Parallelism | Parallel independent tasks. |
-| Type-Level Programming | Computation performed at the type level. | 
-| Type Witnesses | Values proving type relationships. | 
-| Type Reflection | Ability to inspect types at runtime. | 
-| Type Classes | Ad-hoc polymorphism via type constraints. | 
-| Tracing JIT | Runtime optimization via hot-path tracing. |
-| Task Pools | Thread pools executing tasks. | 
-| Type-Driven Development | Designing programs by refining types first. | 
-| Tagless Final Encoding | Represent DSLs using typeclass polymorphism. | 
-| Type-Driven Development | 
-| Tail Recursion | Recursive calls optimized to avoid stack growth. | 
-| Template Metaprogramming | Compile-time programming using templates. |
-| Tail Call Optimization | Eliminates stack growth for recursion. |
-| Tactics / Tacticals | Automation in proof construction.| 
-| Type-Level Literals (Haskell / TypeScript) | Literal types encoded at the type level for compile-time guarantees. | 
-| Trait / Typeclass Specialization (Rust / Haskell)	| Specializing generic implementations for specific types for efficiency. | 
-| Type Equality Checking | Definitional vs propositional equality. | 
-| Taint Tracking | Tracking untrusted data flow. | 
+| Tactics | Procedural tools used in proof assistants to automate proof construction. | Proof Assistants |
+| Tactics / Tacticals | Higher-level combinators for composing proof tactics into complex strategies. | Proof Assistants |
+| Tagless Final Encoding | Technique representing domain-specific languages using polymorphic interfaces instead of explicit syntax trees. | DSL & Language Design |
+| Tail Call Optimization (TCO) | Compiler optimization eliminating additional stack frames for tail-recursive calls. | Compiler Optimization |
+| Tail Recursion | Recursion where the recursive call occurs as the final operation in a function. | Functional Programming |
+| Taint Tracking | Security analysis technique tracking propagation of untrusted or sensitive data through programs. | Program Analysis & Security |
+| Task Parallelism | Parallel execution of independent tasks. | Concurrency & Parallelism |
+| Task Pools (Thread Pools) | Pools of worker threads executing queued tasks. | Concurrency Infrastructure |
+| Template Metaprogramming | Compile-time computation using templates or generative type constructs. | Metaprogramming |
+| Term Typing | Formal typing rules assigning types to terms in a programming language. | Type Theory |
+| Termination | Property ensuring program evaluation eventually completes. | Semantics & Program Correctness |
+| Threading | Execution model involving multiple threads of control. | Concurrency Models |
+| ↳ Single-Threaded Execution | Execution model where only one thread runs at a time. | Concurrency Models |
+| ↳ Multi-Threaded Execution | Execution model allowing multiple threads to run concurrently. | Concurrency Models |
+| Tokens | Lexical units produced by the lexer during compilation. | Compiler Architecture |
+| Total | Property of functions guaranteed to terminate and produce results for all valid inputs. | Type Theory & Program Correctness |
+| Turing | Refers to models of computation based on Turing machines capable of expressing any computable function. | Computability Theory |
+| Turing vs Total | Distinction between general-purpose (Turing-complete) languages and total languages guaranteeing termination. | Computability Theory |
+| Alan Turing | Mathematician who formalized computation with the Turing machine model. | History of Computing |
+| Transactional Memory | Concurrency model executing memory operations as atomic transactions. | Concurrency Models |
+| Tracing JIT | Just-in-time compilation technique optimizing frequently executed execution paths. | Runtime Systems |
+| Trait / Typeclass Specialization | Mechanism allowing specialized implementations for particular types while preserving generic interfaces. | Type Systems |
+| Transitive Dependencies | Dependencies required indirectly through other dependencies in a build graph. | Build & Package Systems |
+| Type Classes | Ad-hoc polymorphism mechanism defining behavior shared across types. | Type Systems |
+| Type-Driven Development | Development methodology where type design guides program implementation. | Programming Methodology |
+| Type Environment | Mapping from program variables to their types during type checking. | Type Systems |
+| Type Equality Checking | Determining whether two types are equal, often distinguishing definitional and propositional equality. | Type Theory |
+| Type Families | Type-level functions mapping types to other types. | Advanced Type System Techniques |
+| Type Formation | Rules describing how valid types are constructed in a type system. | Type Theory |
+| Type Inference | Automatic deduction of types without explicit annotations. | Type Systems |
+| Type-Level Literals | Literal values represented at the type level for compile-time reasoning. | Advanced Type System Techniques |
+| Type-Level Programming | Performing computation and logic at the type level. | Advanced Type System Techniques |
+| Type Reflection | Ability for programs to inspect or manipulate types at runtime. | Metaprogramming |
+| Type System | Framework enforcing correctness constraints through static typing rules. | Programming Language Theory |
+| ↳ Bidirectional Type Checking | Typing approach combining inference and checking phases. | Type Systems |
+| ↳ Duck Typing | Dynamic typing approach based on supported operations rather than explicit types. | Dynamic Typing |
+| ↳ Extrinsic Typing | Type system where typing judgments are applied externally to untyped syntax. | Type Theory |
+| ↳ Intrinsic Typing | Encoding typing information directly within syntax definitions. | Type Theory |
+| ↳ Structural Typing | Type compatibility based on structural properties rather than explicit declarations. | Type Systems |
+| ↳ Subtyping | Type relationship where one type can substitute for another. | Type Systems |
+| ↳ Type Checking | Verification that programs conform to typing rules. | Type Systems |
+| ↳ PRINCIPLE TYPES ||
+| ↳ COINDUCTIVE TYPES ||
+| Type Theory | Mathematical study of types, forming the foundation of many programming languages and proof systems. | Foundations of Programming Languages |
+| Type Universe | Type whose elements are themselves types. | Type Theory |
+| Type Witnesses | Values used to prove or represent relationships between types. | Advanced Type System Techniques |
+| Typing | Process of assigning types to expressions or program constructs. | Type Systems |
 ||
 | **U** | |
+| Unbounded Usage | Resource usage discipline where values may be used arbitrarily many times. | Memory Safety & Resource Techniques |
+| Unification | Algorithmic process of solving equations between symbolic expressions or types, commonly used in type inference. | Type Inference & Logic |
+| Unification Variables | Placeholder variables introduced during type inference that are later solved by the unification process. | Type Inference |
+| Uninhabited Types | Types with no possible values (e.g., the bottom type), often used to represent impossible states. | Type Systems |
+| Unit + State + Communication + Scheduler + Supervision | Minimal runtime components commonly used to model concurrent systems such as actor runtimes. | Runtime Systems & Concurrency Architecture |
+| Usage | Constraints governing how many times values or resources may be used within a program. | Memory Safety & Resource Techniques |
+| ↳ Unbounded Usage | Values may be used any number of times without restriction. | Memory Safety & Resource Techniques |
+| Universe Hierarchies | Stratified hierarchy of types of types (e.g., Type₀, Type₁, Type₂) used to avoid logical paradoxes in dependent type theory. | Type Theory |
+| Universe Levels | Numerical or symbolic indices assigned to universes within a universe hierarchy. | Type Theory |
+| Universe Polymorphism | Ability for definitions to be polymorphic over universe levels, enabling reuse across different universe strata. | Advanced Type System Techniques |
 | Usage | Constraints governing how many times values may be used. |
-| UNIFICATION ||
-| UNINHABITED ||
-| USAGE ||
-| UNBOUNDED USAGE ||
-| Universe Polymorphism	| Polymorphism over type universes to avoid paradoxes in dependent type theory. |
-| Universe Hierarchies | Types of types to avoid paradoxes (Type_0, Type_1, …). | 
-| Universe Polymorphism | 
-| Universe polymorphism |
-| UNIVERSE LEVELS ||
-| UNIVERSE POLYMORPHISM ||
-| Unification Variables | Placeholder types solved during inference.| 
-| UNIT + STATE + COMMUNICATION + SCHEDULER + SUPERVISION |
 | |
 | **V** | |
-| Variance | Relationship between subtyping and parameterized types. |
-| ↳ Contravariant | Subtyping reversed. |
-| ↳ Covariant | Subtyping preserved. |
-| ↳ Invariant | Subtyping not allowed. |
-| VERIFIED ||
-| Verification in the capabilities |
-| View Patterns | Matching after applying a function. | 
+| Variance | Relationship between subtyping and parameterized types, determining how type parameters behave under subtyping. | Type Systems |
+| ↳ Covariant | Subtyping relationship is preserved (if A <: B then F<A> <: F<B>). | Type Systems |
+| ↳ Contravariant | Subtyping relationship is reversed (if A <: B then F<B> <: F<A>). | Type Systems |
+| ↳ Invariant | No subtyping relationship allowed between parameterized types with different arguments. | Type Systems |
+| Verification | Process of formally proving that programs satisfy specified correctness properties. | Formal Methods |
+| Verified Systems | Software systems whose correctness properties have been formally proven. | Formal Methods |
+| Verification in Capability Systems | Ensuring authority and resource access rules are satisfied using capability-based security models. | Security Models |
+| View Patterns | Pattern matching technique where values are transformed by a function before being matched against patterns. | Pattern Matching & Functional Programming |
 ||
 | **W** | |
-| Work Stealing Scheduler | Common scheduling algorithm. | 
-| Work Stealing | Dynamic load balancing between threads. | 
-| Wait-Free Programming	| Guarantees every thread makes progress. | 
-| Work Stealing | Threads dynamically steal tasks. | 
-| Witness | Value demonstrating that a proposition holds. |
-| Witness Passing | Explicitly passing proofs or evidence of constraints. | 
-| Witness Passing | 
-| Workers |
-| Work Stealing / Task Pools | Dynamic scheduling of tasks across threads for load balancing. | 
-| Wait-Free Programming | Guarantees every thread makes progress in bounded steps. | 
-| Wait-Free Programming	| Guarantees every thread makes progress.| 
+| Wait-Free Programming | Concurrency guarantee ensuring every thread completes operations in a bounded number of steps regardless of other threads. | Concurrency & Parallelism |
+| Witness | Value that demonstrates a proposition, type constraint, or proof obligation holds. | Type Theory & Logic |
+| Witness Passing | Technique where proofs, capabilities, or type evidence are passed explicitly as values to satisfy constraints. | Type Systems & Proof Systems |
+| Workers | Execution units (threads or processes) responsible for running scheduled tasks in parallel systems. | Concurrency Infrastructure |
+| Work Stealing | Dynamic load-balancing technique where idle workers steal tasks from busy workers' queues. | Parallel Scheduling |
+| Work-Stealing Scheduler | Scheduling algorithm implementing work stealing to efficiently distribute tasks across workers. | Parallel Scheduling |
+| Work Stealing / Task Pools | Runtime architecture combining task pools with work-stealing to dynamically balance workloads across threads. | Parallel Runtime Systems |
 ||
 | **X** || 
 ||
