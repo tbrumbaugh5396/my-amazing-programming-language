@@ -1269,6 +1269,242 @@ Image --> Objects
 ```
 
 
+## Custom Language Live API — Full Reference
+1. Project Operations
+
+create_project(name: String, metadata: Dict = {}, dependencies: List[ProjectNode] = []) -> ProjectNode
+
+delete_project(project: ProjectNode)
+
+get_project(name: String) -> ProjectNode?
+
+list_projects() -> List[ProjectNode]
+
+add_subproject(parent: ProjectNode, child: ProjectNode)
+
+remove_subproject(parent: ProjectNode, child: ProjectNode)
+
+get_subprojects(project: ProjectNode) -> List[ProjectNode]
+
+add_namespace(project: ProjectNode, ns: NamespaceNode)
+
+remove_namespace(project: ProjectNode, ns: NamespaceNode)
+
+list_namespaces(project: ProjectNode) -> List[NamespaceNode]
+
+set_project_metadata(project: ProjectNode, metadata: Dict)
+
+get_project_metadata(project: ProjectNode) -> Dict
+
+add_build_target(project: ProjectNode, target: BuildTargetNode)
+
+remove_build_target(project: ProjectNode, target: BuildTargetNode)
+
+list_build_targets(project: ProjectNode) -> List[BuildTargetNode]
+
+activate_project(ctx: ContextNode, project: ProjectNode)
+
+deactivate_project(ctx: ContextNode, project: ProjectNode)
+
+2. Namespace / Module Operations
+
+create_namespace(name: String) -> NamespaceNode
+
+delete_namespace(ns: NamespaceNode)
+
+get_namespace(name: String) -> NamespaceNode?
+
+list_namespaces() -> List[NamespaceNode]
+
+activate_namespace(ctx: ContextNode, ns: NamespaceNode)
+
+deactivate_namespace(ctx: ContextNode, ns: NamespaceNode)
+
+is_namespace_active(ctx: ContextNode, ns: NamespaceNode) -> bool
+
+merge_namespaces(ns1: NamespaceNode, ns2: NamespaceNode) -> NamespaceNode
+
+create_module(name: String, parent_ns: NamespaceNode) -> ModuleNode
+
+delete_module(module: ModuleNode)
+
+list_modules(ns: NamespaceNode) -> List[ModuleNode]
+
+add_submodule(parent: ModuleNode, child: ModuleNode)
+
+remove_submodule(parent: ModuleNode, child: ModuleNode)
+
+3. Type Operations
+
+create_type(name: String, params: List[TypeNode], abstract: Bool, universe: TypeUniverse) -> TypeNode
+
+delete_type(type: TypeNode)
+
+get_type(name: String, ns: NamespaceNode) -> TypeNode?
+
+list_types(ns: NamespaceNode) -> List[TypeNode]
+
+add_type_dependency(type: TypeNode, dep: TypeNode or ValueNode)
+
+set_type_abstract(type: TypeNode, abstract: Bool)
+
+set_universe(type: TypeNode, universe: TypeUniverse)
+
+create_dependent_type(name: String, value_dep: ValueNode, type_dep: TypeNode) -> TypeNode
+
+add_isomorphism(type_a: TypeNode, type_b: TypeNode) -> IsomorphismNode
+
+import_type(ctx: ContextNode, type: TypeNode)
+
+export_type(ns: NamespaceNode, type: TypeNode)
+
+4. Function Operations
+
+create_function(name: String, params: List[TypeNode], return_type: TypeNode, body: Node, total: Bool, execution_context: ContextNode) -> FunctionNode
+
+delete_function(fn: FunctionNode)
+
+get_function(name: String, ns: NamespaceNode) -> FunctionNode?
+
+list_functions(ns: NamespaceNode) -> List[FunctionNode]
+
+add_function_effect(fn: FunctionNode, effect: EffectNode)
+
+add_function_capability(fn: FunctionNode, cap: CapabilityNode)
+
+set_execution_context(fn: FunctionNode, ctx: ContextNode)
+
+set_total(fn: FunctionNode, total: Bool)
+
+import_function(ctx: ContextNode, fn: FunctionNode)
+
+export_function(ns: NamespaceNode, fn: FunctionNode)
+
+5. Value Operations
+
+create_value(name: String, type: TypeNode, constant: Bool, scope: NamespaceNode or ModuleNode) -> ValueNode
+
+delete_value(val: ValueNode)
+
+get_value(name: String, ns: NamespaceNode) -> ValueNode?
+
+list_values(ns: NamespaceNode) -> List[ValueNode]
+
+set_value_constant(val: ValueNode, constant: Bool)
+
+set_value_usage(val: ValueNode, usage: Linear | Affine | Bounded | Unbounded)
+
+import_value(ctx: ContextNode, val: ValueNode)
+
+export_value(ns: NamespaceNode, val: ValueNode)
+
+6. Capability Operations
+
+create_capability(name: String) -> CapabilityNode
+
+attach_capability(node: Node, cap: CapabilityNode)
+
+detach_capability(node: Node, cap: CapabilityNode)
+
+list_capabilities(node: Node) -> List[CapabilityNode]
+
+check_capability(node: Node, cap: CapabilityNode) -> bool
+
+7. Effect Operations
+
+create_effect(name: String) -> EffectNode
+
+attach_effect(fn: FunctionNode, eff: EffectNode)
+
+detach_effect(fn: FunctionNode, eff: EffectNode)
+
+list_effects(node: Node) -> List[EffectNode]
+
+lower_effect(fn: FunctionNode) -> RuntimeRepresentation
+
+8. Context Operations
+
+create_context(name: String) -> ContextNode
+
+delete_context(ctx: ContextNode)
+
+add_namespace_to_context(ctx: ContextNode, ns: NamespaceNode)
+
+remove_namespace_from_context(ctx: ContextNode, ns: NamespaceNode)
+
+list_active_namespaces(ctx: ContextNode) -> List[NamespaceNode]
+
+list_all_nodes(ctx: ContextNode) -> List[Node]
+
+revalidate_context(ctx: ContextNode, updated_nodes: List[Node])
+
+9. Object Operations
+
+create_object(name: String, parent: Node? = null) -> ObjectNode
+
+delete_object(obj: ObjectNode)
+
+add_field(obj: ObjectNode, field_name: String, field_node: Node)
+
+add_method(obj: ObjectNode, method: FunctionNode)
+
+list_fields(obj: ObjectNode) -> List[Node]
+
+list_methods(obj: ObjectNode) -> List[FunctionNode]
+
+Note: In this system, everything is an object node, including types, functions, values, modules, namespaces, and projects.
+
+10. Projections / Views
+
+create_projection(node: Node, projection_type: Text | REPL | Editor) -> ProjectionNode
+
+update_projection(projection: ProjectionNode, changes: Any)
+
+delete_projection(projection: ProjectionNode)
+
+list_projections(node: Node) -> List[ProjectionNode]
+
+load_projection(ctx: ContextNode, projection: ProjectionNode)
+
+revalidate_projection(projection: ProjectionNode)
+
+11. Graph / Dependency Queries
+
+get_dependencies(node: Node) -> List[Node]
+
+get_dependents(node: Node) -> List[Node]
+
+traverse_namespace_graph(start: NamespaceNode, depth: Int) -> List[Node]
+
+find_node_by_name(name: String) -> Node?
+
+list_all_nodes() -> List[Node]
+
+✅ Summary
+
+This API now covers:
+
+Projects (including subprojects, build targets, metadata)
+
+Namespaces & Modules (open/closed, active/inactive, merging)
+
+Types (dependent types, univalence, isomorphisms, total/Turing)
+
+Functions & Values (capabilities, effects, usage, compile/run time)
+
+Capabilities & Effects (attach, detach, check, lower)
+
+Contexts (multi-namespace activation, revalidation)
+
+Objects (everything is an object node)
+
+Projections / Views (text, REPL, editors)
+
+Graph queries (dependencies, traversal, lookup)
+
+Imports/Exports (types, functions, values)
+
+
 ## What should be able to happen
 
 LSP / API Capabilities as an environment which is itself reflective.
