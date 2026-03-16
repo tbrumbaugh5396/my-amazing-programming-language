@@ -260,6 +260,7 @@ graph LR
 - [Design Philosophy]
 - [Summary]
 - [API](#api)
+  - [Diagram](#diagram)
 - [Ideas](#ideas)
 - [Categories](#categories)
 - [Glossary](#Glossary)
@@ -271,7 +272,9 @@ graph LR
 
 The fundamental typing judgment is:
 
+```lang
 Γ ⊢ t : A ▷ ε ▷ κ ▷ ρ ▷ φ
+```
 
 Where:
 
@@ -289,12 +292,14 @@ Where:
 ## 3.1 Simple and Dependent Types
 [Table-of-contents](#table-of-contents)
 
+```lang
 A, B ::=
     Type₀ | Type₁ | Type₂ | ...
   | Π (x : A). B
   | Σ (x : A). B
   | A ⊸ B                   -- linear
   | A ⊣ B                   -- affine
+```
 
 Universe hierarchy prevents Girard’s paradox.
 
@@ -303,20 +308,26 @@ Universe hierarchy prevents Girard’s paradox.
 ## 3.2 Logical Types
 [Table-of-contents](#table-of-contents)
 
+```lang
 Prop : Type₀
+```
 
 Logical types live in World 0 (total).
 
 Examples:
 
+```lang
 Sorted : List Int → Prop
 SafeFFI : ForeignFunc → Prop
 Deterministic : Term → Prop
 CostBound : Term → Nat → Prop
+```
 
 Proofs are values inhabiting propositions:
 
+```lang
 Γ ⊢ p : P
+```
 
 Proofs:
 
@@ -330,15 +341,18 @@ Proofs:
 ## 3.3 Refinement Types
 [Table-of-contents](#table-of-contents)
 
+```lang
 {x : A | P(x)}
+```
 
 Example:
-
+```lang
 Nat = {x : Int | x ≥ 0}
 
 readPositive :
   (x : Int) →
   Eff {IO} {y : Int | y > 0}
+```
 
 Refinements are checked via:
 
@@ -355,10 +369,11 @@ Refinements are erased after verification.
 [Table-of-contents](#table-of-contents)
 
 Traits:
-
+```lang
 trait Eq A {
   eq : A → A → Bool
 }
+```
 
 Instance coherence rule:
 
@@ -366,11 +381,13 @@ Instance coherence rule:
 
 Contracts extend traits with logical guarantees:
 
+```lang
 trait SortedContainer A {
   insert :
     (x : A) →
     {c : Self | Sorted(c)}
 }
+```
 
 Contracts combine:
 - Behavior
@@ -400,7 +417,7 @@ Instances may not escalate authority implicitly.
 [Table-of-contents](#table-of-contents)
 
 Authority is modeled explicitly:
-
+```lang
 Cap ::= FileRead
       | FileWrite
       | NetAccess
@@ -412,6 +429,7 @@ Cap ::= FileRead
       | Session S
       | Cost n
       | Epoch e
+```
 
 Capabilities are values.
 Capabilities are:
@@ -434,18 +452,21 @@ Every function declares required capabilities:
 All authority is explicit.
 
 Functions declare capability requirements:
-
+```lang
 readFile :
   (path : String)
   →{FileRead}
   Eff {IO} String
+```
 
 ---
 
 ## 4.3 Capability Polymorphism
 [Table-of-contents](#table-of-contents)
 
+```lang
 ∀ κ. f : A →{κ} B
+```
 
 Allows authority abstraction without over-constraining users.
 
@@ -456,9 +477,11 @@ Allows authority abstraction without over-constraining users.
 
 Capabilities must be passed explicitly:
 
+```lang
 main :
   (cap : FileRead)
   → Eff {IO} Unit
+```
 
 Refactoring remains easy because:
 
@@ -480,12 +503,13 @@ Revocation mechanisms:
 3. Linear expiration tokens
 
 Example:
-
+```lang
 grant :
   Cap → Epoch e → ScopedCap e
 
 revoke :
   ScopedCap e → Void
+```
 
 Revocation ensures long-lived programs remain secure.
 
@@ -544,7 +568,9 @@ Removing authority is mechanically enforced by the compiler.
 ## 6.1 Linear Context Splitting
 [Table-of-contents](#table-of-contents)
 
+```
 Γ = Γ₁ ⊗ Γ₂
+```
 
 Prevents duplication of linear resources.
 
@@ -553,11 +579,13 @@ Prevents duplication of linear resources.
 ## 6.2 Context Creation
 [Table-of-contents](#table-of-contents)
 
+```lang
 region r {
   ...
 }
+```
 
-Introduces r : RegionToken.
+Introduces ```r : RegionToken```.
 
 ---
 
@@ -592,6 +620,7 @@ You cannot:
 
 Effect rows:
 
+```
 ε ::= {}
     | {IO}
     | {State}
@@ -599,10 +628,13 @@ Effect rows:
     | {Nondet}
     | {Cost}
     | ε ∪ ε
+```
 
 Effect polymorphism supported:
 
+```
 ∀ ε. f : A → Eff ε B
+```
 
 Capabilities authorize effects.
 
@@ -611,9 +643,11 @@ Capabilities authorize effects.
 # 8. Session Types
 [Table-of-contents](#table-of-contents)
 
+```
 S ::= Send A; S
     | Recv A; S
     | End
+```
 
 Channels are linear capabilities.
 
@@ -709,8 +743,9 @@ Runtime representation retains:
 Erasure preserves operational semantics.
 
 Formal guarantee:
-
+```lang
 If Γ ⊢ t : A and t → t'
+```
 
 Then erase(t) → erase(t').
 
@@ -878,9 +913,11 @@ We prove:
 
 Erasure theorem:
 
+```lang
 If Γ ⊢ t : A and t → t'
+```
 
-Then erase(t) →* erase(t').
+Then ```erase(t) →* erase(t')```.
 
 No proof or type term affects runtime semantics.
 
@@ -1110,6 +1147,10 @@ It is designed for:
 # API
 [Table of Contents](#table-of-contents)
 
+Based on Alan Kay's idea of an interactive programming language we focus on the context / object notation of the state of the language, as opposed to typical text-based programming languages. 
+
+The language should have a built in API (Environment) similiar to LSP (Language Server Protocol) with more reflective capabilities.
+
 - Environments
 - Contexts
 - Namespaces
@@ -1118,8 +1159,123 @@ It is designed for:
 - Functions
 - Expression
 
+## Diagram
+
+```mermaid
+flowchart TD
+
+User[User]
+
+subgraph Interactive Development Environment
+    Workspace[Workspace / Playground]
+    Browser[Class / Module Browser]
+    Inspector[Object Inspector]
+    Debugger[Live Debugger]
+    REPL[Interactive REPL]
+end
+
+subgraph Programming Language
+    Syntax[Syntax & Grammar]
+    Parser[Parser]
+    AST[Abstract Syntax Tree]
+
+    TypeSystem[Type System]
+    TypeInference[Type Inference]
+    TypeChecker[Type Checker]
+    Effects[Effect System]
+    Capabilities[Capability System]
+
+    Semantics[Operational Semantics]
+    Evaluation[Evaluator / Interpreter]
+end
+
+subgraph Language Features
+    Modules[Modules / Namespaces]
+    Functions[Functions / Methods]
+    Types[Types]
+    PatternMatching[Pattern Matching]
+    Macros[Macros / Metaprogramming]
+end
+
+subgraph Compiler / Transformation Pipeline
+    Desugar[Desugaring]
+    Elaboration[Elaboration]
+    CoreIR[Core Intermediate Representation]
+    Optimizations[Optimizations]
+    Lowering[Lowering]
+    Bytecode[Bytecode / VM Instructions]
+end
+
+subgraph Runtime System
+    VM[Virtual Machine]
+    Scheduler[Process Scheduler]
+    Memory[Garbage Collected Object Memory]
+    Concurrency[Concurrency System]
+    MessagePassing[Message Passing]
+end
+
+subgraph Live Object System
+    Objects[Objects]
+    Classes[Classes]
+    Methods[Methods]
+end
+
+subgraph Persistence
+    Image[System Image]
+    Snapshot[Snapshot Save / Restore]
+end
+
+User --> Workspace
+User --> Browser
+User --> Inspector
+User --> Debugger
+User --> REPL
+
+Workspace --> Parser
+Browser --> Parser
+REPL --> Parser
+
+Parser --> AST
+AST --> Desugar
+Desugar --> Elaboration
+
+Elaboration --> TypeSystem
+TypeSystem --> TypeInference
+TypeSystem --> TypeChecker
+TypeSystem --> Effects
+TypeSystem --> Capabilities
+
+Elaboration --> CoreIR
+CoreIR --> Optimizations
+Optimizations --> Lowering
+Lowering --> Bytecode
+
+Bytecode --> VM
+VM --> Scheduler
+VM --> Memory
+VM --> Concurrency
+
+Memory --> Objects
+Objects --> Classes
+Classes --> Methods
+
+Objects --> MessagePassing
+MessagePassing --> VM
+
+Memory --> Image
+Image --> Snapshot
+Snapshot --> Image
+Image --> Objects
+```
+
+
+## What should be able to happen
+
+LSP / API Capabilities as an environment which is itself reflective.
+
 ## Object Notation
 
+```lang
 Environment {
   create_module(name)
   create_type(name)
@@ -1137,77 +1293,80 @@ Object {
   methods()
   fields()
 }
-Operations:
+```
 
-add_method(object, method)
-remove_method(object, name)
-inspect(object)
+Operations:
+- add_method(object, method)
+- remove_method(object, name)
+- inspect(object)
+
 This allows tools to modify programs dynamically.
 
-2. Code Structure API (AST / IR access)
+## Code Structure API (AST / IR access)
 Instead of manipulating text, the environment manipulates program structure.
 
 Example:
-
-Program
-Module
-Class
-Method
-Expression
+- Program
+- Module
+- Class
+- Method
+- Expression
 API:
 
-create_method(class, name, ast)
-modify_expression(node, new_expr)
-rename_symbol(symbol, name)
+- create_method(class, name, ast)
+- modify_expression(node, new_expr)
+- rename_symbol(symbol, name)
+
 This is what modern systems call structural editing.
 
-3. Environment Introspection API
+## Environment Introspection API
 The environment can inspect itself.
 
 Example:
 
-list_classes()
-find_method(name)
-who_calls(method)
-browse_references(symbol)
+- list_classes()
+- find_method(name)
+- who_calls(method)
+- browse_references(symbol)
+
 This enables:
-
-code browsers
-
-refactoring tools
-
-live debugging
+- code browsers
+- refactoring tools
+- live debugging
 
 Smalltalk environments were famous for this.
 
-4. Tool API
+## Tool API
 Editors, inspectors, debuggers, and visualizers are just programs using the environment API.
 
 Example:
 
+```lang
 Tool {
   open_view(object)
   inspect(object)
   modify(ast)
 }
+```
+
 Tools are first-class objects in the system.
 
-5. Live Evaluation API
+## Live Evaluation API
 Programs can be modified while running.
 
 Example:
+- evaluate(expression)
+- compile_method(class, code)
+- reload(module)
 
-evaluate(expression)
-compile_method(class, code)
-reload(module)
 Example workflow:
+- edit method
+- compile
+- object immediately uses new behavior
 
-edit method
-compile
-object immediately uses new behavior
 This is live programming.
 
-3. The Environment Object Model
+## The Environment Object Model
 A good way to structure this API is:
 
 Environment
@@ -1216,187 +1375,184 @@ Environment
  ├── Tools
  ├── Processes
  └── UI
+
 Example interface:
 
+```lang
 Environment {
   objects()
   modules()
   tools()
   processes()
 }
-4. Structural Editing Instead of Text
+```
+
+## Structural Editing Instead of Text
 Kay believed editing should manipulate program structure directly, not strings.
 
 Example:
 
 Instead of:
 
+```lang
 def add(x,y):
   x+y
+```
+
 The environment stores:
 
+```lang
 Function
   name: add
   args: [x,y]
   body:
     Add(x,y)
-API:
+```
 
-create_function(name)
-add_parameter(fn, name)
-set_body(fn, ast)
+## API:
+- create_function(name)
+- add_parameter(fn, name)
+- set_body(fn, ast)
+
 This avoids parsing errors and enables powerful tools.
 
-5. Message-Based APIs
+## Message-Based APIs
 Following Kay’s philosophy, environment APIs should be message protocols.
 
 Example:
 
+```lang
 send(environment, "create-class", name)
 send(class, "add-method", method)
 send(object, "inspect")
+```
+
 Everything becomes a uniform messaging interface.
 
-6. Versioned Object World
+## Versioned Object World
 A real environment must support snapshots of the entire system.
 
 Example API:
+- snapshot()
+- restore(snapshot)
+- diff(snapshot1, snapshot2)
 
-snapshot()
-restore(snapshot)
-diff(snapshot1, snapshot2)
 This replaces file-based versioning.
 
-7. Visual Tools as First-Class Programs
+## Visual Tools as First-Class Programs
 The environment should allow tools like:
 
-inspectors
-
-debuggers
-
-code browsers
-
-visualizers
+- inspectors
+- debuggers
+- code browsers
+- visualizers
 
 Example:
-
+```lang
 Inspector.open(object)
 Debugger.attach(process)
 Browser.search("parse")
+```
 
-4. The System Is More Like a Database
+## The System Is More Like a Database
 
 Another good analogy is a program database.
 
 Example operations:
-
-insert_method
-update_ast
-query_references
-delete_symbol
+- insert_method
+- update_ast
+- query_references
+- delete_symbol
 
 
 So the environment behaves like:
+- Program State + Queries + Transformations
 
-Program State + Queries + Transformations
-
-5. The Best Existing API Model
+## The Best Existing API Model
 
 The closest modern system to what you want is the Language Server Protocol (LSP) used by editors.
 
 Example:
-
-textDocument/definition
-textDocument/references
-workspace/symbol
-
+- textDocument/definition
+- textDocument/references
+- workspace/symbol
 
 But LSP is still limited because it mainly analyzes text, not a live object system.
 
-6. Better Model: Stateful Session API
+## Better Model: Stateful Session API
 
 Your environment should use stateful sessions.
 
 Conceptually:
-
-client → session → environment
+- client → session → environment
 
 
 Example protocol:
-
+```lang
 session.start()
-
 session.create_module("json")
-
 session.create_function("parse")
-
 session.evaluate("parse('{...}')")
-
 session.inspect(object)
-
+```
 
 The environment maintains state during the session.
 
 7. A Clean Formal Model
 
 You can define the environment as:
-
+```lang
 Environment = (State, Operations)
-
+```
 
 Where:
-
+```
 State = ObjectGraph + ProgramStructure + Processes
-
+```
 
 Operations mutate the state:
-
+```lang
 op : State → State
-
+```
 
 Example:
-
+```lang
 add_method : State × Class × Method → State
+```
 
-8. Event-Based Architecture
+## Event-Based Architecture
 
 Another good approach is event sourcing.
 
 All changes are events:
-
-AddClass
-AddMethod
-ModifyAST
-EvaluateExpression
-StartProcess
-
+- AddClass
+- AddMethod
+- ModifyAST
+- EvaluateExpression
+- StartProcess
 
 State becomes:
-
+```lang
 State = fold(events)
-
+```
 
 This is powerful for environments because it enables:
+- undo
+- replay
+- history
 
-undo
-
-replay
-
-history
-
-9. Real Architecture of a Live Programming Environment
+## Real Architecture of a Live Programming Environment
 
 Your environment will probably expose APIs for:
-
-Objects
-Code structure
-Execution
-Tools
-History
-
+- Objects
+- Code structure
+- Execution
+- Tools
+- History
 
 Example interface:
 
+```lang
 Environment
   createType
   createFunction
@@ -1404,29 +1560,29 @@ Environment
   evaluate
   inspect
   runProcess
-
+```
 
 All of these mutate the environment state.
 
-10. One Key Design Insight
+## One Key Design Insight
 
 The system should look like this:
-
+```
 Client
   ↓
 Environment Protocol
   ↓
 Live Object World
-
+```
 
 Not like this:
-
+```
 Client
   ↓
 REST API
   ↓
 Server
-
+```
 
 Because your language environment is the world, not a web service.
 
@@ -1435,13 +1591,232 @@ Because your language environment is the world, not a web service.
 Your programming environment should expose a stateful message protocol, not a REST API.
 
 A good conceptual model is:
-
+```
 Environment = Object System + Code Database + Live Runtime
-
+```
 
 interacted with through message-based operations.
 
-##
+## What LSP Is
+
+Language Server Protocol (LSP) is a protocol originally designed by Microsoft to separate programming language intelligence from editors/IDEs.
+
+Instead of every editor implementing language features separately, a language server provides them via a standardized protocol.
+
+Typical architecture:
+
+Editor / IDE
+   |
+   | JSON-RPC messages
+   |
+Language Server
+   |
+Compiler / Analyzer / Typechecker
+
+Examples of LSP features:
+
+Feature	What it does
+Autocomplete	Suggests symbols
+Go to definition	Navigate to where something is defined
+Hover info	Shows type or documentation
+Find references	Find all uses of a symbol
+Refactoring	Rename variables safely
+Diagnostics	Compile errors and warnings
+Formatting	Automatic code formatting
+
+Editors like:
+
+Visual Studio Code
+
+Neovim
+
+Emacs
+
+Sublime Text
+
+can all talk to the same language server.
+
+2. Conceptually What LSP Represents
+
+LSP is essentially:
+
+A remote interface to a compiler’s semantic model.
+
+The language server maintains:
+
+AST
+
+symbol tables
+
+type information
+
+dependency graph
+
+Then answers queries like:
+
+"What is the type of this node?"
+"Where is this symbol defined?"
+"Rename this variable everywhere."
+
+So LSP = semantic query API for a language.
+
+3. Alan Kay’s Vision
+
+The vision comes from Alan Kay and the Smalltalk system.
+
+Kay did not see programming as editing text.
+
+Instead he imagined:
+
+programming as interacting with a live object system
+
+Key ideas:
+
+Idea	Meaning
+Objects are live	Code runs while you edit
+Everything is inspectable	You can explore objects dynamically
+Environment is primary	The IDE is the system
+No compile-run cycle	Changes propagate immediately
+Code stored as objects	Not text files
+
+Example workflow in Smalltalk:
+
+Inspect an object
+
+Open its methods
+
+Modify method
+
+System updates instantly
+
+No build step.
+
+4. LSP vs Alan Kay’s Environment
+Aspect	LSP	Alan Kay
+Programming model	Text editing	Live objects
+Compilation	Static analysis	Incremental live system
+Storage	Files	Object image
+Interaction	Query compiler	Manipulate objects
+System state	Separate from editor	Editor is the runtime
+Architecture	Client-server	Integrated environment
+Feedback	Diagnostics	Direct execution
+
+So:
+
+LSP = smarter text editor
+
+Smalltalk = programmable world
+
+## Where They Are Surprisingly Similar
+
+Despite the philosophy difference, they share important ideas.
+
+### Structured program model
+
+Both rely on:
+- AST
+- Symbol tables
+- Semantic graph
+
+### Incremental analysis
+
+LSP servers maintain:
+- incremental compilation
+- dependency tracking
+
+Smalltalk also does incremental updates.
+
+### Interactive feedback
+
+Both aim for:
+- instant feedback
+- navigation
+- exploration
+
+## The Core Philosophical Difference
+
+The biggest difference:
+- LSP
+-- Program = text
+-- edit text
+-- compile
+-- query compiler
+
+- Alan Kay
+-- Program = objects
+-- inspect object
+-- modify behavior
+-- system updates
+
+So:
+LSP = smarter editor
+Smalltalk = programmable operating system
+
+## Where Your Idea Fits (From Your Earlier Questions)
+
+Earlier you were describing something like:
+- a programming language environment rather than just text files.
+
+That idea is much closer to Alan Kay than LSP.
+
+But you can combine them.
+
+A modern system could look like:
+```
+Interactive Environment
+      |
+Semantic Graph / IR
+      |
+Language Services API
+```
+
+Instead of:
+```
+Text Editor
+   |
+LSP
+   |
+Compiler
+```
+
+## A Modern Hybrid Architecture
+
+Many new systems are moving toward this.
+
+Examples:
+- JetBrains MPS (projectional editor)
+- Light Table (live programming)
+- Unison (code as content-addressed objects)
+
+These are closer to Kay’s ideas.
+
+## A Key Insight
+
+LSP assumes:
+- program = files
+
+Alan Kay assumes:
+- program = structured objects
+
+Your earlier "namespaces as graphs" idea actually aligns with Kay’s vision.
+
+Instead of:
+- files → AST → compiler
+
+You could have:
+- program graph → interactive environment
+
+LSP is a protocol for exposing compiler intelligence to text editors.
+
+Alan Kay’s vision is a live programming world where code is part of a running object system rather than static text.
+
+They solve similar usability problems but come from completely different models of programming.
+
+If you want, I can also show something extremely interesting:
+
+Why LSP actually becomes unnecessary if you implement a true Alan Kay style environment.
+
+That insight is very relevant to the programming language architecture you're designing.
 
 ---
 
