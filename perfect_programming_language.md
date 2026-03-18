@@ -13,10 +13,7 @@ L(B) = all programs over
 
 
 
-## Universality
 
-1. Universality
-∀f, ∃p∈L, [[p]]=f
 
 ## Minimal Basis
 B is minimal
@@ -79,6 +76,12 @@ All programs generated from ( B ).
 ```
 
 The meaning of program ( p ).
+
+### Universality
+
+```math
+\forall f, \exists p∈L, [[p]]=f
+```
 
 ---
 
