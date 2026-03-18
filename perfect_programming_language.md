@@ -72,7 +72,7 @@ All programs generated from ( B ).
 ### 2.3 Semantics
 
 ```math
-\lbracket p \rbracket
+[[ p ]]
 ```
 
 The meaning of program ( p ).
