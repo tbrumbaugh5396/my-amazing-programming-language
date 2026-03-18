@@ -88,7 +88,7 @@ The meaning of program ( p ).
 ## 3. Computations as Equivalence Classes
 
 ```math
-p \sim q \iff \llbracket p \rrbracket = \llbracket q \rrbracket
+p \sim q \iff [[ p ]] = [[ q ]]
 ```
 
 ```math
@@ -124,7 +124,7 @@ d_p([p]) = \min_{q \in [p]} C(q)
 Define Kolmogorov complexity relative to basis ( B ):
 
 ```math
-K_B(f) = \min_{p : \llbracket p \rrbracket = f} |p|
+K_B(f) = \min_{p : [[ p ]] = f} |p|
 ```
 
 Relationship:
@@ -240,7 +240,7 @@ T_{12} : \mathcal{L}(B_1) \rightarrow \mathcal{L}(B_2)
 Properties:
 
 ```math
-\llbracket T(p) \rrbracket = \llbracket p \rrbracket
+[[ T(p) ]] = [[ p ]]
 ```
 
 ```math
