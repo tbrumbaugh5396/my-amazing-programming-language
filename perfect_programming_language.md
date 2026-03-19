@@ -3,19 +3,7 @@
 ## 1. Overview
 [Table of Contents](#table-of-contents)
 
-This document formalizes a theory of a "perfect programming language" as a multi-metric, hierarchical, generative system over computations, including domain-theoretic structure, lattices, fixed points, types, macros, and reflection.
-
-This document formalizes a theory of a "perfect programming language" as a **multi-metric, hierarchical, generative system** over computations.
-
-It unifies:
-
-* Minimal computational bases
-* Semantic equivalence
-* Distance metrics (machine + human)
-* Abstraction and hierarchy
-* Translation between optimal languages
-* Kolmogorov complexity
-
+This document formalizes a theory of a "perfect programming language" as a **generative system with multiple-metrics and hierarchicies over computations**, including domain-theoretic structure, lattices, fixed points, types, macros, and reflection.
 
 It unifies:
 - Minimal computational bases
