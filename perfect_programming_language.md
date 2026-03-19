@@ -1,6 +1,7 @@
 # Perfect Programming Language Theory with Domain Theory, Lattice Structure, Types, and Reflection
 
 ## 1. Overview
+[Table of Contents](#table-of-contents)
 
 This document formalizes a theory of a "perfect programming language" as a multi-metric, hierarchical, generative system over computations, including domain-theoretic structure, lattices, fixed points, types, macros, and reflection.
 
@@ -62,6 +63,7 @@ It unifies:
 - [25. Geometry of Computation](#25-Geometry-of-Computation)
 
 ## 2. Core Objects
+[Table of Contents](#table-of-contents)
 
 ### 2.1 Basis
 
@@ -104,6 +106,7 @@ L≅Programs(L)
 E_f∼D [C(p_f)] is minimized
 
 ## 3. Computations as Equivalence Classes
+[Table of Contents](#table-of-contents)
 
 You said you want to “view computations as equivalent.”
 
@@ -128,6 +131,7 @@ A computation is an equivalence class ( [p] ).
 
 
 ## 4. Partial Computable Functions
+[Table of Contents](#table-of-contents)
 
 The space of computations is defined as partial computable functions:
 
@@ -143,6 +147,7 @@ Infinite loops correspond to bottom element
 ```
 
 ## 5. Domain Theory and Lattice Structure
+[Table of Contents](#table-of-contents)
 
 ### 5.1 Partial Order
 
@@ -226,6 +231,7 @@ Fully defined functions = maximal elements
 Fixed points appear along chains as stable elements
 
 ## 6. Types
+[Table of Contents](#table-of-contents)
 
 Types overlay the lattice of computations and provide semantic structure and constraints.
 
@@ -278,6 +284,7 @@ Recursive functions have types expressed as least fixed points over type lattice
 Type-checking is monotone and compositional over the lattice
 
 ## 7. Macros and Reflection
+[Table of Contents](#table-of-contents)
 
 ### 7.1 Macros
 
@@ -317,6 +324,7 @@ Combine with types to statically ensure correctness of generated programs
 Critical for expressing high-level abstractions in a minimal basis
 
 ## 8. Metrics
+[Table of Contents](#table-of-contents)
 
 ### Programming Distance
 ```
@@ -333,6 +341,8 @@ d_{def}(f) = |\text{dom}(f)| / |X|
 ```
 
 ## 9 Cost Model
+[Table of Contents](#table-of-contents)
+
 (Programming Distance)
 
 ### 9.1 Generative Cost
@@ -389,6 +399,7 @@ Where ( H(q) ) measures:
 
 ## 19. Multi-Dimensional Cost
 
+
 ```math
 d_p = (time, space, depth, steps, ...)
 ```
@@ -396,6 +407,7 @@ d_p = (time, space, depth, steps, ...)
 ---
 
 ## 10. Multi-Metric Space
+[Table of Contents](#table-of-contents)
 
 ```math
 (\mathcal{C}, d_p, d_h)
@@ -411,6 +423,8 @@ Measures usefulness / termination coverage
 Refined by types to exclude unsafe computations
 
 ## 11. Visualization of Lattice
+[Table of Contents](#table-of-contents)
+
 ```
 ⊥  (undefined / infinite loop)
 │
@@ -429,6 +443,7 @@ ftotal  (fully defined / maximal)
 ^ macros/reflection navigate paths dynamically
 
 ## 12. Targeting the Computation Space
+[Table of Contents](#table-of-contents)
 
 Coordinate system / basis 
 ```
@@ -453,6 +468,7 @@ Macros/Reflection = meta-level navigation and program generation
 
 
 ## 13. Hierarchical Abstraction
+[Table of Contents](#table-of-contents)
 
 ```math
 p = A_n(A_{n-1}(...A_1(B)...))
@@ -491,8 +507,9 @@ C_h(A(p)) < C_h(p)
 ---
 
 ## 14. Optimal Programs and Families
+[Table of Contents](#table-of-contents)
 
-## 10. Optimal Programs
+### 10. Optimal Programs
 
 ```math
 p^* = \arg\min_{q \in [p]} C(q)
@@ -500,19 +517,19 @@ p^* = \arg\min_{q \in [p]} C(q)
 
 ---
 
-## 11. Optimal Bases and Families
+### 11. Optimal Bases and Families
 
-### Complete Basis
+#### Complete Basis
 
 ```math
 \langle B \rangle = \mathcal{C}
 ```
 
-### Minimal Basis
+#### Minimal Basis
 
 Removing any element breaks completeness.
 
-### Optimal Family
+#### Optimal Family
 
 Set of bases that are:
 
@@ -593,8 +610,6 @@ p \sim q \iff \forall C,\ C[p] \equiv C[q]
 
 ---
 
-
-
 ### 20. Compositionality
 
 ```math
@@ -638,6 +653,7 @@ Translations preserve:
 ---
 
 ## 25. Geometry of Computation
+[Table of Contents](#table-of-contents)
 
 * computations = points
 * programs = coordinates
@@ -674,6 +690,7 @@ All transformations must be computable or explicitly meta-level.
 ---
 
 ## 30. Final Definition
+[Table of Contents](#table-of-contents)
 
 A perfect programming language family satisfies:
 
@@ -687,6 +704,7 @@ A perfect programming language family satisfies:
 ---
 
 ## 31. Final Insight
+[Table of Contents](#table-of-contents)
 
 A perfect programming language is:
 
