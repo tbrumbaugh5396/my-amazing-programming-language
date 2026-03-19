@@ -1,18 +1,46 @@
-# Perfect Programming Language
+# Perfect Programming Language Theory with Domain Theory, Lattice Structure, Types, and Reflection
 
-## Primitives of Programming Language
+## 1. Overview
 
-Let:
-B = primitives
+This document formalizes a theory of a "perfect programming language" as a multi-metric, hierarchical, generative system over computations, including domain-theoretic structure, lattices, fixed points, types, macros, and reflection.
 
-L(B) = all programs over 
+It unifies:
+- Minimal computational bases
+- Semantic equivalence
+- Distance metrics (machine + human)
+- Abstraction and hierarchy
+- Translation between optimal languages
+- Kolmogorov complexity
+- Domain theory and lattice structure for partial and infinite computations
+- Fixed points and least fixed points for recursion
+- Types (dependent, logical, refinement, etc.)
+- Macros and reflection for metaprogramming
 
-[[p]] = semantics of program p
+## 2. Core Objects
 
+### 2.1 Basis
 
+A set of primitives:
 
+```math
+B = \{b_1, b_2, ..., b_n\}
+```
 
+### 2.2 Programs
 
+```math
+\mathcal{L}(B)
+```
+
+All programs generated from ( B ).
+
+### 2.3 Semantics
+
+```math
+[[ p ]]
+```
+
+The meaning of program ( p ).
 
 
 ## Minimal Basis
@@ -53,29 +81,6 @@ It unifies:
 
 ## 2. Core Objects
 
-### 2.1 Basis
-
-A set of primitives:
-
-```math
-B = \{b_1, b_2, ..., b_n\}
-```
-
-### 2.2 Programs
-
-```math
-\mathcal{L}(B)
-```
-
-All programs generated from ( B ).
-
-### 2.3 Semantics
-
-```math
-[[ p ]]
-```
-
-The meaning of program ( p ).
 
 ### Universality
 
