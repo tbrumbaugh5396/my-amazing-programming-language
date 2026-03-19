@@ -4,6 +4,18 @@
 
 This document formalizes a theory of a "perfect programming language" as a multi-metric, hierarchical, generative system over computations, including domain-theoretic structure, lattices, fixed points, types, macros, and reflection.
 
+This document formalizes a theory of a "perfect programming language" as a **multi-metric, hierarchical, generative system** over computations.
+
+It unifies:
+
+* Minimal computational bases
+* Semantic equivalence
+* Distance metrics (machine + human)
+* Abstraction and hierarchy
+* Translation between optimal languages
+* Kolmogorov complexity
+
+
 It unifies:
 - Minimal computational bases
 - Semantic equivalence
@@ -15,6 +27,34 @@ It unifies:
 - Fixed points and least fixed points for recursion
 - Types (dependent, logical, refinement, etc.)
 - Macros and reflection for metaprogramming
+
+## Table of Contents
+- [2. Core Objects](#2-core-objects)
+	- [2.1 Basis](#21-basis)
+	- [2.2 Programs](#22-programs)
+	- [2.3 Semantics](#23-semantics)
+	- [Minimal Basis](#minimal-basis)
+	- [Reflective Closure](#reflective-closure)
+	- [Distance Optimality](#distance-optimality)
+- [3. Computations as Equivalence Classes](#3-computations-as-equivalence-classes)
+- [4. Partial Computable Functions](#4-Partial-Computable-Functions)
+- [5. Domain Theory and Lattice Structure](#5-Domain-Theory-and-Lattice-Structure)
+	- [5.1 Partial Order](#51-Partial-Order)
+ 	- [5.2 Complete Partial Order](#52-Complete-Partial-Order)
+  	- [5.3 Fixed Points](#53-Fixed-Points)
+  	- [5.4 Join and Meet](#54-Join-and-Meet)
+- [6. Types](#6-Types)
+	- [6.1 Dependent Types](#61-Dependent-Types)
+ 	- [6.2 Logical Types](#62-Logical-Types)
+  	- [6.3 Refinement Types](#63-Refinement-Types)
+  	- [6.4 Type Interaction with Fixed Points](#64-Type-Interaction-with-Fixed-Points)
+- [7. Macros and Reflection](#7-Macros-and-Reflection)
+	- [7.1 Macros](#71-Macros)
+ 	- [7.2 Reflection](#72-Reflection)
+	- [7.3 Integration](#73-Integration)
+- [8. Metrics](#8-Metrics)
+- [9. Visualization of Lattice](#9-Visualization-of-Lattice)
+- [10. Targeting the Computation Space](#10-Targeting-the-Computation-Space)
 
 ## 2. Core Objects
 
@@ -43,16 +83,22 @@ All programs generated from ( B ).
 The meaning of program ( p ).
 
 
-## Minimal Basis
+### Universality
+
+```math
+\forall f, \exists p∈L, [[p]]=f
+```
+
+### Minimal Basis
 B is minimal
 
-## Reflective Closure
+### Reflective Closure
 L≅Programs(L)
 
-## Distance Optimality (Relative)
+### Distance Optimality
 E_f∼D [C(p_f)] is minimized
 
-## Computations as Equivalence Classes
+## 3. Computations as Equivalence Classes
 
 You said you want to “view computations as equivalent.”
 
@@ -64,6 +110,17 @@ Then:
 ```math
 C=L(B)/∼
 ```
+
+```math
+p \sim q \iff [[ p ]] = [[ q ]]
+```
+
+```math
+\mathcal{C} = \mathcal{L}(B) / \sim
+```
+
+A computation is an equivalence class ( [p] ).
+
 
 ## 4. Partial Computable Functions
 
@@ -83,6 +140,7 @@ Infinite loops correspond to bottom element
 ## 5. Domain Theory and Lattice Structure
 
 ### 5.1 Partial Order
+
 ```math
 f \sqsubseteq g \iff \text{dom}(f) \subseteq \text{dom}(g) \text{ and } f(x) = g(x) \text{ for all } x \in \text{dom}(f)
 ```
@@ -94,7 +152,7 @@ Bottom element
 
 Supports approximation and refinement
 
-### 5.2 Complete Partial Order (CPO)
+### 5.2 Complete Partial Order
 
 Every directed set has a least upper bound 
 ```math
@@ -150,6 +208,7 @@ n
 Formalizes recursion, loops, and iterative computation in the lattice
 
 ### 5.4 Join and Meet
+
 ```
 (f \wedge g)(x) = \begin{cases} f(x) & \text{if } f(x) = g(x) \\ \uparrow & \text{otherwise} \end{cases}
 (f \vee g)(x) = \begin{cases} f(x) & \text{if defined} \\ g(x) & \text{otherwise} \end{cases}
@@ -252,134 +311,20 @@ Combine with types to statically ensure correctness of generated programs
 Critical for expressing high-level abstractions in a minimal basis
 
 ## 8. Metrics
-Programming Distance
+
+### Programming Distance
 ```
 d_p(f) = \min_{p : \llbracket p \rrbracket = f} C(p)
 ```
-Human Distance
+
+### Human Distance
 ```
 d_h(f) = \min_{p : \llbracket p \rrbracket = f} H(p)
 ```
-Optional Definedness Metric
+### Optional Definedness Metric
 ```
 d_{def}(f) = |\text{dom}(f)| / |X|
 ```
-
-Measures usefulness / termination coverage
-
-Refined by types to exclude unsafe computations
-
-## 9. Visualization of Lattice
-```
-⊥  (undefined / infinite loop)
-│
-│  approximating chain
-│
-f1  (partially defined)
-│
-f2
-│
-...
-│
-ftotal  (fully defined / maximal)
-```
-^ fixed points appear along chains
-^ types refine and restrict paths
-^ macros/reflection navigate paths dynamically
-## 10. Targeting the Computation Space
-
-Coordinate system / basis 
-```𝐵
-⊂
-𝐶
-B⊂C``` generates the space
-
-Programs = paths from primitives to computations
-
-Distances = length of shortest path in program space
-
-Transformations = monotone maps on the lattice (rewrites, abstractions, translations)
-
-Recursion and loops = least fixed points in the lattice
-
-Types = refine lattice positions and domain
-
-Macros/Reflection = meta-level navigation and program generation
-
-## 11. Final Insights
-
-Your perfect programming language is a coordinate atlas over the computation lattice
-
-Infinite loops and partiality are naturally included
-
-Recursion and fixed points are formalized via least fixed points
-
-Types (dependent, logical, refinement, etc.) refine and constrain computations
-
-Macros and reflection enable meta-level navigation and program generation
-
-Optimization and equivalence are naturally expressed as lattice navigation
-
-Metrics 
-```
-𝑑
-𝑝
-,
-𝑑
-ℎ
-d
-p
-	​
-
-,d
-h
-```	​
-
- are layered on top to define generative and human distances
-
-Domain theory + lattice structure + types + macros + reflection makes your framework complete, expressive, and navigable for reasoning about all computations, partiality, recursion, infinite loops, and abstractions.
-
-# Perfect Programming Language Theory
-
-## 1. Overview
-
-This document formalizes a theory of a "perfect programming language" as a **multi-metric, hierarchical, generative system** over computations.
-
-It unifies:
-
-* Minimal computational bases
-* Semantic equivalence
-* Distance metrics (machine + human)
-* Abstraction and hierarchy
-* Translation between optimal languages
-* Kolmogorov complexity
-
----
-
-## 2. Core Objects
-
-
-### Universality
-
-```math
-\forall f, \exists p∈L, [[p]]=f
-```
-
----
-
-## 3. Computations as Equivalence Classes
-
-```math
-p \sim q \iff [[ p ]] = [[ q ]]
-```
-
-```math
-\mathcal{C} = \mathcal{L}(B) / \sim
-```
-
-A computation is an equivalence class ( [p] ).
-
----
 
 ## 4. Cost Model (Programming Distance)
 
@@ -445,6 +390,52 @@ Where ( H(q) ) measures:
 
 ---
 
+Measures usefulness / termination coverage
+
+Refined by types to exclude unsafe computations
+
+## 9. Visualization of Lattice
+```
+⊥  (undefined / infinite loop)
+│
+│  approximating chain
+│
+f1  (partially defined)
+│
+f2
+│
+...
+│
+ftotal  (fully defined / maximal)
+```
+^ fixed points appear along chains
+^ types refine and restrict paths
+^ macros/reflection navigate paths dynamically
+
+## 10. Targeting the Computation Space
+
+Coordinate system / basis 
+```
+𝐵
+⊂
+𝐶
+B⊂C
+```
+generates the space
+
+Programs = paths from primitives to computations
+
+Distances = length of shortest path in program space
+
+Transformations = monotone maps on the lattice (rewrites, abstractions, translations)
+
+Recursion and loops = least fixed points in the lattice
+
+Types = refine lattice positions and domain
+
+Macros/Reflection = meta-level navigation and program generation
+
+
 ## 8. Hierarchical Abstraction
 
 ```math
@@ -482,6 +473,8 @@ C_h(A(p)) < C_h(p)
 ```
 
 ---
+
+## Optimal Programs and Families
 
 ## 10. Optimal Programs
 
@@ -670,6 +663,7 @@ All transformations must be computable or explicitly meta-level.
 
 ---
 
+
 ## 30. Final Definition
 
 A perfect programming language family satisfies:
@@ -693,3 +687,34 @@ where programming is navigation between:
 
 * minimal generative complexity
 * minimal cognitive complexity
+
+Your perfect programming language is a coordinate atlas over the computation lattice
+
+Infinite loops and partiality are naturally included
+
+Recursion and fixed points are formalized via least fixed points
+
+Types (dependent, logical, refinement, etc.) refine and constrain computations
+
+Macros and reflection enable meta-level navigation and program generation
+
+Optimization and equivalence are naturally expressed as lattice navigation
+
+Metrics 
+```
+𝑑
+𝑝
+,
+𝑑
+ℎ
+d
+p
+	​
+
+,d
+h
+```	​
+
+ are layered on top to define generative and human distances
+
+Domain theory + lattice structure + types + macros + reflection makes your framework complete, expressive, and navigable for reasoning about all computations, partiality, recursion, infinite loops, and abstractions.
