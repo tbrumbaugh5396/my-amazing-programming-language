@@ -53,8 +53,13 @@ It unifies:
  	- [7.2 Reflection](#72-Reflection)
 	- [7.3 Integration](#73-Integration)
 - [8. Metrics](#8-Metrics)
-- [9. Visualization of Lattice](#9-Visualization-of-Lattice)
-- [10. Targeting the Computation Space](#10-Targeting-the-Computation-Space)
+- [9 Cost Model](#9-cost-model)
+- [10. Multi-metric space](#10-multi-metric-space)
+- [11. Visualization of Lattice](#11-Visualization-of-Lattice)
+- [12. Targeting the Computation Space](#12-Targeting-the-Computation-Space)
+- [13. Hierarchical Abstraction](#13-Hierarchical-Abstraction)
+- [14. Optimal Programs and Families](#14-Optimal-Programs-and-Families)
+- [25. Geometry of Computation](#25-Geometry-of-Computation)
 
 ## 2. Core Objects
 
@@ -273,6 +278,7 @@ Recursive functions have types expressed as least fixed points over type lattice
 Type-checking is monotone and compositional over the lattice
 
 ## 7. Macros and Reflection
+
 ### 7.1 Macros
 
 Programs that generate programs
@@ -318,17 +324,18 @@ d_p(f) = \min_{p : \llbracket p \rrbracket = f} C(p)
 ```
 
 ### Human Distance
-```
+```math
 d_h(f) = \min_{p : \llbracket p \rrbracket = f} H(p)
 ```
 ### Optional Definedness Metric
-```
+```math
 d_{def}(f) = |\text{dom}(f)| / |X|
 ```
 
-## 4. Cost Model (Programming Distance)
+## 9 Cost Model
+(Programming Distance)
 
-### 4.1 Generative Cost
+### 9.1 Generative Cost
 
 ```math
 C(p) = C(\text{expand}(p))
@@ -338,7 +345,7 @@ Derived primitives do **not** reduce cost.
 
 ---
 
-### 4.2 Distance
+### 9.2 Distance
 
 ```math
 d_p([p]) = \min_{q \in [p]} C(q)
@@ -346,7 +353,8 @@ d_p([p]) = \min_{q \in [p]} C(q)
 
 ---
 
-## 5. Kolmogorov Complexity (Relative)
+### Kolmogorov Complexity 
+(Relative)
 
 Define Kolmogorov complexity relative to basis ( B ):
 
@@ -364,7 +372,7 @@ Thus programming distance is a **structured form of Kolmogorov complexity**.
 
 ---
 
-## 6. Human Distance
+### Human Distance
 
 ```math
 d_h([p]) = \min_{q \in [p]} H(q)
@@ -379,7 +387,15 @@ Where ( H(q) ) measures:
 
 ---
 
-## 7. Multi-Metric Space
+## 19. Multi-Dimensional Cost
+
+```math
+d_p = (time, space, depth, steps, ...)
+```
+
+---
+
+## 10. Multi-Metric Space
 
 ```math
 (\mathcal{C}, d_p, d_h)
@@ -394,7 +410,7 @@ Measures usefulness / termination coverage
 
 Refined by types to exclude unsafe computations
 
-## 9. Visualization of Lattice
+## 11. Visualization of Lattice
 ```
 ⊥  (undefined / infinite loop)
 │
@@ -412,7 +428,7 @@ ftotal  (fully defined / maximal)
 ^ types refine and restrict paths
 ^ macros/reflection navigate paths dynamically
 
-## 10. Targeting the Computation Space
+## 12. Targeting the Computation Space
 
 Coordinate system / basis 
 ```
@@ -436,7 +452,7 @@ Types = refine lattice positions and domain
 Macros/Reflection = meta-level navigation and program generation
 
 
-## 8. Hierarchical Abstraction
+## 13. Hierarchical Abstraction
 
 ```math
 p = A_n(A_{n-1}(...A_1(B)...))
@@ -474,7 +490,7 @@ C_h(A(p)) < C_h(p)
 
 ---
 
-## Optimal Programs and Families
+## 14. Optimal Programs and Families
 
 ## 10. Optimal Programs
 
@@ -506,7 +522,7 @@ Set of bases that are:
 
 ---
 
-## 12. Translation Between Languages
+### 12. Translation Between Languages
 
 ```math
 T_{12} : \mathcal{L}(B_1) \rightarrow \mathcal{L}(B_2)
@@ -524,7 +540,7 @@ C_2(T(p)) \le k \cdot C_1(p) + c
 
 ---
 
-## 13. Invariance Across Families
+### 13. Invariance Across Families
 
 ```math
 d_p^{B_1}([f]) \approx d_p^{B_2}([f])
@@ -532,7 +548,7 @@ d_p^{B_1}([f]) \approx d_p^{B_2}([f])
 
 ---
 
-## 14. Fibers of Representations
+### 14. Fibers of Representations
 
 ```math
 \pi^{-1}([p]) = \{ q \mid q \sim p \}
@@ -540,7 +556,7 @@ d_p^{B_1}([f]) \approx d_p^{B_2}([f])
 
 ---
 
-## 15. Normal Forms
+### 15. Normal Forms
 
 ```math
 NF(p)
@@ -553,7 +569,7 @@ Properties:
 
 ---
 
-## 16. Rewriting System
+### 16. Rewriting System
 
 ```math
 p \rightarrow q
@@ -561,7 +577,7 @@ p \rightarrow q
 
 ---
 
-## 17. Observational Equivalence
+### 17. Observational Equivalence
 
 ```math
 p \sim q \iff \forall C,\ C[p] \equiv C[q]
@@ -569,7 +585,7 @@ p \sim q \iff \forall C,\ C[p] \equiv C[q]
 
 ---
 
-## 18. Effects and Capabilities
+### 18. Effects and Capabilities
 
 ```math
 \mathcal{C}_\epsilon
@@ -577,15 +593,9 @@ p \sim q \iff \forall C,\ C[p] \equiv C[q]
 
 ---
 
-## 19. Multi-Dimensional Cost
 
-```math
-d_p = (time, space, depth, steps, ...)
-```
 
----
-
-## 20. Compositionality
+### 20. Compositionality
 
 ```math
 C(p \circ q) \le C(p) + C(q) + k
@@ -593,7 +603,7 @@ C(p \circ q) \le C(p) + C(q) + k
 
 ---
 
-## 21. Locality and Modularity
+### 21. Locality and Modularity
 
 ```math
 p = p_1 \oplus p_2
@@ -601,7 +611,7 @@ p = p_1 \oplus p_2
 
 ---
 
-## 22. Learnability
+### 22. Learnability
 
 ```math
 H(p) = complexity(p \mid K)
@@ -609,7 +619,7 @@ H(p) = complexity(p \mid K)
 
 ---
 
-## 23. Translation Stability
+### 23. Translation Stability
 
 Translations preserve:
 
@@ -619,7 +629,7 @@ Translations preserve:
 
 ---
 
-## 24. Basis Density
+### 24. Basis Density
 
 ```math
 \text{Density}(B) = \mathbb{E}[d_p(f)]
@@ -636,33 +646,32 @@ Translations preserve:
 
 ---
 
-## 26. Curvature (Informal)
+### 26. Curvature (Informal)
 
 Sensitivity of semantics to program changes.
 
 ---
 
-## 27. Meta vs Object Levels
+### 27. Meta vs Object Levels
 
 * object language
 * meta language
 
 ---
 
-## 28. Constructivity
+### 28. Constructivity
 
 All transformations must be computable or explicitly meta-level.
 
 ---
 
-## 29. Optimization as Search
+### 29. Optimization as Search
 
 ```math
 \min_{q \in [p]} (d_p(q), d_h(q))
 ```
 
 ---
-
 
 ## 30. Final Definition
 
