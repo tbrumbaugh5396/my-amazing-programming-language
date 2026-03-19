@@ -55,11 +55,15 @@ It unifies:
 
 ### 2.1 Basis
 
-A set of primitives:
+The basis of a programming language are the core constructs that are offered by the programming language. 
+For example a basis, B, is a set of n primitives ```(b_1, b_2, ..., b_n)```:
 
 ```math
 B = \{b_1, b_2, ..., b_n\}
 ```
+
+These primitives can be combined inorder to make programs and compute.
+
 
 ### 2.2 Programs
 
