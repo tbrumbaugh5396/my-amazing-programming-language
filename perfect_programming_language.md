@@ -57,10 +57,287 @@ E_f∼D [C(p_f)] is minimized
 You said you want to “view computations as equivalent.”
 
 So define:
+```math
 p∼q ⟺ [[p]]=[[q]]
-
+```
 Then:
+```math
 C=L(B)/∼
+```
+
+## 4. Partial Computable Functions
+
+The space of computations is defined as partial computable functions:
+
+```math
+\mathcal{C} = \{ f : X \rightharpoonup Y \mid f \text{ is computable} \}
+```
+
+Partiality allows non-termination or undefined outputs
+
+Infinite loops correspond to bottom element 
+```math
+⊥
+```
+
+## 5. Domain Theory and Lattice Structure
+
+### 5.1 Partial Order
+```math
+f \sqsubseteq g \iff \text{dom}(f) \subseteq \text{dom}(g) \text{ and } f(x) = g(x) \text{ for all } x \in \text{dom}(f)
+```
+
+Bottom element 
+```math
+⊥ = undefined / infinite loop
+```
+
+Supports approximation and refinement
+
+### 5.2 Complete Partial Order (CPO)
+
+Every directed set has a least upper bound 
+```math
+⨆
+i
+f
+i
+⨆
+i
+```
+​
+Supports limits of approximations and recursive definitions
+
+### 5.3 Fixed Points
+
+Fixed points: elements where 
+```
+𝐹
+(
+𝑓
+)
+=
+𝑓
+F(f)=f
+```
+
+Least fixed point: 
+```
+fix
+(
+𝐹
+)
+=
+⨆
+𝑛
+=
+0
+∞
+𝐹
+𝑛
+(
+⊥
+)
+fix(F)=⨆
+n=0
+∞	​
+
+F
+n
+(⊥)
+```
+
+Formalizes recursion, loops, and iterative computation in the lattice
+
+### 5.4 Join and Meet
+```
+(f \wedge g)(x) = \begin{cases} f(x) & \text{if } f(x) = g(x) \\ \uparrow & \text{otherwise} \end{cases}
+(f \vee g)(x) = \begin{cases} f(x) & \text{if defined} \\ g(x) & \text{otherwise} \end{cases}
+```
+
+```Infinite loops = ⊥ at bottom```
+
+Fully defined functions = maximal elements
+
+Fixed points appear along chains as stable elements
+
+## 6. Types
+
+Types overlay the lattice of computations and provide semantic structure and constraints.
+
+### 6.1 Dependent Types
+
+Types depend on values: 
+```
+𝑇
+(
+𝑥
+)
+T(x)
+```
+
+Allows expressing precise invariants in the lattice
+
+Refines equivalence: two computations equivalent only if types match
+
+### 6.2 Logical Types
+
+Types as propositions (Curry-Howard)
+
+Programs = proofs
+
+Lattice structure ensures monotone, compositional reasoning
+
+### 6.3 Refinement Types
+
+Subsets of types with predicates: 
+```
+𝑥
+:
+𝑇
+∣
+𝑃
+(
+𝑥
+)
+x:T∣P(x)
+```
+
+Further restrict domain of computation, removing undefined or unsafe behaviors
+
+Integrates naturally with bottom element: refinement excludes ⊥ where predicate fails
+
+### 6.4 Type Interaction with Fixed Points
+
+Recursive functions have types expressed as least fixed points over type lattices
+
+Type-checking is monotone and compositional over the lattice
+
+## 7. Macros and Reflection
+### 7.1 Macros
+
+Programs that generate programs
+
+Represent paths in the lattice that can be converted into values
+
+Allow expressing reusable abstractions and shortcuts
+
+Preserve monotonicity: generated program ⊒ macro’s intent in lattice ordering
+
+### 7.2 Reflection
+
+Programs that inspect or modify themselves
+
+Map syntactic elements 
+```
+𝐿
+(
+𝐵
+)
+L(B) into semantic computations 
+𝐶
+C
+```
+
+Enables meta-level optimizations, analyses, and transformations
+
+Fully compatible with domain-theoretic structure: operations are monotone and preserve least upper bounds where necessary
+
+### 7.3 Integration
+
+Macros + reflection allow dynamic navigation of the lattice
+
+Combine with types to statically ensure correctness of generated programs
+
+Critical for expressing high-level abstractions in a minimal basis
+
+## 8. Metrics
+Programming Distance
+```
+d_p(f) = \min_{p : \llbracket p \rrbracket = f} C(p)
+```
+Human Distance
+```
+d_h(f) = \min_{p : \llbracket p \rrbracket = f} H(p)
+```
+Optional Definedness Metric
+```
+d_{def}(f) = |\text{dom}(f)| / |X|
+```
+
+Measures usefulness / termination coverage
+
+Refined by types to exclude unsafe computations
+
+## 9. Visualization of Lattice
+```
+⊥  (undefined / infinite loop)
+│
+│  approximating chain
+│
+f1  (partially defined)
+│
+f2
+│
+...
+│
+ftotal  (fully defined / maximal)
+```
+^ fixed points appear along chains
+^ types refine and restrict paths
+^ macros/reflection navigate paths dynamically
+## 10. Targeting the Computation Space
+
+Coordinate system / basis 
+```𝐵
+⊂
+𝐶
+B⊂C``` generates the space
+
+Programs = paths from primitives to computations
+
+Distances = length of shortest path in program space
+
+Transformations = monotone maps on the lattice (rewrites, abstractions, translations)
+
+Recursion and loops = least fixed points in the lattice
+
+Types = refine lattice positions and domain
+
+Macros/Reflection = meta-level navigation and program generation
+
+## 11. Final Insights
+
+Your perfect programming language is a coordinate atlas over the computation lattice
+
+Infinite loops and partiality are naturally included
+
+Recursion and fixed points are formalized via least fixed points
+
+Types (dependent, logical, refinement, etc.) refine and constrain computations
+
+Macros and reflection enable meta-level navigation and program generation
+
+Optimization and equivalence are naturally expressed as lattice navigation
+
+Metrics 
+```
+𝑑
+𝑝
+,
+𝑑
+ℎ
+d
+p
+	​
+
+,d
+h
+```	​
+
+ are layered on top to define generative and human distances
+
+Domain theory + lattice structure + types + macros + reflection makes your framework complete, expressive, and navigable for reasoning about all computations, partiality, recursion, infinite loops, and abstractions.
 
 # Perfect Programming Language Theory
 
