@@ -62,6 +62,7 @@ It unifies:
 
 The basis of a programming language are the core constructs that are offered by the programming language. 
 For example a basis, $B$, is a set of $n$ primitives $(b_1, b_2, ..., b_n)$:
+
 $$
 B = \{b_1, b_2, ..., b_n\}
 $$
@@ -135,6 +136,7 @@ depends on equivalence relation $E$.
 #### 2.4.3 Your Example
 
 Programs:
+
 $$
 p_1 = +1 −1 +1
 p_2 = +1
@@ -143,6 +145,7 @@ $$
 Semantic meaning
 
 Both:
+
 $$
 \pi (p_1) = \pi (p_2) = (x \to +1)
 $$
