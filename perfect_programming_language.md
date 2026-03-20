@@ -1154,6 +1154,119 @@ All transformations must be computable or explicitly meta-level.
 \min_{q \in [p]} (d_p(q), d_h(q))
 ```
 
+--- 
+
+### 1. Substitution Principle with Equivalences
+
+Suppose you have:
+
+Program p
+
+Program q
+
+and an equivalence E such that:
+```math
+E(p,q)=true
+```
+
+Then, under 
+```
+E: [p] E =[q] E
+```
+
+Interpretation:
+```
+p and q are the same computation under E
+```
+
+You are free to substitute q for p anywhere E is respected
+
+This is exactly the “replace with a better program” principle.
+
+### 2. Incorporating “Better”
+
+To formalize “better,” you extend equivalence with cost or quality metrics:
+
+```
+better(p,q)⟺E(p,q) AND cost(q)<cost(p)
+```
+
+cost can measure:
+
+- runtime
+- memory usage
+- human readability
+- abstraction level
+
+Example:
+```math
+extensional_eq(sum_list_v1, sum_list_v2) = True
+cost(sum_list_v1) = 100
+cost(sum_list_v2) = 10
+```
+
+sum_list_v2 is better than sum_list_v1
+
+Substituting is safe under extensional_eq
+
+### 3. How This Works in Practice
+
+Define the equivalence relation 
+E relevant to your substitution
+
+e.g., output equivalence (extensional) or output + side-effects equivalence (operational)
+
+Identify candidate programs 
+q such that E(p,q) holds
+
+Pick the program 
+q with the optimal cost metric
+
+Substitute 
+q wherever p was used
+
+### 4. Example: Sorting Algorithms
+
+p=bubbleSort
+q=mergeSort
+
+Define equivalence:
+output_eq(p,q) = True if p(list) == q(list) for all lists
+
+Then p and q are equivalent
+
+Choose q because it is faster (O(nlogn) vs O(n2))
+
+### 5. Key Advantages
+
+Automatic optimization: the system can replace inefficient programs safely
+
+Reuse: code can be substituted based on equivalence and cost
+
+Trustworthiness: you know substitution preserves semantics
+
+### 6. Computational Considerations
+
+Checking equivalence for substitution can be hard
+
+Boolean equivalences = easier
+
+HoTT-like equivalences = potentially undecidable
+
+You may need approximate or restricted equivalences for practical substitution
+
+### 7. Integration With Your Language Design
+
+Equivalences are first-class
+
+Programs are tagged with metrics (cost, human distance, abstraction level)
+
+Meta-functions can find “better” substitutes:
+```
+improve(p, E, metric) = argmin_{q | E(p,q)} metric(q)
+```
+Returns the “best” equivalent program according to a chosen metric
+
 ---
 
 ## 30. Final Definition
@@ -1197,7 +1310,6 @@ Optimization and equivalence are naturally expressed as lattice navigation
 Metrics 
 
 ```math
-𝑑𝑝,𝑑ℎ
 dp,dh
 ```
 
