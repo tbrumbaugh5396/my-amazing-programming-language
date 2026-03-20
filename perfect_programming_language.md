@@ -221,7 +221,7 @@ Under operational_eq: considered different
 
 - Global default – one equivalence active for all computations.
 - Local override – equivalence can be passed to a function or block.
-- Type-indexed – computations carry the equivalence in their type: Computation[E]
+- Type-indexed – computations carry the equivalence in their type: Computation$[E]$
 - Meta-programming / macros – can dynamically generate or switch equivalences.
 
 ### 2. Computational Challenges
@@ -235,7 +235,7 @@ Structured / HoTT-like equivalence ($E: L \times L \to Type$) may require:
 - Searching for a path / transformation
 - Checking higher-level identities (paths between paths)
 
-Potentially unbounded search → undecidable in general
+Potentially unbounded search $\to$ undecidable in general
 
 #### 2.2 Cost of Maintaining Equivalence Classes
 
@@ -270,7 +270,7 @@ For HoTT-like equivalences:
 
 Defining equivalences of equivalences can lead to exponential growth in structures
 
-Infinite hierarchies → you need lazy evaluation or truncation for tractable computation
+Infinite hierarchies $\to$ you need lazy evaluation or truncation for tractable computation
 
 ### 3. Strategies to Manage the Challenges
 
@@ -476,12 +476,12 @@ Same semantics (raw behavior)
 
 Under extensional equivalence
 ```math
-[p_1]=[p_2] \to one computation
+[p_1]=[p_2] \to \text{one computation}
 ```
 
 Under operational equivalence
 ```math
-[p_1] \neq [p_2] \to two computations
+[p_1] \neq [p_2] \to \text{two computations}
 ```
 
 ### 4.1 Extensional
@@ -509,8 +509,8 @@ E_{obs}(p,q) \iff \forall C, C[p] \equiv C[q]
 Equivalences are values in the language:
 
 ```math
-equivalence ext = \p q \to forall x. p(x) == q(x)
-equivalence cost = \p q \to ext(p,q) && cost(p) == cost(q)
+\text{equivalence ext} = \p q \to forall x. p(x) == q(x)
+\text{equivalence cost} = \p q \to ext(p,q) && cost(p) == cost(q)
 ```
 
 This allows:
@@ -582,7 +582,7 @@ Enables meta-level reasoning about computation equality
 ## 11. Relation to Homotopy Type Theory (HoTT)
 Similarities:
 ```math
-Equivalence ≈ identity type
+\text{Equivalence} ≈ \text{identity type}
 ```
 
 - Multiple paths between terms
@@ -610,10 +610,10 @@ Differences:
 ```
 
 ### Minimal Basis
-B is minimal
+$B$ is minimal
 
 ### Reflective Closure
-L≅Programs(L)
+$L≅Programs(L)$
 
 ### Distance Optimality
 ```math
@@ -838,7 +838,7 @@ d_p([p]) = \min_{q \in [p]} C(q)
 ### Kolmogorov Complexity 
 (Relative)
 
-Define Kolmogorov complexity relative to basis ( B ):
+Define Kolmogorov complexity relative to basis ( $B$ ):
 
 ```math
 K_B(f) = \min_{p : [[ p ]] = f} |p|
@@ -898,17 +898,17 @@ Refined by types to exclude unsafe computations
 [Table of Contents](#table-of-contents)
 
 ```math
-⊥  (undefined / infinite loop)
+⊥  \text{(undefined / infinite loop)}
 │
-│  approximating chain
+│  \text{approximating chain}
 │
-f_1  (partially defined)
+f_1  \text{(partially defined)}
 │
 f_2
 │
 ...
 │
-f_total  (fully defined / maximal)
+f_total  \text{(fully defined / maximal)}
 ```
 
 ^ fixed points appear along chains
@@ -1100,7 +1100,7 @@ p = p_1 \oplus p_2
 ### 22. Learnability
 
 ```math
-H(p) = complexity(p \mid K)
+H(p) = \text{complexity}(p \mid K)
 ```
 
 ---
@@ -1174,8 +1174,8 @@ E(p,q)=true
 ```
 
 Then, under 
-```
-E: [p] E =[q] E
+```math
+E: [p_E =[q]_E
 ```
 
 Interpretation:
@@ -1221,25 +1221,27 @@ E relevant to your substitution
 e.g., output equivalence (extensional) or output + side-effects equivalence (operational)
 
 Identify candidate programs 
-q such that E(p,q) holds
+$q$ such that $E(p,q)$ holds
 
 Pick the program 
-q with the optimal cost metric
+$q$ with the optimal cost metric
 
 Substitute 
-q wherever p was used
+$q$ wherever $p$ was used
 
 ### 4. Example: Sorting Algorithms
 
-p=bubbleSort
-q=mergeSort
+```math
+p=\text{bubbleSort}
+q=\text{mergeSort}
+```
 
 Define equivalence:
-output_eq(p,q) = True if p(list) == q(list) for all lists
+$output_eq(p,q) = True$ if $p(list) == q(list)$ for all lists
 
 Then p and q are equivalent
 
-Choose q because it is faster (O(nlogn) vs O(n2))
+Choose q because it is faster ($O(n$log$(n))$ vs $O(n^2)$)
 
 ### 5. Key Advantages
 
