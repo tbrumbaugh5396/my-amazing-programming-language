@@ -177,7 +177,7 @@ Computation = Meaning/ignored differences
 You can model it as:
 
 $$
-L(B) -> \pi ->  C / E
+L(B) -> \pi ->  C  E
 $$
 ​
 $\pi$: gives full semantics
