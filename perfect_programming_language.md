@@ -101,10 +101,10 @@ We are doing this in particular in order to differentiate
 ### 2.3 Semantics
 
 ```math
-[[ p ]]
+[[ p ]]_E
 ```
 
-The meaning of program ( p ).
+The meaning of program ( p ) in relation to an Equivalence E.
 
 
 ### 2.4 Equivalence as a First-Class Object
@@ -131,45 +131,64 @@ Each equivalence defines a different computation space
 
 Programs collapse into equivalence classes under ```E```.
 
-4. Examples of Equivalences
-4.1 Extensional
+## 4. Examples of Equivalences
+
+### 4.1 Extensional
+```math
 E_{ext}(p,q) \iff \forall x, p(x) = q(x)
-4.2 Operational
+```
+
+### 4.2 Operational
+```math
 E_{op}(p,q) \iff \text{same execution steps}
-4.3 Cost-Aware
+```
+
+### 4.3 Cost-Aware
+```math
 E_{cost}(p,q) \iff \text{same output AND same cost}
-4.4 Observational
+```
+
+### 4.4 Observational
+```math
 E_{obs}(p,q) \iff \forall C, C[p] \equiv C[q]
-5. Programmable Equivalences
+```
+
+### 5. Programmable Equivalences
 
 Equivalences are values in the language:
 
+```
 equivalence ext = \p q -> forall x. p(x) == q(x)
 
 
 equivalence cost = \p q -> ext(p,q) && cost(p) == cost(q)
+```
 
 This allows:
+- Defining custom equivalences
+- Composing equivalences
+- Passing equivalences as parameters
 
-Defining custom equivalences
+### 6. Operations on Equivalences
 
-Composing equivalences
-
-Passing equivalences as parameters
-
-6. Operations on Equivalences
+```math 
 Intersection
 E_1 \cap E_2
+```
 
 Programs must satisfy both equivalences.
 
+```math
 Union
 E_1 \cup E_2
+```
 
 Programs equivalent if either relation holds.
 
+```math
 Refinement
 E_2 \subseteq E_1
+```
 
 Stronger equivalence relation.
 
@@ -177,8 +196,10 @@ Stronger equivalence relation.
 
 Distances become:
 
+```math
 d_p^E([p]) = \min_{q \in [p]_E} C(q)
 d_h^E([p]) = \min_{q \in [p]_E} H(q)
+```
 
 Optimization depends on chosen equivalence
 
@@ -187,9 +208,9 @@ Optimization depends on chosen equivalence
 Each equivalence induces a quotient lattice
 
 Fixed points respect equivalence if functions are monotone under 
-𝐸
+```math
 E
-
+```
 
 Different equivalences yield different lattice geometries
 
@@ -210,29 +231,27 @@ Reflection can inspect and modify equivalences
 Enables meta-level reasoning about computation equality
 
 11. Relation to Homotopy Type Theory (HoTT)
-Similarities
-
+Similarities:
+```math
 Equivalence ≈ identity type
+```
 
-Multiple paths between terms
+- Multiple paths between terms
+- Computations form a higher-dimensional structure
 
-Computations form a higher-dimensional structure
-
-Differences
-
-HoTT: equivalence is intrinsic and proof-relevant
-
-This framework: equivalence is programmable and external
-
-Supports multiple coexisting equivalences
+Differences:
+- HoTT: equivalence is intrinsic and proof-relevant
+- This framework: equivalence is programmable and external
+- Supports multiple coexisting equivalences
 
 12. Expressiveness Comparison
-Feature	HoTT	This Framework
-Single canonical equality	Yes	Optional
-Multiple equivalences	Limited	Yes
-Programmable equivalence	No	Yes
-Meta-level control	Limited	Strong
-Practical programming focus	Medium	High
+| Feature | HoTT | This Framework |
+|---------|------|----------------|
+| Single canonical equality | Yes | Optional |
+| Multiple equivalences | Limited | Yes |
+| Programmable equivalence | No | Yes |
+| Meta-level control | Limited | Strong |
+| Practical programming focus | Medium | High |
 
 
 ### Universality
@@ -248,7 +267,10 @@ B is minimal
 L≅Programs(L)
 
 ### Distance Optimality
-E_f∼D [C(p_f)] is minimized
+```math
+E_f∼D [C(p_f)]
+```
+ is minimized
 
 ## 3. Computations as Equivalence Classes
 [Table of Contents](#table-of-contents)
@@ -458,7 +480,7 @@ C
 
 Enables meta-level optimizations, analyses, and transformations
 
-Fully compatible with domain-theoretic structure: operations are monotone and preserve least upper bounds where necessary
+Fully compatible with domain-theoretic structure: operations are monotone and preserve least upper bounds where necessary.
 
 ### 7.3 Integration
 
