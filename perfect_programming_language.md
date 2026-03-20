@@ -101,13 +101,7 @@ We are doing this in particular in order to differentiate
 
 1. Programs (Syntax)
 ```math
-𝑝
-∈
-𝐿
-(
-𝐵
-)
-p∈L(B)
+𝑝 ∈ 𝐿(𝐵)
 ```
 
 concrete code
@@ -169,16 +163,13 @@ Under extensional equivalence → same computation
 
 Under operational equivalence → different computations
 
-6. Another Way to See It
+## 6. Another Way to See It
 Semantic Meaning = Point in a Very Detailed Space
 
 Includes:
-
-every step
-
-every effect
-
-every intermediate state
+- every step
+- every effect
+- every intermediate state
 
 Computation = Projection / Compression
 
@@ -186,193 +177,130 @@ You apply an equivalence:
 
 Computation
 =
-Meaning
-  
-/
-  
-ignored differences
+Meaning / ignored differences
 Computation=Meaning/ignored differences
-7. Even More Precise
+### 7. Even More Precise
 
 You can model it as:
-
-𝐿
-(
-𝐵
-)
-→
-𝜋
-Behaviors
-→
-/
-𝐸
-𝐶
-𝐸
-L(B)
-π
-	​
-
-Behaviors
-/E
-	​
-
-C
-E
-	​
-
-
-𝜋
+```math
+𝐿(𝐵) → 𝜋 Behaviors → 𝐶 / 𝐸
+​
 π: gives full semantics
-
-𝐸
 E: decides what distinctions to ignore
+𝐶 / 𝐸 : resulting computation space
+```
 
-𝐶
-𝐸
-C
-E
-	​
-
-: resulting computation space
-
-8. Why This Distinction Matters
+### 8. Why This Distinction Matters
 
 Because different goals care about different levels:
+- Compilers: care about semantic meaning / preserve behavior
+- Optimization: works within a computation / finds better representations
+- Language Design: chooses equivalence / defines what “same” means
 
-Compilers
-
-care about semantic meaning
-
-preserve behavior
-
-Optimization
-
-works within a computation
-
-finds better representations
-
-Language Design
-
-chooses equivalence
-
-defines what “same” means
-
-9. Deep Insight
+### 9. Deep Insight
 
 Semantic meaning is absolute (given a model).
 Computation is relative (depends on equivalence).
 
-1. Selecting the Equivalence
-
+#### 1. Selecting the Equivalence
 Since equivalences are first-class, you can treat them as parameters in your language:
-
+```math
 let current_eq : Equiv = ext_eq
+```
 
 Or per computation:
-
+```math
 compute f(x) under E
+```
+
 Example:
-compute +1 -1 +1 under extensional_eq
-compute +1 -1 +1 under operational_eq
+- compute +1 -1 +1 under extensional_eq
+- compute +1 -1 +1 under operational_eq
 
 Under extensional_eq: considered same as +1
 
 Under operational_eq: considered different
 
-1.1 Mechanisms to select equivalence
+#### 1.1 Mechanisms to select equivalence
 
 Global default – one equivalence active for all computations.
-
 Local override – equivalence can be passed to a function or block.
-
-Type-indexed – computations carry the equivalence in their type:
-
-Computation[E]
-
+Type-indexed – computations carry the equivalence in their type: Computation[E]
 Meta-programming / macros – can dynamically generate or switch equivalences.
 
-2. Computational Challenges
+### 2. Computational Challenges
 
 Selecting equivalences introduces new complexity layers beyond standard programming:
 
-2.1 Equivalence Checking
-
+#### 2.1 Equivalence Checking
 Boolean equivalence (E: L×L→Bool) is simple for small programs
 
 Structured / HoTT-like equivalence (E: L×L→Type) may require:
-
-Searching for a path / transformation
-
-Checking higher-level identities (paths between paths)
+- Searching for a path / transformation
+- Checking higher-level identities (paths between paths)
 
 Potentially unbounded search → undecidable in general
 
-2.2 Cost of Maintaining Equivalence Classes
+#### 2.2 Cost of Maintaining Equivalence Classes
 
 Every time a program is generated:
+- Must determine which class it belongs to
+- For higher equivalences, you may need to store witnesses, not just boolean flags
+- Memory and computational overhead increase with:
+- Number of equivalences
+- Depth of higher transformations
 
-Must determine which class it belongs to
-
-For higher equivalences, you may need to store witnesses, not just boolean flags
-
-Memory and computational overhead increase with:
-
-Number of equivalences
-
-Depth of higher transformations
-
-2.3 Interoperability
+#### 2.3 Interoperability
 
 Programs may be compared under different equivalences
 
 Mapping between equivalence spaces may be nontrivial:
-
+```math
 [p]_E1  → [p]_E2
+```
 
 Some equivalences may be incomparable (no natural mapping)
 
-2.4 Optimization & Normalization
+#### 2.4 Optimization & Normalization
 
 Optimizations depend on the equivalence chosen
 
 For HoTT-like equivalences:
+- “Normal form” may not exist or may be computationally expensive
+- Rewriting must preserve paths, not just outcomes
 
-“Normal form” may not exist or may be computationally expensive
-
-Rewriting must preserve paths, not just outcomes
-
-2.5 Complexity Explosion in Meta-Equivalences
+#### 2.5 Complexity Explosion in Meta-Equivalences
 
 Defining equivalences of equivalences can lead to exponential growth in structures
 
 Infinite hierarchies → you need lazy evaluation or truncation for tractable computation
 
-3. Strategies to Manage the Challenges
-3.1 Use Hierarchy of Equivalences
+### 3. Strategies to Manage the Challenges
+#### 3.1 Use Hierarchy of Equivalences
 
 Start with simple boolean equivalences
 
 Only lift to higher structures when needed
 
-3.2 Lazy / Demand Evaluation
+#### 3.2 Lazy / Demand Evaluation
 
 Compute higher transformations only when queried
 
 Avoid building full higher-dimensional identity types upfront
 
-3.3 Type-System Enforcement
+#### 3.3 Type-System Enforcement
 
 Use types to restrict equivalences
 
 Only allow comparisons that make sense at a given layer
 
-3.4 Caching / Memoization
+#### 3.4 Caching / Memoization
 
 Cache equivalence checks or witnesses
 
 Reduces repeated heavy computations
 
-4. Big Insight
+### 4. Big Insight
 
 Selecting the equivalence is not just a syntactic choice—it changes the computation space and the notion of “same computation.”
 
@@ -382,225 +310,98 @@ Computation meaning = fixed
 
 Computation identity = depends on lens
 
-5. Trade-offs
-Choice	Pros	Cons
-Boolean / simple	Fast, easy	Limited insight
-Operational	Captures structure	Slower
-HoTT / higher	Supports infinite hierarchy	Undecidable in general, expensive
-Meta-equivalence	Maximal flexibility	Complex to implement, heavy
+### 5. Trade-offs
+| Choice | Pros | Cons |
+| Boolean / simple | Fast, easy | Limited insight |
+| Operational | Captures structure | Slower |
+| HoTT / higher |Supports infinite hierarchy | Undecidable in general, expensive | 
+| Meta-equivalence | Maximal flexibility | Complex to implement, heavy |
 
 
-1. The Core Shift
-Old (Level 1 only)
-𝐸
-(
-𝑝
-,
-𝑞
-)
-:
-Bool
-E(p,q):Bool
-New (Generalized)
-𝐸
-(
-𝑝
-,
-𝑞
-)
-:
-𝐸
-E(p,q):E
+### 1. The Core Shift
+- Old (Level 1 only): E(p,q):Bool 
+- New (Generalized): E(p,q):E Where E is not a Bool, but a type / space / structure. 
 
-Where 
-𝐸
-E is not a Bool, but a type / space / structure.
-
-2. The Tower You Want (Formalized)
+### 2. The Tower You Want (Formalized)
 
 You are defining an ∞-hierarchy:
-
-Level 0: Programs
-𝑝
-,
-𝑞
-:
-𝐿
-(
-𝐵
-)
-p,q:L(B)
-Level 1: Equivalences (Paths)
-𝐸
-1
-(
-𝑝
-,
-𝑞
-)
-:
-Type
-E
-1
-	​
-
-(p,q):Type
-
-elements = proofs / transformations
-
-corresponds to HoTT identity types
-
-Level 2: Transformations between transformations
-𝐸
-2
-(
-𝛼
-,
-𝛽
-)
-:
-Type
-E
-2
-	​
-
-(α,β):Type
-
-where:
-
-𝛼
-,
-𝛽
-:
-𝐸
-1
-(
-𝑝
-,
-𝑞
-)
-α,β:E
-1
-	​
-
-(p,q)
-
-Level 3+
-𝐸
-3
-(
-𝛾
-,
-𝛿
-)
-:
-Type
-E
-3
-	​
-
-(γ,δ):Type
+- Level 0: Programs: p,q:L(B)
+- Level 1: Equivalences (Paths): E1(p,q):Type elements = proofs / transformations, corresponds to HoTT identity types
+- Level 2: Transformations between transformations: E2(α,β):Type where: α,β:E1(p,q)
+- Level 3+: E3​(γ,δ):Type
 
 and so on…
 
 This is an ∞-groupoid structure.
 
-3. Minimal Language Design to Support This
+### 3. Minimal Language Design to Support This
 
 You need just a few primitives:
+- 1. A Universe of Types Type : Type₁ : Type₂ : ...
+- 2. Identity / Equivalence Type Id(A, x, y) : Type or syntax: x == y : A
+- 3. Introduction Rule (reflexivity): refl : Id(A, x, x)
+- 4. Composition (paths): compose : Id(x,y) -> Id(y,z) -> Id(x,z)
+- 5. Inverse: inverse : Id(x,y) -> Id(y,x)
+- 6. Higher Identity: This is the key: Id(Id(A,x,y), p, q) → equivalence between equivalences
 
-1. A Universe of Types
-Type : Type₁ : Type₂ : ...
-2. Identity / Equivalence Type
-Id(A, x, y) : Type
-
-or syntax:
-
-x == y : A
-3. Introduction Rule (reflexivity)
-refl : Id(A, x, x)
-4. Composition (paths)
-compose : Id(x,y) -> Id(y,z) -> Id(x,z)
-5. Inverse
-inverse : Id(x,y) -> Id(y,x)
-6. Higher Identity
-
-This is the key:
-
-Id(Id(A,x,y), p, q)
-
-→ equivalence between equivalences
-
-4. How This Embeds HoTT
+### 4. How This Embeds HoTT
 
 If you include:
-
-identity types
-
-higher identity types
-
-composition + inverse
-
-(optionally) univalence
+- identity types
+- higher identity types
+- composition + inverse
+- (optionally) univalence
 
 Then:
+- ✅ You have HoTT inside your language
 
-✅ You have HoTT inside your language
-
-5. How This Coexists With Your Original System
+### 5. How This Coexists With Your Original System
 
 Now you unify both worlds:
 
-Your Original (Boolean Equivalence)
+#### Your Original (Boolean Equivalence)
 eq_bool(p,q) : Bool
-HoTT-style
+#### HoTT-style
 eq_struct(p,q) : Type
-Bridge
+#### Bridge
 isEqual(p,q) = isNonEmpty(eq_struct(p,q))
 
 Boolean equivalence = “there exists a path”
 
-6. Making It Programmable
+### 6. Making It Programmable
 
 Now the powerful part:
+- Define Equivalences as First-Class Equiv(A) = (x:A, y:A) -> Type
 
-Define Equivalences as First-Class
-Equiv(A) = (x:A, y:A) -> Type
 Example: Extensional
 ext_eq(f,g) = (x) -> Id(f(x), g(x))
+
 Example: Cost-aware
 cost_eq(p,q) = 
   (Id(sem(p), sem(q))) × (cost(p) == cost(q))
+
 Example: HoTT Identity
 hott_eq = Id
-7. Equivalences of Equivalences
+
+### 7. Equivalences of Equivalences
 
 Now you get this for free:
-
 Between equivalences:
 Id(Equiv(A), E1, E2)
 Meaning:
-
 E1 and E2 are equivalent if:
-
 they produce equivalent structures for all inputs
 
-8. This Gives You Your Levels
-Level 1
+### 8. This Gives You Your Levels
+Level 1 elements of E(p,q)
 
-elements of E(p,q)
+Level 2 elements of Id(E(p,q), α, β)
 
-Level 2
-
-elements of Id(E(p,q), α, β)
-
-Level 3+
-
-iterate Id
+Level 3+ iterate Id
 
 No extra mechanism needed—just reuse identity types
 
-9. Final Architecture
+### 9. Final Architecture
 
 Your language now has:
 
@@ -650,7 +451,7 @@ Programs collapse into equivalence classes under ```E```.
 
 ## 4. Examples of Equivalences
 
-5. Your Example Revisited
+## 5. Your Example Revisited
 
 Programs:
 ```
@@ -731,7 +532,7 @@ E_2 \subseteq E_1
 
 Stronger equivalence relation.
 
-7. Equivalence-Aware Metrics
+## 7. Equivalence-Aware Metrics
 
 Distances become:
 
@@ -742,7 +543,7 @@ d_h^E([p]) = \min_{q \in [p]_E} H(q)
 
 Optimization depends on chosen equivalence
 
-8. Integration with Lattice and Domain Theory
+## 8. Integration with Lattice and Domain Theory
 
 Each equivalence induces a quotient lattice
 
@@ -753,7 +554,7 @@ E
 
 Different equivalences yield different lattice geometries
 
-9. Interaction with Types
+## 9. Interaction with Types
 
 Types can constrain equivalences
 
@@ -761,7 +562,7 @@ Dependent types allow equivalences indexed by values
 
 Logical types interpret equivalences as propositions
 
-10. Macros and Reflection
+## 10. Macros and Reflection
 
 Macros can generate equivalences
 
@@ -769,7 +570,7 @@ Reflection can inspect and modify equivalences
 
 Enables meta-level reasoning about computation equality
 
-11. Relation to Homotopy Type Theory (HoTT)
+## 11. Relation to Homotopy Type Theory (HoTT)
 Similarities:
 ```math
 Equivalence ≈ identity type
@@ -783,7 +584,7 @@ Differences:
 - This framework: equivalence is programmable and external
 - Supports multiple coexisting equivalences
 
-12. Expressiveness Comparison
+## 12. Expressiveness Comparison
 | Feature | HoTT | This Framework |
 |---------|------|----------------|
 | Single canonical equality | Yes | Optional |
@@ -886,32 +687,11 @@ Supports limits of approximations and recursive definitions
 
 Fixed points: elements where 
 ```
-𝐹
-(
-𝑓
-)
-=
-𝑓
 F(f)=f
 ```
 
 Least fixed point: 
 ```
-fix
-(
-𝐹
-)
-=
-⨆
-𝑛
-=
-0
-∞
-𝐹
-𝑛
-(
-⊥
-)
 fix(F)=⨆
 n=0
 ∞	​
@@ -945,10 +725,6 @@ Types overlay the lattice of computations and provide semantic structure and con
 
 Types depend on values: 
 ```
-𝑇
-(
-𝑥
-)
 T(x)
 ```
 
@@ -968,14 +744,6 @@ Lattice structure ensures monotone, compositional reasoning
 
 Subsets of types with predicates: 
 ```
-𝑥
-:
-𝑇
-∣
-𝑃
-(
-𝑥
-)
 x:T∣P(x)
 ```
 
@@ -1008,13 +776,7 @@ Programs that inspect or modify themselves
 
 Map syntactic elements 
 ```
-𝐿
-(
-𝐵
-)
-L(B) into semantic computations 
-𝐶
-C
+L(B) into semantic computations C
 ```
 
 Enables meta-level optimizations, analyses, and transformations
@@ -1154,9 +916,6 @@ ftotal  (fully defined / maximal)
 
 Coordinate system / basis 
 ```
-𝐵
-⊂
-𝐶
 B⊂C
 ```
 
