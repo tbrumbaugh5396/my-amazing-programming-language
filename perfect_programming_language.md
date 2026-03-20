@@ -177,7 +177,7 @@ Computation = Meaning/ignored differences
 You can model it as:
 
 ```math
-L(B) -> \pi ->  C \ E
+L(B) \to \pi \to  C \ E
 ```
 ​
 $\pi$: gives full semantics
@@ -198,11 +198,13 @@ Computation is relative (depends on equivalence).
 
 #### 1. Selecting the Equivalence
 Since equivalences are first-class, you can treat them as parameters in your language:
+
 ```math
 let current_eq : Equiv = ext_eq
 ```
 
 Or per computation:
+
 ```math
 compute f(x) under E
 ```
@@ -249,8 +251,9 @@ Every time a program is generated:
 Programs may be compared under different equivalences
 
 Mapping between equivalence spaces may be nontrivial:
+
 ```math
-[p]_E1  → [p]_E2
+[p]_{E_1}  → [p]_{E_2}
 ```
 
 Some equivalences may be incomparable (no natural mapping)
@@ -270,6 +273,7 @@ Defining equivalences of equivalences can lead to exponential growth in structur
 Infinite hierarchies → you need lazy evaluation or truncation for tractable computation
 
 ### 3. Strategies to Manage the Challenges
+
 #### 3.1 Use Hierarchy of Equivalences
 
 Start with simple boolean equivalences
@@ -313,16 +317,16 @@ Computation identity = depends on lens
 
 
 ### 1. The Core Shift
-- Old (Level 1 only): E(p,q):Bool 
-- New (Generalized): E(p,q):E Where E is not a Bool, but a type / space / structure. 
+- Old (Level 1 only): $E(p,q):Bool$ 
+- New (Generalized): $E(p,q):E$ Where $E$ is not a $Bool$, but a type / space / structure. 
 
 ### 2. The Tower You Want (Formalized)
 
 You are defining an ∞-hierarchy:
-- Level 0: Programs: p,q:L(B)
-- Level 1: Equivalences (Paths): E1(p,q):Type elements = proofs / transformations, corresponds to HoTT identity types
-- Level 2: Transformations between transformations: E2(α,β):Type where: α,β:E1(p,q)
-- Level 3+: E3​(γ,δ):Type
+- Level 0: Programs: $p,q:L(B)$
+- Level 1: Equivalences (Paths): $E_1(p,q):Type$ elements = proofs / transformations, corresponds to HoTT identity types
+- Level 2: Transformations between transformations: $E_2(\alpha,\beta):Type$ where: $\alpha,\beta:E_1(p,q)$
+- Level 3+: $E_3​(\gamma,\delta):Type$
 
 and so on…
 
@@ -332,11 +336,11 @@ This is an ∞-groupoid structure.
 
 You need just a few primitives:
 - 1. A Universe of Types Type : Type₁ : Type₂ : ...
-- 2. Identity / Equivalence Type Id(A, x, y) : Type or syntax: x == y : A
-- 3. Introduction Rule (reflexivity): refl : Id(A, x, x)
-- 4. Composition (paths): compose : Id(x,y) -> Id(y,z) -> Id(x,z)
-- 5. Inverse: inverse : Id(x,y) -> Id(y,x)
-- 6. Higher Identity: This is the key: Id(Id(A,x,y), p, q) → equivalence between equivalences
+- 2. Identity / Equivalence Type $Id(A, x, y) : Type$ or syntax: $x == y : A$
+- 3. Introduction Rule (reflexivity): $refl : Id(A, x, x)$
+- 4. Composition (paths): compose : $Id(x,y) \to Id(y,z) \to Id(x,z)$
+- 5. Inverse: inverse : $Id(x,y) \to Id(y,x)$
+- 6. Higher Identity: This is the key: $Id(Id(A,x,y), p, q) \to$ equivalence between equivalences
 
 ### 4. How This Embeds HoTT
 
