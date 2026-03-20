@@ -100,12 +100,19 @@ We are doing this in particular in order to differentiate
 
 ### 2.3 Semantics
 
+#### 1. Raw Semantics
+
 ```math
-[[ p ]]_E
+[[ p ]] = π(p)
 ```
 
-The meaning of program ( p ) in relation to an Equivalence E.
+This is the meaning of program ( p ).
 
+This is:
+- input-output behavior
+- traces
+- effects
+- etc.
 
 ### 2.4 Equivalence as a First-Class Object
 
@@ -120,18 +127,46 @@ Where:
 E(p,q)
 ```
 
-determines whether two programs are considered equivalent
+determines whether two programs are considered equivalent.
+
+This says:
+- which differences you ignore
+- which distinctions you care about
 
 ### 3. Computation Space Parameterized by Equivalence
 ```math
 \mathcal{C}_E = \mathcal{L}(B) / E
 ```
 
-Each equivalence defines a different computation space
+Each equivalence defines a different computation space.
 
 Programs collapse into equivalence classes under ```E```.
 
 ## 4. Examples of Equivalences
+
+5. Your Example Revisited
+
+Programs:
+```
+p1=+1−1+1
+
+p2=+1
+```
+
+Same semantics (raw behavior)
+```math
+π(p1)=π(p2)
+```
+
+Under extensional equivalence
+```math
+[p1]=[p2] → one computation
+```
+
+Under operational equivalence
+```math
+[p1]=[p2] → two computations
+```
 
 ### 4.1 Extensional
 ```math
@@ -159,8 +194,6 @@ Equivalences are values in the language:
 
 ```
 equivalence ext = \p q -> forall x. p(x) == q(x)
-
-
 equivalence cost = \p q -> ext(p,q) && cost(p) == cost(q)
 ```
 
@@ -171,22 +204,22 @@ This allows:
 
 ### 6. Operations on Equivalences
 
+#### Intersection
 ```math 
-Intersection
 E_1 \cap E_2
 ```
 
 Programs must satisfy both equivalences.
 
+#### Union
 ```math
-Union
 E_1 \cup E_2
 ```
 
 Programs equivalent if either relation holds.
 
+#### Refinement
 ```math
-Refinement
 E_2 \subseteq E_1
 ```
 
