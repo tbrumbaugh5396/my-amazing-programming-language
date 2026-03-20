@@ -359,26 +359,26 @@ Then:
 Now you unify both worlds:
 
 #### Your Original (Boolean Equivalence)
-$$
+```
 eq_bool(p,q) : Bool
-$$
+```
 
 #### HoTT-style
-$$
+```
 eq_struct(p,q) : Type
-$$
+```
 
 #### Bridge
-$$
+```
 isEqual(p,q) = isNonEmpty(eq_struct(p,q))
-$$
+```
 
 Boolean equivalence = “there exists a path”
 
 ### 6. Making It Programmable
 
 Now the powerful part:
-- Define Equivalences as First-Class $Equiv(A) = (x:A, y:A) \to Type$
+- Define Equivalences as First-Class Equiv$(A) = (x:A, y:A) \to Type$
 
 Example: Extensional
 
@@ -395,9 +395,9 @@ $$
 
 Example: HoTT Identity
 
-$$
-\text{hott_eq} = \text{Id}
-$$
+```
+hott_eq = Id
+```
 
 ### 7. Equivalences of Equivalences
 
