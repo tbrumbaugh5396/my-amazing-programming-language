@@ -800,12 +800,12 @@ Critical for expressing high-level abstractions in a minimal basis
 
 ### Programming Distance
 ```math
-d_p(f) = \min_{p : \llbracket p \rrbracket = f} C(p)
+d_p(f) = \min_{p : [[ p ]] = f} C(p)
 ```
 
 ### Human Distance
 ```math
-d_h(f) = \min_{p : \llbracket p \rrbracket = f} H(p)
+d_h(f) = \min_{p : [[ p ]] = f} H(p)
 ```
 ### Optional Definedness Metric
 ```math
@@ -872,7 +872,7 @@ Where ( H(q) ) measures:
 ## 19. Multi-Dimensional Cost
 
 
-```math
+```
 d_p = (time, space, depth, steps, ...)
 ```
 
@@ -1232,7 +1232,7 @@ $q$ wherever $p$ was used
 ### 4. Example: Sorting Algorithms
 
 ```math
-p=\text{bubbleSort}
+p=\text{bubbleSort},
 q=\text{mergeSort}
 ```
 
