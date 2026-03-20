@@ -165,7 +165,7 @@ Under extensional equivalence
 
 Under operational equivalence
 ```math
-[p1]=[p2] → two computations
+[p1] \neq [p2] → two computations
 ```
 
 ### 4.1 Extensional
