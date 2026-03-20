@@ -383,27 +383,27 @@ Now the powerful part:
 Example: Extensional
 
 $$
-ext_eq(f,g) = (x) -> Id(f(x), g(x))
+\text{ext_eq}(f,g) = (x) \to \text{Id}(f(x), g(x))
 $$
 
 Example: Cost-aware
 
 $$
-cost_eq(p,q) = 
-  (Id(sem(p), sem(q))) × (cost(p) == cost(q))
+\text{cost_eq}(p,q) = 
+  (\text{Id}(\text{sem}(p), \text{sem}(q))) × (\text{cost}(p) == \text{cost}(q))
 $$
 
 Example: HoTT Identity
 
 $$
-hott_eq = Id
+\text{hott_eq} = \text{Id}
 $$
 
 ### 7. Equivalences of Equivalences
 
 Now you get this for free:
 Between equivalences:
-$Id(Equiv(A), E_1, E_2)$
+$\text{Id}(\text{Equiv}(A), E_1, E_2)$
 Meaning:
 $E_1$ and $E_2$ are equivalent if:
 they produce equivalent structures for all inputs
@@ -411,9 +411,9 @@ they produce equivalent structures for all inputs
 ### 8. This Gives You Your Levels
 Level 1 elements of $E(p,q)$
 
-Level 2 elements of $Id(E(p,q), \alpha, \beta)$
+Level 2 elements of $\text{Id}(E(p,q), \alpha, \beta)$
 
-Level 3+ iterate $Id$
+Level 3+ iterate $\text{Id}$
 
 No extra mechanism needed—just reuse identity types
 
@@ -421,10 +421,10 @@ No extra mechanism needed—just reuse identity types
 
 Your language now has:
 
-1. Program Layer $p : Program$
-2. Semantic Layer $sem(p) : Meaning$
-3. Equivalence Layer $E(p,q) : Type$
-4. Higher Equivalence Layer $Id(E(p,q), \alpha, \beta)$
+1. Program Layer $p : \text{Program}$
+2. Semantic Layer $\text{sem}(p) : \text{Meaning}$
+3. Equivalence Layer $E(p,q) : \text{Type}$
+4. Higher Equivalence Layer $\text{Id}(E(p,q), \alpha, \beta)$
 5. Meta Layer
 
 - macros
