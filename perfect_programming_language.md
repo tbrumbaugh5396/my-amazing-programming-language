@@ -381,17 +381,20 @@ Now the powerful part:
 - Define Equivalences as First-Class $Equiv(A) = (x:A, y:A) \to Type$
 
 Example: Extensional
+
 $$
 ext_eq(f,g) = (x) -> Id(f(x), g(x))
 $$
 
 Example: Cost-aware
+
 $$
 cost_eq(p,q) = 
   (Id(sem(p), sem(q))) × (cost(p) == cost(q))
 $$
 
 Example: HoTT Identity
+
 $$
 hott_eq = Id
 $$
@@ -454,7 +457,7 @@ This says:
 
 Each equivalence defines a different computation space.
 
-Programs collapse into equivalence classes under ```E```.
+Programs collapse into equivalence classes under $E$.
 
 ## 4. Examples of Equivalences
 
@@ -473,12 +476,12 @@ Same semantics (raw behavior)
 
 Under extensional equivalence
 ```math
-[p_1]=[p_2] → one computation
+[p_1]=[p_2] \to one computation
 ```
 
 Under operational equivalence
 ```math
-[p_1] \neq [p_2] → two computations
+[p_1] \neq [p_2] \to two computations
 ```
 
 ### 4.1 Extensional
@@ -505,9 +508,9 @@ E_{obs}(p,q) \iff \forall C, C[p] \equiv C[q]
 
 Equivalences are values in the language:
 
-```
-equivalence ext = \p q -> forall x. p(x) == q(x)
-equivalence cost = \p q -> ext(p,q) && cost(p) == cost(q)
+```math
+equivalence ext = \p q \to forall x. p(x) == q(x)
+equivalence cost = \p q \to ext(p,q) && cost(p) == cost(q)
 ```
 
 This allows:
@@ -627,6 +630,7 @@ So define:
 ```math
 p∼q \iff [[p]]=[[q]]
 ```
+
 Then:
 ```math
 C=L(B)/∼
@@ -705,7 +709,7 @@ Formalizes recursion, loops, and iterative computation in the lattice
 
 ### 5.4 Join and Meet
 
-```
+```math
 (f \wedge g)(x) = \begin{cases} f(x) & \text{if } f(x) = g(x) \\ \uparrow & \text{otherwise} \end{cases}
 (f \vee g)(x) = \begin{cases} f(x) & \text{if defined} \\ g(x) & \text{otherwise} \end{cases}
 ```
@@ -724,7 +728,7 @@ Types overlay the lattice of computations and provide semantic structure and con
 ### 6.1 Dependent Types
 
 Types depend on values: 
-```
+```math
 T(x)
 ```
 
@@ -743,7 +747,7 @@ Lattice structure ensures monotone, compositional reasoning
 ### 6.3 Refinement Types
 
 Subsets of types with predicates: 
-```
+```math
 x:T∣P(x)
 ```
 
@@ -775,8 +779,8 @@ Preserve monotonicity: generated program ⊒ macro’s intent in lattice orderin
 Programs that inspect or modify themselves
 
 Map syntactic elements 
-```
-L(B) into semantic computations C
+```math
+L(B) \text{into semantic computations C}
 ```
 
 Enables meta-level optimizations, analyses, and transformations
@@ -795,7 +799,7 @@ Critical for expressing high-level abstractions in a minimal basis
 [Table of Contents](#table-of-contents)
 
 ### Programming Distance
-```
+```math
 d_p(f) = \min_{p : \llbracket p \rrbracket = f} C(p)
 ```
 
@@ -881,8 +885,8 @@ d_p = (time, space, depth, steps, ...)
 (\mathcal{C}, d_p, d_h)
 ```
 
-* ( d_p ): machine/generative cost
-* ( d_h ): human/cognitive cost
+* ( $d_p$ ): machine/generative cost
+* ( $d_h$ ): human/cognitive cost
 
 ---
 
@@ -893,18 +897,18 @@ Refined by types to exclude unsafe computations
 ## 11. Visualization of Lattice
 [Table of Contents](#table-of-contents)
 
-```
+```math
 ⊥  (undefined / infinite loop)
 │
 │  approximating chain
 │
-f1  (partially defined)
+f_1  (partially defined)
 │
-f2
+f_2
 │
 ...
 │
-ftotal  (fully defined / maximal)
+f_total  (fully defined / maximal)
 ```
 
 ^ fixed points appear along chains
@@ -916,7 +920,7 @@ ftotal  (fully defined / maximal)
 
 Coordinate system / basis 
 ```
-B⊂C
+B \subset C
 ```
 
 generates the space
