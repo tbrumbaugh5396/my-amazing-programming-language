@@ -175,7 +175,7 @@ Computation = Meaning/ignored differences
 You can model it as:
 
 $$
-L(B) \to \pi \to_{Behaviors}  𝐶 / 𝐸
+L(B) \to \pi \to_{Behaviors}  C / E
 $$
 ​
 $\pi$: gives full semantics
