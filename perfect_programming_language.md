@@ -124,98 +124,46 @@ structure, steps, representation
 
 This is the meaning of program ( p ).
 
+Therefore, we can define programs with  
+
 This is:
 - input-output behavior
 - traces
 - effects
 - etc.
 
-3. Computation (Abstract Object)
-[
-𝑝
-]
-𝐸
-[p]
-E
-	​
-
+#### 3. Computation (Abstract Object)
+```math
+[𝑝]_𝐸
+```
 
 set of programs considered equivalent
 
 depends on equivalence relation 
-𝐸
+```math
 E
+```
 
 👉 Think: “what we consider the same”
 
 5. Your Example
 
 Programs:
-
-𝑝
-1
-=
-+
-1
-−
-1
-+
-1
-p
-1
-	​
-
-=+1−1+1
-
-𝑝
-2
-=
-+
-1
-p
-2
-	​
-
-=+1
+```math
+𝑝1 = +1 −1 +1
+𝑝2 = +1
+```
 
 Semantic meaning
 
 Both:
-
-𝜋
-(
-𝑝
-1
-)
-=
-𝜋
-(
-𝑝
-2
-)
-=
-(
-𝑥
-↦
-𝑥
-+
-1
-)
-π(p
-1
-	​
-
-)=π(p
-2
-	​
-
-)=(x↦x+1)
+```math
+𝜋(𝑝1) = 𝜋(𝑝2) = (𝑥↦+1) =(x↦x+1)
+```
 
 👉 Same meaning
 
-Computation (depends on 
-𝐸
-E)
+Computation (depends on E)
 
 Under extensional equivalence → same computation
 
