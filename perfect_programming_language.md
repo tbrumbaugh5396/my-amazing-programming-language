@@ -176,9 +176,9 @@ Computation = Meaning/ignored differences
 
 You can model it as:
 
-$$
-L(B) -> \pi ->  C  E
-$$
+```math
+L(B) -> \pi ->  C \ E
+```
 ​
 $\pi$: gives full semantics
 $E$: decides what distinctions to ignore
@@ -208,10 +208,10 @@ compute f(x) under E
 ```
 
 Example:
-- compute +1 -1 +1 under extensional_eq
-- compute +1 -1 +1 under operational_eq
+- compute $+1 -1 +1$ under extensional_eq
+- compute $+1 -1 +1$ under operational_eq
 
-Under extensional_eq: considered same as +1
+Under extensional_eq: considered same as $+1$
 
 Under operational_eq: considered different
 
@@ -227,9 +227,9 @@ Meta-programming / macros – can dynamically generate or switch equivalences.
 Selecting equivalences introduces new complexity layers beyond standard programming:
 
 #### 2.1 Equivalence Checking
-Boolean equivalence (E: L×L→Bool) is simple for small programs
+Boolean equivalence ($E: L \times L \to Bool$) is simple for small programs
 
-Structured / HoTT-like equivalence (E: L×L→Type) may require:
+Structured / HoTT-like equivalence ($E: L \times L \to Type$) may require:
 - Searching for a path / transformation
 - Checking higher-level identities (paths between paths)
 
