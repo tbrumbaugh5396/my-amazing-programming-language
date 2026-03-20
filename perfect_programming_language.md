@@ -92,6 +92,7 @@ $$
 All programs generated from $B$.
 
 ### 2.3 Programs (Syntax)
+
 $$
 p \in L(B)
 $$
@@ -129,6 +130,7 @@ The concept of computation is about what we consider to be the same.
 $$
 [p]_E
 $$
+
 set of programs considered equivalent
 
 depends on equivalence relation $E$.
@@ -138,7 +140,7 @@ depends on equivalence relation $E$.
 Programs:
 
 $$
-p_1 = +1 −1 +1
+p_1 = +1 −1 +1,
 p_2 = +1
 $$
 
@@ -150,14 +152,12 @@ $$
 \pi (p_1) = \pi (p_2) = (x \to +1)
 $$
 
-
-Computation (depends on $E$)
-
-Under extensional equivalence $\to$ same computation
-
-Under operational equivalence $\to$ different computations
+Computation (depends on $E$):
+- Under extensional equivalence $\to$ same computation
+- Under operational equivalence $\to$ different computations
 
 ## 6. Another Way to See It
+
 Semantic Meaning = Point in a Very Detailed Space
 
 Includes:
@@ -168,21 +168,19 @@ Includes:
 Computation = Projection / Compression
 
 You apply an equivalence:
+Computation = Meaning/ignored differences
 
-Computation
-=
-Meaning / ignored differences
-Computation=Meaning/ignored differences
 ### 7. Even More Precise
 
 You can model it as:
-```math
-𝐿(𝐵) → 𝜋 Behaviors → 𝐶 / 𝐸
+
+$$
+L(B) \to \pi \to_{Behaviors}  𝐶 / 𝐸
+$$
 ​
-π: gives full semantics
-E: decides what distinctions to ignore
-𝐶 / 𝐸 : resulting computation space
-```
+$\pi$: gives full semantics
+$E$: decides what distinctions to ignore
+$C / E$ : resulting computation space
 
 ### 8. Why This Distinction Matters
 
