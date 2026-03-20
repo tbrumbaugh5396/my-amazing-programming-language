@@ -382,16 +382,16 @@ Now the powerful part:
 
 Example: Extensional
 
-$$
-\text{ext_eq}(f,g) = (x) \to \text{Id}(f(x), g(x))
-$$
+```
+ext_eq(f,g) = (x) -> Id(f(x), g(x))
+```
 
 Example: Cost-aware
 
-$$
-\text{cost_eq}(p,q) = 
-  (\text{Id}(\text{sem}(p), \text{sem}(q))) × (\text{cost}(p) == \text{cost}(q))
-$$
+```
+cost_eq(p,q) = 
+  (Id(sem(p), sem(q))) × (cost(p) == cost(q))
+```
 
 Example: HoTT Identity
 
