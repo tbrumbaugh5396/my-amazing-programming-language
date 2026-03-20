@@ -94,9 +94,25 @@ You’re doing the same thing, but with B instead of a grammar and Composition r
 \mathcal{L}(B)
 ```
 
+
 All programs generated from ( B ).
 
 We are doing this in particular in order to differentiate
+
+1. Programs (Syntax)
+```math
+𝑝
+∈
+𝐿
+(
+𝐵
+)
+p∈L(B)
+```
+
+concrete code
+
+structure, steps, representation
 
 ### 2.3 Semantics
 
@@ -113,6 +129,317 @@ This is:
 - traces
 - effects
 - etc.
+
+3. Computation (Abstract Object)
+[
+𝑝
+]
+𝐸
+[p]
+E
+	​
+
+
+set of programs considered equivalent
+
+depends on equivalence relation 
+𝐸
+E
+
+👉 Think: “what we consider the same”
+
+5. Your Example
+
+Programs:
+
+𝑝
+1
+=
++
+1
+−
+1
++
+1
+p
+1
+	​
+
+=+1−1+1
+
+𝑝
+2
+=
++
+1
+p
+2
+	​
+
+=+1
+
+Semantic meaning
+
+Both:
+
+𝜋
+(
+𝑝
+1
+)
+=
+𝜋
+(
+𝑝
+2
+)
+=
+(
+𝑥
+↦
+𝑥
++
+1
+)
+π(p
+1
+	​
+
+)=π(p
+2
+	​
+
+)=(x↦x+1)
+
+👉 Same meaning
+
+Computation (depends on 
+𝐸
+E)
+
+Under extensional equivalence → same computation
+
+Under operational equivalence → different computations
+
+6. Another Way to See It
+Semantic Meaning = Point in a Very Detailed Space
+
+Includes:
+
+every step
+
+every effect
+
+every intermediate state
+
+Computation = Projection / Compression
+
+You apply an equivalence:
+
+Computation
+=
+Meaning
+  
+/
+  
+ignored differences
+Computation=Meaning/ignored differences
+7. Even More Precise
+
+You can model it as:
+
+𝐿
+(
+𝐵
+)
+→
+𝜋
+Behaviors
+→
+/
+𝐸
+𝐶
+𝐸
+L(B)
+π
+	​
+
+Behaviors
+/E
+	​
+
+C
+E
+	​
+
+
+𝜋
+π: gives full semantics
+
+𝐸
+E: decides what distinctions to ignore
+
+𝐶
+𝐸
+C
+E
+	​
+
+: resulting computation space
+
+8. Why This Distinction Matters
+
+Because different goals care about different levels:
+
+Compilers
+
+care about semantic meaning
+
+preserve behavior
+
+Optimization
+
+works within a computation
+
+finds better representations
+
+Language Design
+
+chooses equivalence
+
+defines what “same” means
+
+9. Deep Insight
+
+Semantic meaning is absolute (given a model).
+Computation is relative (depends on equivalence).
+
+1. Selecting the Equivalence
+
+Since equivalences are first-class, you can treat them as parameters in your language:
+
+let current_eq : Equiv = ext_eq
+
+Or per computation:
+
+compute f(x) under E
+Example:
+compute +1 -1 +1 under extensional_eq
+compute +1 -1 +1 under operational_eq
+
+Under extensional_eq: considered same as +1
+
+Under operational_eq: considered different
+
+1.1 Mechanisms to select equivalence
+
+Global default – one equivalence active for all computations.
+
+Local override – equivalence can be passed to a function or block.
+
+Type-indexed – computations carry the equivalence in their type:
+
+Computation[E]
+
+Meta-programming / macros – can dynamically generate or switch equivalences.
+
+2. Computational Challenges
+
+Selecting equivalences introduces new complexity layers beyond standard programming:
+
+2.1 Equivalence Checking
+
+Boolean equivalence (E: L×L→Bool) is simple for small programs
+
+Structured / HoTT-like equivalence (E: L×L→Type) may require:
+
+Searching for a path / transformation
+
+Checking higher-level identities (paths between paths)
+
+Potentially unbounded search → undecidable in general
+
+2.2 Cost of Maintaining Equivalence Classes
+
+Every time a program is generated:
+
+Must determine which class it belongs to
+
+For higher equivalences, you may need to store witnesses, not just boolean flags
+
+Memory and computational overhead increase with:
+
+Number of equivalences
+
+Depth of higher transformations
+
+2.3 Interoperability
+
+Programs may be compared under different equivalences
+
+Mapping between equivalence spaces may be nontrivial:
+
+[p]_E1  → [p]_E2
+
+Some equivalences may be incomparable (no natural mapping)
+
+2.4 Optimization & Normalization
+
+Optimizations depend on the equivalence chosen
+
+For HoTT-like equivalences:
+
+“Normal form” may not exist or may be computationally expensive
+
+Rewriting must preserve paths, not just outcomes
+
+2.5 Complexity Explosion in Meta-Equivalences
+
+Defining equivalences of equivalences can lead to exponential growth in structures
+
+Infinite hierarchies → you need lazy evaluation or truncation for tractable computation
+
+3. Strategies to Manage the Challenges
+3.1 Use Hierarchy of Equivalences
+
+Start with simple boolean equivalences
+
+Only lift to higher structures when needed
+
+3.2 Lazy / Demand Evaluation
+
+Compute higher transformations only when queried
+
+Avoid building full higher-dimensional identity types upfront
+
+3.3 Type-System Enforcement
+
+Use types to restrict equivalences
+
+Only allow comparisons that make sense at a given layer
+
+3.4 Caching / Memoization
+
+Cache equivalence checks or witnesses
+
+Reduces repeated heavy computations
+
+4. Big Insight
+
+Selecting the equivalence is not just a syntactic choice—it changes the computation space and the notion of “same computation.”
+
+Equivalence selection = choice of lens
+
+Computation meaning = fixed
+
+Computation identity = depends on lens
+
+5. Trade-offs
+Choice	Pros	Cons
+Boolean / simple	Fast, easy	Limited insight
+Operational	Captures structure	Slower
+HoTT / higher	Supports infinite hierarchy	Undecidable in general, expensive
+Meta-equivalence	Maximal flexibility	Complex to implement, heavy
 
 ### 2.4 Equivalence as a First-Class Object
 
