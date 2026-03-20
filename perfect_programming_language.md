@@ -199,13 +199,13 @@ Computation is relative (depends on equivalence).
 #### 1. Selecting the Equivalence
 Since equivalences are first-class, you can treat them as parameters in your language:
 
-```math
+```
 let current_eq : Equiv = ext_eq
 ```
 
 Or per computation:
 
-```math
+```
 compute f(x) under E
 ```
 
