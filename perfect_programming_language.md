@@ -378,7 +378,7 @@ Boolean equivalence = “there exists a path”
 ### 6. Making It Programmable
 
 Now the powerful part:
-- Define Equivalences as First-Class Equiv$(A) = (x:A, y:A) \to Type$
+- Define Equivalences as First-Class Equiv(A) = (x:A, y:A) \to Type
 
 Example: Extensional
 
@@ -508,9 +508,9 @@ E_{obs}(p,q) \iff \forall C, C[p] \equiv C[q]
 
 Equivalences are values in the language:
 
-```math
-\text{equivalence ext} = \p q \to forall x. p(x) == q(x)
-\text{equivalence cost} = \p q \to ext(p,q) && cost(p) == cost(q)
+```
+equivalence ext = \p q \to forall x. p(x) == q(x)
+equivalence cost = \p q \to ext(p,q) && cost(p) == cost(q)
 ```
 
 This allows:
