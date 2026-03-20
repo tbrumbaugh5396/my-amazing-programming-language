@@ -219,10 +219,10 @@ Under operational_eq: considered different
 
 #### 1.1 Mechanisms to select equivalence
 
-Global default – one equivalence active for all computations.
-Local override – equivalence can be passed to a function or block.
-Type-indexed – computations carry the equivalence in their type: Computation[E]
-Meta-programming / macros – can dynamically generate or switch equivalences.
+- Global default – one equivalence active for all computations.
+- Local override – equivalence can be passed to a function or block.
+- Type-indexed – computations carry the equivalence in their type: Computation[E]
+- Meta-programming / macros – can dynamically generate or switch equivalences.
 
 ### 2. Computational Challenges
 
@@ -310,6 +310,7 @@ Computation identity = depends on lens
 
 ### 5. Trade-offs
 | Choice | Pros | Cons |
+|--------|------|------|
 | Boolean / simple | Fast, easy | Limited insight |
 | Operational | Captures structure | Slower |
 | HoTT / higher |Supports infinite hierarchy | Undecidable in general, expensive | 
@@ -358,44 +359,58 @@ Then:
 Now you unify both worlds:
 
 #### Your Original (Boolean Equivalence)
+$$
 eq_bool(p,q) : Bool
+$$
+
 #### HoTT-style
+$$
 eq_struct(p,q) : Type
+$$
+
 #### Bridge
+$$
 isEqual(p,q) = isNonEmpty(eq_struct(p,q))
+$$
 
 Boolean equivalence = “there exists a path”
 
 ### 6. Making It Programmable
 
 Now the powerful part:
-- Define Equivalences as First-Class Equiv(A) = (x:A, y:A) -> Type
+- Define Equivalences as First-Class $Equiv(A) = (x:A, y:A) \to Type$
 
 Example: Extensional
+$$
 ext_eq(f,g) = (x) -> Id(f(x), g(x))
+$$
 
 Example: Cost-aware
+$$
 cost_eq(p,q) = 
   (Id(sem(p), sem(q))) × (cost(p) == cost(q))
+$$
 
 Example: HoTT Identity
+$$
 hott_eq = Id
+$$
 
 ### 7. Equivalences of Equivalences
 
 Now you get this for free:
 Between equivalences:
-Id(Equiv(A), E1, E2)
+$Id(Equiv(A), E_1, E_2)$
 Meaning:
-E1 and E2 are equivalent if:
+$E_1$ and $E_2$ are equivalent if:
 they produce equivalent structures for all inputs
 
 ### 8. This Gives You Your Levels
-Level 1 elements of E(p,q)
+Level 1 elements of $E(p,q)$
 
-Level 2 elements of Id(E(p,q), α, β)
+Level 2 elements of $Id(E(p,q), \alpha, \beta)$
 
-Level 3+ iterate Id
+Level 3+ iterate $Id$
 
 No extra mechanism needed—just reuse identity types
 
@@ -403,21 +418,15 @@ No extra mechanism needed—just reuse identity types
 
 Your language now has:
 
-1. Program Layer
-p : Program
-2. Semantic Layer
-sem(p) : Meaning
-3. Equivalence Layer
-E(p,q) : Type
-4. Higher Equivalence Layer
-Id(E(p,q), α, β)
+1. Program Layer $p : Program$
+2. Semantic Layer $sem(p) : Meaning$
+3. Equivalence Layer $E(p,q) : Type$
+4. Higher Equivalence Layer $Id(E(p,q), \alpha, \beta)$
 5. Meta Layer
 
-macros
-
-reflection
-
-equivalence construction
+- macros
+- reflection
+- equivalence construction
 
 ### 2.4 Equivalence as a First-Class Object
 
@@ -452,25 +461,24 @@ Programs collapse into equivalence classes under ```E```.
 ## 5. Your Example Revisited
 
 Programs:
-```
-p1=+1−1+1
-
-p2=+1
+```math
+p_1=+1−1+1,
+p_2=+1
 ```
 
 Same semantics (raw behavior)
 ```math
-π(p1)=π(p2)
+\pi(p_1)=\pi(p_2)
 ```
 
 Under extensional equivalence
 ```math
-[p1]=[p2] → one computation
+[p_1]=[p_2] → one computation
 ```
 
 Under operational equivalence
 ```math
-[p1] \neq [p2] → two computations
+[p_1] \neq [p_2] → two computations
 ```
 
 ### 4.1 Extensional
@@ -617,7 +625,7 @@ You said you want to “view computations as equivalent.”
 
 So define:
 ```math
-p∼q ⟺ [[p]]=[[q]]
+p∼q \iff [[p]]=[[q]]
 ```
 Then:
 ```math
@@ -632,7 +640,7 @@ p \sim q \iff [[ p ]] = [[ q ]]
 \mathcal{C} = \mathcal{L}(B) / \sim
 ```
 
-A computation is an equivalence class ( [p] ).
+A computation is an equivalence class ( $[p]$ ).
 
 
 ## 4. Partial Computable Functions
@@ -690,13 +698,7 @@ F(f)=f
 
 Least fixed point: 
 ```
-fix(F)=⨆
-n=0
-∞	​
-
-F
-n
-(⊥)
+fix(F)=\union^{\infinity}_{n=0} F \intersection (⊥)
 ```
 
 Formalizes recursion, loops, and iterative computation in the lattice
