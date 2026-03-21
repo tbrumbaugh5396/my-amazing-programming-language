@@ -1,3 +1,5 @@
+# Week 1
+
 Your TDD Checklist for the Week:
 [ ] The "Total" Reducer: Implement the evaluator that reduces App(Lambda(x), y) to x[y/0].
 [ ] The Substitution Engine: Handle De Bruijn index shifting (crucial for context changes).
