@@ -90,8 +90,7 @@ Company cloud spend: $20M/year
 Optimizer reduces cost: $8M  
 Platform fee (15%): **$1.2M/year**
 
-Market Size:
-Cloud compute > $600B globally.
+Market Size: Cloud compute > $600B globally.
 
 ---
 
@@ -148,8 +147,7 @@ Capabilities:
 - cloud cost reduction  
 - hardware-aware optimizations  
 
-Pricing:
-$10k – $200k per year depending on usage.
+Pricing: $10k – $200k per year depending on usage.
 
 ---
 
@@ -163,8 +161,7 @@ Capabilities:
 - safety certification tooling  
 - contract-based development  
 
-Pricing:
-$250k – $2M enterprise licensing.
+Pricing: $250k – $2M enterprise licensing.
 
 ---
 
@@ -176,9 +173,7 @@ Developer IDE where:
 - platform verifies correctness
 - optimizer improves performance
 
-Pricing:
-
-$30 – $100 / developer / month.
+Pricing: $30 – $100 / developer / month.
 
 ---
 
@@ -270,8 +265,7 @@ Goals:
 Team:
 5-10 engineers.
 
-Funding Estimate:
-$2M – $5M seed.
+Funding Estimate: $2M – $5M seed.
 
 ---
 
@@ -289,8 +283,7 @@ Goals:
 
 Early customers.
 
-Funding:
-$10M Series A.
+Funding: $10M Series A.
 
 ---
 
@@ -306,8 +299,7 @@ Goals:
 - enterprise verification tools  
 - cloud partnerships  
 
-Revenue Target:
-$10M ARR.
+Revenue Target: $10M ARR.
 
 ---
 
@@ -323,8 +315,7 @@ Goals:
 - safety-critical certifications  
 - large enterprise adoption  
 
-Revenue Target:
-$100M+ ARR.
+Revenue Target: $100M+ ARR.
 
 ---
 
@@ -338,6 +329,4 @@ Potential acquirers:
 - Amazon  
 - major cloud providers  
 
-Estimated exit potential:
-
-$500M – $5B depending on adoption.
+Estimated exit potential: $500M – $5B depending on adoption.
