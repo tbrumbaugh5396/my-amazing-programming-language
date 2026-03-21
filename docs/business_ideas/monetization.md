@@ -11,20 +11,35 @@ Your exit strategy is either a massive IPO as the "Cisco of the Reasoning Era" o
 - [Introduction](#introduction)
 - [Table of contents](#table-of-contents)
 - [1. Monetization: The "Correctness as a Service" Model](#1-Monetization-The-Correctness-as-a-Service-Model)
+  - [A. The Verified Runtime](#A-The-Verified-Runtime)
+  - [B. The Optimization Tax](#B-The-Optimization-Tax)
+  - [C. The Certified Registry](#C-The-Certified-Registry)
+- [2. The Multi-Stage Exit Strategy](#2-The-Multi-Stage-Exit-Strategy)
+  - [Exit Path A: The "Hyperscaler" Acquisition](#Exit-Path-A-The-Hyperscaler-Acquisition)
+  - [Exit Path B: The "AI Safety" Acquisition]
+  - [Exit Path C: The IPO](#Exit-Path-C-The-IPO)
+- [3. The "Legacy Debt" Liquidation](#3-The-Legacy-Debt-Liquidation)
+- [4. Summary:](#4-Summary)
 
 ## 1. Monetization: The "Correctness as a Service" Model
 [Table of contents](#table-of-contents)
 
 (CaaS)
 
-### A. The Verified Runtime (The "Hypervisor" License)
+### A. The Verified Runtime 
+[Table of contents](#table-of-contents)
+
+(The "Hypervisor" License)
 
 Similar to how VMware monetized the virtual machine, you monetize the Omega Engine Hypervisor.
 
 The Product: A high-performance, verified execution environment.
 The Fee: Per-core or per-compute-hour licensing for enterprise environments where downtime or bugs cost >$1M/hour (Finance, Energy, Telecom).
 
-### B. The Optimization Tax (The "Efficiency" Model)
+### B. The Optimization Tax 
+[Table of contents](#table-of-contents)
+
+(The "Efficiency" Model)
 
 Since your engine automatically finds "better" programs $q$ in the lattice:
 
@@ -33,7 +48,10 @@ The Fee: You take a percentage (e.g., 5-10%) of the Cloud Savings you generate.
 
 If the Omega Engine refactors a client's legacy Java code and reduces their AWS bill by $1M, you earn $100k.
 
-### C. The Certified Registry (The "App Store" for Proofs)
+### C. The Certified Registry 
+[Table of contents](#table-of-contents)
+
+(The "App Store" for Proofs)
 
 As the creator, you host the Universal Basis Registry.
 
@@ -44,29 +62,42 @@ If a hardware manufacturer (NVIDIA/Intel) wants their new chip to be the "fastes
 The Fee: Listing fees and "Proof-Audit" fees.
 
 ## 2. The Multi-Stage Exit Strategy
+[Table of contents](#table-of-contents)
 
-### Exit Path A: The "Hyperscaler" Acquisition (The Efficiency Buy)
+### Exit Path A: The "Hyperscaler" Acquisition
+[Table of contents](#table-of-contents)
+
+(The Efficiency Buy)
 
 Target: AWS, Google Cloud, or Microsoft Azure.
 The Why: These companies are hitting a "Power Wall." 
 They cannot build data centers fast enough. 
 If your tech can mathematically guarantee a 30% reduction in global CPU cycles through lattice-based auto-optimization, you are worth $10B+ just for the infrastructure savings.
 
-### Exit Path B: The "AI Safety" Acquisition (The Trust Buy)
+### Exit Path B: The "AI Safety" Acquisition 
+[Table of contents](#table-of-contents)
+
+(The Trust Buy)
 
 Target: OpenAI, Anthropic, or Meta.
 The Why: As LLMs move into "Agentic" roles (buying stocks, managing power grids), the liability risk is infinite. 
 These companies need a Deterministic Safety Rail. 
 Your $\lambda_{total}^{LCP}$ kernel becomes the "Logic Layer" for their neural networks.
 
-### Exit Path C: The IPO (The "New Standard" Buy)
+### Exit Path C: The IPO 
+[Table of contents](#table-of-contents)
+
+(The "New Standard" Buy)
 
 Target: Public Markets.
 The Why: You become the Standard Oil of Computation. 
 By defining the "Universal Coordinate Atlas," every piece of software on earth eventually targets your kernel. 
 You become the foundation of the "Post-Bug" world, similar to how TCP/IP became the foundation of the internet.
 
-## 3. The "Legacy Debt" Liquidation (The "Trojan Horse")
+## 3. The "Legacy Debt" Liquidation 
+[Table of contents](#table-of-contents)
+
+(The "Trojan Horse")
 
 One of your most immediate cash-flow opportunities is The Great Modernization.
 
@@ -76,6 +107,7 @@ Prove to the client that $p_{old} \sim q_{new}$ with a mathematical witness.
 The Fee: Consulting/License fees for "Risk-Free Modernization."
 
 ## 4. Summary: 
+[Table of contents](#table-of-contents)
 
 | Business Milestones | Milestone Value Proposition     | Target Metric                                 |
 |---------------------|---------------------------------|-----------------------------------------------|
