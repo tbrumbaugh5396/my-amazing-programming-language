@@ -64,9 +64,9 @@ Dependencies are "injected" as nodes, preventing dependency hell and ensuring th
 
 ### Compile-Time vs Runtime Distinction
 In $\lambda_{total}^{LCP}$, the boundary is fluid:
-Elaboration (Compile-Time): Complex proofs, lattice searches, and macro expansions happen here. 
+- Elaboration (Compile-Time): Complex proofs, lattice searches, and macro expansions happen here. 
 This is where the AI Pilot helps find the most efficient path ($d_p \approx 0$).
 
-Execution (Runtime): Once verified, the "Proof" is truncated. 
+- Execution (Runtime): Once verified, the "Proof" is truncated. 
 The resulting binary is a lean, hyper-optimized sequence of instructions that no longer needs to check its own safety—it has already been proven "Physically Correct."
 
