@@ -16,7 +16,7 @@ Your exit strategy is either a massive IPO as the "Cisco of the Reasoning Era" o
   - [C. The Certified Registry](#C-The-Certified-Registry)
 - [2. The Multi-Stage Exit Strategy](#2-The-Multi-Stage-Exit-Strategy)
   - [Exit Path A: The "Hyperscaler" Acquisition](#Exit-Path-A-The-Hyperscaler-Acquisition)
-  - [Exit Path B: The "AI Safety" Acquisition]
+  - [Exit Path B: The "AI Safety" Acquisition](#Exit-Path-B-The-AI-Safety-Acquisition)
   - [Exit Path C: The IPO](#Exit-Path-C-The-IPO)
 - [3. The "Legacy Debt" Liquidation](#3-The-Legacy-Debt-Liquidation)
 - [4. Summary:](#4-Summary)
