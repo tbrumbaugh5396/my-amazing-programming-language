@@ -1604,12 +1604,14 @@ This is live programming.
 ## The Environment Object Model
 A good way to structure this API is:
 
+```lang
 Environment
  ├── Objects
  ├── Code
  ├── Tools
  ├── Processes
  └── UI
+```
 
 Example interface:
 
