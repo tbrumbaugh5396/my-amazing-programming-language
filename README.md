@@ -107,4 +107,4 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
     - tooling.md
 ```
 
---8<-- "high-level-roadmap.md"
+--8<-- "[high-level-roadmap.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/high-level-roadmap.md)"
