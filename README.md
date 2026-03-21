@@ -75,17 +75,17 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
 
 ## Repo Architecture
 
-```
-- code/
-  - src/
-  - tests/
+
+- [code/](#https://github.com/tbrumbaugh5396/my-amazing-programming-language/code)
+  - [src/](#https://github.com/tbrumbaugh5396/my-amazing-programming-language/code/src)
+  - [tests/](#https://github.com/tbrumbaugh5396/my-amazing-programming-language/code/tests)
     - test_examples.txt
     - core_tests.py
     - metric_test.py
     - test_kernel.py
     - ttd_suite.py
     - validator_test.py
-- docs/
+- [docs/](#https://github.com/tbrumbaugh5396/my-amazing-programming-language/docs)
   - high-level-roadmap.md
   - weekly_checklist/
     - week_0
@@ -105,6 +105,3 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
     - minimal_viable_product.md
     - perfect_programming_language.md
     - tooling.md
-```
-
---8<-- "[high-level-roadmap.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/high-level-roadmap.md)"
