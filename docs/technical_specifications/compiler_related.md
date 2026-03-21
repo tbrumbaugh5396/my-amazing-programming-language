@@ -1,6 +1,27 @@
-# related
+# Compiler related
+
+## Introduction 
+[Table of Contents](#table-of-contents)
+
+---
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Table of Contents](#table-of-contents)
+- [IR Representations](#ir-representations)
+- [Core IR](#core-ir)
+- [Context](#context)
+- [Inference Rules](#Inference-Rules)
+- [Elaboration Function](#Elaboration-Function)
+- [Lowering and Erasing Function](#Lowering-and-Erasing-Function)
+- [Semantic Optimizer](#Semantic-Optimizer)
+- [5. Key Concepts Summary](#5-Key-Concepts-Summary)
+
+---
 
 ## IR Representations
+[Table of Contents](#table-of-contents)
+
 ```
 AST / Rich IR Nodes (High-Level / Semantic IR)
 <Expr> ::= <Var>
@@ -38,13 +59,22 @@ and ir_type =
   | TDependent of ir_type * (ir_expr -> ir_type)
 ```
 
-## Core IR (Low-Level / Backend-Friendly)
+---
+
+## Core IR 
+[Table of Contents](#table-of-contents)
+
+(Low-Level / Backend-Friendly)
 
 Only runtime-relevant nodes: Var, Lit, Lambda, App, Let, If
 
 Proofs, dependent types, contracts erased during lowering
 
+---
+
 ## Context
+[Table of Contents](#table-of-contents)
+
 ```
 type context = {
   types: (string, ir_type) Hashtbl.t;          (* Type environment *)
@@ -59,7 +89,13 @@ Context is first-class
 
 Provides type checking, proof validation, authority enforcement, and namespace resolution
 
-## Compiler / Elaboration Functions (Inference Rules)
+---
+
+## Inference Rules
+[Table of Contents](#table-of-contents)
+
+(Compiler / Elaboration Functions)
+
 ```
 Type Inference Function
 val infer_type : context -> ir_expr -> ir_type
@@ -92,14 +128,22 @@ infer_type ctx (DepType (e, t_expected)) =
   else raise TypeError
 ```
 
+---
+
 ## Elaboration Function
+[Table of Contents](#table-of-contents)
+
 ```val elaborate : context -> ast -> rich_ir```
 
 Fills in type annotations, contracts, proofs, and morphisms
 
 Prepares AST for semantic optimization
 
-## Lowering / Erasing Function
+---
+
+## Lowering and Erasing Function
+[Table of Contents](#table-of-contents)
+
 ```
 val lower : rich_ir -> core_ir
 ```
@@ -108,7 +152,11 @@ Removes compile-time-only information (proofs, dependent types)
 
 Produces backend-friendly Core IR
 
+---
+
 ## Semantic Optimizer
+[Table of Contents](#table-of-contents)
+
 ```
 val apply_rewrites : context -> rich_ir -> rich_ir
 ```
@@ -117,7 +165,10 @@ Uses E-Graph equivalences, dependent types, and namespace morphisms
 
 Produces optimized semantic IR before lowering
 
-5. Key Concepts Summary
+---
+
+## 5. Key Concepts Summary
+[Table of Contents](#table-of-contents)
 
 | Concept	       | Defined By                    | Role                                                                   |
 |------------------------|-------------------------------|------------------------------------------------------------------------|
