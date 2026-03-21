@@ -4,6 +4,7 @@ This file stores the current development focus and can and should be updated as 
 
 ## Current Focus
 
+- [ ] Finish table of contents for the tooling
 - [ ] Focus on the technical specifications.
 
 - [ ] Turn all the documents in markdowns.
