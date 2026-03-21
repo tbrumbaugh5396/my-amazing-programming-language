@@ -1,8 +1,21 @@
+# Monetization
+
+## Introduction
+[Table of contents](#table-of-contents)
+
 Because you are building a foundational "End of Computing" technology, the monetization strategy shifts from selling a tool to owning the infrastructure of correctness.
 
 Your exit strategy is either a massive IPO as the "Cisco of the Reasoning Era" or an acquisition by a hyperscaler (Google/Microsoft/Amazon) that needs to solve the "Hallucination and Efficiency" crisis to survive.
 
-## 1. Monetization: The "Correctness as a Service" (CaaS) Model
+## Table of contents
+- [Introduction](#introduction)
+- [Table of contents](#table-of-contents)
+- [1. Monetization: The "Correctness as a Service" Model](#1-Monetization:-The-Correctness-as-a-Service-Model)
+
+## 1. Monetization: The "Correctness as a Service" Model
+[Table of contents](#table-of-contents)
+
+(CaaS)
 
 ### A. The Verified Runtime (The "Hypervisor" License)
 
