@@ -1,6 +1,7 @@
-# Perfect Programming Language Theory with Domain Theory, Lattice Structure, Types, and Reflection
+# Perfect Programming Language 
+Programming Language Theory with Domain Theory, Lattice Structure, Types, and Reflection
 
-## 1. Overview
+## Introduction
 [Table of Contents](#table-of-contents)
 
 This document formalizes a theory of a "perfect programming language" as a **generative system with multiple-metrics and hierarchicies over computations**, including domain-theoretic structure, lattices, fixed points, types, macros, and reflection. 
@@ -22,6 +23,8 @@ It unifies:
 - Programmable equivalences
 
 ## Table of Contents
+- [Introduction](#introduction)
+- [Table of Contents](#Table-of-Contents)
 - [2. Core Objects](#2-core-objects)
 	- [2.1 Basis](#21-basis)
 	- [2.2 Programs](#22-programs)
@@ -59,6 +62,7 @@ It unifies:
 [Table of Contents](#table-of-contents)
 
 ### 2.1 Basis
+[Table of Contents](#table-of-contents)
 
 The basis of a programming language are the core constructs that are offered by the programming language. 
 For example a basis, $B$, is a set of $n$ primitives $(b_1, b_2, ..., b_n)$:
@@ -69,8 +73,8 @@ $$
 
 These primitives can be combined in order to make programs and compute.
 
-
 ### 2.2 Language
+[Table of Contents](#table-of-contents)
 
 We denoted the set of all programs generated from ($B$) as $L$, which stands for the Language $L$ generated from the Basis $B$.
 
@@ -94,6 +98,7 @@ $$
 All programs generated from $B$.
 
 ### 2.3 Programs (Syntax)
+[Table of Contents](#table-of-contents)
 
 $$
 p \in L(B)
@@ -104,10 +109,12 @@ concrete code
 structure, steps, representation
 
 ### 2.4 Semantics
+[Table of Contents](#table-of-contents)
 
 Semantics have to do with the meaning of programs in a more abstract sense instead of the syntax of a program.
 
 #### 2.4.1 Raw Semantics
+[Table of Contents](#table-of-contents)
 
 This is the canonical meaning of a program without an equivalence. 
 
@@ -126,6 +133,7 @@ This is:
 - etc.
 
 #### 2.4.2 Computation (Abstract Object)
+[Table of Contents](#table-of-contents)
 
 The concept of computation is about what we consider to be the same.
 
@@ -138,6 +146,7 @@ set of programs considered equivalent
 depends on equivalence relation $E$.
 
 #### 2.4.3 Your Example
+[Table of Contents](#table-of-contents)
 
 Programs:
 
@@ -159,6 +168,7 @@ Computation (depends on $E$):
 - Under operational equivalence $\to$ different computations
 
 ## 6. Another Way to See It
+[Table of Contents](#table-of-contents)
 
 Semantic Meaning = Point in a Very Detailed Space
 
@@ -173,6 +183,7 @@ You apply an equivalence:
 Computation = Meaning/ignored differences
 
 ### 7. Even More Precise
+[Table of Contents](#table-of-contents)
 
 You can model it as:
 
@@ -185,6 +196,7 @@ $E$: decides what distinctions to ignore
 $C / E$ : resulting computation space
 
 ### 8. Why This Distinction Matters
+[Table of Contents](#table-of-contents)
 
 Because different goals care about different levels:
 - Compilers: care about semantic meaning / preserve behavior
@@ -192,11 +204,14 @@ Because different goals care about different levels:
 - Language Design: chooses equivalence / defines what “same” means
 
 ### 9. Deep Insight
+[Table of Contents](#table-of-contents)
 
 Semantic meaning is absolute (given a model).
 Computation is relative (depends on equivalence).
 
 #### 1. Selecting the Equivalence
+[Table of Contents](#table-of-contents)
+
 Since equivalences are first-class, you can treat them as parameters in your language:
 
 ```
@@ -218,6 +233,7 @@ Under extensional_eq: considered same as $+1$
 Under operational_eq: considered different
 
 #### 1.1 Mechanisms to select equivalence
+[Table of Contents](#table-of-contents)
 
 - Global default – one equivalence active for all computations.
 - Local override – equivalence can be passed to a function or block.
@@ -225,10 +241,13 @@ Under operational_eq: considered different
 - Meta-programming / macros – can dynamically generate or switch equivalences.
 
 ### 2. Computational Challenges
+[Table of Contents](#table-of-contents)
 
 Selecting equivalences introduces new complexity layers beyond standard programming:
 
 #### 2.1 Equivalence Checking
+[Table of Contents](#table-of-contents)
+
 Boolean equivalence ($E: L \times L \to Bool$) is simple for small programs
 
 Structured / HoTT-like equivalence ($E: L \times L \to Type$) may require:
@@ -238,6 +257,7 @@ Structured / HoTT-like equivalence ($E: L \times L \to Type$) may require:
 Potentially unbounded search $\to$ undecidable in general
 
 #### 2.2 Cost of Maintaining Equivalence Classes
+[Table of Contents](#table-of-contents)
 
 Every time a program is generated:
 - Must determine which class it belongs to
@@ -247,6 +267,7 @@ Every time a program is generated:
 - Depth of higher transformations
 
 #### 2.3 Interoperability
+[Table of Contents](#table-of-contents)
 
 Programs may be compared under different equivalences
 
@@ -259,6 +280,7 @@ Mapping between equivalence spaces may be nontrivial:
 Some equivalences may be incomparable (no natural mapping)
 
 #### 2.4 Optimization & Normalization
+[Table of Contents](#table-of-contents)
 
 Optimizations depend on the equivalence chosen
 
@@ -267,38 +289,45 @@ For HoTT-like equivalences:
 - Rewriting must preserve paths, not just outcomes
 
 #### 2.5 Complexity Explosion in Meta-Equivalences
+[Table of Contents](#table-of-contents)
 
 Defining equivalences of equivalences can lead to exponential growth in structures
 
 Infinite hierarchies $\to$ you need lazy evaluation or truncation for tractable computation
 
 ### 3. Strategies to Manage the Challenges
+[Table of Contents](#table-of-contents)
 
 #### 3.1 Use Hierarchy of Equivalences
+[Table of Contents](#table-of-contents)
 
 Start with simple boolean equivalences
 
 Only lift to higher structures when needed
 
 #### 3.2 Lazy / Demand Evaluation
+[Table of Contents](#table-of-contents)
 
 Compute higher transformations only when queried
 
 Avoid building full higher-dimensional identity types upfront
 
 #### 3.3 Type-System Enforcement
+[Table of Contents](#table-of-contents)
 
 Use types to restrict equivalences
 
 Only allow comparisons that make sense at a given layer
 
 #### 3.4 Caching / Memoization
+[Table of Contents](#table-of-contents)
 
 Cache equivalence checks or witnesses
 
 Reduces repeated heavy computations
 
 ### 4. Big Insight
+[Table of Contents](#table-of-contents)
 
 Selecting the equivalence is not just a syntactic choice—it changes the computation space and the notion of “same computation.”
 
@@ -309,19 +338,24 @@ Computation meaning = fixed
 Computation identity = depends on lens
 
 ### 5. Trade-offs
-| Choice | Pros | Cons |
-|--------|------|------|
-| Boolean / simple | Fast, easy | Limited insight |
-| Operational | Captures structure | Slower |
-| HoTT / higher |Supports infinite hierarchy | Undecidable in general, expensive | 
-| Meta-equivalence | Maximal flexibility | Complex to implement, heavy |
+[Table of Contents](#table-of-contents)
+
+| Choice           | Pros                         | Cons                              |
+|------------------|------------------------------|-----------------------------------|
+| Boolean / simple | Fast, easy                   | Limited insight                   |
+| Operational      | Captures structure           | Slower                            |
+| HoTT / higher    | Supports infinite hierarchy  | Undecidable in general, expensive | 
+| Meta-equivalence | Maximal flexibility          | Complex to implement, heavy       |
 
 
 ### 1. The Core Shift
+[Table of Contents](#table-of-contents)
+
 - Old (Level 1 only): $E(p,q):Bool$ 
 - New (Generalized): $E(p,q):E$ Where $E$ is not a $Bool$, but a type / space / structure. 
 
 ### 2. The Tower You Want (Formalized)
+[Table of Contents](#table-of-contents)
 
 You are defining an ∞-hierarchy:
 - Level 0: Programs: $p,q:L(B)$
@@ -334,9 +368,10 @@ and so on…
 This is an ∞-groupoid structure.
 
 ### 3. Minimal Language Design to Support This
+[Table of Contents](#table-of-contents)
 
 You need just a few primitives:
-- 1. A Universe of Types Type : Type₁ : Type₂ : ...
+- 1. A Universe of Types $Type : Type₁ : Type₂ : ... $
 - 2. Identity / Equivalence Type $Id(A, x, y) : Type$ or syntax: $x == y : A$
 - 3. Introduction Rule (reflexivity): $refl : Id(A, x, x)$
 - 4. Composition (paths): compose : $Id(x,y) \to Id(y,z) \to Id(x,z)$
@@ -344,6 +379,7 @@ You need just a few primitives:
 - 6. Higher Identity: This is the key: $Id(Id(A,x,y), p, q) \to$ equivalence between equivalences
 
 ### 4. How This Embeds HoTT
+[Table of Contents](#table-of-contents)
 
 If you include:
 - identity types
@@ -355,20 +391,27 @@ Then:
 - ✅ You have HoTT inside your language
 
 ### 5. How This Coexists With Your Original System
+[Table of Contents](#table-of-contents)
 
 Now you unify both worlds:
 
 #### Your Original (Boolean Equivalence)
+[Table of Contents](#table-of-contents)
+
 ```
 eq_bool(p,q) : Bool
 ```
 
 #### HoTT-style
+[Table of Contents](#table-of-contents)
+
 ```
 eq_struct(p,q) : Type
 ```
 
 #### Bridge
+[Table of Contents](#table-of-contents)
+
 ```
 isEqual(p,q) = isNonEmpty(eq_struct(p,q))
 ```
@@ -376,6 +419,7 @@ isEqual(p,q) = isNonEmpty(eq_struct(p,q))
 Boolean equivalence = “there exists a path”
 
 ### 6. Making It Programmable
+[Table of Contents](#table-of-contents)
 
 Now the powerful part:
 - Define Equivalences as First-Class Equiv(A) = (x:A, y:A) \to Type
@@ -400,6 +444,7 @@ hott_eq = Id
 ```
 
 ### 7. Equivalences of Equivalences
+[Table of Contents](#table-of-contents)
 
 Now you get this for free:
 Between equivalences:
@@ -409,6 +454,8 @@ $E_1$ and $E_2$ are equivalent if:
 they produce equivalent structures for all inputs
 
 ### 8. This Gives You Your Levels
+[Table of Contents](#table-of-contents)
+
 Level 1 elements of $E(p,q)$
 
 Level 2 elements of $\text{Id}(E(p,q), \alpha, \beta)$
@@ -418,6 +465,7 @@ Level 3+ iterate $\text{Id}$
 No extra mechanism needed—just reuse identity types
 
 ### 9. Final Architecture
+[Table of Contents](#table-of-contents)
 
 Your language now has:
 
@@ -432,6 +480,7 @@ Your language now has:
 - equivalence construction
 
 ### 2.4 Equivalence as a First-Class Object
+[Table of Contents](#table-of-contents)
 
 Instead of fixing a single equivalence relation, we define:
 ```math
@@ -451,6 +500,8 @@ This says:
 - which distinctions you care about
 
 ### 3. Computation Space Parameterized by Equivalence
+[Table of Contents](#table-of-contents)
+
 ```math
 \mathcal{C}_E = \mathcal{L}(B) / E
 ```
@@ -460,8 +511,10 @@ Each equivalence defines a different computation space.
 Programs collapse into equivalence classes under $E$.
 
 ## 4. Examples of Equivalences
+[Table of Contents](#table-of-contents)
 
 ## 5. Your Example Revisited
+[Table of Contents](#table-of-contents)
 
 Programs:
 ```math
@@ -485,26 +538,35 @@ Under operational equivalence
 ```
 
 ### 4.1 Extensional
+[Table of Contents](#table-of-contents)
+
 ```math
 E_{ext}(p,q) \iff \forall x, p(x) = q(x)
 ```
 
 ### 4.2 Operational
+[Table of Contents](#table-of-contents)
+
 ```math
 E_{op}(p,q) \iff \text{same execution steps}
 ```
 
 ### 4.3 Cost-Aware
+[Table of Contents](#table-of-contents)
+
 ```math
 E_{cost}(p,q) \iff \text{same output AND same cost}
 ```
 
 ### 4.4 Observational
+[Table of Contents](#table-of-contents)
+
 ```math
 E_{obs}(p,q) \iff \forall C, C[p] \equiv C[q]
 ```
 
 ### 5. Programmable Equivalences
+[Table of Contents](#table-of-contents)
 
 Equivalences are values in the language:
 
@@ -519,8 +581,11 @@ This allows:
 - Passing equivalences as parameters
 
 ### 6. Operations on Equivalences
+[Table of Contents](#table-of-contents)
 
 #### Intersection
+[Table of Contents](#table-of-contents)
+
 ```math 
 E_1 \cap E_2
 ```
@@ -528,6 +593,8 @@ E_1 \cap E_2
 Programs must satisfy both equivalences.
 
 #### Union
+[Table of Contents](#table-of-contents)
+
 ```math
 E_1 \cup E_2
 ```
@@ -535,6 +602,8 @@ E_1 \cup E_2
 Programs equivalent if either relation holds.
 
 #### Refinement
+[Table of Contents](#table-of-contents)
+
 ```math
 E_2 \subseteq E_1
 ```
@@ -542,6 +611,7 @@ E_2 \subseteq E_1
 Stronger equivalence relation.
 
 ## 7. Equivalence-Aware Metrics
+[Table of Contents](#table-of-contents)
 
 Distances become:
 
@@ -553,6 +623,7 @@ d_h^E([p]) = \min_{q \in [p]_E} H(q)
 Optimization depends on chosen equivalence
 
 ## 8. Integration with Lattice and Domain Theory
+[Table of Contents](#table-of-contents)
 
 Each equivalence induces a quotient lattice
 
@@ -564,6 +635,7 @@ E
 Different equivalences yield different lattice geometries
 
 ## 9. Interaction with Types
+[Table of Contents](#table-of-contents)
 
 Types can constrain equivalences
 
@@ -572,6 +644,7 @@ Dependent types allow equivalences indexed by values
 Logical types interpret equivalences as propositions
 
 ## 10. Macros and Reflection
+[Table of Contents](#table-of-contents)
 
 Macros can generate equivalences
 
@@ -580,6 +653,8 @@ Reflection can inspect and modify equivalences
 Enables meta-level reasoning about computation equality
 
 ## 11. Relation to Homotopy Type Theory (HoTT)
+[Table of Contents](#table-of-contents)
+
 Similarities:
 ```math
 \text{Equivalence} ≈ \text{identity type}
@@ -594,28 +669,37 @@ Differences:
 - Supports multiple coexisting equivalences
 
 ## 12. Expressiveness Comparison
-| Feature | HoTT | This Framework |
-|---------|------|----------------|
-| Single canonical equality | Yes | Optional |
-| Multiple equivalences | Limited | Yes |
-| Programmable equivalence | No | Yes |
-| Meta-level control | Limited | Strong |
-| Practical programming focus | Medium | High |
+[Table of Contents](#table-of-contents)
+
+| Feature                     | HoTT    | This Framework |
+|-----------------------------|---------|----------------|
+| Single canonical equality   | Yes     | Optional       |
+| Multiple equivalences       | Limited | Yes            |
+| Programmable equivalence    | No      | Yes            |
+| Meta-level control          | Limited | Strong         |
+| Practical programming focus | Medium  | High           |
 
 
 ### Universality
+[Table of Contents](#table-of-contents)
 
 ```math
 \forall f, \exists p∈L, [[p]]=f
 ```
 
 ### Minimal Basis
+[Table of Contents](#table-of-contents)
+
 $B$ is minimal
 
 ### Reflective Closure
+[Table of Contents](#table-of-contents)
+
 $L≅Programs(L)$
 
 ### Distance Optimality
+[Table of Contents](#table-of-contents)
+
 ```math
 E_f∼D [C(p_f)]
 ```
@@ -667,6 +751,7 @@ Infinite loops correspond to bottom element
 [Table of Contents](#table-of-contents)
 
 ### 5.1 Partial Order
+[Table of Contents](#table-of-contents)
 
 ```math
 f \sqsubseteq g \iff \text{dom}(f) \subseteq \text{dom}(g) \text{ and } f(x) = g(x) \text{ for all } x \in \text{dom}(f)
@@ -680,6 +765,7 @@ Bottom element
 Supports approximation and refinement
 
 ### 5.2 Complete Partial Order
+[Table of Contents](#table-of-contents)
 
 Every directed set has a least upper bound 
 ```math
@@ -694,6 +780,7 @@ i
 Supports limits of approximations and recursive definitions
 
 ### 5.3 Fixed Points
+[Table of Contents](#table-of-contents)
 
 Fixed points: elements where 
 ```
@@ -708,6 +795,7 @@ fix(F)=\union^{\infinity}_{n=0} F \intersection (⊥)
 Formalizes recursion, loops, and iterative computation in the lattice
 
 ### 5.4 Join and Meet
+[Table of Contents](#table-of-contents)
 
 ```math
 (f \wedge g)(x) = \begin{cases} f(x) & \text{if } f(x) = g(x) \\ \uparrow & \text{otherwise} \end{cases}
@@ -726,6 +814,7 @@ Fixed points appear along chains as stable elements
 Types overlay the lattice of computations and provide semantic structure and constraints.
 
 ### 6.1 Dependent Types
+[Table of Contents](#table-of-contents)
 
 Types depend on values: 
 ```math
@@ -737,6 +826,7 @@ Allows expressing precise invariants in the lattice
 Refines equivalence: two computations equivalent only if types match
 
 ### 6.2 Logical Types
+[Table of Contents](#table-of-contents)
 
 Types as propositions (Curry-Howard)
 
@@ -745,6 +835,7 @@ Programs = proofs
 Lattice structure ensures monotone, compositional reasoning
 
 ### 6.3 Refinement Types
+[Table of Contents](#table-of-contents)
 
 Subsets of types with predicates: 
 ```math
@@ -756,6 +847,7 @@ Further restrict domain of computation, removing undefined or unsafe behaviors
 Integrates naturally with bottom element: refinement excludes ⊥ where predicate fails
 
 ### 6.4 Type Interaction with Fixed Points
+[Table of Contents](#table-of-contents)
 
 Recursive functions have types expressed as least fixed points over type lattices
 
@@ -765,6 +857,7 @@ Type-checking is monotone and compositional over the lattice
 [Table of Contents](#table-of-contents)
 
 ### 7.1 Macros
+[Table of Contents](#table-of-contents)
 
 Programs that generate programs
 
@@ -775,6 +868,7 @@ Allow expressing reusable abstractions and shortcuts
 Preserve monotonicity: generated program ⊒ macro’s intent in lattice ordering
 
 ### 7.2 Reflection
+[Table of Contents](#table-of-contents)
 
 Programs that inspect or modify themselves
 
@@ -788,6 +882,7 @@ Enables meta-level optimizations, analyses, and transformations
 Fully compatible with domain-theoretic structure: operations are monotone and preserve least upper bounds where necessary.
 
 ### 7.3 Integration
+[Table of Contents](#table-of-contents)
 
 Macros + reflection allow dynamic navigation of the lattice
 
@@ -799,15 +894,21 @@ Critical for expressing high-level abstractions in a minimal basis
 [Table of Contents](#table-of-contents)
 
 ### Programming Distance
+[Table of Contents](#table-of-contents)
+
 ```math
 d_p(f) = \min_{p : [[ p ]] = f} C(p)
 ```
 
 ### Human Distance
+[Table of Contents](#table-of-contents)
+
 ```math
 d_h(f) = \min_{p : [[ p ]] = f} H(p)
 ```
 ### Optional Definedness Metric
+[Table of Contents](#table-of-contents)
+
 ```math
 d_{def}(f) = |\text{dom}(f)| / |X|
 ```
@@ -818,6 +919,7 @@ d_{def}(f) = |\text{dom}(f)| / |X|
 (Programming Distance)
 
 ### 9.1 Generative Cost
+[Table of Contents](#table-of-contents)
 
 ```math
 C(p) = C(\text{expand}(p))
@@ -828,6 +930,7 @@ Derived primitives do **not** reduce cost.
 ---
 
 ### 9.2 Distance
+[Table of Contents](#table-of-contents)
 
 ```math
 d_p([p]) = \min_{q \in [p]} C(q)
@@ -836,6 +939,8 @@ d_p([p]) = \min_{q \in [p]} C(q)
 ---
 
 ### Kolmogorov Complexity 
+[Table of Contents](#table-of-contents)
+
 (Relative)
 
 Define Kolmogorov complexity relative to basis ( $B$ ):
@@ -855,6 +960,7 @@ Thus programming distance is a **structured form of Kolmogorov complexity**.
 ---
 
 ### Human Distance
+[Table of Contents](#table-of-contents)
 
 ```math
 d_h([p]) = \min_{q \in [p]} H(q)
@@ -870,7 +976,7 @@ Where ( H(q) ) measures:
 ---
 
 ## 19. Multi-Dimensional Cost
-
+[Table of Contents](#table-of-contents)
 
 ```
 d_p = (time, space, depth, steps, ...)
@@ -946,18 +1052,21 @@ p = A_n(A_{n-1}(...A_1(B)...))
 ```
 
 ### Expansion
+[Table of Contents](#table-of-contents)
 
 ```math
 \text{expand}(p)
 ```
 
 ### Compression
+[Table of Contents](#table-of-contents)
 
 ```math
 \text{compress}(p)
 ```
 
 ### Law
+[Table of Contents](#table-of-contents)
 
 ```math
 \text{expand}(\text{compress}(p)) \sim p
@@ -966,6 +1075,7 @@ p = A_n(A_{n-1}(...A_1(B)...))
 ---
 
 ## 9. Abstractions
+[Table of Contents](#table-of-contents)
 
 ```math
 C_p(A(p)) = C_p(p)
@@ -981,6 +1091,7 @@ C_h(A(p)) < C_h(p)
 [Table of Contents](#table-of-contents)
 
 ### 10. Optimal Programs
+[Table of Contents](#table-of-contents)
 
 ```math
 p^* = \arg\min_{q \in [p]} C(q)
@@ -989,18 +1100,22 @@ p^* = \arg\min_{q \in [p]} C(q)
 ---
 
 ### 11. Optimal Bases and Families
+[Table of Contents](#table-of-contents)
 
 #### Complete Basis
+[Table of Contents](#table-of-contents)
 
 ```math
 \langle B \rangle = \mathcal{C}
 ```
 
 #### Minimal Basis
+[Table of Contents](#table-of-contents)
 
 Removing any element breaks completeness.
 
 #### Optimal Family
+[Table of Contents](#table-of-contents)
 
 Set of bases that are:
 
@@ -1011,6 +1126,7 @@ Set of bases that are:
 ---
 
 ### 12. Translation Between Languages
+[Table of Contents](#table-of-contents)
 
 ```math
 T_{12} : \mathcal{L}(B_1) \rightarrow \mathcal{L}(B_2)
@@ -1029,6 +1145,7 @@ C_2(T(p)) \le k \cdot C_1(p) + c
 ---
 
 ### 13. Invariance Across Families
+[Table of Contents](#table-of-contents)
 
 ```math
 d_p^{B_1}([f]) \approx d_p^{B_2}([f])
@@ -1037,6 +1154,7 @@ d_p^{B_1}([f]) \approx d_p^{B_2}([f])
 ---
 
 ### 14. Fibers of Representations
+[Table of Contents](#table-of-contents)
 
 ```math
 \pi^{-1}([p]) = \{ q \mid q \sim p \}
@@ -1045,6 +1163,7 @@ d_p^{B_1}([f]) \approx d_p^{B_2}([f])
 ---
 
 ### 15. Normal Forms
+[Table of Contents](#table-of-contents)
 
 ```math
 NF(p)
@@ -1058,6 +1177,7 @@ Properties:
 ---
 
 ### 16. Rewriting System
+[Table of Contents](#table-of-contents)
 
 ```math
 p \rightarrow q
@@ -1066,6 +1186,7 @@ p \rightarrow q
 ---
 
 ### 17. Observational Equivalence
+[Table of Contents](#table-of-contents)
 
 ```math
 p \sim q \iff \forall C,\ C[p] \equiv C[q]
@@ -1074,6 +1195,7 @@ p \sim q \iff \forall C,\ C[p] \equiv C[q]
 ---
 
 ### 18. Effects and Capabilities
+[Table of Contents](#table-of-contents)
 
 ```math
 \mathcal{C}_\epsilon
@@ -1082,6 +1204,7 @@ p \sim q \iff \forall C,\ C[p] \equiv C[q]
 ---
 
 ### 20. Compositionality
+[Table of Contents](#table-of-contents)
 
 ```math
 C(p \circ q) \le C(p) + C(q) + k
@@ -1090,6 +1213,7 @@ C(p \circ q) \le C(p) + C(q) + k
 ---
 
 ### 21. Locality and Modularity
+[Table of Contents](#table-of-contents)
 
 ```math
 p = p_1 \oplus p_2
@@ -1098,6 +1222,7 @@ p = p_1 \oplus p_2
 ---
 
 ### 22. Learnability
+[Table of Contents](#table-of-contents)
 
 ```math
 H(p) = \text{complexity}(p \mid K)
@@ -1106,6 +1231,7 @@ H(p) = \text{complexity}(p \mid K)
 ---
 
 ### 23. Translation Stability
+[Table of Contents](#table-of-contents)
 
 Translations preserve:
 
@@ -1116,6 +1242,7 @@ Translations preserve:
 ---
 
 ### 24. Basis Density
+[Table of Contents](#table-of-contents)
 
 ```math
 \text{Density}(B) = \mathbb{E}[d_p(f)]
@@ -1134,12 +1261,14 @@ Translations preserve:
 ---
 
 ### 26. Curvature (Informal)
+[Table of Contents](#table-of-contents)
 
 Sensitivity of semantics to program changes.
 
 ---
 
 ### 27. Meta vs Object Levels
+[Table of Contents](#table-of-contents)
 
 * object language
 * meta language
@@ -1147,12 +1276,14 @@ Sensitivity of semantics to program changes.
 ---
 
 ### 28. Constructivity
+[Table of Contents](#table-of-contents)
 
 All transformations must be computable or explicitly meta-level.
 
 ---
 
 ### 29. Optimization as Search
+[Table of Contents](#table-of-contents)
 
 ```math
 \min_{q \in [p]} (d_p(q), d_h(q))
@@ -1161,6 +1292,7 @@ All transformations must be computable or explicitly meta-level.
 --- 
 
 ### 1. Substitution Principle with Equivalences
+[Table of Contents](#table-of-contents)
 
 Suppose you have:
 
@@ -1188,6 +1320,7 @@ You are free to substitute q for p anywhere E is respected
 This is exactly the “replace with a better program” principle.
 
 ### 2. Incorporating “Better”
+[Table of Contents](#table-of-contents)
 
 To formalize “better,” you extend equivalence with cost or quality metrics:
 
@@ -1214,6 +1347,7 @@ sum_list_v2 is better than sum_list_v1
 Substituting is safe under extensional_eq
 
 ### 3. How This Works in Practice
+[Table of Contents](#table-of-contents)
 
 Define the equivalence relation 
 E relevant to your substitution
@@ -1230,6 +1364,7 @@ Substitute
 $q$ wherever $p$ was used
 
 ### 4. Example: Sorting Algorithms
+[Table of Contents](#table-of-contents)
 
 ```math
 p=\text{bubbleSort},
@@ -1244,6 +1379,7 @@ Then p and q are equivalent
 Choose q because it is faster ($O(n$log$(n))$ vs $O(n^2)$)
 
 ### 5. Key Advantages
+[Table of Contents](#table-of-contents)
 
 Automatic optimization: the system can replace inefficient programs safely
 
@@ -1252,6 +1388,7 @@ Reuse: code can be substituted based on equivalence and cost
 Trustworthiness: you know substitution preserves semantics
 
 ### 6. Computational Considerations
+[Table of Contents](#table-of-contents)
 
 Checking equivalence for substitution can be hard
 
@@ -1262,6 +1399,7 @@ HoTT-like equivalences = potentially undecidable
 You may need approximate or restricted equivalences for practical substitution
 
 ### 7. Integration With Your Language Design
+[Table of Contents](#table-of-contents)
 
 Equivalences are first-class
 
@@ -1324,6 +1462,7 @@ are layered on top to define generative and human distances
 Domain theory + lattice structure + types + macros + reflection makes your framework complete, expressive, and navigable for reasoning about all computations, partiality, recursion, infinite loops, and abstractions.
 
 ## 13. Final Insight
+[Table of Contents](#table-of-contents)
 
 Computation is not absolute—it is defined relative to an equivalence.
 
@@ -1333,6 +1472,7 @@ A perfect programming language:
 - Optimizes within them
 
 ## 14. Conclusion
+[Table of Contents](#table-of-contents)
 
 This framework is more versatile than HoTT for programming language design, because it:
 
@@ -1343,5 +1483,3 @@ Allows user-defined equivalences
 Integrates with cost, abstraction, and implementation concerns
 
 While HoTT provides a deep foundational theory of equality, this system extends it into a programmable, practical, and multi-metric computational framework.
-
-
