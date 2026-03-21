@@ -118,13 +118,14 @@ Uses E-Graph equivalences, dependent types, and namespace morphisms
 Produces optimized semantic IR before lowering
 
 5. Key Concepts Summary
-| Concept	               | Defined By                    | Role                                                                   |
+
+| Concept	       | Defined By                    | Role                                                                   |
 |------------------------|-------------------------------|------------------------------------------------------------------------|
 | IR Nodes               | BNF / Algebraic data types    | Syntax-level and semantic representation                               |
-| Context                | Data structures	             | Stores types, proofs, namespaces, authority                            |
-| Namespace Graph        | Graph structure	             | Resolves overlapping namespaces, supports morphisms                    |
+| Context                | Data structures               | Stores types, proofs, namespaces, authority                            |
+| Namespace Graph        | Graph structure               | Resolves overlapping namespaces, supports morphisms                    |
 | Compiler / Elaboration | Functions over IR and context | Implements type inference, proof checking, elaboration                 |
 | Semantic Optimizer     | Functions + E-Graph           | Performs equivalence rewrites using HoTT, dependent types, and context |
-| Rich IR	               | Semantic IR	                 | Proof-aware, optimizer-friendly                                        |
-| Core IR	               | Low-level IR                  | Backend-friendly, runtime-efficient                                    |
+| Rich IR	       | Semantic IR                   | Proof-aware, optimizer-friendly                                        |
+| Core IR	       | Low-level IR                  | Backend-friendly, runtime-efficient                                    |
 | Lowering / Erasing     | Function	                     | Converts Rich IR → Core IR                                             |
