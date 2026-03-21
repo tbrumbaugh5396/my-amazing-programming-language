@@ -1559,7 +1559,6 @@ This is what modern systems call structural editing.
 The environment can inspect itself.
 
 Example:
-
 - list_classes()
 - find_method(name)
 - who_calls(method)
@@ -1840,7 +1839,7 @@ Language Server Protocol (LSP) is a protocol originally designed by Microsoft to
 Instead of every editor implementing language features separately, a language server provides them via a standardized protocol.
 
 Typical architecture:
-
+```
 Editor / IDE
    |
    | JSON-RPC messages
@@ -1848,100 +1847,89 @@ Editor / IDE
 Language Server
    |
 Compiler / Analyzer / Typechecker
+```
 
 Examples of LSP features:
 
-Feature	What it does
-Autocomplete	Suggests symbols
-Go to definition	Navigate to where something is defined
-Hover info	Shows type or documentation
-Find references	Find all uses of a symbol
-Refactoring	Rename variables safely
-Diagnostics	Compile errors and warnings
-Formatting	Automatic code formatting
+| Feature          | What it does                           |
+|------------------|----------------------------------------|
+| Autocomplete     | Suggests symbols                       |
+| Go to definition | Navigate to where something is defined |
+| Hover info       | Shows type or documentation            |
+| Find references  | Find all uses of a symbol              |
+| Refactoring      | Rename variables safely                |
+| Diagnostics      | Compile errors and warnings            |
+| Formatting       | Automatic code formatting              |
 
 Editors like:
-
-Visual Studio Code
-
-Neovim
-
-Emacs
-
-Sublime Text
+- Visual Studio Code
+- Neovim
+- Emacs
+- Sublime Text
 
 can all talk to the same language server.
 
-2. Conceptually What LSP Represents
+### 2. Conceptually What LSP Represents
 
 LSP is essentially:
 
 A remote interface to a compiler’s semantic model.
 
 The language server maintains:
-
-AST
-
-symbol tables
-
-type information
-
-dependency graph
+- AST
+- symbol tables
+- type information
+- dependency graph
 
 Then answers queries like:
-
-"What is the type of this node?"
-"Where is this symbol defined?"
-"Rename this variable everywhere."
+- "What is the type of this node?"
+- "Where is this symbol defined?"
+- "Rename this variable everywhere."
 
 So LSP = semantic query API for a language.
 
-3. Alan Kay’s Vision
+### 3. Alan Kay’s Vision
 
 The vision comes from Alan Kay and the Smalltalk system.
 
 Kay did not see programming as editing text.
 
 Instead he imagined:
-
-programming as interacting with a live object system
+- programming as interacting with a live object system
 
 Key ideas:
 
-Idea	Meaning
-Objects are live	Code runs while you edit
-Everything is inspectable	You can explore objects dynamically
-Environment is primary	The IDE is the system
-No compile-run cycle	Changes propagate immediately
-Code stored as objects	Not text files
+| Idea                      | Meaning                             |
+|---------------------------|-------------------------------------|
+| Objects are live          | Code runs while you edit            |
+| Everything is inspectable | You can explore objects dynamically |
+| Environment is primary    | The IDE is the system               |
+| No compile-run cycle      | Changes propagate immediately       |
+| Code stored as objects    | Not text files                      |
 
 Example workflow in Smalltalk:
-
-Inspect an object
-
-Open its methods
-
-Modify method
-
-System updates instantly
+- Inspect an object
+- Open its methods
+- Modify method
+- System updates instantly
 
 No build step.
 
-4. LSP vs Alan Kay’s Environment
-Aspect	LSP	Alan Kay
-Programming model	Text editing	Live objects
-Compilation	Static analysis	Incremental live system
-Storage	Files	Object image
-Interaction	Query compiler	Manipulate objects
-System state	Separate from editor	Editor is the runtime
-Architecture	Client-server	Integrated environment
-Feedback	Diagnostics	Direct execution
+### 4. LSP vs Alan Kay’s Environment
+
+| Aspect            | LSP                  | Alan Kay                |
+|-------------------|----------------------|-------------------------|
+| Programming model | Text editing         | Live objects            |
+| Compilation       | Static analysis      | Incremental live system |
+| Storage           | Files                | Object image            |
+| Interaction       | Query compiler       | Manipulate objects      |
+| System state      | Separate from editor | Editor is the runtime   |
+| Architecture      | Client-server        | Integrated environment  |
+| Feedback          | Diagnostics          | Direct execution        |
 
 So:
-
-LSP = smarter text editor
-
-Smalltalk = programmable world
+- LSP = smarter text editor
+- Smalltalk = programmable world
 
 ## Where They Are Surprisingly Similar
 
@@ -1985,8 +1973,8 @@ The biggest difference:
 -- system updates
 
 So:
-LSP = smarter editor
-Smalltalk = programmable operating system
+- LSP = smarter editor
+- Smalltalk = programmable operating system
 
 ## Where Your Idea Fits (From Your Earlier Questions)
 
@@ -2043,20 +2031,16 @@ You could have:
 - program graph → interactive environment
 
 LSP is a protocol for exposing compiler intelligence to text editors.
-
 Alan Kay’s vision is a live programming world where code is part of a running object system rather than static text.
-
 They solve similar usability problems but come from completely different models of programming.
 
 If you want, I can also show something extremely interesting:
-
 Why LSP actually becomes unnecessary if you implement a true Alan Kay style environment.
-
 That insight is very relevant to the programming language architecture you're designing.
 
 ---
 
-# Ideas
+## Ideas
 [Table of Contents](#table-of-contents)
 
 - Alan Kay's vision of programming means need reflection on entire system, programming language api, capability and object representation (context representation).
