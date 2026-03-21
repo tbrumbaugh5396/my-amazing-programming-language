@@ -79,29 +79,29 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
 - [code/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code)
   - [src/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/src)
   - [tests/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests)
-    - test_examples.txt
-    - core_tests.py
-    - metric_test.py
-    - test_kernel.py
-    - ttd_suite.py
-    - validator_test.py
+    - [test_examples.txt](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests/test_examples.txt)
+    - [core_tests.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests/core_tests.py)
+    - [metric_test.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests/metric_test.py)
+    - [test_kernel.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests/test_kernel.py)
+    - [ttd_suite.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests/ttd_suite.py)
+    - [validator_test.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests/validator_test.py)
 - [docs/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs)
-  - high-level-roadmap.md
-  - weekly_checklist/
-    - week_0
-    - week_1
-  - business_ideas/
-    - business_ideas.md
-    - monetization_strategy.md
-  - roadmaps/
-    - business/business_plan.md
-    - technical/technical_roadmap.md
-  - technical_specifications/
-    - Architecture.md
-    - CALCULUS_OVERVIEW.md
-    - compiler.md
-    - compiler_related.md
-    - inference_rules.md
-    - minimal_viable_product.md
-    - perfect_programming_language.md
-    - tooling.md
+  - [high-level-roadmap.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/high-level-roadmap.md)
+  - [weekly_checklist/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/weekly_checklist)
+    - [week_0](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/week_0)
+    - [week_1](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/week_1)
+  - [business_ideas/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/business_ideas)
+    - [business_ideas.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/business_ideas/business_ideas.md)
+    - [monetization_strategy.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/business_ideas/monetization_strategy.md)
+  - [roadmaps/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps)
+    - [business/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/business)[business_plan.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/business/business_plan.md)
+    - [technical/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical)[technical_roadmap.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical/technical_roadmap.md)
+  - [technical_specifications/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications)
+    - [Architecture.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/Architecture.md)
+    - [CALCULUS_OVERVIEW.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/CALCULUS_OVERVIEW.md)
+    - [compiler.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/compiler.md)
+    - [compiler_related.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/compiler_related.md)
+    - [inference_rules.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/inference_rules.md)
+    - [minimal_viable_product.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/minimal_viable_product.md)
+    - [perfect_programming_language.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/perfect_programming_language.md)
+    - [tooling.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical_specifications/tooling.md)
