@@ -17,12 +17,14 @@ It is designed to collapse the distance between human intent, formal logic, and 
   - [Security Architecture and Capability Model](#security-architecture-and-capability-model)
   - [Namespace Graphs and Dependencies](#namespace-graphs-and-dependencies)
   - [Compile-Time vs Runtime Distinction](#Compile-time-vs-runtime-distinction)
+- [Repo Architecture](#repo-architecture)
  
 ## Core Philosophy
 The Lattice of Thought
 Traditional computing is a series of "leaps of faith." 
 $\lambda_{total}^{LCP}$ replaces these with Witnessed Paths. 
-Every transformation in the system—whether it is a compiler optimization or a logical inference—is a coordinate shift in a lattice where:Equivalence is the primary operation. 
+Every transformation in the system—whether it is a compiler optimization or a logical inference—is a coordinate shift in a lattice where:
+Equivalence is the primary operation. 
 
 If $p \simeq q$, the system can "bridge" them via a formal witness $\alpha$.
 
@@ -47,8 +49,9 @@ Turing Mode (The Escape Hatch): For non-deterministic or heuristic tasks, "Gener
 Dependent Types: Types are first-class values. 
 You can define a Vector(n) where the length $n$ is part of the type, eliminating out-of-bounds errors at compile time.
 
-Memory Access (Safe vs. Unsafe): The kernel defaults to Zero-Cost Abstractions with linear types to ensure memory safety without a garbage collector. 
-"Unsafe" memory access is strictly gated behind Capabilities.
+Memory Access (Safe vs. Unsafe): 
+- The kernel defaults to Zero-Cost Abstractions with linear types to ensure memory safety without a garbage collector. 
+- "Unsafe" memory access is strictly gated behind Capabilities.
 
 ### Security Architecture and Capability Model
 
@@ -70,3 +73,38 @@ This is where the AI Pilot helps find the most efficient path ($d_p \approx 0$).
 - Execution (Runtime): Once verified, the "Proof" is truncated. 
 The resulting binary is a lean, hyper-optimized sequence of instructions that no longer needs to check its own safety—it has already been proven "Physically Correct."
 
+## Repo Architecture
+
+```
+- code/
+  - src/
+  - tests/
+    - test_examples.txt
+    - core_tests.py
+    - metric_test.py
+    - test_kernel.py
+    - ttd_suite.py
+    - validator_test.py
+- docs/
+  - high-level-roadmap.md
+  - weekly_checklist/
+    - week_0
+    - week_1
+  - business_ideas/
+    - business_ideas.md
+    - monetization_strategy.md
+  - roadmaps/
+    - business/business_plan.md
+    - technical/technical_roadmap.md
+  - technical_specifications/
+    - Architecture.md
+    - CALCULUS_OVERVIEW.md
+    - compiler.md
+    - compiler_related.md
+    - inference_rules.md
+    - minimal_viable_product.md
+    - perfect_programming_language.md
+    - tooling.md
+
+
+```
