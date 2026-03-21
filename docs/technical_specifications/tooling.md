@@ -1,202 +1,207 @@
-# Semantic Programming Platform
-## Full Tooling Ecosystem
+# Full Tooling Ecosystem
+
+## Introduction
+[Table of Contents](#Table-of-Contents)
 
 After MVP, the platform expands into a full development ecosystem.
 
 ---
 
-# Core Infrastructure
+## Table of Contents
+- [Introduction](#Introduction)
+- [Table of Contents](#Table-of-Contents)
+- [Core Infrastructure](#Core-Infrastructure)
+    - [Programming Language Implementation](#)
+    - [Compiler Framework](#)
+    - [Graph Infrastructure](#)
+- [Verification Systems](#)
+- [Optimization Infrastructure](#)
+- [AI Integration](#)
+- [Visualization Tools](#)
+- [Developer Tools](#)
+- [Observability and Debugging](#)
+- [Infrastructure and DevOps](#)
+- [Optional Advanced Systems](#)
+- [Full System Architecture](#)
+- [Hardware Targets](#)
+- [Long-Term Tooling Goals](#)
 
-## Programming Language Implementation
-
-Primary language:
-
-Rust
-
-Reasons:
-
-• memory safety
-• performance
-• excellent compiler ecosystem
-• strong graph libraries
 
 ---
 
-# Compiler Framework
+## Core Infrastructure
+[Table of Contents](#Table-of-Contents)
+
+### Programming Language Implementation
+
+Primary language:
+- Rust
+
+Reasons:
+- memory safety
+- performance
+- excellent compiler ecosystem
+- strong graph libraries
+
+---
+
+### Compiler Framework
+[Table of Contents](#Table-of-Contents)
 
 Multi-layer compilation.
 
 Components:
-
 Frontend → Semantic Graph → MLIR → LLVM
 
 Tools:
-
-• LLVM
-• MLIR
+- LLVM
+- MLIR
 
 Benefits:
-
-• hardware portability
-• GPU support
-• accelerator support
+- hardware portability
+- GPU support
+- accelerator support
 
 ---
 
-# Graph Infrastructure
+### Graph Infrastructure
+[Table of Contents](#Table-of-Contents)
 
 Graph systems power the semantic representation.
 
 Libraries:
-
-petgraph (Rust)
+- petgraph (Rust)
 
 Graph databases (optional):
-
-Neo4j
+- Neo4j
 
 Capabilities:
-
-• semantic graph storage
-• program queries
-• graph traversal
-• analysis
+- semantic graph storage
+- program queries
+- graph traversal
+- analysis
 
 ---
 
-# Verification Systems
+## Verification Systems
+[Table of Contents](#Table-of-Contents)
 
 Formal reasoning engine.
 
 Components:
 
 SMT Solver:
-
-Z3
+- Z3
 
 Theorem Prover:
-
-Lean
+- Lean
 
 Capabilities:
-
-• contract verification
-• proof generation
-• invariant checking
-• correctness guarantees
+- contract verification
+- proof generation
+- invariant checking
+- correctness guarantees
 
 ---
 
-# Optimization Infrastructure
+## Optimization Infrastructure
+[Table of Contents](#Table-of-Contents)
 
 Advanced optimizer components.
 
 Tools:
-
-Souper (LLVM superoptimizer)
-
-Alive2 (optimization verification)
+- Souper (LLVM superoptimizer)
+- Alive2 (optimization verification)
 
 Capabilities:
-
-• automatic optimization discovery
-• correctness verification
-• algebraic simplification
+- automatic optimization discovery
+- correctness verification
+- algebraic simplification
 
 ---
 
-# AI Integration
+## AI Integration
+[Table of Contents](#Table-of-Contents)
 
 Future phase.
 
 Frameworks:
-
-LangChain
-
-LlamaIndex
+- LangChain
+- LlamaIndex
 
 Capabilities:
-
-• AI code generation
-• semantic program understanding
-• automatic specification inference
+- AI code generation
+- semantic program understanding
+- automatic specification inference
 
 ---
 
-# Visualization Tools
+## Visualization Tools
 
 Program graph visualization.
 
 Tools:
-
-Graphviz
-
-Mermaid
-
-D3.js (interactive)
+- Graphviz
+- Mermaid
+- D3.js (interactive)
 
 Capabilities:
-
-• semantic graph visualization
-• optimization trace visualization
-• proof graphs
+- semantic graph visualization
+- optimization trace visualization
+- proof graphs
 
 ---
 
-# Developer Tools
+## Developer Tools
+[Table of Contents](#Table-of-Contents)
 
 IDE integration.
 
 Platform:
-
-VS Code
+- VS Code
 
 Features:
-
-• semantic graph viewer
-• contract debugging
-• proof visualization
-• optimization suggestions
+- semantic graph viewer
+- contract debugging
+- proof visualization
+- optimization suggestions
 
 ---
 
-# Observability & Debugging
+## Observability and Debugging
+[Table of Contents](#Table-of-Contents)
 
 Tools:
-
-• tracing system
-• graph execution debugger
-• invariant violation visualization
+- tracing system
+- graph execution debugger
+- invariant violation visualization
 
 ---
 
-# Infrastructure & DevOps
+## Infrastructure and DevOps
+[Table of Contents](#Table-of-Contents)
 
 Essential platform infrastructure.
 
 Version Control:
-
-Git
+- Git
 
 Repository Hosting:
-
-GitHub
+- GitHub
 
 Containerization:
-
-Docker
+- Docker
 
 CI/CD:
-
-GitHub Actions
+- GitHub Actions
 
 Cloud:
-
-AWS / GCP / Azure
+- AWS / GCP / Azure
 
 ---
 
-# Optional Advanced Systems
+## Optional Advanced Systems
+[Table of Contents](#Table-of-Contents)
 
 Future expansions.
 
@@ -212,7 +217,8 @@ Cloud optimization service
 
 ---
 
-# Full System Architecture
+## Full System Architecture
+[Table of Contents](#Table-of-Contents)
 
 Source Language
 ↓
@@ -234,29 +240,26 @@ Hardware Targets
 
 ---
 
-# Hardware Targets
+## Hardware Targets
+[Table of Contents](#Table-of-Contents)
 
 Supported backends:
-
-CPU (x86 / ARM)
-
-GPU (CUDA / ROCm)
-
-WebAssembly
-
-AI accelerators
+- CPU (x86 / ARM)
+- GPU (CUDA / ROCm)
+- WebAssembly
+- AI accelerators
 
 ---
 
-# Long-Term Tooling Goals
+## Long-Term Tooling Goals
+[Table of Contents](#Table-of-Contents)
 
 Complete developer ecosystem:
-
-• semantic IDE
-• visual program graphs
-• verified AI code generation
-• automatic performance optimization
-• cloud cost optimization
+- semantic IDE
+- visual program graphs
+- verified AI code generation
+- automatic performance optimization
+- cloud cost optimization
 
 The result becomes a **full semantic programming platform**.
 One Strategic Tip
@@ -268,11 +271,12 @@ It is one impressive optimization demo.
 Example:
 
 Input:
-
+```
 for i in range(n):
     for j in range(n):
         if arr[i] == arr[j]:
             duplicates.append(arr[i])
+```
 
 Your system outputs:
 
