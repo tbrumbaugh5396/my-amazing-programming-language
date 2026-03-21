@@ -105,6 +105,6 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
     - minimal_viable_product.md
     - perfect_programming_language.md
     - tooling.md
-
-
 ```
+
+--8<-- "high-level-roadmap.md"
