@@ -78,6 +78,10 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
 
 - [code/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code)
   - [src/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/src)
+    - [core/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/src/core)
+      - [core.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/code/src/core/core.py)
+      - [elaborator_core.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/code/src/core/elaborator_core.py)
+    - [main.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/code/src/main.py)
   - [tests/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests)
     - [test_examples.txt](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/code/tests/test_examples.txt)
     - [core_tests.py](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/code/tests/core_tests.py)
