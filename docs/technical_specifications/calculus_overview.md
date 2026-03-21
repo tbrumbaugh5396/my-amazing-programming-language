@@ -1961,16 +1961,16 @@ Both aim for:
 
 The biggest difference:
 - LSP
--- Program = text
--- edit text
--- compile
--- query compiler
+    - Program = text
+    - edit text
+    - compile
+    - query compiler
 
 - Alan Kay
--- Program = objects
--- inspect object
--- modify behavior
--- system updates
+    - Program = objects
+    - inspect object
+    - modify behavior
+    - system updates
 
 So:
 - LSP = smarter editor
