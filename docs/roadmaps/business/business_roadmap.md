@@ -8,7 +8,7 @@ This file outlines the core business roadmap.
 ---
 
 ## Table Of Contents
-- [Introduction]
+- [Introduction](#introduction)
 - [Table Of Contents](#table-of-contents)
 - [Elevator Pitch](#elevator-pitch)
 - [Core Business Value](#core-business-value)
@@ -17,7 +17,7 @@ This file outlines the core business roadmap.
   - [2. Safety-Critical Software](#2-safety-critical-software)
   - [3. AI Programming Infrastructure](#3-ai-programming-infrastructure)
 - [Product Line](#product-line)
-  - [Product 1: Semantic Optimizer](#Product1-Semantic-Optimizer)
+  - [Product 1: Semantic Optimizer](#Product-1-Semantic-Optimizer)
   - [Product 2: Verification Platform](#Product-2-Verification-Platform)
   - [Product 3: AI Programming Platform](#Product-3-AI-Programming-Platform)
 - [Strategic Partnerships](#Strategic-Partnerships)
