@@ -5,12 +5,14 @@
 
 The system treats programs as **semantic graphs of meaning**, enabling verification, optimization, and synthesis.
 
+---
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
 - [Architecture Overview](#architecture-overview)
-- [Phase 1: Core Research (Year 1-2)](#Phase-1-Core-Research)
+- [Phase 1: Core Research](#Phase-1-Core-Research)
   - [Goals](#goals)
   - [Semantic Graph IR](#semantic-graph-ir)
   - [Contract System](#contract-system)
@@ -35,13 +37,13 @@ The system treats programs as **semantic graphs of meaning**, enabling verificat
 [Table of Contents](#table-of-contents)
 
 Core Components:
-1. Semantic Graph Intermediate Representation
-2. Contract / Specification System
-3. Dependent Type System
-4. Proof Engine
-5. Semantic Optimizer
-6. Hardware Transport Layer
-7. Compiler Backend
+- 1. Semantic Graph Intermediate Representation
+- 2. Contract / Specification System
+- 3. Dependent Type System
+- 4. Proof Engine
+- 5. Semantic Optimizer
+- 6. Hardware Transport Layer
+- 7. Compiler Backend
 
 ---
 
@@ -61,17 +63,17 @@ Build foundational infrastructure.
 Program representation where:
 
 Nodes:
-• functions  
-• types  
-• values  
-• specifications  
-• proofs  
+- functions  
+- types  
+- values  
+- specifications  
+- proofs  
 
 Edges:
-• dependency  
-• equivalence  
-• contract  
-• morphism  
+- dependency  
+- equivalence  
+- contract  
+- morphism  
 
 ---
 
@@ -79,10 +81,10 @@ Edges:
 [Table of Contents](#table-of-contents)
 
 Support:
-• preconditions  
-• postconditions  
-• invariants  
-• specifications  
+- preconditions  
+- postconditions  
+- invariants
+- specifications  
 
 Example:
 
@@ -103,10 +105,10 @@ result is sorted
 
 Features:
 
-• abstract semantic types  
-• dependent types  
-• refinement types  
-• capability types
+- abstract semantic types  
+- dependent types  
+- refinement types  
+- capability types
 
 Representation independent.
 
@@ -137,14 +139,12 @@ Backend Code Generation
 ### Semantic Optimizer
 [Table of Contents](#table-of-contents)
 
-
-
 Capabilities:
 
-• algorithm substitution  
-• loop optimization  
-• data structure replacement  
-• parallelization
+- algorithm substitution  
+- loop optimization  
+- data structure replacement  
+- parallelization
 
 Example:
 ```
@@ -163,9 +163,9 @@ Examples:
 Abstract Int → Int32 or Int64.
 
 Targets:
-• CPU
-• GPU
-• vector units
+- CPU
+- GPU
+- vector units
 
 ---
 
@@ -178,14 +178,14 @@ Targets:
 [Table of Contents](#table-of-contents)
 
 Features:
-• automatic proof generation
-• SMT solver integration
-• theorem prover integration
+- automatic proof generation
+- SMT solver integration
+- theorem prover integration
 
 Capabilities:
-• safety guarantees
-• invariant verification
-• contract validation
+- safety guarantees
+- invariant verification
+- contract validation
 
 ---
 
@@ -200,8 +200,8 @@ Capabilities:
 AI generates semantic graph directly.
 
 Benefits:
-• correctness constraints
-• verified code generation
+- correctness constraints
+- verified code generation
 
 ---
 
@@ -209,9 +209,9 @@ Benefits:
 [Table of Contents](#table-of-contents)
 
 AI suggestions based on:
-• program graph
-• specifications
-• existing proofs
+- program graph
+- specifications
+- existing proofs
 
 ---
 
@@ -223,10 +223,10 @@ AI suggestions based on:
 ### Developer Tools
 [Table of Contents](#table-of-contents)
 
-• IDE
-• debugger
-• visualization tools
-• graph inspection tools
+- IDE
+- debugger
+- visualization tools
+- graph inspection tools
 
 ---
 
@@ -234,9 +234,9 @@ AI suggestions based on:
 [Table of Contents](#table-of-contents)
 
 Import programs from:
-• C
-• Rust
-• Python
+- C
+- Rust
+- Python
 
 Convert to semantic graph.
 
@@ -251,6 +251,6 @@ Convert to semantic graph.
 4. Developer usability
 
 Mitigation:
-• progressive verification
-• optional proof levels
-• strong tooling support
+- progressive verification
+- optional proof levels
+- strong tooling support
