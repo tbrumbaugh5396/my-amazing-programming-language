@@ -10,7 +10,7 @@ Your exit strategy is either a massive IPO as the "Cisco of the Reasoning Era" o
 ## Table of contents
 - [Introduction](#introduction)
 - [Table of contents](#table-of-contents)
-- [1. Monetization: The "Correctness as a Service" Model](#1-Monetization:-The-Correctness-as-a-Service-Model)
+- [1. Monetization: The "Correctness as a Service" Model](#1-Monetization-The-Correctness-as-a-Service-Model)
 
 ## 1. Monetization: The "Correctness as a Service" Model
 [Table of contents](#table-of-contents)
