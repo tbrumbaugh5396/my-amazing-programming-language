@@ -10,7 +10,7 @@ The system treats programs as **semantic graphs of meaning**, enabling verificat
 - [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
 - [Architecture Overview](#architecture-overview)
-- [Phase 1 — Core Research (Year 1-2)](#Phase-1---Core-Research)
+- [Phase 1: Core Research (Year 1-2)](#Phase-1-Core-Research)
   - [Goals]
   - [Semantic Graph IR]
   - [Contract System]
@@ -47,7 +47,7 @@ Core Components:
 
 ---
 
-## Phase 1 — Core Research 
+## Phase 1: Core Research 
 [Table of Contents](#table-of-contents)
 
 (Year 1-2)
