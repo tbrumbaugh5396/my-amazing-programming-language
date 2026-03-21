@@ -11,25 +11,23 @@ The system treats programs as **semantic graphs of meaning**, enabling verificat
 - [Table of Contents](#table-of-contents)
 - [Architecture Overview](#architecture-overview)
 - [Phase 1: Core Research (Year 1-2)](#Phase-1-Core-Research)
-  - [Goals]
-  - [Semantic Graph IR]
-  - [Contract System]
-  - [Type System]
-  - [Initial Compiler]
-- [Phase 2 — Optimization Engine (Year 2-3)]
-  - [Semantic Optimizer]
-  - [Hardware Mapping]
-- [Phase 3 — Verification Engine (Year 3-4)]
-  - [Proof Integration]
-- [Phase 4 — AI Integration (Year 4-5)]
-  - [Program Synthesis]
-  - [Semantic Code Completion]
-- [Phase 5 — Ecosystem (Year 5+)]
-  - [Developer Tools]
-  - [Cross-Language Interop]
-  - [Key Technical Risks]
-
-
+  - [Goals](#goals)
+  - [Semantic Graph IR](#semantic-graph-ir)
+  - [Contract System](#contract-system)
+  - [Type System](#type-system)
+  - [Initial Compiler](#initial-compiler)
+- [Phase 2: Optimization Engine](#phase-2-optimization-engine)
+  - [Semantic Optimizer](#semantic-optimizer)
+  - [Hardware Mapping](#hardware-mapping)
+- [Phase 3: Verification Engine](#phase-3-verification-engine)
+  - [Proof Integration](#proof-integration)
+- [Phase 4: AI Integration](#phase-4-ai-integration)
+  - [Program Synthesis](#proof-synthesis)
+  - [Semantic Code Completion](#semantic-code-completion)
+- [Phase 5: Ecosystem](#phase-5-ecosystem)
+  - [Developer Tools](#developer-tools)
+  - [Cross-Language Interop](#cross-language-interop)
+  - [Key Technical Risks](#key-technical-risks)
 
 ---
 
@@ -131,7 +129,7 @@ Backend Code Generation
 
 ---
 
-## Phase 2 — Optimization Engine 
+## Phase 2: Optimization Engine 
 [Table of Contents](#table-of-contents)
 
 (Year 2-3)
@@ -171,7 +169,7 @@ Targets:
 
 ---
 
-## Phase 3 — Verification Engine 
+## Phase 3: Verification Engine 
 [Table of Contents](#table-of-contents)
 
 (Year 3-4)
@@ -191,7 +189,7 @@ Capabilities:
 
 ---
 
-## Phase 4 — AI Integration
+## Phase 4: AI Integration
 [Table of Contents](#table-of-contents)
 
 (Year 4-5)
@@ -217,8 +215,10 @@ AI suggestions based on:
 
 ---
 
-## Phase 5 — Ecosystem (Year 5+)
+## Phase 5: Ecosystem
 [Table of Contents](#table-of-contents)
+
+ (Year 5+)
 
 ### Developer Tools
 [Table of Contents](#table-of-contents)
