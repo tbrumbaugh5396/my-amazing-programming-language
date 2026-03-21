@@ -105,3 +105,5 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
     - [minimal_viable_product.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/technical_specifications/minimal_viable_product.md)
     - [perfect_programming_language.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/technical_specifications/perfect_programming_language.md)
     - [tooling.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/technical_specifications/tooling.md)
+- [focus.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/focus.md)
+- [README.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/README.md)
