@@ -1,7 +1,7 @@
 # Week 1
 
 Your TDD Checklist for the Week:
-[ ] The "Total" Reducer: Implement the evaluator that reduces App(Lambda(x), y) to x[y/0].
-[ ] The Substitution Engine: Handle De Bruijn index shifting (crucial for context changes).
-[ ] Interface Checker: Verify that a "Module" satisfies its signature.
-[ ] Refinement Solver: Connect a basic SMT solver or a Truth-Table to check simple predicates.
+- [ ] The "Total" Reducer: Implement the evaluator that reduces App(Lambda(x), y) to x[y/0].
+- [ ] The Substitution Engine: Handle De Bruijn index shifting (crucial for context changes).
+- [ ] Interface Checker: Verify that a "Module" satisfies its signature.
+- [ ] Refinement Solver: Connect a basic SMT solver or a Truth-Table to check simple predicates.
