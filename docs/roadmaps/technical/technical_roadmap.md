@@ -10,7 +10,7 @@ The system treats programs as **semantic graphs of meaning**, enabling verificat
 - [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
 - [Architecture Overview](#architecture-overview)
-- [Phase 1 — Core Research (Year 1-2)](#Phase-1-Core-Research-Year-1-2)
+- [Phase 1 — Core Research (Year 1-2)](#Phase-1-Core-Research)
   - [Goals]
   - [Semantic Graph IR]
   - [Contract System]
@@ -47,8 +47,10 @@ Core Components:
 
 ---
 
-## Phase 1 — Core Research (Year 1-2)
+## Phase 1 — Core Research 
 [Table of Contents](#table-of-contents)
+
+(Year 1-2)
 
 ### Goals
 [Table of Contents](#table-of-contents)
@@ -129,11 +131,15 @@ Backend Code Generation
 
 ---
 
-## Phase 2 — Optimization Engine (Year 2-3)
+## Phase 2 — Optimization Engine 
 [Table of Contents](#table-of-contents)
+
+(Year 2-3)
 
 ### Semantic Optimizer
 [Table of Contents](#table-of-contents)
+
+
 
 Capabilities:
 
@@ -165,8 +171,10 @@ Targets:
 
 ---
 
-## Phase 3 — Verification Engine (Year 3-4)
+## Phase 3 — Verification Engine 
 [Table of Contents](#table-of-contents)
+
+(Year 3-4)
 
 ### Proof Integration
 [Table of Contents](#table-of-contents)
@@ -183,8 +191,10 @@ Capabilities:
 
 ---
 
-## Phase 4 — AI Integration (Year 4-5)
+## Phase 4 — AI Integration
 [Table of Contents](#table-of-contents)
+
+(Year 4-5)
 
 ### Program Synthesis
 [Table of Contents](#table-of-contents)
