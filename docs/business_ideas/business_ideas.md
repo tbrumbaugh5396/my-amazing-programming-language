@@ -8,6 +8,8 @@ This document outlines business ideas related to this language, ecosystem, and t
 We outline low hanging quick products and long term visions. 
 
 ## Table of contents
+- [Introduction](#introduction)
+- [Table of contents](#Table-of-contents)
 - [10 Ideas to Make Money Quickly](#10-Ideas-to-Make-Money-Quickly)
   - [1. CI Build Time Reducer](#1-CI-Build-Time-Reducer)
   - [2. Test Impact Analyzer](#2-Test-Impact-Analyzer)
