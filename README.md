@@ -76,16 +76,16 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
 ## Repo Architecture
 
 
-- [code/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/main/tree/code)
-  - [src/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/main/tree/code/src)
-  - [tests/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/main/tree/code/tests)
+- [code/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code)
+  - [src/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/src)
+  - [tests/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/code/tests)
     - test_examples.txt
     - core_tests.py
     - metric_test.py
     - test_kernel.py
     - ttd_suite.py
     - validator_test.py
-- [docs/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/main/tree/docs)
+- [docs/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs)
   - high-level-roadmap.md
   - weekly_checklist/
     - week_0
