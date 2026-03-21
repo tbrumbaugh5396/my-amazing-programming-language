@@ -94,7 +94,7 @@ The resulting binary is a lean, hyper-optimized sequence of instructions that no
     - [business_ideas.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/business_ideas/business_ideas.md)
     - [monetization_strategy.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/business_ideas/monetization_strategy.md)
   - [roadmaps/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps)
-    - [business/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/business)[business_plan.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/roadmaps/business/business_plan.md)
+    - [business/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/business)[business_plan.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/roadmaps/business/business_roadmap.md)
     - [technical/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/roadmaps/technical)[technical_roadmap.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/roadmaps/technical/technical_roadmap.md)
   - [technical_specifications/](https://github.com/tbrumbaugh5396/my-amazing-programming-language/tree/main/docs/technical_specifications)
     - [Architecture.md](https://github.com/tbrumbaugh5396/my-amazing-programming-language/blob/main/docs/technical_specifications/Architecture.md)
