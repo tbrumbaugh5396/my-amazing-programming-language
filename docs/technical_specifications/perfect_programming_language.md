@@ -259,9 +259,9 @@ Relational Reflection: A macro can query the Lattice of Equivalence to see if a 
 
 ### 2.7.4 Case Study: The Real Addition Macro
 When adding two coinductive Reals (as defined in 2.3.3), a macro can inspect the Generators of the fractional streams. 
-If it detects a pattern that triggers an infinite carry (e.g., 0.33⋯+0.66…), the macro can rewrite the expression into a more stable form or inject a Bisimulation Witness that resolves the 0.99⋯≡1.0 identity before the runtime even executes.
+If it detects a pattern that triggers an infinite carry (e.g., $0.33⋯+0.66…$), the macro can rewrite the expression into a more stable form or inject a Bisimulation Witness that resolves the $0.99⋯≡1.0$ identity before the runtime even executes.
 
-###2.7.5 Staged Compilation
+### 2.7.5 Staged Compilation
 Macros enable Multi-Stage Programming:
 - Level 0: Raw syntax L(B).
 - Level 1 (Macro Expansion): Transformation of syntax based on reflection.
@@ -285,12 +285,16 @@ Quote ('): $\mathcal{V} \to \mathcal{L}(B)$ (Freezes a value or expression as ra
 If you "quote" an expression and put it into a function, that function is now a Higher-Order Path. 
 It doesn't return a number; it returns a Program that can be further transformed, optimized, or verified by other macros.
 
-2. Macro Expansion vs. Function Execution
+### 2. Macro Expansion vs. Function Execution
 
 This leads to a critical distinction in your language's lifecycle:
-- ActionPhaseDomainResultExecutionRuntimeValue Space ($\mathcal{V}$)4 QuotingCompile-timeProgram Space ($\mathcal{L}(B)$)(+ 2 2)ReflectionElaborationMetadata Space{type: Int, structure: BinOp}
+| Action     | Phase        | Domain                           | Result                        |
+|------------|--------------|----------------------------------|-------------------------------|
+| Execution  | Runtime      | Value Space ($\mathcal{V}$)      | 4                             |
+| Quoting    | Compile-time | Program Space ($\mathcal{L}(B)$) | (+ 2 2)                       |
+| Reflection | Elaboration  | Metadata Space                   | {type: Int, structure: BinOp} |
 
-3. Why Quote + Reflection is the "Secret Sauce"
+### 3. Why Quote + Reflection is the "Secret Sauce"
 
 If you just have quote (2 + 2), you have a basic Lisp-style macro.
 
@@ -299,7 +303,7 @@ But because your language has Reflection on Inductive/Coinductive types, your ma
 "Specialization: If it’s Coinductive, the macro can automatically inject the Bisimulation Witness we discussed earlier to handle the infinite carry.
 Optimization: If the macro sees quote (x + 0), it can use the Monoid interface reflection to prove $x + 0 \equiv x$ and rewrite the path in the lattice to just x, reducing the computational distance ($d_p$).
 
-4. Code Injection and Self-HostingBy quoting code and putting it into a function, you are building the "scaffolding" for Self-Hosting.
+### 4. Code Injection and Self-HostingBy quoting code and putting it into a function, you are building the "scaffolding" for Self-Hosting.
 
 Your compiler's elaborate() function is essentially a giant macro that:Takes quote(user_code).Reflects on the types.Injects the necessary proofs and optimizations.
 Returns the final "Optimized Path" in $\mathcal{L}(B)$ to be turned into bytecode.
