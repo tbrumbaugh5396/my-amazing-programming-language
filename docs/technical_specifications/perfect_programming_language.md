@@ -30,6 +30,10 @@ It unifies:
 	- [2.2 Programs](#22-programs)
 	- [2.3 Semantics](#23-semantics)
  	- [2.4 Equivalence](#24-equivalence)
+  	- [2.5 Values](#25-values) 
+  	- [2.5 Types](#25-types)
+  	- [2.6 Interfaces](#26-interfaces)
+  	- [2.7 Macros](#27-macros)
 	- [Minimal Basis](#minimal-basis)
 	- [Reflective Closure](#reflective-closure)
 	- [Distance Optimality](#distance-optimality)
@@ -166,6 +170,54 @@ $$
 Computation (depends on $E$):
 - Under extensional equivalence $\to$ same computation
 - Under operational equivalence $\to$ different computations
+
+
+## 2.5 Values
+
+While a Program (p) is a syntactic description and a Computation ([p]_E​) is an equivalence class of behavior, a Value (v) is a static coordinate in the Value Space (V).
+
+### 2.5.1 The Value Mapping (Projection)
+We define a projection function P that maps a computation to its corresponding point in the value space:
+P([p]_E)→v∈V
+Where:
+v is the invariant "Truth" of the computation.
+V is the global manifold of all representable identities.
+
+### 2.5.2 Points in the Value Space
+You asked if points can be defined directly. 
+In the Omega Engine, the Value Space is the primary reality; the Computational Space is merely the map to get there.
+
+You can define a point v∈V axiomatically without a program.
+
+Example: You can define the "Value of π" as a unique point v π satisfying the property of being the ratio of a circle's circumference to its diameter, before you ever write a spigot algorithm to compute it.
+
+### 2.5.3 Values vs. Types
+In your proposed architecture, Values precede Types. 
+
+1.  Direct Definition: You define a point v in the global Value Space V.
+2.  Type Formation: A Type (T) is simply a Sub-region or "Neighborhood" of the Value Space: T⊆V
+3.  Automatic Membership: If a point v falls within the geometric bounds of T, we say v:T.
+
+Can you "grab all values" in a Type?
+Yes, via the Universe of Discourse (U). If you have a type T, the set of all points is:
+{v∣v∈V and v satisfies the axioms of T}
+
+If you use a Type of Any (U), you are effectively addressing the entire Value Space V. However, because the Value Space contains Infinite Coinductive Streams, "grabbing all values" is treated as an Observational Stream (ν), not a finite list.
+
+### 2.5.4 The Relationship Summary
+To solidify the rigor, we use the following hierarchy:
+
+| Object      | Symbol | Nature                  | Space |
+| Program     | p      | Syntax / Representation | Language L(B)
+| Computation | [p]_E  | Trajectory / Path       | Computational Space  |
+| Value	      | v	   | Identity / Point        | Value Space V        |
+2.5.5 The "Grab" Logic (Reflective Query)
+Because your language supports Reflection, you can define a "Value Collector" as a coinductive process:
+
+Values(T)=ν(Search(V,T))
+This means the engine "searches" the Value Space and yields a stream of every point that meets the criteria of Type T. For finite types like Bool, the stream is (True,False,EOF). For infinite types like ExactReal, the stream is an uncountably infinite exploration of the space.
+
+Would you like me to draft Section 2.6: "The Morphism," explaining how the Pilot moves from a Point (Value) back to a Path (Computation) to execute code on the silicon?
 
 ## 3 Types: Regions of the Value Space
 
