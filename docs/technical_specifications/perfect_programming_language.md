@@ -279,7 +279,9 @@ Exactly.
 In the Omega Engine, quote is the fundamental operator that moves a term from the Value Space ($\mathcal{V}$) back into the Program Space ($\mathcal{L}(B)$).
 When you write quote (2 + 2), you are telling the kernel: "Do not compute the semantic meaning (4); instead, give me the coordinate in the syntax lattice that represents the addition of two constants."
 
-1. The "Quote" as a Coordinate ShiftIn your Section 2.7, we can define quote as the inverse of the evaluation function $\pi$:Evaluation ($\pi$): $\mathcal{L}(B) \to \mathcal{V}$ (Reduces code to a value).
+## 1. The "Quote" as a Coordinate Shift
+
+In your Section 2.7, we can define quote as the inverse of the evaluation function $\pi$:Evaluation ($\pi$): $\mathcal{L}(B) \to \mathcal{V}$ (Reduces code to a value).
 
 Quote ('): $\mathcal{V} \to \mathcal{L}(B)$ (Freezes a value or expression as raw syntax).
 If you "quote" an expression and put it into a function, that function is now a Higher-Order Path. 
@@ -290,22 +292,27 @@ It doesn't return a number; it returns a Program that can be further transformed
 This leads to a critical distinction in your language's lifecycle:
 | Action     | Phase        | Domain                           | Result                        |
 |------------|--------------|----------------------------------|-------------------------------|
-| Execution  | Runtime      | Value Space ($\mathcal{V}$)      | 4                             |
-| Quoting    | Compile-time | Program Space ($\mathcal{L}(B)$) | (+ 2 2)                       |
+| Execution  | Runtime      | Value Space ($\mathcal{V}$)      | $4$                           |
+| Quoting    | Compile-time | Program Space ($\mathcal{L}(B)$) | $(+ 2 2)$                     |
 | Reflection | Elaboration  | Metadata Space                   | {type: Int, structure: BinOp} |
 
 ### 3. Why Quote + Reflection is the "Secret Sauce"
 
 If you just have quote (2 + 2), you have a basic Lisp-style macro.
 
-But because your language has Reflection on Inductive/Coinductive types, your macros can do much more:Inspection: A macro can quote a piece of code, then use reflection to ask: "Is this addition happening on Inductive Integers or Coinductive Reals?
+But because your language has Reflection on Inductive/Coinductive types, your macros can do much more:
+
+Inspection: A macro can quote a piece of code, then use reflection to ask: "Is this addition happening on Inductive Integers or Coinductive Reals?
 
 "Specialization: If it’s Coinductive, the macro can automatically inject the Bisimulation Witness we discussed earlier to handle the infinite carry.
-Optimization: If the macro sees quote (x + 0), it can use the Monoid interface reflection to prove $x + 0 \equiv x$ and rewrite the path in the lattice to just x, reducing the computational distance ($d_p$).
+
+Optimization: If the macro sees quote $(x + 0)$, it can use the Monoid interface reflection to prove $x + 0 \equiv x$ and rewrite the path in the lattice to just x, reducing the computational distance ($d_p$).
 
 ### 4. Code Injection and Self-HostingBy quoting code and putting it into a function, you are building the "scaffolding" for Self-Hosting.
 
-Your compiler's elaborate() function is essentially a giant macro that:Takes quote(user_code).Reflects on the types.Injects the necessary proofs and optimizations.
+Your compiler's elaborate() function is essentially a giant macro that:Takes quote(user_code).
+Reflects on the types.
+Injects the necessary proofs and optimizations.
 Returns the final "Optimized Path" in $\mathcal{L}(B)$ to be turned into bytecode.
 
 ## 6. Another Way to See It
@@ -597,11 +604,9 @@ they produce equivalent structures for all inputs
 ### 8. This Gives You Your Levels
 [Table of Contents](#table-of-contents)
 
-Level 1 elements of $E(p,q)$
-
-Level 2 elements of $\text{Id}(E(p,q), \alpha, \beta)$
-
-Level 3+ iterate $\text{Id}$
+- Level 1 elements of $E(p,q)$
+- Level 2 elements of $\text{Id}(E(p,q), \alpha, \beta)$
+- Level 3+ iterate $\text{Id}$
 
 No extra mechanism needed—just reuse identity types
 
@@ -609,12 +614,11 @@ No extra mechanism needed—just reuse identity types
 [Table of Contents](#table-of-contents)
 
 Your language now has:
-
-1. Program Layer $p : \text{Program}$
-2. Semantic Layer $\text{sem}(p) : \text{Meaning}$
-3. Equivalence Layer $E(p,q) : \text{Type}$
-4. Higher Equivalence Layer $\text{Id}(E(p,q), \alpha, \beta)$
-5. Meta Layer
+- 1. Program Layer $p : \text{Program}$
+- 2. Semantic Layer $\text{sem}(p) : \text{Meaning}$
+- 3. Equivalence Layer $E(p,q) : \text{Type}$
+- 4. Higher Equivalence Layer $\text{Id}(E(p,q), \alpha, \beta)$
+- 5. Meta Layer
 
 - macros
 - reflection
@@ -1850,37 +1854,26 @@ It creates a Fused Generator that understands the combined carry-bounds of the q
 
 Total Delay: The engine might only need 4 digits of π to produce the first digit of the result, because it knows exactly how the addition and multiplication interact.
 
-4. The Final Spec: Section 3 (Lattice Search)
+## 4. The Final Spec: Section 3 (Lattice Search)
 This leads us to the final piece of your document.
 The Lattice Search is the algorithm that automatically finds these fused macros.
 
-3. The Lattice & Metrics
-3.1 The Search for the "Shortest Path"
-The Heuristic Pilot doesn't just run code; it searches the Lattice of Equivalence (C 
-E) for the program p 
-′
-  that minimizes the Computational Distance (dp):
+## 3. The Lattice & Metrics
 
-p 
-′
- ∈[p] 
-E
-​
+## 3.1 The Search for the "Shortest Path"
+The Heuristic Pilot doesn't just run code; it searches the Lattice of Equivalence (C 
+E) for the program p that minimizes the Computational Distance (dp):
+p ∈[p] 
+E min dp(p)
  
-min dp
-​
- (p 
-′
- )
- 
-3.2 Macro-Assisted Folding
+## 3.2 Macro-Assisted Folding
 When the Pilot sees a chain of coinductive operations, it queries the Macro Library.
 
 If it finds an equivalence path between Add(Mult(a, b), c) and FMA(a, b, c), it automatically "folds" the computation.
 
 It uses Bisimulation Reflection to verify that the Fused Generator is behaviorally identical to the stepped version.
 
-3.3 Metric-Driven Selection
+## 3.3 Metric-Driven Selection
 Readability (dh): The user writes a * b + c.
 
 Performance (dp): The Pilot selects fma(a, b, c).
