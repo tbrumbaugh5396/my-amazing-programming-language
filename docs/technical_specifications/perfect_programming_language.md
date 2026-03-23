@@ -203,7 +203,9 @@ $$\text{codata Fraction} \{ \text{head}: \text{Digit}, \text{tail}: \text{Fracti
 ### 2.3.3 Unified Types (The Real Number)
 
 Because Types are first-class, they can compose these duals to represent absolute mathematical truths without hardware constraints (like IEEE 754 precision loss). 
-The Real numbers ($\mathbb{R}$) are constructed as a product of an Inductive Anchor and a Coinductive Flow:$$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
+The Real numbers ($\mathbb{R}$) are constructed as a product of an Inductive Anchor and a Coinductive Flow:
+
+$$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
 
 ## 2.4 Interfaces: The Geometry of Equivalence
 
