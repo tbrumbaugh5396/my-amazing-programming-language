@@ -452,10 +452,11 @@ It doesn't return a number; it returns a Program that can be further transformed
 [Table of Contents](#table-of-contents)
 
 This leads to a critical distinction in your language's lifecycle:
+
 | Action     | Phase        | Domain                           | Result                        |
 |------------|--------------|----------------------------------|-------------------------------|
-| Execution  | Runtime      | Value Space ($\mathcal{V}$)      | $4$                           |
-| Quoting    | Compile-time | Program Space ($\mathcal{L}(B)$) | $(+ 2 2)$                     |
+| Execution  | Runtime      | Value Space ($$\mathcal{V}$$)      | $4$                           |
+| Quoting    | Compile-time | Program Space ($$\mathcal{L}(B)$$) | $(+ 2 2)$                     |
 | Reflection | Elaboration  | Metadata Space                   | {type: Int, structure: BinOp} |
 
 ### 3. Why Quote + Reflection is the "Secret Sauce"
