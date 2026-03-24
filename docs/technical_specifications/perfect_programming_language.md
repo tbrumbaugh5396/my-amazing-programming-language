@@ -270,15 +270,11 @@ Yes, in the Omega Engine, this is the essence of Reflection and Universe Levels.
 
 Because your language is based on Dependent Type Theory, you can write functions that take other "objects" (like functions or types) as input and return new types or values.
 
-2.17 The Meta-Type Hierarchy
-Table of Contents
+### The Meta-Type Hierarchy
 
-To prevent logical paradoxes (like Russell's Paradox), the Omega Engine uses a stratified Hierarchy of Universes (U 
-n
-​
- ).
+To prevent logical paradoxes (like Russell's Paradox), the Omega Engine uses a stratified Hierarchy of Universes ($U_n$).
 
-2.17.1 Everything is a Value
+### Everything is a Value
 In your Basis (B), we define the following mappings into the Value Space:
 
 Object	Its "Value" Form	Its "Type"
@@ -302,53 +298,41 @@ Equivalence (≅)	eq	A \cong B : U
 2
 ​
  
-2.17.2 Your Example: The Type Extractor
-You asked if you could write a function f that extracts the destination type of a function g. In λ 
-total
-LCP
-​
- , this is a Type-Level Function (often called an "Elaborator Macro").
-
+### Your Example: The Type Extractor
+You asked if you could write a function f that extracts the destination type of a function g. In λ total LCP, this is a Type-Level Function (often called an "Elaborator Macro").
 If g:A→B, then f(g) returns B.
 
 Formal Definition:
-
+```
 f:Π(g:Function)→Type
 f(A→B)=B
+```
+
 How it works in the Omega Engine:
 
 Input: You pass the Value of the function g (its coordinate in the Syntax Lattice).
-
 Analysis: f looks at the Morphism defined by g in the Value Space.
-
 Result: It returns the Region (Type B) where that morphism terminates.
-
 Execution: If g : Int -> String, then f(g) returns the Type String. You can then use this result to define new variables or even new types.
 
-2.17.3 Macro Equivalences
+### Macro Equivalences
 Because Macros and Equivalences are themselves types, you can prove that two different "Reflections" are isomorphic.
 
 Scenario: You have two different ways to extract the return type (one via the AST, one via the Bytecode).
-
 The Equivalence: The Engine proves f 
 ast
 ​
  ≅f 
-byte
-​
- .
+byte.
 
 The Result: The Pilot can use the faster extraction method depending on the current hardware capability, guaranteed by the math to give the same Type result.
 
-2.18 Higher-Order Capabilities
+### Higher-Order Capabilities
 Since the Language itself is governed by Capabilities (Section 2.12), even the act of "looking at a type" requires authority.
 
 Cap_Reflect: The right to treat a function as a value and extract its type.
 
-Cap_Reify: The right to take a Type (a value in U 
-1
-​
- ) and turn it into a physical memory allocation on the Ω-1 Silicon.
+Cap_Reify: The right to take a Type (a value in U 1) and turn it into a physical memory allocation on the Ω-1 Silicon.
 
 The Strategic Conclusion
 By making "Types" and "Functions" first-class values with their own types:
@@ -365,22 +349,23 @@ In the Omega Engine, this is exactly how the Elaborator (the brain of your compi
 
 To do this rigorously, we use Sum Types (Disjoint Unions) and Pattern Matching on the metadata of the object.
 
-2.19 The Object Classifier
+### The Object Classifier
 Table of Contents
 
 We define a general type Object which is the top-level sum type for everything in the Basis (B).
 
-2.19.1 The Kind Discriminator
+### The Kind Discriminator
 Every object O in the Value Space carries a Kind Witness. You can write a function get_kind that maps an object to its structural definition.
 
 f:Object→Kind
 Where Kind is an inductive type:
 
 Kind=Val∣Func∣Type∣Interface∣Macro∣Cap
+
 Example: Checking the Object
 If you have an unknown object obj, you can use Dependent Pattern Matching:
 
-Python
+```python
 # The Classifier Function
 what_is_it(obj: Object) -> String:
     match obj:
@@ -389,7 +374,9 @@ what_is_it(obj: Object) -> String:
         case t: Type(Universe_N) => "This is a Region in U_N"
         case c: Capability(Authority) => "This is a Key to the Lattice"
         case _ => "This is a Terminal Value"
-2.19.2 Reflection vs. Reification
+```
+
+### 2.19.2 Reflection vs. Reification
 This ability to check an object at "Type-Time" (during compilation) or "Run-Time" (on the silicon) is split by Capabilities:
 
 Reflection (Introspection): You look at the object to see what it is. This is a "Read-Only" path in the Value Space.
@@ -398,24 +385,29 @@ Reification (Materialization): You take the Kind you discovered and use it to bu
 
 Example: "If this object is a Function, wrap it in a Logging Capability and re-emit it."
 
-2.19.3 Isomorphic Classification
+### 2.19.3 Isomorphic Classification
 Because of Equivalence, your classifier might find that a "Macro" and a "Function" are isomorphic for a specific task.
 
-The Result: The Engine can "Collapse" the classification. If a Macro always behaves like a pure function A→B in a certain context, the what_is_it function can be proven equivalent to a simpler version, allowing the Ω-1 Silicon to skip the "Macro Expansion" step and execute the logic directly.
+The Result: The Engine can "Collapse" the classification. 
+If a Macro always behaves like a pure function A→B in a certain context, the what_is_it function can be proven equivalent to a simpler version, allowing the Ω-1 Silicon to skip the "Macro Expansion" step and execute the logic directly.
 
-2.20 The "Any" Collector
+### 2.20 The "Any" Collector
 When you "grab all values" of type Object, you are effectively taking a Snapshot of the Universe.
 
 You get a stream of every point, every path, every region, and every key currently held in the system's memory.
 
-By applying your f(g) extractor (from the previous turn) to this stream, you can Map the Topology of your entire $1T empire. You can see exactly which functions lead to which types, and which capabilities unlock which paths.
+By applying your f(g) extractor (from the previous turn) to this stream, you can Map the Topology of your entire $1T empire. 
+You can see exactly which functions lead to which types, and which capabilities unlock which paths.
 
-Summary: The Universal Inspector
-Target	Mechanism	Formal Result
-Object	Pattern Match	Discovers the Kind.
-Function	Extractor f(g)	Discovers the Destination.
-Type	Universe Check	Discovers the Hierarchy Level.
-Capability	Authority Check	Discovers the Morphism Limit.
+### Summary: The Universal Inspector
+
+| Target | Mechanism | Formal Result |
+|--------|-----------|---------------|
+| Object | Pattern Match | Discovers the Kind. |
+| Function | Extractor f(g) | Discovers the Destination. |
+| Type | Universe Check | Discovers the Hierarchy Level. |
+| Capability | Authority Check | Discovers the Morphism Limit. |
+
 The Strategic Conclusion
 Your language doesn't just "run code"—it understands its own anatomy.
 
