@@ -100,6 +100,10 @@ This means for every function, there is a program in the Language that semantica
 [Table of Contents](#table-of-contents)
 
 $B$ is minimal.
+That means the number of primitives of the language ($k$) is a minimum. 
+
+This obviously is $1$. 
+We are more interested in not necessarily a minimal basis but a minimal optimal basis.
 
 ##### Reflective Closure
 [Table of Contents](#table-of-contents)
