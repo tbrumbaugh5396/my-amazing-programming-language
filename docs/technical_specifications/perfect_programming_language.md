@@ -31,8 +31,8 @@ It unifies:
       		- [Universality](#universality)
             - [Minimal Basis](#minimal-basis)
         	- [Reflective Closure](#reflective-closure)
-         		- The Identity of Syntax and Logic 
-         		- Breaking Down the Isomorphism 
+         		- [The Identity of Syntax and Logic](#The-Identity-of-Syntax-and-Logic)
+         		- [Breaking Down the Isomorphism](#Breaking-Down-the-Isomorphism)
          	- [Distance Optimality](#distance-optimality)
 	          - [Objective Function](#objective-function)
  	- [2.2 Language](#22-language)
