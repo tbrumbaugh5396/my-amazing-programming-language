@@ -44,6 +44,7 @@ It unifies:
   	- [2.7 Types](#27-types)
   	- [2.8 Interfaces](#28-interfaces)
   	- [2.9 Macros](#29-macros)
+  	- [2.10 Capabilities](#210-capabilities)
 - [3. Computations as Equivalence Classes](#3-computations-as-equivalence-classes)
 - [4. Partial Computable Functions](#4-Partial-Computable-Functions)
 - [5. Domain Theory and Lattice Structure](#5-Domain-Theory-and-Lattice-Structure)
@@ -340,6 +341,15 @@ Because Types are first-class, they can compose these duals to represent absolut
 The Real numbers ($\mathbb{R}$) are constructed as a product of an Inductive Anchor and a Coinductive Flow:
 
 $$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
+
+### 2.7.4 Other Types
+[Table of Contents](#table-of-contents)
+
+- Dependent Types
+- Refinement Types
+- Algebraic Types
+- Logical Types
+- Linear Types
 
 ## 2.8 Interfaces
 [Table of Contents](#table-of-contents)
@@ -794,6 +804,101 @@ determines whether two programs are considered equivalent.
 This says:
 - which differences you ignore
 - which distinctions you care about
+
+### 2.10 Capabilities
+[Table of Contents](#table-of-contents)
+
+While a Value ($v$) is a point in the Value Space and a Computation ($[p]_E$) is a trajectory, a Capability ($\mathcal{C}$) is the Unique Right to Execute a Path.
+
+#### 2.12.1 The Resource Logic (Linearity $\multimap$)
+
+Capabilities are governed by Linear Type Theory. 
+Unlike a "Value" (which can be copied, like the number 5), a Capability represents a physical or logical resource (Memory, I/O, CPU time) that exists in a 1-to-1 relationship with reality.
+
+$$\mathcal{C} : T \multimap \text{Effect}$$
+
+Consumption: Using a Capability "burns" it. 
+
+To use the resource again, the computation must return a new Capability as a result of the effect.
+
+No Cloning: You cannot duplicate a Capability. 
+If you have the "Write-to-Disk" capability, and you give it to Function A, Function B physically cannot access the disk.
+
+#### 2.12.2 Capabilities as "Sub-Lattices"
+
+A Capability defines a Bounded Region of the Value Space that a program is allowed to "see" or "modify.
+"The Sandbox: If a program has no capabilities, its Visibility Horizon ($H$) is limited to pure mathematical truths (e.g., $1+1=2$).
+
+The Authority: Granting a Capability "unlocks" a new coordinate in the lattice (e.g., Address_0x4F).
+
+#### 2.12.3 Isomorphic Capabilities ($\mathcal{C}_1 \cong \mathcal{C}_2$)
+
+Yes, Capabilities can be Isomorphic. 
+
+This is how the $\Omega$-Microkernel handles device drivers and hardware abstraction.
+Two capabilities are isomorphic if they provide the same Morphisms of Authority over equivalent regions of the Value Space.
+
+Example: Physical_RAM $\cong$ Encrypted_Swap
+Capability 1 ($\mathcal{C}_{ram}$): Authority to read/write raw silicon.
+Capability 2 ($\mathcal{C}_{swap}$): Authority to read/write a file that behaves like RAM through an encryption layer.
+The Isomorphism: If the Pilot proves that the interface for both is identical (Equivalence of Effects), the OS can Swap these capabilities.
+The "Zero-Latency" Security
+Because the capabilities are isomorphic, the $\Omega$-1 Silicon can perform a "Hot Swap" of authority. 
+You can move a running program from Physical RAM to Encrypted Storage without the program knowing, because the Capability Isomorphism preserves the mathematical integrity of the path.
+
+#### 2.12.4 Capability "Refining" (Sub-Capabilities)
+Just as we use Refinement Types to narrow values, we use Refinement to narrow authority.
+Base Capability: "Access to the entire File System.
+
+"Refined Capability: "Access only to /home/user/docs AND only for the next 500ms."
+This is a Logical Cut in the Capability Space.
+
+#### 2.12.5 Summary: The Total Architecture
+
+| Concept | Space | Formal Nature |
+|---------|-------|---------------|
+| Value   | Value Space | ($\mathcal{V}$)A Point (Identity). |
+| Type    | Value Space | ($\mathcal{V}$)A Region (Set of points). |
+| Computation | Computational Space | A Trajectory (The "How"). |
+| Capability  | Authority Space | A Linear Token (The "Right" to the Path). |
+| Equivalence | The Bridge | Proves two Points/Types/Capabilities are the same. |
+
+In a standard language, the "Language" is a set of rules anyone can use. 
+
+In the Omega Engine, the Language is a Restricted Manifold. 
+You cannot even form certain syntactic structures unless you possess the Capability of Expression.
+
+#### 2.12.6 Language-Level Capabilities (The Governor)
+
+We define a Language Capability ($\mathcal{C}_\mathcal{L}$) as the linear right to access specific regions of the Basis ($B$).
+
+##### 1. The Restricted Basis
+Instead of a single global Basis $B$, we partition the basis into Authority Tiers:$B_{pure}$: Basic logic, total functions, arithmetic.
+
+(Universal access).
+$B_{io}$: Access to non-deterministic effects (File System, Network). 
+
+Requires $\mathcal{C}_{sys}$.
+$B_{meta}$: Access to Reflection and Unquoting (Section 2.6). 
+
+Requires $\mathcal{C}_{poly}$.
+
+##### 2. Capabilities as Type-Level Guards
+A capability is essentially a Dependent Type Constraint on the compiler's Elaborator.
+
+If a program $p$ uses a primitive $b \in B_{io}$, the Elaborator looks for a witness:$$p : L(B) \mid \mathcal{C} \vdash b$$If the capability $\mathcal{C}$ is not present in the environment, the program is Syntactically Invalid. 
+
+It doesn't "fail at runtime"—it fails to exist in the Language $L$.
+
+#### 2.12.7 Isomorphic Capabilities of Language
+
+Just as you can have isomorphic data types, you can have Isomorphic Authorities. 
+This allows for Cross-Platform Governance.
+
+If Company A defines a capability for "Cloud Storage" and Company B defines one for "Local Disk," the Engine can prove an Isomorphism of Authority:$$\mathcal{C}_{cloud} \cong \mathcal{C}_{local}$$
+
+This means the Language itself treats the "Cloud" and the "Disk" as the same Action Space. 
+Your code doesn't change; only the Token of Authority you pass into the function changes.
 
 ### 3. Computation Space Parameterized by Equivalence
 [Table of Contents](#table-of-contents)
