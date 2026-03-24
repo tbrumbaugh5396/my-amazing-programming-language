@@ -658,6 +658,12 @@ While a Value ($v$) is a point in the Value Space and a Computation ($[p]_E$) is
 
 2.40 Summary: The Algebra of AuthorityOperationLogical SymbolPhysical IntuitionSplit$\mathcal{C} \to (A, B)$Cutting a pie into slices.Combine$A \otimes B$Holding two keys in one hand.Equivalence$A \cong B$Recognizing that a key and a badge open the same door.Refine$\{ \mathcal{C} \mid P \}$Filing down a key so it only fits one specific lock.
 
+A Capability is a "Witness Value" that carries physical authority.
+- origin: The Primordial Root ($\mathcal{C}_{Space, Time, Entropy, Identity}$) it was derived from.
+- lineage: The trace of Refinements (narrowing) performed on the root.
+- linearity: A boolean flag (always True for primordial, can be False for affine data).
+- resource_bound: The quantitative limit (e.g., Memory_Size, Clock_Cycles).
+
 #### 2.12.1 The Resource Logic (Linearity $\multimap$)
 
 Capabilities are governed by Linear Type Theory. 
