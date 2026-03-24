@@ -256,7 +256,10 @@ Can you "grab all values" in a Type?
 Yes, via the Universe of Discourse ($U$). 
 
 If you have a type $T$, the set of all points is:
-{$v ∣ v \in V$ and $v$ satisfies the axioms of $T$}
+
+```math
+{v ∣ v \in V and v satisfies the axioms of T}
+```
 
 If you use a Type of Any ($U$), you are effectively addressing the entire Value Space $V$. 
 However, because the Value Space contains Infinite Coinductive Streams, "grabbing all values" is treated as an Observational Stream ($v$), not a finite list.
