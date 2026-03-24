@@ -147,10 +147,10 @@ The formal definition of Distance Optimality is:
 ```
 
 Where:
-$f \sim \mathcal{D}$: A function $f$ sampled from the distribution of all possible programs $\mathcal{D}$.
-$p_f$: A specific execution path (a sequence of state transitions) that satisfies the type signature of $f$.
-$C(p_f)$: The Cost Function, which measures the consumption of primordial capabilities ($\mathcal{C}_{Time}, \mathcal{C}_{Space}$, etc.).
-$\mathbb{E}$: The expected value, ensuring the system optimizes for the most likely use cases.
+- $f \sim \mathcal{D}$: A function $f$ sampled from the distribution of all possible programs $\mathcal{D}$.
+- $p_f$: A specific execution path (a sequence of state transitions) that satisfies the type signature of $f$.
+- $C(p_f)$: The Cost Function, which measures the consumption of primordial capabilities ($\mathcal{C}_{Time}, \mathcal{C}_{Space}$, etc.).
+- $\mathbb{E}$: The expected value, ensuring the system optimizes for the most likely use cases.
 
 ### 2.2 Language
 [Table of Contents](#table-of-contents)
