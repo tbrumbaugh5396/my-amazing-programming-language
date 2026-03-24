@@ -269,6 +269,16 @@ Computation (depends on $E$):
 ## 2.4 Kinds
 [Table of Contents](#table-of-contents)
 
+- Kind Types
+- Object Types
+- Value Types
+- Type Types
+- Function Types ($$\to$$)
+- Interface Types
+- Equivalence Types
+- Capability Types (Linear Types $$\multimap$$)
+- Macro Types
+
 Yes, in the Omega Engine, this is the essence of Reflection and Universe Levels. To make your $1T system work, everything—functions, interfaces, and even equivalences—must be a Value that inhabit a Type.
 
 Because your language is based on Dependent Type Theory, you can write functions that take other "objects" (like functions or types) as input and return new types or values.
@@ -352,7 +362,7 @@ In the Omega Engine, this is exactly how the Elaborator (the brain of your compi
 
 To do this rigorously, we use Sum Types (Disjoint Unions) and Pattern Matching on the metadata of the object.
 
-### The Object Classifier
+### 2.4.1 The Object Classifier
 Table of Contents
 
 We define a general type Object which is the top-level sum type for everything in the Basis (B).
@@ -418,15 +428,8 @@ This makes Self-Healing Systems possible. If a "Capability" is lost, the system 
 
 Would you like me to draft the "Anatomy Macro"—the specific code that inspects a third-party library and generates a map of all its functions, types, and required capabilities?
 
-## 2.5 Equivalence
-[Table of Contents](#table-of-contents)
 
-Computation & Equivalence ($\mathcal{C}_E$)
-Computation is the projection of semantic meaning based on a chosen Equivalence Relation ($E$).
-
-$$E : \mathcal{L}(B) \times \mathcal{L}(B) \to \text{Type}$$
-
-## 2.6 Values
+## 2.4.2 Values
 [Table of Contents](#table-of-contents)
 
 While a Program ($p$) is a syntactic description and a Computation ($[p]_E$​) is an equivalence class of behavior, a Value ($v$) is a static coordinate in the Value Space ($V$).
@@ -498,7 +501,7 @@ For infinite types like ExactReal, the stream is an uncountably infinite explora
 
 Would you like me to draft Section 2.6: "The Morphism," explaining how the Pilot moves from a Point (Value) back to a Path (Computation) to execute code on the silicon?
 
-## 2.7 Types
+## 2.4.3 Types
 [Table of Contents](#table-of-contents)
 
 : Regions of the Value Space
@@ -561,18 +564,10 @@ $$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
 - Logical Types
 - Linear Types ($$\multimap$$)
 
-### 2.7.5 Kinds
-- Object Types
-- Function Types ($$\to$$)
-- Interface Types
-- Macro Types
-- Type Types
-- Value Types
-- Equivalence Types
-- Capability Types
-- Kind Types
+## 2.4.4 Functions
+[Table of Contents](#table-of-contents)
 
-## 2.8 Interfaces
+## 2.4.5 Interfaces
 [Table of Contents](#table-of-contents)
 
 : The Geometry of Equivalence
@@ -591,7 +586,113 @@ interface Monoid<T> {
 When a Type implements an Interface, its axioms become valid equivalence paths ($E$) in the lattice. 
 Interfaces characterize types abstractly, allowing the compiler to identify that $p_1$ and $p_2$ belong to the same equivalence class based on shared structural behavior.
 
-## 2.9 Macros 
+## 2.4.6 Equivalence
+[Table of Contents](#table-of-contents)
+
+Computation & Equivalence ($\mathcal{C}_E$)
+Computation is the projection of semantic meaning based on a chosen Equivalence Relation ($E$).
+
+$$E : \mathcal{L}(B) \times \mathcal{L}(B) \to \text{Type}$$
+
+### 2.4.7 Capabilities
+[Table of Contents](#table-of-contents)
+
+While a Value ($v$) is a point in the Value Space and a Computation ($[p]_E$) is a trajectory, a Capability ($\mathcal{C}$) is the Unique Right to Execute a Path.
+
+2.40 Summary: The Algebra of AuthorityOperationLogical SymbolPhysical IntuitionSplit$\mathcal{C} \to (A, B)$Cutting a pie into slices.Combine$A \otimes B$Holding two keys in one hand.Equivalence$A \cong B$Recognizing that a key and a badge open the same door.Refine$\{ \mathcal{C} \mid P \}$Filing down a key so it only fits one specific lock.
+
+#### 2.12.1 The Resource Logic (Linearity $\multimap$)
+
+Capabilities are governed by Linear Type Theory. 
+Unlike a "Value" (which can be copied, like the number 5), a Capability represents a physical or logical resource (Memory, I/O, CPU time) that exists in a 1-to-1 relationship with reality.
+
+$$\mathcal{C} : T \multimap \text{Effect}$$
+
+Consumption: Using a Capability "burns" it. 
+
+To use the resource again, the computation must return a new Capability as a result of the effect.
+
+No Cloning: You cannot duplicate a Capability. 
+If you have the "Write-to-Disk" capability, and you give it to Function A, Function B physically cannot access the disk.
+
+#### 2.12.2 Capabilities as "Sub-Lattices"
+
+A Capability defines a Bounded Region of the Value Space that a program is allowed to "see" or "modify.
+"The Sandbox: If a program has no capabilities, its Visibility Horizon ($H$) is limited to pure mathematical truths (e.g., $1+1=2$).
+
+The Authority: Granting a Capability "unlocks" a new coordinate in the lattice (e.g., Address_0x4F).
+
+#### 2.12.3 Isomorphic Capabilities ($\mathcal{C}_1 \cong \mathcal{C}_2$)
+
+Yes, Capabilities can be Isomorphic. 
+
+This is how the $\Omega$-Microkernel handles device drivers and hardware abstraction.
+Two capabilities are isomorphic if they provide the same Morphisms of Authority over equivalent regions of the Value Space.
+
+Example: Physical_RAM $\cong$ Encrypted_Swap
+Capability 1 ($\mathcal{C}_{ram}$): Authority to read/write raw silicon.
+Capability 2 ($\mathcal{C}_{swap}$): Authority to read/write a file that behaves like RAM through an encryption layer.
+The Isomorphism: If the Pilot proves that the interface for both is identical (Equivalence of Effects), the OS can Swap these capabilities.
+The "Zero-Latency" Security
+Because the capabilities are isomorphic, the $\Omega$-1 Silicon can perform a "Hot Swap" of authority. 
+You can move a running program from Physical RAM to Encrypted Storage without the program knowing, because the Capability Isomorphism preserves the mathematical integrity of the path.
+
+#### 2.12.4 Capability "Refining" (Sub-Capabilities)
+Just as we use Refinement Types to narrow values, we use Refinement to narrow authority.
+Base Capability: "Access to the entire File System.
+
+"Refined Capability: "Access only to /home/user/docs AND only for the next 500ms."
+This is a Logical Cut in the Capability Space.
+
+#### 2.12.5 Summary: The Total Architecture
+
+| Concept | Space | Formal Nature |
+|---------|-------|---------------|
+| Value   | Value Space | ($\mathcal{V}$)A Point (Identity). |
+| Type    | Value Space | ($\mathcal{V}$)A Region (Set of points). |
+| Computation | Computational Space | A Trajectory (The "How"). |
+| Capability  | Authority Space | A Linear Token (The "Right" to the Path). |
+| Equivalence | The Bridge | Proves two Points/Types/Capabilities are the same. |
+
+In a standard language, the "Language" is a set of rules anyone can use. 
+
+In the Omega Engine, the Language is a Restricted Manifold. 
+You cannot even form certain syntactic structures unless you possess the Capability of Expression.
+
+#### 2.12.6 Language-Level Capabilities (The Governor)
+
+We define a Language Capability ($\mathcal{C}_\mathcal{L}$) as the linear right to access specific regions of the Basis ($B$).
+
+##### 1. The Restricted Basis
+Instead of a single global Basis $B$, we partition the basis into Authority Tiers:$B_{pure}$: Basic logic, total functions, arithmetic.
+
+(Universal access).
+$B_{io}$: Access to non-deterministic effects (File System, Network). 
+
+Requires $\mathcal{C}_{sys}$.
+$B_{meta}$: Access to Reflection and Unquoting (Section 2.6). 
+
+Requires $\mathcal{C}_{poly}$.
+
+##### 2. Capabilities as Type-Level Guards
+A capability is essentially a Dependent Type Constraint on the compiler's Elaborator.
+
+If a program $p$ uses a primitive $b \in B_{io}$, the Elaborator looks for a witness:$$p : L(B) \mid \mathcal{C} \vdash b$$If the capability $\mathcal{C}$ is not present in the environment, the program is Syntactically Invalid. 
+
+It doesn't "fail at runtime"—it fails to exist in the Language $L$.
+
+#### 2.12.7 Isomorphic Capabilities of Language
+
+Just as you can have isomorphic data types, you can have Isomorphic Authorities. 
+This allows for Cross-Platform Governance.
+
+If Company A defines a capability for "Cloud Storage" and Company B defines one for "Local Disk," the Engine can prove an Isomorphism of Authority:$$\mathcal{C}_{cloud} \cong \mathcal{C}_{local}$$
+
+This means the Language itself treats the "Cloud" and the "Disk" as the same Action Space. 
+Your code doesn't change; only the Token of Authority you pass into the function changes.
+
+
+## 2.4.8 Macros 
 [Table of Contents](#table-of-contents)
 
 In the Omega Engine, a Macro is a first-class function that operates on the Program Space $L(B)$ rather than the Value Space $V$.
@@ -1027,102 +1128,6 @@ This says:
 - which differences you ignore
 - which distinctions you care about
 
-### 2.10 Capabilities
-[Table of Contents](#table-of-contents)
-
-While a Value ($v$) is a point in the Value Space and a Computation ($[p]_E$) is a trajectory, a Capability ($\mathcal{C}$) is the Unique Right to Execute a Path.
-
-2.40 Summary: The Algebra of AuthorityOperationLogical SymbolPhysical IntuitionSplit$\mathcal{C} \to (A, B)$Cutting a pie into slices.Combine$A \otimes B$Holding two keys in one hand.Equivalence$A \cong B$Recognizing that a key and a badge open the same door.Refine$\{ \mathcal{C} \mid P \}$Filing down a key so it only fits one specific lock.
-
-#### 2.12.1 The Resource Logic (Linearity $\multimap$)
-
-Capabilities are governed by Linear Type Theory. 
-Unlike a "Value" (which can be copied, like the number 5), a Capability represents a physical or logical resource (Memory, I/O, CPU time) that exists in a 1-to-1 relationship with reality.
-
-$$\mathcal{C} : T \multimap \text{Effect}$$
-
-Consumption: Using a Capability "burns" it. 
-
-To use the resource again, the computation must return a new Capability as a result of the effect.
-
-No Cloning: You cannot duplicate a Capability. 
-If you have the "Write-to-Disk" capability, and you give it to Function A, Function B physically cannot access the disk.
-
-#### 2.12.2 Capabilities as "Sub-Lattices"
-
-A Capability defines a Bounded Region of the Value Space that a program is allowed to "see" or "modify.
-"The Sandbox: If a program has no capabilities, its Visibility Horizon ($H$) is limited to pure mathematical truths (e.g., $1+1=2$).
-
-The Authority: Granting a Capability "unlocks" a new coordinate in the lattice (e.g., Address_0x4F).
-
-#### 2.12.3 Isomorphic Capabilities ($\mathcal{C}_1 \cong \mathcal{C}_2$)
-
-Yes, Capabilities can be Isomorphic. 
-
-This is how the $\Omega$-Microkernel handles device drivers and hardware abstraction.
-Two capabilities are isomorphic if they provide the same Morphisms of Authority over equivalent regions of the Value Space.
-
-Example: Physical_RAM $\cong$ Encrypted_Swap
-Capability 1 ($\mathcal{C}_{ram}$): Authority to read/write raw silicon.
-Capability 2 ($\mathcal{C}_{swap}$): Authority to read/write a file that behaves like RAM through an encryption layer.
-The Isomorphism: If the Pilot proves that the interface for both is identical (Equivalence of Effects), the OS can Swap these capabilities.
-The "Zero-Latency" Security
-Because the capabilities are isomorphic, the $\Omega$-1 Silicon can perform a "Hot Swap" of authority. 
-You can move a running program from Physical RAM to Encrypted Storage without the program knowing, because the Capability Isomorphism preserves the mathematical integrity of the path.
-
-#### 2.12.4 Capability "Refining" (Sub-Capabilities)
-Just as we use Refinement Types to narrow values, we use Refinement to narrow authority.
-Base Capability: "Access to the entire File System.
-
-"Refined Capability: "Access only to /home/user/docs AND only for the next 500ms."
-This is a Logical Cut in the Capability Space.
-
-#### 2.12.5 Summary: The Total Architecture
-
-| Concept | Space | Formal Nature |
-|---------|-------|---------------|
-| Value   | Value Space | ($\mathcal{V}$)A Point (Identity). |
-| Type    | Value Space | ($\mathcal{V}$)A Region (Set of points). |
-| Computation | Computational Space | A Trajectory (The "How"). |
-| Capability  | Authority Space | A Linear Token (The "Right" to the Path). |
-| Equivalence | The Bridge | Proves two Points/Types/Capabilities are the same. |
-
-In a standard language, the "Language" is a set of rules anyone can use. 
-
-In the Omega Engine, the Language is a Restricted Manifold. 
-You cannot even form certain syntactic structures unless you possess the Capability of Expression.
-
-#### 2.12.6 Language-Level Capabilities (The Governor)
-
-We define a Language Capability ($\mathcal{C}_\mathcal{L}$) as the linear right to access specific regions of the Basis ($B$).
-
-##### 1. The Restricted Basis
-Instead of a single global Basis $B$, we partition the basis into Authority Tiers:$B_{pure}$: Basic logic, total functions, arithmetic.
-
-(Universal access).
-$B_{io}$: Access to non-deterministic effects (File System, Network). 
-
-Requires $\mathcal{C}_{sys}$.
-$B_{meta}$: Access to Reflection and Unquoting (Section 2.6). 
-
-Requires $\mathcal{C}_{poly}$.
-
-##### 2. Capabilities as Type-Level Guards
-A capability is essentially a Dependent Type Constraint on the compiler's Elaborator.
-
-If a program $p$ uses a primitive $b \in B_{io}$, the Elaborator looks for a witness:$$p : L(B) \mid \mathcal{C} \vdash b$$If the capability $\mathcal{C}$ is not present in the environment, the program is Syntactically Invalid. 
-
-It doesn't "fail at runtime"—it fails to exist in the Language $L$.
-
-#### 2.12.7 Isomorphic Capabilities of Language
-
-Just as you can have isomorphic data types, you can have Isomorphic Authorities. 
-This allows for Cross-Platform Governance.
-
-If Company A defines a capability for "Cloud Storage" and Company B defines one for "Local Disk," the Engine can prove an Isomorphism of Authority:$$\mathcal{C}_{cloud} \cong \mathcal{C}_{local}$$
-
-This means the Language itself treats the "Cloud" and the "Disk" as the same Action Space. 
-Your code doesn't change; only the Token of Authority you pass into the function changes.
 
 ### 3. Computation Space Parameterized by Equivalence
 [Table of Contents](#table-of-contents)
