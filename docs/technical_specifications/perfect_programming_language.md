@@ -258,7 +258,7 @@ Yes, via the Universe of Discourse ($U$).
 If you have a type $T$, the set of all points is:
 
 ```math
-{v ∣ v \in V and v satisfies the axioms of T}
+\{v ∣ v \in V \text{and} v \text{satisfies the axioms of} T\}
 ```
 
 If you use a Type of Any ($U$), you are effectively addressing the entire Value Space $V$. 
