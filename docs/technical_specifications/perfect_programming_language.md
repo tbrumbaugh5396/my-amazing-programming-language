@@ -134,11 +134,14 @@ The Backward Path ($g$): Every program in $L$ can be "Reified" back into a langu
 [Table of Contents](#table-of-contents)
 
 1. $L \to \text{Programs}(L)$ (The Compiler/Interpreter)
+
 This is the standard direction.
 The language definition $L$ provides the Kinds, Types, and Capabilities.
 These are used to construct the set of all valid $\text{Programs}(L)$.
 
-2. $\text{Programs}(L) \to L$ (The Meta-Macro)This is the "Omega" secret.
+2. $\text{Programs}(L) \to L$ (The Meta-Macro)
+
+This is the "Omega" secret.
 
 Because your Macros are Values (Section 2.17) and Kinds are Kinds (Section 2.29), any program you write can be "Promoted" to become part of the language $L$ itself.
 Example: You write a program that optimizes matrix multiplication.
