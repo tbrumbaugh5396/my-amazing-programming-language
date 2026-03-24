@@ -354,6 +354,17 @@ $$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
 - Logical Types
 - Linear Types ($$\multimap$$)
 
+### 2.7.5 Kinds
+- Object Types
+- Function Types ($$\to$$)
+- Interface Types
+- Macro Types
+- Type Types
+- Value Types
+- Equivalence Types
+- Capability Types
+- Kind Types
+
 ## 2.8 Interfaces
 [Table of Contents](#table-of-contents)
 
@@ -813,6 +824,8 @@ This says:
 [Table of Contents](#table-of-contents)
 
 While a Value ($v$) is a point in the Value Space and a Computation ($[p]_E$) is a trajectory, a Capability ($\mathcal{C}$) is the Unique Right to Execute a Path.
+
+2.40 Summary: The Algebra of AuthorityOperationLogical SymbolPhysical IntuitionSplit$\mathcal{C} \to (A, B)$Cutting a pie into slices.Combine$A \otimes B$Holding two keys in one hand.Equivalence$A \cong B$Recognizing that a key and a badge open the same door.Refine$\{ \mathcal{C} \mid P \}$Filing down a key so it only fits one specific lock.
 
 #### 2.12.1 The Resource Logic (Linearity $\multimap$)
 
