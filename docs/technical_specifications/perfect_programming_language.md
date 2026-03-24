@@ -27,16 +27,23 @@ It unifies:
 - [Table of Contents](#Table-of-Contents)
 - [2. Core Objects](#2-core-objects)
 	- [2.1 Basis](#21-basis)
-	- [2.2 Programs](#22-programs)
-	- [2.3 Semantics](#23-semantics)
- 	- [2.4 Equivalence](#24-equivalence)
-  	- [2.5 Values](#25-values) 
-  	- [2.5 Types](#25-types)
-  	- [2.6 Interfaces](#26-interfaces)
-  	- [2.7 Macros](#27-macros)
-	- [Minimal Basis](#minimal-basis)
-	- [Reflective Closure](#reflective-closure)
-	- [Distance Optimality](#distance-optimality)
+ 		- [Properties of a Basis](#Properties-of-a-basis)
+   			- [Minimal Basis](#minimal-basis)
+      		- [Universality](#universality)
+        	- [Reflective Closure](#reflective-closure)
+         	- [Distance Optimality](#distance-optimality)
+ 	- [2.2 Language](#22-language)
+  	- [2.3 Programs](#23-programs) 
+		- [2.3.1 Syntax](#231-syntax)
+		- [2.3.2 Semantics](#232-semantics)
+ 			- [2.3.2.1 Raw Semantics](#2321-raw-semantics)
+   			- [2.3.2.2 Computation](#2322-computation)
+     		- [2.3.2.3 Your Example](#2323-your-example)
+ 	- [2.5 Equivalence](#25-equivalence)
+  	- [2.6 Values](#26-values) 
+  	- [2.7 Types](#27-types)
+  	- [2.8 Interfaces](#28-interfaces)
+  	- [2.9 Macros](#29-macros)
 - [3. Computations as Equivalence Classes](#3-computations-as-equivalence-classes)
 - [4. Partial Computable Functions](#4-Partial-Computable-Functions)
 - [5. Domain Theory and Lattice Structure](#5-Domain-Theory-and-Lattice-Structure)
@@ -77,6 +84,33 @@ $$
 
 These primitives can be combined in order to make programs and compute.
 
+#### Properties of a basis
+
+##### Universality
+[Table of Contents](#table-of-contents)
+
+```math
+\forall f, \exists p∈L, [[p]]=f
+```
+
+##### Minimal Basis
+[Table of Contents](#table-of-contents)
+
+$B$ is minimal.
+
+##### Reflective Closure
+[Table of Contents](#table-of-contents)
+
+$L≅Programs(L)$.
+
+##### Distance Optimality
+[Table of Contents](#table-of-contents)
+
+```math
+E_f∼D [C(p_f)]
+```
+ is minimized
+
 ### 2.2 Language
 [Table of Contents](#table-of-contents)
 
@@ -101,7 +135,10 @@ $$
 
 All programs generated from $B$.
 
-### 2.3 Programs (Syntax)
+### 2.3 Programs 
+[Table of Contents](#table-of-contents)
+
+#### 2.3.1 Syntax
 [Table of Contents](#table-of-contents)
 
 $$
@@ -112,12 +149,12 @@ concrete code
 
 structure, steps, representation
 
-### 2.4 Semantics
+#### 2.3.2 Semantics
 [Table of Contents](#table-of-contents)
 
 Semantics have to do with the meaning of programs in a more abstract sense instead of the syntax of a program.
 
-#### 2.4.1 Raw Semantics
+##### 2.3.2.1 Raw Semantics
 [Table of Contents](#table-of-contents)
 
 This is the canonical meaning of a program without an equivalence. 
@@ -136,8 +173,10 @@ This is:
 - effects
 - etc.
 
-#### 2.4.2 Computation (Abstract Object)
+##### 2.3.2.2 Computation
 [Table of Contents](#table-of-contents)
+
+(Abstract Object)
 
 The concept of computation is about what we consider to be the same.
 
@@ -149,7 +188,7 @@ set of programs considered equivalent
 
 depends on equivalence relation $E$.
 
-#### 2.4.3 Your Example
+##### 2.3.2.3 Your Example
 [Table of Contents](#table-of-contents)
 
 Programs:
@@ -171,95 +210,141 @@ Computation (depends on $E$):
 - Under extensional equivalence $\to$ same computation
 - Under operational equivalence $\to$ different computations
 
+## 2.5 Equivalence
+[Table of Contents](#table-of-contents)
 
-## 2.5 Values
+Computation &  ($\mathcal{C}_E$)
+Computation is the projection of semantic meaning based on a chosen Equivalence Relation ($E$).
 
-While a Program (p) is a syntactic description and a Computation ([p]_E​) is an equivalence class of behavior, a Value (v) is a static coordinate in the Value Space (V).
+$$E : \mathcal{L}(B) \times \mathcal{L}(B) \to \text{Type}$$
 
-### 2.5.1 The Value Mapping (Projection)
+## 2.6 Values
+[Table of Contents](#table-of-contents)
+
+While a Program ($p$) is a syntactic description and a Computation ($[p]_E$​) is an equivalence class of behavior, a Value ($v$) is a static coordinate in the Value Space ($V$).
+
+### 2.6.1 The Value Mapping (Projection)
+[Table of Contents](#table-of-contents)
+
 We define a projection function P that maps a computation to its corresponding point in the value space:
-P([p]_E)→v∈V
+$$P([p]_E) \to v \in V$$
 Where:
-v is the invariant "Truth" of the computation.
-V is the global manifold of all representable identities.
+$v$ is the invariant "Truth" of the computation.
+$V$ is the global manifold of all representable identities.
 
-### 2.5.2 Points in the Value Space
+### 2.6.2 Points in the Value Space
+[Table of Contents](#table-of-contents)
+
 You asked if points can be defined directly. 
 In the Omega Engine, the Value Space is the primary reality; the Computational Space is merely the map to get there.
 
-You can define a point v∈V axiomatically without a program.
+You can define a point $$v \in V$$ axiomatically without a program.
 
 Example: You can define the "Value of π" as a unique point v π satisfying the property of being the ratio of a circle's circumference to its diameter, before you ever write a spigot algorithm to compute it.
 
-### 2.5.3 Values vs. Types
+### 2.6.3 Values vs. Types
+[Table of Contents](#table-of-contents)
+
 In your proposed architecture, Values precede Types. 
 
 1.  Direct Definition: You define a point v in the global Value Space V.
-2.  Type Formation: A Type (T) is simply a Sub-region or "Neighborhood" of the Value Space: T⊆V
-3.  Automatic Membership: If a point v falls within the geometric bounds of T, we say v:T.
+2.  Type Formation: A Type ($T$) is simply a Sub-region or "Neighborhood" of the Value Space: $$T⊆V$$
+3.  Automatic Membership: If a point $v$ falls within the geometric bounds of T, we say $v:T$.
 
 Can you "grab all values" in a Type?
-Yes, via the Universe of Discourse (U). If you have a type T, the set of all points is:
-{v∣v∈V and v satisfies the axioms of T}
+Yes, via the Universe of Discourse (U). 
 
-If you use a Type of Any (U), you are effectively addressing the entire Value Space V. However, because the Value Space contains Infinite Coinductive Streams, "grabbing all values" is treated as an Observational Stream (ν), not a finite list.
+If you have a type $T$, the set of all points is:
+{$v ∣ v \in V$ and $v$ satisfies the axioms of $T$}
 
-### 2.5.4 The Relationship Summary
+If you use a Type of Any ($U$), you are effectively addressing the entire Value Space $V$. 
+However, because the Value Space contains Infinite Coinductive Streams, "grabbing all values" is treated as an Observational Stream (ν), not a finite list.
+
+### 2.6.4 The Relationship Summary
+[Table of Contents](#table-of-contents)
+
 To solidify the rigor, we use the following hierarchy:
 
-| Object      | Symbol | Nature                  | Space |
-| Program     | p      | Syntax / Representation | Language L(B)
-| Computation | [p]_E  | Trajectory / Path       | Computational Space  |
-| Value	      | v	   | Identity / Point        | Value Space V        |
-2.5.5 The "Grab" Logic (Reflective Query)
+| Object      | Symbol  | Nature                  | Space                |
+|-------------|---------|-------------------------|----------------------|
+| Program     | $p$     | Syntax / Representation | Language $L(B)$      |
+| Computation | $[p]_E$ | Trajectory / Path       | Computational Space  |
+| Value	      | $v$	    | Identity / Point        | Value Space $V$      |
+
+### 2.6.5 The "Grab" Logic 
+[Table of Contents](#table-of-contents)
+
+(Reflective Query)
 Because your language supports Reflection, you can define a "Value Collector" as a coinductive process:
 
+```
 Values(T)=ν(Search(V,T))
-This means the engine "searches" the Value Space and yields a stream of every point that meets the criteria of Type T. For finite types like Bool, the stream is (True,False,EOF). For infinite types like ExactReal, the stream is an uncountably infinite exploration of the space.
+```
+
+This means the engine "searches" the Value Space and yields a stream of every point that meets the criteria of Type $T$. 
+For finite types like Bool, the stream is $(True, False, EOF)$. 
+For infinite types like ExactReal, the stream is an uncountably infinite exploration of the space.
 
 Would you like me to draft Section 2.6: "The Morphism," explaining how the Pilot moves from a Point (Value) back to a Path (Computation) to execute code on the silicon?
 
-## 3 Types: Regions of the Value Space
+## 2.7 Types
+[Table of Contents](#table-of-contents)
+
+: Regions of the Value Space
 
 A Type in this language is not merely a syntactic tag; it is a region of the value space $\mathcal{V}$, defined by how its inhabitants are generated or observed. 
 Types exist as duals:
 
-### 2.3.1 Inductive Types (Data / $\mu$)
+### 2.7.1 Inductive Types (Data / $\mu$)
+[Table of Contents](#table-of-contents)
+
 Inductive types are defined by a Generative Basis (Constructors). 
 They represent finite, fully realized data built from the bottom up.
 
 #### Definition: The smallest set closed under its constructors.
+[Table of Contents](#table-of-contents)
 
 #### Logic: Guaranteed to terminate (Total). 
+[Table of Contents](#table-of-contents)
 
 They automatically derive an Eliminator (Induction Principle) to destruct the data.
 
 #### Example: The integer part of a number.
+[Table of Contents](#table-of-contents)
 
 $$\text{type } \mathbb{Z} \{ \text{zero}, \text{succ}(\mathbb{Z}), \text{pred}(\mathbb{Z}) \}$$
 
-### 2.3.2 Coinductive Types (Codata / $\nu$)
+### 2.7.2 Coinductive Types (Codata / $\nu$)
+[Table of Contents](#table-of-contents)
+
 Coinductive types are defined by their Observations (Destructors). 
 They represent potentially infinite processes or streams, evaluated lazily from the top down.
 
 #### Definition: The largest set satisfying a set of observations.
+[Table of Contents](#table-of-contents)
 
 #### Logic: Guaranteed to be Productive. 
+[Table of Contents](#table-of-contents)
 
 Functions yielding codata must always be able to produce the next observation in finite time.
 
 #### Example: The fractional tail of a real number.
+[Table of Contents](#table-of-contents)
 
 $$\text{codata Fraction} \{ \text{head}: \text{Digit}, \text{tail}: \text{Fraction} \}$$
 
-### 2.3.3 Unified Types (The Real Number)
+### 2.7.3 Unified Types (The Real Number)
+[Table of Contents](#table-of-contents)
 
 Because Types are first-class, they can compose these duals to represent absolute mathematical truths without hardware constraints (like IEEE 754 precision loss). 
 The Real numbers ($\mathbb{R}$) are constructed as a product of an Inductive Anchor and a Coinductive Flow:
 
 $$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
 
-## 2.4 Interfaces: The Geometry of Equivalence
+## 2.8 Interfaces
+[Table of Contents](#table-of-contents)
+
+: The Geometry of Equivalence
 
 If Types define the "stuff," Interfaces define the "rules the stuff obeys." 
 An Interface is a structural contract that introduces operations and Axioms (Laws).
@@ -275,30 +360,37 @@ interface Monoid<T> {
 When a Type implements an Interface, its axioms become valid equivalence paths ($E$) in the lattice. 
 Interfaces characterize types abstractly, allowing the compiler to identify that $p_1$ and $p_2$ belong to the same equivalence class based on shared structural behavior.
 
-## 2.5 Computation & Equivalence ($\mathcal{C}_E$)
+## 2.9 Macros 
+[Table of Contents](#table-of-contents)
 
-Computation is the projection of semantic meaning based on a chosen Equivalence Relation ($E$).
-
-$$E : \mathcal{L}(B) \times \mathcal{L}(B) \to \text{Type}$$
-
-## 2.7 Macros and Meta-Programming
 In the Omega Engine, a Macro is a first-class function that operates on the Program Space $L(B)$ rather than the Value Space $V$.
 
-### 2.7.1 Formal Definition
+### Reflection
+[Table of Contents](#table-of-contents)
+
+and Meta-Programming
+
+### 2.9.1 Formal Definition
+[Table of Contents](#table-of-contents)
+
 A macro $M$ is a transformation:
-```lang
-	M:L(B)→L(B)
+```math
+	M:L(B) \to L(B)
 ```
 Unlike standard functions, macros are executed during the Elaboration Phase. 
 
-Their primary role is to automate the navigation of the lattice to find programs with lower computational cost (dp) or higher human readability (dh​).
+Their primary role is to automate the navigation of the lattice to find programs with lower computational cost ($dp$) or higher human readability ($dh$​).
 
-### 2.7.2 Equivalence-Preserving Rewrites
+### 2.9.2 Equivalence-Preserving Rewrites
+[Table of Contents](#table-of-contents)
+
 A "Perfect" macro should ideally satisfy the Equivalence Invariant:
 $E(p,M(p))$ is inhabited
 This means the macro doesn't just change the code; it provides a Witness (a Level 1 Path in the HoTT hierarchy) proving that the generated program $M(p)$ has the same semantic meaning as the original intent $p$.
 
-### 2.7.3 Reflective Inspection
+### 2.9.3 Reflective Inspection
+[Table of Contents](#table-of-contents)
+
 Macros achieve this power through Reflection, which allows them to inspect the three-fold nature of any type or term:
 
 Generative Reflection: 
@@ -309,11 +401,15 @@ Structural Reflection: A macro can inspect which Interfaces a type implements to
 
 Relational Reflection: A macro can query the Lattice of Equivalence to see if a transformation it is about to perform has been pre-verified as a bisimulation.
 
-### 2.7.4 Case Study: The Real Addition Macro
+### 2.9.4 Case Study: The Real Addition Macro
+[Table of Contents](#table-of-contents)
+
 When adding two coinductive Reals (as defined in 2.3.3), a macro can inspect the Generators of the fractional streams. 
 If it detects a pattern that triggers an infinite carry (e.g., $0.33⋯+0.66…$), the macro can rewrite the expression into a more stable form or inject a Bisimulation Witness that resolves the $0.99⋯≡1.0$ identity before the runtime even executes.
 
-### 2.7.5 Staged Compilation
+### 2.9.5 Staged Compilation
+[Table of Contents](#table-of-contents)
+
 Macros enable Multi-Stage Programming:
 - Level 0: Raw syntax L(B).
 - Level 1 (Macro Expansion): Transformation of syntax based on reflection.
@@ -331,7 +427,8 @@ Exactly.
 In the Omega Engine, quote is the fundamental operator that moves a term from the Value Space ($\mathcal{V}$) back into the Program Space ($\mathcal{L}(B)$).
 When you write quote (2 + 2), you are telling the kernel: "Do not compute the semantic meaning (4); instead, give me the coordinate in the syntax lattice that represents the addition of two constants."
 
-## 1. The "Quote" as a Coordinate Shift
+### 1. The "Quote" as a Coordinate Shift
+[Table of Contents](#table-of-contents)
 
 In your Section 2.7, we can define quote as the inverse of the evaluation function $\pi$:Evaluation ($\pi$): $\mathcal{L}(B) \to \mathcal{V}$ (Reduces code to a value).
 
@@ -340,6 +437,7 @@ If you "quote" an expression and put it into a function, that function is now a 
 It doesn't return a number; it returns a Program that can be further transformed, optimized, or verified by other macros.
 
 ### 2. Macro Expansion vs. Function Execution
+[Table of Contents](#table-of-contents)
 
 This leads to a critical distinction in your language's lifecycle:
 | Action     | Phase        | Domain                           | Result                        |
@@ -349,6 +447,7 @@ This leads to a critical distinction in your language's lifecycle:
 | Reflection | Elaboration  | Metadata Space                   | {type: Int, structure: BinOp} |
 
 ### 3. Why Quote + Reflection is the "Secret Sauce"
+[Table of Contents](#table-of-contents)
 
 If you just have quote (2 + 2), you have a basic Lisp-style macro.
 
@@ -361,6 +460,7 @@ Inspection: A macro can quote a piece of code, then use reflection to ask: "Is t
 Optimization: If the macro sees quote $(x + 0)$, it can use the Monoid interface reflection to prove $x + 0 \equiv x$ and rewrite the path in the lattice to just x, reducing the computational distance ($d_p$).
 
 ### 4. Code Injection and Self-HostingBy quoting code and putting it into a function, you are building the "scaffolding" for Self-Hosting.
+[Table of Contents](#table-of-contents)
 
 Your compiler's elaborate() function is essentially a giant macro that:Takes quote(user_code).
 Reflects on the types.
@@ -707,10 +807,10 @@ Each equivalence defines a different computation space.
 
 Programs collapse into equivalence classes under $E$.
 
-## 4. Examples of Equivalences
+### 4. Examples of Equivalences
 [Table of Contents](#table-of-contents)
 
-## 5. Your Example Revisited
+### 5. Your Example Revisited
 [Table of Contents](#table-of-contents)
 
 Programs:
@@ -734,28 +834,28 @@ Under operational equivalence
 [p_1] \neq [p_2] \to \text{two computations}
 ```
 
-### 4.1 Extensional
+#### 4.1 Extensional
 [Table of Contents](#table-of-contents)
 
 ```math
 E_{ext}(p,q) \iff \forall x, p(x) = q(x)
 ```
 
-### 4.2 Operational
+#### 4.2 Operational
 [Table of Contents](#table-of-contents)
 
 ```math
 E_{op}(p,q) \iff \text{same execution steps}
 ```
 
-### 4.3 Cost-Aware
+#### 4.3 Cost-Aware
 [Table of Contents](#table-of-contents)
 
 ```math
 E_{cost}(p,q) \iff \text{same output AND same cost}
 ```
 
-### 4.4 Observational
+#### 4.4 Observational
 [Table of Contents](#table-of-contents)
 
 ```math
@@ -876,31 +976,6 @@ Differences:
 | Meta-level control          | Limited | Strong         |
 | Practical programming focus | Medium  | High           |
 
-
-### Universality
-[Table of Contents](#table-of-contents)
-
-```math
-\forall f, \exists p∈L, [[p]]=f
-```
-
-### Minimal Basis
-[Table of Contents](#table-of-contents)
-
-$B$ is minimal
-
-### Reflective Closure
-[Table of Contents](#table-of-contents)
-
-$L≅Programs(L)$
-
-### Distance Optimality
-[Table of Contents](#table-of-contents)
-
-```math
-E_f∼D [C(p_f)]
-```
- is minimized
 
 ## 3. Computations as Equivalence Classes
 [Table of Contents](#table-of-contents)
