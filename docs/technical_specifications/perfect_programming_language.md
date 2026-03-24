@@ -352,7 +352,7 @@ $$\mathbb{R} \cong \mathbb{Z} \times \nu X. (\text{Digit} \times X)$$
 - Refinement Types
 - Algebraic Types
 - Logical Types
-- Linear Types
+- Linear Types ($$\multimap$$)
 
 ## 2.8 Interfaces
 [Table of Contents](#table-of-contents)
