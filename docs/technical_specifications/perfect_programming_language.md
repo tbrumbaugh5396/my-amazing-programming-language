@@ -28,8 +28,8 @@ It unifies:
 - [2. Core Objects](#2-core-objects)
 	- [2.1 Basis](#21-basis)
  		- [Properties of a Basis](#Properties-of-a-basis)
-   			- [Minimal Basis](#minimal-basis)
       		- [Universality](#universality)
+            - [Minimal Basis](#minimal-basis)
         	- [Reflective Closure](#reflective-closure)
          	- [Distance Optimality](#distance-optimality)
  	- [2.2 Language](#22-language)
@@ -90,7 +90,7 @@ These primitives can be combined in order to make programs and compute.
 [Table of Contents](#table-of-contents)
 
 ```math
-\forall f, \exists p∈L, [[p]]=f
+\forall f, \exists p \in L, [[p]]=f
 ```
 
 ##### Minimal Basis
@@ -213,7 +213,7 @@ Computation (depends on $E$):
 ## 2.5 Equivalence
 [Table of Contents](#table-of-contents)
 
-Computation &  ($\mathcal{C}_E$)
+Computation & Equivalence ($\mathcal{C}_E$)
 Computation is the projection of semantic meaning based on a chosen Equivalence Relation ($E$).
 
 $$E : \mathcal{L}(B) \times \mathcal{L}(B) \to \text{Type}$$
@@ -247,18 +247,18 @@ Example: You can define the "Value of π" as a unique point v π satisfying the 
 
 In your proposed architecture, Values precede Types. 
 
-1.  Direct Definition: You define a point v in the global Value Space V.
+1.  Direct Definition: You define a point $v$ in the global Value Space $V$.
 2.  Type Formation: A Type ($T$) is simply a Sub-region or "Neighborhood" of the Value Space: $$T⊆V$$
-3.  Automatic Membership: If a point $v$ falls within the geometric bounds of T, we say $v:T$.
+3.  Automatic Membership: If a point $v$ falls within the geometric bounds of $T$, we say $v:T$.
 
 Can you "grab all values" in a Type?
-Yes, via the Universe of Discourse (U). 
+Yes, via the Universe of Discourse ($U$). 
 
 If you have a type $T$, the set of all points is:
 {$v ∣ v \in V$ and $v$ satisfies the axioms of $T$}
 
 If you use a Type of Any ($U$), you are effectively addressing the entire Value Space $V$. 
-However, because the Value Space contains Infinite Coinductive Streams, "grabbing all values" is treated as an Observational Stream (ν), not a finite list.
+However, because the Value Space contains Infinite Coinductive Streams, "grabbing all values" is treated as an Observational Stream ($v$), not a finite list.
 
 ### 2.6.4 The Relationship Summary
 [Table of Contents](#table-of-contents)
@@ -312,7 +312,7 @@ They automatically derive an Eliminator (Induction Principle) to destruct the da
 #### Example: The integer part of a number.
 [Table of Contents](#table-of-contents)
 
-$$\text{type } \mathbb{Z} \{ \text{zero}, \text{succ}(\mathbb{Z}), \text{pred}(\mathbb{Z}) \}$$
+$$\text{type} \mathbb{Z} \{ \text{zero}, \text{succ}(\mathbb{Z}), \text{pred}(\mathbb{Z}) \}$$
 
 ### 2.7.2 Coinductive Types (Codata / $\nu$)
 [Table of Contents](#table-of-contents)
@@ -384,8 +384,7 @@ Their primary role is to automate the navigation of the lattice to find programs
 ### 2.9.2 Equivalence-Preserving Rewrites
 [Table of Contents](#table-of-contents)
 
-A "Perfect" macro should ideally satisfy the Equivalence Invariant:
-$E(p,M(p))$ is inhabited
+A "Perfect" macro should ideally satisfy the Equivalence Invariant: $E(p,M(p))$ is inhabited
 This means the macro doesn't just change the code; it provides a Witness (a Level 1 Path in the HoTT hierarchy) proving that the generated program $M(p)$ has the same semantic meaning as the original intent $p$.
 
 ### 2.9.3 Reflective Inspection
@@ -393,13 +392,13 @@ This means the macro doesn't just change the code; it provides a Witness (a Leve
 
 Macros achieve this power through Reflection, which allows them to inspect the three-fold nature of any type or term:
 
-Generative Reflection: 
+#### Generative Reflection: 
 A macro can call Reflect.basis(T) to see the constructors/destructors of a type (e.g., seeing that Nat is zero or succ). 
 This allows for the automated generation of induction/coinduction boilerplate.
 
-Structural Reflection: A macro can inspect which Interfaces a type implements to determine if certain algebraic optimizations (like constant folding via Monoid laws) are valid.
+#### Structural Reflection: A macro can inspect which Interfaces a type implements to determine if certain algebraic optimizations (like constant folding via Monoid laws) are valid.
 
-Relational Reflection: A macro can query the Lattice of Equivalence to see if a transformation it is about to perform has been pre-verified as a bisimulation.
+#### Relational Reflection: A macro can query the Lattice of Equivalence to see if a transformation it is about to perform has been pre-verified as a bisimulation.
 
 ### 2.9.4 Case Study: The Real Addition Macro
 [Table of Contents](#table-of-contents)
@@ -411,9 +410,9 @@ If it detects a pattern that triggers an infinite carry (e.g., $0.33⋯+0.66…$
 [Table of Contents](#table-of-contents)
 
 Macros enable Multi-Stage Programming:
-- Level 0: Raw syntax L(B).
+- Level 0: Raw syntax $L(B)$.
 - Level 1 (Macro Expansion): Transformation of syntax based on reflection.
-- Level 2 (Elaboration): Selection of the optimal Equivalence E and lowering to bytecode.
+- Level 2 (Elaboration): Selection of the optimal Equivalence $E$ and lowering to bytecode.
 
 Why this is a "Business Moat"
 From a roadmap perspective, this macro system is what allows the Omega Engine to be Self-Hosting and Self-Optimizing.
