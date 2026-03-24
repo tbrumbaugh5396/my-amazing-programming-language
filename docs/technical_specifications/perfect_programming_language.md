@@ -142,7 +142,10 @@ The goal is to ensure that for any function $f$, the expected cost of its execut
 ### 3.1.1 The Objective Function
 
 The formal definition of Distance Optimality is:
-$$\mathbb{E}_{f \sim \mathcal{D}}[C(p_f)] \text{ is minimized}$$
+```math
+\mathbb{E}_{f \sim \mathcal{D}}[C(p_f)] \text{ is minimized}
+```
+
 Where:
 $f \sim \mathcal{D}$: A function $f$ sampled from the distribution of all possible programs $\mathcal{D}$.
 $p_f$: A specific execution path (a sequence of state transitions) that satisfies the type signature of $f$.
